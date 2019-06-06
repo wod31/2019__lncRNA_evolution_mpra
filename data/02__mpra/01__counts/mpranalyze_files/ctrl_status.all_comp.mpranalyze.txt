@@ -1,0 +1,3680 @@
+comp_id	ctrl_status
+h.2__div_lnc__m.1__div_lnc	False
+h.3__div_lnc__m.2__antisense	False
+h.4__antisense_upep__m.3__protein_coding	False
+h.5__intergenic__m.4__intergenic_upep	False
+h.6__intergenic__m.4__intergenic_upep	False
+h.7__div_lnc__m.5__div_lnc	False
+h.8__intergenic_upep__m.6__intergenic	False
+h.9__intergenic__m.7__intergenic_upep	False
+h.10__intergenic__m.7__intergenic_upep	False
+h.11__div_upep__m.8__div_upep	False
+h.12__div_lnc__m.9__div_lnc	False
+h.13__protein_coding__m.10__div_pc	False
+h.14__protein_coding__m.10__div_pc	False
+h.15__div_lnc__m.11__div_lnc	False
+h.16__div_lnc__m.11__div_lnc	False
+h.17__div_upep__m.12__div_pc	False
+h.18__antisense__m.13__antisense	False
+h.19__div_lnc__m.14__protein_coding	False
+h.20__div_lnc__m.15__protein_coding	False
+h.21__div_lnc__m.16__div_lnc	False
+h.22__intergenic__m.17__intergenic_upep	False
+h.25__intergenic_upep__m.20__div_upep	False
+h.26__intergenic_upep__m.21__intergenic_upep	False
+h.27__intergenic_upep__m.22__intergenic_upep	False
+h.28__intergenic_upep__m.22__intergenic_upep	False
+h.3255__no cage activity__m.22__intergenic_upep	False
+h.29__antisense__m.23__div_lnc	False
+h.30__antisense__m.23__div_lnc	False
+h.31__antisense__m.23__div_lnc	False
+h.32__div_lnc__m.24__div_upep	False
+h.33__div_upep__m.25__protein_coding	False
+h.34__div_upep__m.25__protein_coding	False
+h.35__div_upep__m.25__protein_coding	False
+h.36__intergenic__m.26__intergenic	False
+h.37__intergenic__m.27__div_pc	False
+h.38__intergenic__m.27__div_pc	False
+h.40__intergenic_upep__m.28__protein_coding	False
+h.41__antisense__m.29__antisense_upep	False
+h.42__antisense__m.29__antisense_upep	False
+h.43__antisense_upep__m.30__div_lnc	False
+h.44__antisense__m.31__antisense_upep	False
+h.45__antisense__m.31__antisense_upep	False
+h.46__protein_coding__m.32__protein_coding	False
+h.47__protein_coding__m.33__protein_coding	False
+h.48__protein_coding__m.33__protein_coding	False
+h.49__protein_coding__m.33__protein_coding	False
+h.50__protein_coding__m.33__protein_coding	False
+h.51__div_lnc__m.34__div_lnc	False
+h.52__div_lnc__m.34__div_lnc	False
+h.53__intergenic__m.35__protein_coding	False
+h.54__div_lnc__m.36__div_lnc	False
+h.55__div_lnc__m.36__div_lnc	False
+h.56__div_lnc__m.37__div_lnc	False
+h.57__div_lnc__m.37__div_lnc	False
+h.58__div_lnc__m.37__div_lnc	False
+h.59__div_lnc__m.37__div_lnc	False
+h.60__div_lnc__m.38__div_lnc	False
+h.61__div_lnc__m.39__div_lnc	False
+h.62__div_lnc__m.40__div_lnc	False
+h.63__div_lnc__m.41__div_lnc	False
+h.66__intergenic__m.43__protein_coding	False
+h.67__intergenic__m.43__protein_coding	False
+h.68__div_lnc__m.44__div_lnc	False
+h.69__div_lnc__m.44__div_lnc	False
+h.70__intergenic__m.45__protein_coding	False
+h.71__intergenic__m.45__protein_coding	False
+h.72__antisense_upep__m.46__antisense_upep	False
+h.73__antisense_upep__m.46__antisense_upep	False
+h.74__antisense_upep__m.46__antisense_upep	False
+h.75__intergenic__m.47__protein_coding	False
+h.76__intergenic__m.47__protein_coding	False
+h.77__div_lnc__m.48__div_upep	False
+h.78__div_lnc__m.48__div_upep	False
+h.79__antisense__m.49__div_lnc	False
+h.80__div_lnc__m.50__div_pc	False
+h.81__div_lnc__m.51__div_upep	False
+h.82__div_lnc__m.51__div_upep	False
+h.83__div_lnc__m.51__div_upep	False
+h.84__antisense__m.52__div_lnc	False
+h.85__div_lnc__m.53__div_lnc	False
+h.86__div_lnc__m.54__div_lnc	False
+h.87__div_upep__m.55__div_lnc	False
+h.88__div_upep__m.55__div_lnc	False
+h.89__div_lnc__m.56__div_lnc	False
+h.90__antisense__m.57__div_pc	False
+h.94__div_upep__m.59__protein_coding	False
+h.95__div_upep__m.59__protein_coding	False
+h.96__intergenic_upep__m.60__intergenic	False
+h.97__div_lnc__m.61__intergenic	False
+h.99__intergenic__m.62__intergenic_upep	False
+h.102__intergenic_upep__m.64__protein_coding	False
+h.104__intergenic_upep__m.65__protein_coding	False
+h.111__intergenic__m.69__intergenic	False
+h.112__intergenic__m.69__intergenic	False
+h.113__div_lnc__m.70__div_lnc	False
+h.114__div_lnc__m.71__div_lnc	False
+h.115__div_lnc__m.72__div_lnc	False
+h.116__intergenic_upep__m.73__protein_coding	False
+h.117__intergenic_upep__m.73__protein_coding	False
+h.118__div_lnc__m.74__div_upep	False
+h.2781__no cage activity__m.74__div_upep	False
+h.119__intergenic__m.75__intergenic_upep	False
+h.120__intergenic_upep__m.76__intergenic_upep	False
+h.121__intergenic_upep__m.76__intergenic_upep	False
+h.122__antisense__m.77__antisense	False
+h.123__antisense__m.77__antisense	False
+h.124__antisense__m.78__antisense	False
+h.125__intergenic__m.79__intergenic	False
+h.126__intergenic__m.79__intergenic	False
+h.127__div_lnc__m.80__div_lnc	False
+h.128__div_lnc__m.80__div_lnc	False
+h.129__div_upep__m.81__div_pc	False
+h.130__div_upep__m.81__div_pc	False
+h.131__div_lnc__m.82__div_upep	False
+h.132__div_lnc__m.83__div_upep	False
+h.133__div_lnc__m.83__div_upep	False
+h.134__div_lnc__m.83__div_upep	False
+h.135__div_lnc__m.84__div_upep	False
+h.136__div_lnc__m.84__div_upep	False
+h.137__intergenic__m.85__intergenic	False
+h.138__intergenic__m.86__intergenic	False
+h.139__intergenic__m.86__intergenic	False
+h.140__div_lnc__m.87__intergenic_upep	False
+h.141__intergenic_upep__m.88__antisense	False
+h.142__div_lnc__m.89__antisense	False
+h.143__intergenic_upep__m.90__protein_coding	False
+h.144__intergenic_upep__m.91__protein_coding	False
+h.145__div_lnc__m.92__div_upep	False
+h.146__intergenic__m.93__intergenic_upep	False
+h.147__intergenic__m.93__intergenic_upep	False
+h.148__intergenic__m.93__intergenic_upep	False
+h.149__div_lnc__m.94__div_upep	False
+h.150__div_lnc__m.94__div_upep	False
+h.151__intergenic_upep__m.95__protein_coding	False
+h.152__intergenic_upep__m.95__protein_coding	False
+h.153__div_pc__m.96__protein_coding	False
+h.154__div_pc__m.96__protein_coding	False
+h.155__intergenic__m.97__intergenic	False
+h.157__intergenic__m.99__intergenic	False
+h.158__intergenic__m.99__intergenic	False
+h.159__intergenic_upep__m.100__intergenic	False
+h.160__intergenic__m.101__protein_coding	False
+h.163__div_lnc__m.103__div_lnc	False
+h.164__antisense__m.104__antisense	False
+h.165__antisense__m.104__antisense	False
+h.166__antisense__m.105__antisense	False
+h.167__antisense__m.105__antisense	False
+h.168__div_pc__m.106__div_pc	False
+h.169__div_pc__m.106__div_pc	False
+h.172__div_pc__m.108__div_pc	False
+h.173__div_lnc__m.109__div_lnc	False
+h.174__div_lnc__m.109__div_lnc	False
+h.175__div_lnc__m.109__div_lnc	False
+h.177__intergenic__m.111__protein_coding	False
+h.180__protein_coding__m.113__protein_coding	False
+h.181__protein_coding__m.113__protein_coding	False
+h.182__antisense__m.114__protein_coding	False
+h.184__div_upep__m.116__div_upep	False
+h.185__intergenic_upep__m.117__protein_coding	False
+h.186__intergenic_upep__m.117__protein_coding	False
+h.187__protein_coding__m.118__protein_coding	False
+h.188__intergenic_upep__m.119__antisense_upep	False
+h.189__intergenic_upep__m.119__antisense_upep	False
+h.190__div_lnc__m.120__div_upep	False
+h.191__intergenic__m.121__protein_coding	False
+h.192__intergenic__m.121__protein_coding	False
+h.193__antisense__m.122__div_lnc	False
+h.194__antisense__m.123__div_lnc	False
+h.195__protein_coding__m.124__protein_coding	False
+h.197__div_lnc__m.125__div_upep	False
+h.198__intergenic__m.126__protein_coding	False
+h.199__intergenic__m.127__protein_coding	False
+h.201__div_lnc__m.128__div_pc	False
+h.202__div_lnc__m.129__div_lnc	False
+h.203__div_lnc__m.129__div_lnc	False
+h.204__div_lnc__m.130__div_pc	False
+h.205__intergenic__m.131__protein_coding	False
+h.206__intergenic__m.131__protein_coding	False
+h.207__div_lnc__m.132__div_pc	False
+h.209__div_lnc__m.134__div_pc	False
+h.210__div_lnc__m.134__div_pc	False
+h.213__antisense__m.135__div_lnc	False
+h.214__antisense__m.136__antisense	False
+h.215__antisense__m.137__antisense	False
+h.216__div_lnc__m.138__div_lnc	False
+h.218__intergenic_upep__m.140__protein_coding	False
+h.219__div_upep__m.141__intergenic_upep	False
+h.220__div_upep__m.142__intergenic_upep	False
+h.221__div_upep__m.142__intergenic_upep	False
+h.223__intergenic__m.143__protein_coding	False
+h.226__intergenic_upep__m.144__intergenic	False
+h.227__div_upep__m.145__div_lnc	False
+h.228__antisense_upep__m.146__div_lnc	False
+h.229__intergenic__m.147__intergenic_upep	False
+h.230__intergenic__m.148__protein_coding	False
+h.231__intergenic__m.148__protein_coding	False
+h.232__div_lnc__m.149__antisense	False
+h.233__div_lnc__m.149__antisense	False
+h.234__antisense__m.150__antisense	False
+h.235__antisense_upep__m.151__antisense_upep	False
+h.236__antisense__m.152__intergenic	False
+h.237__intergenic_upep__m.153__intergenic_upep	False
+h.238__div_upep__m.154__div_lnc	False
+h.239__div_upep__m.154__div_lnc	False
+h.241__intergenic__m.156__intergenic	False
+h.242__protein_coding__m.157__div_pc	False
+h.243__protein_coding__m.157__div_pc	False
+h.244__protein_coding__m.157__div_pc	False
+h.245__div_upep__m.158__div_lnc	False
+h.246__div_upep__m.158__div_lnc	False
+h.249__intergenic__m.160__intergenic_upep	False
+h.250__antisense_upep__m.161__protein_coding	False
+h.251__antisense_upep__m.161__protein_coding	False
+h.252__antisense_upep__m.161__protein_coding	False
+h.253__antisense__m.162__antisense	False
+h.255__div_lnc__m.164__intergenic	False
+h.256__div_lnc__m.164__intergenic	False
+h.258__div_lnc__m.164__intergenic	False
+h.259__div_lnc__m.165__div_lnc	False
+h.260__div_lnc__m.165__div_lnc	False
+h.261__div_lnc__m.165__div_lnc	False
+h.262__intergenic__m.166__intergenic	False
+h.263__intergenic__m.166__intergenic	False
+h.265__div_upep__m.168__div_pc	False
+h.268__div_upep__m.170__div_lnc	False
+h.270__div_lnc__m.172__protein_coding	False
+h.271__div_upep__m.173__div_lnc	False
+h.274__div_upep__m.174__protein_coding	False
+h.275__div_lnc__m.175__div_upep	False
+h.277__antisense__m.177__div_lnc	False
+h.278__antisense__m.177__div_lnc	False
+h.279__div_lnc__m.178__div_lnc	False
+h.280__div_lnc__m.178__div_lnc	False
+h.281__antisense_upep__m.179__antisense_upep	False
+h.282__antisense_upep__m.180__antisense_upep	False
+h.283__antisense_upep__m.180__antisense_upep	False
+h.286__antisense_upep__m.183__div_upep	False
+h.288__div_lnc__m.184__div_lnc	False
+h.289__div_lnc__m.185__div_lnc	False
+h.290__div_lnc__m.186__div_lnc	False
+h.291__div_lnc__m.186__div_lnc	False
+h.292__antisense__m.187__div_pc	False
+h.293__antisense__m.187__div_pc	False
+h.297__div_upep__m.190__div_lnc	False
+h.298__div_lnc__m.191__div_lnc	False
+h.299__intergenic__m.192__protein_coding	False
+h.300__intergenic__m.193__protein_coding	False
+h.301__intergenic_upep__m.194__protein_coding	False
+h.302__antisense__m.195__div_pc	False
+h.303__antisense__m.196__div_pc	False
+h.304__antisense__m.196__div_pc	False
+h.305__div_lnc__m.197__div_pc	False
+h.306__div_lnc__m.197__div_pc	False
+h.307__div_lnc__m.198__div_lnc	False
+h.308__div_lnc__m.198__div_lnc	False
+h.310__antisense__m.199__div_pc	False
+h.311__div_lnc__m.200__div_upep	False
+h.312__div_lnc__m.201__div_lnc	False
+h.313__div_lnc__m.202__div_lnc	False
+h.314__antisense_upep__m.203__div_pc	False
+h.315__intergenic_upep__m.204__protein_coding	False
+h.316__div_lnc__m.205__div_lnc	False
+h.317__div_lnc__m.205__div_lnc	False
+h.318__div_lnc__m.205__div_lnc	False
+h.319__intergenic_upep__m.206__intergenic_upep	False
+h.320__protein_coding__m.207__protein_coding	False
+h.321__protein_coding__m.207__protein_coding	False
+h.322__antisense_upep__m.208__div_pc	False
+h.323__antisense_upep__m.208__div_pc	False
+h.324__div_lnc__m.209__div_lnc	False
+h.325__div_lnc__m.209__div_lnc	False
+h.327__div_lnc__m.210__div_lnc	False
+h.328__intergenic__m.211__protein_coding	False
+h.329__div_upep__m.212__div_upep	False
+h.330__div_upep__m.213__div_upep	False
+h.331__intergenic__m.214__intergenic	False
+h.332__intergenic__m.214__intergenic	False
+h.333__intergenic__m.214__intergenic	False
+h.334__div_lnc__m.215__antisense	False
+h.335__div_lnc__m.215__antisense	False
+h.336__intergenic__m.216__div_lnc	False
+h.337__div_lnc__m.217__div_lnc	False
+h.338__antisense__m.218__div_lnc	False
+h.339__div_lnc__m.219__div_upep	False
+h.340__div_lnc__m.219__div_upep	False
+h.341__intergenic__m.220__intergenic	False
+h.344__div_pc__m.222__protein_coding	False
+h.345__intergenic_upep__m.223__intergenic_upep	False
+h.346__intergenic_upep__m.223__intergenic_upep	False
+h.347__intergenic_upep__m.223__intergenic_upep	False
+h.348__intergenic_upep__m.223__intergenic_upep	False
+h.349__intergenic_upep__m.224__intergenic_upep	False
+h.350__intergenic_upep__m.225__intergenic_upep	False
+h.353__intergenic__m.226__div_pc	False
+h.354__div_pc__m.227__protein_coding	False
+h.355__intergenic__m.228__intergenic	False
+h.356__intergenic__m.229__intergenic	False
+h.357__intergenic__m.229__intergenic	False
+h.358__div_lnc__m.230__div_upep	False
+h.359__antisense_upep__m.231__antisense_upep	False
+h.360__antisense_upep__m.232__antisense_upep	False
+h.361__div_upep__m.233__protein_coding	False
+h.362__antisense__m.234__antisense	False
+h.363__antisense__m.235__antisense	False
+h.364__antisense__m.236__antisense	False
+h.365__antisense__m.236__antisense	False
+h.367__intergenic__m.238__protein_coding	False
+h.368__intergenic_upep__m.239__protein_coding	False
+h.369__div_upep__m.240__div_lnc	False
+h.370__antisense__m.241__antisense	False
+h.371__intergenic_upep__m.242__intergenic_upep	False
+h.373__div_upep__m.244__div_lnc	False
+h.374__div_upep__m.244__div_lnc	False
+h.375__div_lnc__m.245__protein_coding	False
+h.376__div_lnc__m.245__protein_coding	False
+h.377__intergenic__m.246__protein_coding	False
+h.378__intergenic__m.247__protein_coding	False
+h.379__intergenic_upep__m.248__div_pc	False
+h.380__intergenic__m.249__intergenic	False
+h.381__intergenic__m.249__intergenic	False
+h.382__intergenic__m.250__intergenic	False
+h.383__intergenic__m.250__intergenic	False
+h.384__div_lnc__m.251__antisense	False
+h.385__intergenic_upep__m.252__protein_coding	False
+h.386__intergenic_upep__m.252__protein_coding	False
+h.387__intergenic_upep__m.252__protein_coding	False
+h.388__intergenic__m.253__intergenic	False
+h.390__intergenic_upep__m.254__div_pc	False
+h.392__intergenic__m.256__enhancer	False
+h.393__div_upep__m.257__enhancer	False
+h.393__div_upep__m.309__enhancer	False
+h.394__intergenic__m.258__enhancer	False
+h.395__intergenic__m.259__enhancer	False
+h.395__intergenic__m.312__enhancer	False
+h.396__intergenic__m.260__enhancer	False
+h.396__intergenic__m.314__enhancer	False
+h.397__antisense__m.261__enhancer	False
+h.399__antisense__m.263__enhancer	False
+h.399__antisense__m.318__enhancer	False
+h.400__div_lnc__m.264__enhancer	False
+h.401__intergenic__m.265__enhancer	False
+h.401__intergenic__m.3497__enhancer	False
+h.402__antisense__m.266__enhancer	False
+h.402__antisense__m.322__enhancer	False
+h.403__intergenic__m.267__enhancer	False
+h.403__intergenic__m.3492__enhancer	False
+h.406__intergenic__m.270__enhancer	False
+h.407__intergenic__m.271__enhancer	False
+h.407__intergenic__m.329__enhancer	False
+h.408__intergenic__m.272__enhancer	False
+h.408__intergenic__m.330__enhancer	False
+h.410__intergenic__m.274__enhancer	False
+h.410__intergenic__m.331__enhancer	False
+h.411__antisense__m.275__enhancer	False
+h.411__antisense__m.332__enhancer	False
+h.412__div_upep__m.276__enhancer	False
+h.413__intergenic__m.277__enhancer	False
+h.413__intergenic__m.335__enhancer	False
+h.414__div_lnc__m.278__enhancer	False
+h.415__antisense__m.279__enhancer	False
+h.415__antisense__m.338__enhancer	False
+h.417__intergenic_upep__m.281__enhancer	False
+h.417__intergenic_upep__m.340__enhancer	False
+h.418__antisense__m.282__enhancer	False
+h.419__antisense__m.283__enhancer	False
+h.419__antisense__m.3505__enhancer	False
+h.420__intergenic__m.284__enhancer	False
+h.421__antisense_upep__m.285__enhancer	False
+h.422__intergenic__m.286__enhancer	False
+h.422__intergenic__m.345__enhancer	False
+h.423__antisense__m.287__enhancer	False
+h.423__antisense__m.348__enhancer	False
+h.424__div_lnc__m.288__enhancer	False
+h.424__div_lnc__m.349__enhancer	False
+h.425__intergenic__m.289__enhancer	False
+h.426__antisense__m.290__enhancer	False
+h.426__antisense__m.350__enhancer	False
+h.427__intergenic__m.291__enhancer	False
+h.428__intergenic__m.292__enhancer	False
+h.428__intergenic__m.3495__enhancer	False
+h.429__intergenic__m.293__enhancer	False
+h.429__intergenic__m.353__enhancer	False
+h.430__intergenic__m.294__enhancer	False
+h.431__intergenic__m.295__enhancer	False
+h.431__intergenic__m.3500__enhancer	False
+h.432__antisense__m.296__enhancer	False
+h.433__intergenic_upep__m.297__enhancer	False
+h.433__intergenic_upep__m.3493__enhancer	False
+h.434__div_lnc__m.298__enhancer	False
+h.434__div_lnc__m.3499__enhancer	False
+h.435__div_lnc__m.299__enhancer	False
+h.436__intergenic__m.300__enhancer	False
+h.436__intergenic__m.357__enhancer	False
+h.437__div_lnc__m.301__enhancer	False
+h.438__div_upep__m.302__enhancer	False
+h.438__div_upep__m.3502__enhancer	False
+h.439__intergenic_upep__m.303__enhancer	False
+h.439__intergenic_upep__m.3504__enhancer	False
+h.440__div_lnc__m.304__enhancer	False
+h.440__div_lnc__m.359__enhancer	False
+h.441__intergenic_upep__m.305__enhancer	False
+h.441__intergenic_upep__m.360__enhancer	False
+h.442__intergenic__m.3496__enhancer	False
+h.443__intergenic__m.307__enhancer	False
+h.444__intergenic__m.308__enhancer	False
+h.445__intergenic_upep__m.310__enhancer	False
+h.445__intergenic_upep__m.3480__enhancer	False
+h.446__intergenic_upep__m.311__enhancer	False
+h.446__intergenic_upep__m.3478__enhancer	False
+h.447__div_lnc__m.313__enhancer	False
+h.447__div_lnc__m.3463__enhancer	False
+h.448__antisense__m.315__enhancer	False
+h.449__intergenic_upep__m.317__enhancer	False
+h.450__intergenic__m.319__enhancer	False
+h.450__intergenic__m.3487__enhancer	False
+h.451__antisense_upep__m.320__enhancer	False
+h.451__antisense_upep__m.3482__enhancer	False
+h.452__intergenic__m.321__enhancer	False
+h.452__intergenic__m.3471__enhancer	False
+h.453__intergenic__m.323__enhancer	False
+h.453__intergenic__m.3466__enhancer	False
+h.454__intergenic_upep__m.324__enhancer	False
+h.455__intergenic__m.325__enhancer	False
+h.455__intergenic__m.3468__enhancer	False
+h.456__div_lnc__m.326__enhancer	False
+h.456__div_lnc__m.3469__enhancer	False
+h.457__antisense__m.328__enhancer	False
+h.457__antisense__m.3484__enhancer	False
+h.458__intergenic__m.333__enhancer	False
+h.458__intergenic__m.3475__enhancer	False
+h.459__antisense__m.334__enhancer	False
+h.459__antisense__m.3483__enhancer	False
+h.460__intergenic__m.336__enhancer	False
+h.461__div_lnc__m.337__enhancer	False
+h.462__intergenic_upep__m.339__enhancer	False
+h.463__antisense_upep__m.341__enhancer	False
+h.463__antisense_upep__m.3488__enhancer	False
+h.464__div_upep__m.342__enhancer	False
+h.465__antisense_upep__m.343__enhancer	False
+h.466__div_lnc__m.3473__enhancer	False
+h.467__intergenic_upep__m.346__enhancer	False
+h.468__div_lnc__m.347__enhancer	False
+h.468__div_lnc__m.3472__enhancer	False
+h.469__intergenic__m.351__enhancer	False
+h.470__intergenic__m.352__enhancer	False
+h.471__antisense_upep__m.354__enhancer	False
+h.471__antisense_upep__m.3464__enhancer	False
+h.472__div_lnc__m.355__enhancer	False
+h.473__div_lnc__m.356__enhancer	False
+h.473__div_lnc__m.3481__enhancer	False
+h.474__div_lnc__m.358__enhancer	False
+h.475__antisense__m.361__enhancer	False
+h.476__div_lnc__m.362__enhancer	False
+h.477__protein_coding__m.363__protein_coding	False
+h.478__protein_coding__m.364__protein_coding	False
+h.479__protein_coding__m.365__protein_coding	False
+h.480__div_pc__m.366__protein_coding	False
+h.481__protein_coding__m.367__protein_coding	False
+h.482__protein_coding__m.368__protein_coding	False
+h.483__div_pc__m.369__div_pc	False
+h.484__protein_coding__m.370__protein_coding	False
+h.485__protein_coding__m.371__protein_coding	False
+h.486__protein_coding__m.372__protein_coding	False
+h.488__protein_coding__m.374__div_pc	False
+h.489__protein_coding__m.375__protein_coding	False
+h.490__protein_coding__m.376__protein_coding	False
+h.491__div_pc__m.377__protein_coding	False
+h.1021__div_pc__m.377__protein_coding	False
+h.492__div_pc__m.378__protein_coding	False
+h.493__div_pc__m.379__protein_coding	False
+h.494__protein_coding__m.380__protein_coding	False
+h.495__protein_coding__m.381__protein_coding	False
+h.496__protein_coding__m.382__protein_coding	False
+h.497__protein_coding__m.383__protein_coding	False
+h.498__protein_coding__m.384__protein_coding	False
+h.499__div_pc__m.385__div_pc	False
+h.500__protein_coding__m.386__protein_coding	False
+h.501__div_pc__m.387__protein_coding	False
+h.502__protein_coding__m.388__protein_coding	False
+h.505__protein_coding__m.391__protein_coding	False
+h.506__protein_coding__m.392__protein_coding	False
+h.507__protein_coding__m.393__div_pc	False
+h.508__protein_coding__m.394__div_pc	False
+h.509__div_pc__m.395__div_pc	False
+h.511__protein_coding__m.397__div_pc	False
+h.513__protein_coding__m.399__protein_coding	False
+h.514__protein_coding__m.400__protein_coding	False
+h.517__protein_coding__m.403__protein_coding	False
+h.518__protein_coding__m.404__div_pc	False
+h.519__div_pc__m.405__div_pc	False
+h.520__protein_coding__m.406__protein_coding	False
+h.521__protein_coding__m.407__protein_coding	False
+h.522__protein_coding__m.408__protein_coding	False
+h.523__div_pc__m.409__protein_coding	False
+h.525__protein_coding__m.411__div_pc	False
+h.526__protein_coding__m.412__div_pc	False
+h.528__div_pc__m.414__protein_coding	False
+h.530__div_pc__m.416__protein_coding	False
+h.531__protein_coding__m.417__div_pc	False
+h.532__protein_coding__m.418__protein_coding	False
+h.533__protein_coding__m.419__protein_coding	False
+h.534__protein_coding__m.420__protein_coding	False
+h.535__protein_coding__m.421__protein_coding	False
+h.536__div_pc__m.422__div_pc	False
+h.537__div_pc__m.423__div_pc	False
+h.538__protein_coding__m.424__protein_coding	False
+h.539__protein_coding__m.425__protein_coding	False
+h.540__div_pc__m.426__protein_coding	False
+h.541__protein_coding__m.427__protein_coding	False
+h.542__div_pc__m.428__div_pc	False
+h.543__protein_coding__m.429__protein_coding	False
+h.544__div_pc__m.430__protein_coding	False
+h.545__protein_coding__m.431__protein_coding	False
+h.546__protein_coding__m.432__div_pc	False
+h.548__div_pc__m.434__protein_coding	False
+h.549__div_pc__m.435__protein_coding	False
+h.550__protein_coding__m.436__protein_coding	False
+h.551__protein_coding__m.437__protein_coding	False
+h.552__protein_coding__m.438__protein_coding	False
+h.554__div_pc__m.440__div_pc	False
+h.555__div_pc__m.441__div_pc	False
+h.556__protein_coding__m.442__protein_coding	False
+h.558__protein_coding__m.444__protein_coding	False
+h.559__div_pc__m.445__protein_coding	False
+h.560__protein_coding__m.446__protein_coding	False
+h.561__protein_coding__m.447__protein_coding	False
+h.562__protein_coding__m.448__protein_coding	False
+h.563__protein_coding__m.449__protein_coding	False
+h.564__protein_coding__m.450__protein_coding	False
+h.565__protein_coding__m.451__protein_coding	False
+h.566__protein_coding__m.452__protein_coding	False
+h.569__protein_coding__m.455__protein_coding	False
+h.570__div_pc__m.456__div_pc	False
+h.571__div_pc__m.457__div_pc	False
+h.572__protein_coding__m.458__protein_coding	False
+h.575__div_pc__m.461__protein_coding	False
+h.576__protein_coding__m.462__protein_coding	False
+h.577__protein_coding__m.463__protein_coding	False
+h.578__protein_coding__m.464__protein_coding	False
+h.579__protein_coding__m.465__protein_coding	False
+h.580__protein_coding__m.466__protein_coding	False
+h.581__protein_coding__m.467__protein_coding	False
+h.582__protein_coding__m.468__protein_coding	False
+h.583__div_pc__m.469__protein_coding	False
+h.586__protein_coding__m.472__protein_coding	False
+h.587__div_pc__m.473__protein_coding	False
+h.588__div_pc__m.474__protein_coding	False
+h.589__div_pc__m.475__protein_coding	False
+h.932__div_pc__m.475__protein_coding	False
+h.590__protein_coding__m.476__protein_coding	False
+h.593__div_pc__m.479__div_pc	False
+h.594__protein_coding__m.480__protein_coding	False
+h.595__protein_coding__m.481__protein_coding	False
+h.596__protein_coding__m.482__protein_coding	False
+h.597__protein_coding__m.483__protein_coding	False
+h.598__protein_coding__m.484__protein_coding	False
+h.600__protein_coding__m.486__protein_coding	False
+h.601__div_pc__m.487__div_pc	False
+h.602__protein_coding__m.488__protein_coding	False
+h.603__protein_coding__m.489__protein_coding	False
+h.604__protein_coding__m.490__protein_coding	False
+h.605__protein_coding__m.491__protein_coding	False
+h.607__div_pc__m.493__protein_coding	False
+h.608__protein_coding__m.494__protein_coding	False
+h.610__protein_coding__m.496__protein_coding	False
+h.611__protein_coding__m.497__protein_coding	False
+h.614__div_pc__m.500__div_pc	False
+h.615__div_pc__m.501__div_pc	False
+h.616__protein_coding__m.502__protein_coding	False
+h.617__div_pc__m.503__protein_coding	False
+h.618__div_pc__m.504__protein_coding	False
+h.619__div_pc__m.505__protein_coding	False
+h.620__div_pc__m.506__div_pc	False
+h.621__div_pc__m.507__div_pc	False
+h.623__div_pc__m.509__protein_coding	False
+h.624__protein_coding__m.510__protein_coding	False
+h.625__protein_coding__m.511__protein_coding	False
+h.626__protein_coding__m.512__div_pc	False
+h.628__protein_coding__m.514__protein_coding	False
+h.629__protein_coding__m.515__protein_coding	False
+h.630__protein_coding__m.516__protein_coding	False
+h.632__protein_coding__m.518__protein_coding	False
+h.633__div_pc__m.519__div_pc	False
+h.634__protein_coding__m.520__protein_coding	False
+h.635__protein_coding__m.521__protein_coding	False
+h.637__protein_coding__m.523__protein_coding	False
+h.638__protein_coding__m.524__protein_coding	False
+h.639__div_pc__m.525__protein_coding	False
+h.640__protein_coding__m.526__protein_coding	False
+h.641__div_pc__m.527__protein_coding	False
+h.643__div_pc__m.529__protein_coding	False
+h.644__protein_coding__m.530__protein_coding	False
+h.645__protein_coding__m.531__protein_coding	False
+h.646__protein_coding__m.532__protein_coding	False
+h.647__protein_coding__m.533__div_pc	False
+h.648__protein_coding__m.534__protein_coding	False
+h.649__protein_coding__m.535__protein_coding	False
+h.651__protein_coding__m.537__protein_coding	False
+h.652__protein_coding__m.538__protein_coding	False
+h.653__div_pc__m.539__div_pc	False
+h.654__protein_coding__m.540__protein_coding	False
+h.655__protein_coding__m.541__div_pc	False
+h.656__div_pc__m.542__protein_coding	False
+h.657__div_pc__m.543__div_pc	False
+h.658__protein_coding__m.544__protein_coding	False
+h.659__protein_coding__m.545__protein_coding	False
+h.660__protein_coding__m.546__enhancer	False
+h.662__div_pc__m.548__protein_coding	False
+h.663__div_pc__m.549__div_pc	False
+h.664__protein_coding__m.550__protein_coding	False
+h.665__protein_coding__m.551__protein_coding	False
+h.666__protein_coding__m.552__protein_coding	False
+h.667__protein_coding__m.553__protein_coding	False
+h.668__protein_coding__m.554__div_pc	False
+h.669__div_pc__m.555__protein_coding	False
+h.671__protein_coding__m.557__protein_coding	False
+h.672__protein_coding__m.558__protein_coding	False
+h.673__div_pc__m.559__div_pc	False
+h.674__div_pc__m.560__div_pc	False
+h.675__protein_coding__m.561__protein_coding	False
+h.676__protein_coding__m.562__protein_coding	False
+h.677__protein_coding__m.563__protein_coding	False
+h.679__div_pc__m.565__div_pc	False
+h.680__div_pc__m.566__protein_coding	False
+h.681__div_pc__m.567__div_pc	False
+h.682__protein_coding__m.568__div_pc	False
+h.683__protein_coding__m.569__div_pc	False
+h.684__div_pc__m.570__protein_coding	False
+h.685__protein_coding__m.571__protein_coding	False
+h.686__protein_coding__m.572__div_pc	False
+h.687__div_pc__m.573__div_pc	False
+h.688__protein_coding__m.574__div_pc	False
+h.689__protein_coding__m.575__protein_coding	False
+h.690__div_pc__m.576__div_pc	False
+h.691__protein_coding__m.577__protein_coding	False
+h.692__div_pc__m.578__div_pc	False
+h.693__protein_coding__m.579__protein_coding	False
+h.695__div_pc__m.581__div_pc	False
+h.696__protein_coding__m.582__protein_coding	False
+h.698__div_pc__m.584__div_pc	False
+h.699__protein_coding__m.585__protein_coding	False
+h.701__protein_coding__m.587__protein_coding	False
+h.702__protein_coding__m.588__protein_coding	False
+h.703__div_pc__m.589__div_pc	False
+h.705__div_pc__m.591__div_pc	False
+h.707__div_pc__m.593__protein_coding	False
+h.708__protein_coding__m.594__protein_coding	False
+h.710__protein_coding__m.596__div_pc	False
+h.711__protein_coding__m.597__protein_coding	False
+h.712__protein_coding__m.598__protein_coding	False
+h.713__protein_coding__m.599__protein_coding	False
+h.714__div_pc__m.600__protein_coding	False
+h.715__protein_coding__m.601__protein_coding	False
+h.716__protein_coding__m.602__protein_coding	False
+h.717__protein_coding__m.603__protein_coding	False
+h.719__protein_coding__m.605__protein_coding	False
+h.721__div_pc__m.607__protein_coding	False
+h.722__protein_coding__m.608__protein_coding	False
+h.724__div_pc__m.610__protein_coding	False
+h.725__protein_coding__m.611__protein_coding	False
+h.726__protein_coding__m.612__div_pc	False
+h.727__protein_coding__m.613__protein_coding	False
+h.728__protein_coding__m.614__protein_coding	False
+h.729__protein_coding__m.615__protein_coding	False
+h.730__protein_coding__m.616__protein_coding	False
+h.731__protein_coding__m.617__div_pc	False
+h.733__div_pc__m.619__div_pc	False
+h.734__div_pc__m.620__protein_coding	False
+h.737__protein_coding__m.623__protein_coding	False
+h.738__protein_coding__m.624__protein_coding	False
+h.739__protein_coding__m.625__protein_coding	False
+h.740__protein_coding__m.626__protein_coding	False
+h.741__protein_coding__m.627__div_pc	False
+h.743__protein_coding__m.629__protein_coding	False
+h.744__div_pc__m.630__div_pc	False
+h.745__protein_coding__m.631__protein_coding	False
+h.746__protein_coding__m.632__protein_coding	False
+h.747__protein_coding__m.633__protein_coding	False
+h.748__div_pc__m.634__protein_coding	False
+h.749__protein_coding__m.635__div_pc	False
+h.750__protein_coding__m.636__protein_coding	False
+h.751__div_pc__m.637__div_pc	False
+h.755__div_pc__m.640__protein_coding	False
+h.756__protein_coding__m.641__protein_coding	False
+h.757__div_pc__m.642__protein_coding	False
+h.758__protein_coding__m.643__protein_coding	False
+h.759__protein_coding__m.644__protein_coding	False
+h.760__div_pc__m.645__protein_coding	False
+h.761__protein_coding__m.646__protein_coding	False
+h.763__protein_coding__m.648__protein_coding	False
+h.764__protein_coding__m.649__protein_coding	False
+h.765__protein_coding__m.650__protein_coding	False
+h.766__div_pc__m.651__div_pc	False
+h.767__protein_coding__m.652__protein_coding	False
+h.768__div_pc__m.653__div_pc	False
+h.769__protein_coding__m.654__protein_coding	False
+h.770__protein_coding__m.655__protein_coding	False
+h.771__protein_coding__m.656__protein_coding	False
+h.772__protein_coding__m.657__protein_coding	False
+h.773__protein_coding__m.658__protein_coding	False
+h.774__protein_coding__m.659__protein_coding	False
+h.775__protein_coding__m.660__protein_coding	False
+h.850__protein_coding__m.660__protein_coding	False
+h.776__protein_coding__m.661__div_pc	False
+h.777__protein_coding__m.662__protein_coding	False
+h.778__protein_coding__m.663__protein_coding	False
+h.779__protein_coding__m.664__protein_coding	False
+h.781__protein_coding__m.666__div_pc	False
+h.782__protein_coding__m.667__protein_coding	False
+h.783__protein_coding__m.668__div_pc	False
+h.784__protein_coding__m.669__protein_coding	False
+h.785__protein_coding__m.670__protein_coding	False
+h.786__protein_coding__m.671__protein_coding	False
+h.787__protein_coding__m.672__protein_coding	False
+h.788__protein_coding__m.673__protein_coding	False
+h.789__protein_coding__m.674__protein_coding	False
+h.791__protein_coding__m.676__div_pc	False
+h.792__div_pc__m.677__protein_coding	False
+h.793__div_pc__m.678__div_pc	False
+h.794__div_pc__m.679__div_pc	False
+h.795__protein_coding__m.680__protein_coding	False
+h.796__div_pc__m.681__div_pc	False
+h.798__div_pc__m.683__div_pc	False
+h.800__protein_coding__m.685__protein_coding	False
+h.802__protein_coding__m.687__protein_coding	False
+h.803__protein_coding__m.688__protein_coding	False
+h.804__protein_coding__m.689__protein_coding	False
+h.805__protein_coding__m.690__protein_coding	False
+h.806__div_pc__m.691__div_pc	False
+h.807__protein_coding__m.692__protein_coding	False
+h.808__div_pc__m.693__div_pc	False
+h.809__protein_coding__m.694__div_pc	False
+h.810__protein_coding__m.695__protein_coding	False
+h.811__protein_coding__m.696__protein_coding	False
+h.812__div_pc__m.697__protein_coding	False
+h.814__protein_coding__m.699__protein_coding	False
+h.815__protein_coding__m.700__protein_coding	False
+h.817__protein_coding__m.702__protein_coding	False
+h.818__protein_coding__m.703__protein_coding	False
+h.820__protein_coding__m.705__intergenic_upep	False
+h.821__protein_coding__m.706__div_pc	False
+h.823__div_pc__m.708__protein_coding	False
+h.825__protein_coding__m.710__protein_coding	False
+h.826__div_pc__m.711__div_pc	False
+h.827__protein_coding__m.712__protein_coding	False
+h.828__protein_coding__m.713__protein_coding	False
+h.829__protein_coding__m.714__protein_coding	False
+h.830__protein_coding__m.715__protein_coding	False
+h.831__protein_coding__m.716__protein_coding	False
+h.832__protein_coding__m.717__protein_coding	False
+h.833__div_pc__m.718__div_pc	False
+h.834__protein_coding__m.719__div_pc	False
+h.835__div_pc__m.720__div_pc	False
+h.836__div_pc__m.721__div_pc	False
+h.838__protein_coding__m.723__protein_coding	False
+h.839__div_pc__m.724__protein_coding	False
+h.840__protein_coding__m.725__protein_coding	False
+h.841__div_pc__m.726__div_pc	False
+h.843__protein_coding__m.728__protein_coding	False
+h.844__protein_coding__m.729__protein_coding	False
+h.845__protein_coding__m.730__protein_coding	False
+h.846__protein_coding__m.731__protein_coding	False
+h.847__protein_coding__m.732__protein_coding	False
+h.848__protein_coding__m.733__protein_coding	False
+h.849__protein_coding__m.734__protein_coding	False
+h.851__protein_coding__m.735__protein_coding	False
+h.852__protein_coding__m.736__protein_coding	False
+h.853__protein_coding__m.737__protein_coding	False
+h.855__div_pc__m.739__protein_coding	False
+h.856__protein_coding__m.740__protein_coding	False
+h.857__protein_coding__m.741__protein_coding	False
+h.858__protein_coding__m.742__protein_coding	False
+h.859__protein_coding__m.743__protein_coding	False
+h.860__div_pc__m.744__protein_coding	False
+h.861__protein_coding__m.745__protein_coding	False
+h.862__protein_coding__m.746__protein_coding	False
+h.864__div_pc__m.748__div_pc	False
+h.865__div_pc__m.749__protein_coding	False
+h.866__protein_coding__m.750__protein_coding	False
+h.867__protein_coding__m.751__div_pc	False
+h.868__protein_coding__m.752__protein_coding	False
+h.870__protein_coding__m.754__protein_coding	False
+h.871__protein_coding__m.755__protein_coding	False
+h.873__protein_coding__m.757__protein_coding	False
+h.874__protein_coding__m.758__protein_coding	False
+h.875__div_pc__m.759__div_pc	False
+h.876__protein_coding__m.760__protein_coding	False
+h.877__div_pc__m.761__div_pc	False
+h.880__div_pc__m.764__unassigned	False
+h.881__div_pc__m.765__no cage activity	False
+h.882__div_pc__m.766__div_pc	False
+h.883__div_pc__m.767__protein_coding	False
+h.884__div_pc__m.768__div_pc	False
+h.885__div_pc__m.769__protein_coding	False
+h.886__div_pc__m.770__unassigned	False
+h.888__div_pc__m.772__protein_coding	False
+h.891__div_pc__m.775__div_pc	False
+h.3640__div_pc__m.775__div_pc	False
+h.892__div_pc__m.776__no cage activity	False
+h.893__div_pc__m.777__multi-mapped	False
+h.894__div_pc__m.778__protein_coding	False
+h.895__div_pc__m.779__no cage activity	False
+h.896__div_pc__m.780__multi-mapped	False
+h.897__div_pc__m.781__no cage activity	False
+h.898__div_pc__m.782__div_pc	False
+h.899__div_pc__m.783__no cage activity	False
+h.900__div_pc__m.784__div_pc	False
+h.901__div_pc__m.785__div_pc	False
+h.903__div_pc__m.787__protein_coding	False
+h.904__div_pc__m.788__protein_coding	False
+h.905__div_pc__m.789__div_pc	False
+h.906__div_pc__m.790__protein_coding	False
+h.907__div_pc__m.791__unassigned	False
+h.908__div_pc__m.792__no cage activity	False
+h.909__div_pc__m.793__no cage activity	False
+h.910__div_pc__m.794__protein_coding	False
+h.911__div_pc__m.795__no cage activity	False
+h.912__div_pc__m.796__unassigned	False
+h.913__div_pc__m.797__div_pc	False
+h.914__div_pc__m.798__no cage activity	False
+h.915__div_pc__m.799__div_pc	False
+h.916__div_pc__m.800__div_pc	False
+h.917__div_pc__m.801__no cage activity	False
+h.918__div_pc__m.802__protein_coding	False
+h.919__div_pc__m.803__no cage activity	False
+h.922__div_pc__m.806__div_pc	False
+h.923__div_pc__m.807__protein_coding	False
+h.924__div_pc__m.808__protein_coding	False
+h.925__div_pc__m.809__protein_coding	False
+h.926__div_pc__m.810__protein_coding	False
+h.928__div_pc__m.812__div_pc	False
+h.929__div_pc__m.813__protein_coding	False
+h.930__div_pc__m.814__div_pc	False
+h.931__div_pc__m.815__no cage activity	False
+h.934__div_pc__m.817__no cage activity	False
+h.935__div_pc__m.818__no cage activity	False
+h.936__div_pc__m.819__protein_coding	False
+h.937__div_pc__m.820__no cage activity	False
+h.938__div_pc__m.821__unassigned	False
+h.939__div_pc__m.822__div_pc	False
+h.940__div_pc__m.823__protein_coding	False
+h.941__div_pc__m.824__div_pc	False
+h.942__div_pc__m.825__protein_coding	False
+h.943__div_pc__m.826__protein_coding	False
+h.944__div_pc__m.827__unassigned	False
+h.945__div_pc__m.828__protein_coding	False
+h.946__div_pc__m.829__protein_coding	False
+h.947__div_pc__m.830__no cage activity	False
+h.948__div_pc__m.831__no cage activity	False
+h.949__div_pc__m.832__div_pc	False
+h.950__div_pc__m.833__div_pc	False
+h.951__div_pc__m.834__div_pc	False
+h.952__div_pc__m.835__div_pc	False
+h.953__div_pc__m.836__no cage activity	False
+h.954__div_pc__m.837__protein_coding	False
+h.955__div_pc__m.838__unassigned	False
+h.957__div_pc__m.840__div_pc	False
+h.959__div_pc__m.842__div_pc	False
+h.960__div_pc__m.843__no cage activity	False
+h.961__div_pc__m.844__div_pc	False
+h.962__div_pc__m.845__protein_coding	False
+h.963__div_pc__m.846__no cage activity	False
+h.964__div_pc__m.847__unassigned	False
+h.965__div_pc__m.848__protein_coding	False
+h.966__div_pc__m.849__unassigned	False
+h.967__div_pc__m.850__no cage activity	False
+h.968__div_pc__m.851__protein_coding	False
+h.969__div_pc__m.852__div_pc	False
+h.970__div_pc__m.853__no cage activity	False
+h.973__div_pc__m.856__div_pc	False
+h.974__div_pc__m.857__no cage activity	False
+h.975__div_pc__m.858__protein_coding	False
+h.976__div_pc__m.859__protein_coding	False
+h.977__div_pc__m.860__div_pc	False
+h.978__div_pc__m.861__div_pc	False
+h.980__div_pc__m.863__div_pc	False
+h.981__div_pc__m.864__no cage activity	False
+h.982__div_pc__m.865__no cage activity	False
+h.983__div_pc__m.866__div_pc	False
+h.984__div_pc__m.867__no cage activity	False
+h.985__div_pc__m.868__div_pc	False
+h.986__div_pc__m.869__no cage activity	False
+h.988__div_pc__m.871__no cage activity	False
+h.989__div_pc__m.872__no cage activity	False
+h.990__div_pc__m.873__protein_coding	False
+h.991__div_pc__m.874__no cage activity	False
+h.992__div_pc__m.875__protein_coding	False
+h.993__div_pc__m.876__div_pc	False
+h.995__div_pc__m.878__div_pc	False
+h.996__div_pc__m.879__protein_coding	False
+h.997__div_pc__m.880__no cage activity	False
+h.998__div_pc__m.881__div_pc	False
+h.999__div_pc__m.882__no cage activity	False
+h.1000__div_pc__m.883__div_pc	False
+h.1001__div_pc__m.884__div_pc	False
+h.1002__div_pc__m.885__protein_coding	False
+h.1003__div_pc__m.886__div_pc	False
+h.1004__div_pc__m.887__no cage activity	False
+h.1005__div_pc__m.888__div_pc	False
+h.1007__div_pc__m.890__no cage activity	False
+h.1008__div_pc__m.891__protein_coding	False
+h.1009__div_pc__m.892__no cage activity	False
+h.1010__div_pc__m.893__protein_coding	False
+h.1011__div_pc__m.894__div_pc	False
+h.1014__div_pc__m.897__no cage activity	False
+h.1015__div_pc__m.898__protein_coding	False
+h.1016__div_pc__m.899__div_pc	False
+h.1017__div_pc__m.900__protein_coding	False
+h.1018__div_pc__m.901__no cage activity	False
+h.1019__div_pc__m.902__protein_coding	False
+h.1022__div_pc__m.904__protein_coding	False
+h.1023__div_pc__m.905__no cage activity	False
+h.1025__div_pc__m.907__protein_coding	False
+h.1026__div_pc__m.908__no cage activity	False
+h.1027__div_pc__m.909__div_pc	False
+h.1028__div_pc__m.910__no cage activity	False
+h.1029__div_pc__m.911__protein_coding	False
+h.1030__div_pc__m.912__multi-mapped	False
+h.1031__div_pc__m.913__protein_coding	False
+h.1032__div_pc__m.914__protein_coding	False
+h.1033__div_pc__m.915__div_pc	False
+h.1034__div_pc__m.916__protein_coding	False
+h.1035__div_pc__m.917__protein_coding	False
+h.1036__div_pc__m.918__protein_coding	False
+h.1037__div_pc__m.919__no cage activity	False
+h.1038__div_pc__m.920__no cage activity	False
+h.1039__div_pc__m.921__no cage activity	False
+h.1042__div_pc__m.924__protein_coding	False
+h.1047__div_pc__m.929__div_pc	False
+h.1048__div_pc__m.930__div_pc	False
+h.1049__div_pc__m.931__div_pc	False
+h.1051__div_pc__m.933__protein_coding	False
+h.1052__div_pc__m.934__div_pc	False
+h.1053__div_pc__m.935__unassigned	False
+h.1055__div_pc__m.937__div_pc	False
+h.1056__div_pc__m.938__protein_coding	False
+h.1057__div_pc__m.939__div_pc	False
+h.1059__div_pc__m.941__div_pc	False
+h.1060__div_pc__m.942__no cage activity	False
+h.1061__div_pc__m.943__no cage activity	False
+h.1063__div_pc__m.945__protein_coding	False
+h.1064__div_pc__m.946__div_pc	False
+h.1065__div_pc__m.947__div_pc	False
+h.1066__div_pc__m.948__no cage activity	False
+h.1067__div_pc__m.949__div_pc	False
+h.1068__div_pc__m.950__div_pc	False
+h.1069__div_pc__m.951__unassigned	False
+h.1070__div_pc__m.952__protein_coding	False
+h.1071__div_pc__m.953__protein_coding	False
+h.1072__div_pc__m.954__no cage activity	False
+h.1073__div_pc__m.955__div_pc	False
+h.1074__div_pc__m.956__div_pc	False
+h.1076__div_pc__m.958__div_pc	False
+h.1077__div_pc__m.959__no cage activity	False
+h.1079__div_pc__m.961__protein_coding	False
+h.1080__div_pc__m.962__div_pc	False
+h.1081__div_pc__m.963__div_pc	False
+h.1082__div_pc__m.964__div_pc	False
+h.1084__div_pc__m.966__protein_coding	False
+h.1085__div_pc__m.967__unassigned	False
+h.1086__div_pc__m.968__no cage activity	False
+h.1087__div_pc__m.969__protein_coding	False
+h.1088__div_pc__m.970__no cage activity	False
+h.1089__div_pc__m.971__unassigned	False
+h.1092__div_pc__m.974__unassigned	False
+h.1093__div_pc__m.975__multi-mapped	False
+h.1094__div_pc__m.976__protein_coding	False
+h.1095__div_pc__m.977__no cage activity	False
+h.1096__div_pc__m.978__no cage activity	False
+h.1097__div_pc__m.979__div_pc	False
+h.1098__div_pc__m.980__multi-mapped	False
+h.1100__div_pc__m.982__div_pc	False
+h.1101__div_pc__m.983__no cage activity	False
+h.1102__div_pc__m.984__protein_coding	False
+h.1103__div_pc__m.985__unassigned	False
+h.1104__div_pc__m.986__protein_coding	False
+h.1105__div_pc__m.987__protein_coding	False
+h.1106__div_pc__m.988__protein_coding	False
+h.1107__div_pc__m.989__div_pc	False
+h.1108__div_pc__m.990__protein_coding	False
+h.1110__div_pc__m.992__protein_coding	False
+h.1111__div_pc__m.993__no cage activity	False
+h.1112__div_pc__m.994__protein_coding	False
+h.1114__div_pc__m.996__protein_coding	False
+h.1115__div_pc__m.997__div_pc	False
+h.1117__div_pc__m.999__div_pc	False
+h.1118__div_pc__m.1000__div_pc	False
+h.1119__div_pc__m.1001__div_pc	False
+h.1120__div_pc__m.1002__no cage activity	False
+h.1121__div_pc__m.1003__no cage activity	False
+h.1122__div_pc__m.1004__div_pc	False
+h.1123__div_pc__m.1005__enhancer	False
+h.1123__div_pc__m.3490__enhancer	False
+h.1124__enhancer__m.1006__intergenic	False
+h.1134__enhancer__m.1006__intergenic	False
+h.1125__enhancer__m.1007__div_upep	False
+h.1135__enhancer__m.1007__div_upep	False
+h.1126__enhancer__m.1008__intergenic	False
+h.1136__enhancer__m.1008__intergenic	False
+h.1127__enhancer__m.1009__div_pc	False
+h.1137__enhancer__m.1009__div_pc	False
+h.1128__enhancer__m.1010__protein_coding	False
+h.1138__enhancer__m.1010__protein_coding	False
+h.1129__enhancer__m.1011__div_pc	False
+h.1139__enhancer__m.1011__div_pc	False
+h.1130__enhancer__m.1012__protein_coding	False
+h.1140__enhancer__m.1012__protein_coding	False
+h.1131__enhancer__m.1013__intergenic	False
+h.1141__enhancer__m.1013__intergenic	False
+h.1132__enhancer__m.1014__protein_coding	False
+h.1142__enhancer__m.1014__protein_coding	False
+h.1133__enhancer__m.1015__protein_coding	False
+h.1143__enhancer__m.1015__protein_coding	False
+h.1144__enhancer__m.1016__enhancer	False
+h.1145__enhancer__m.1017__enhancer	False
+h.1335__enhancer__m.1207__enhancer	False
+h.1146__enhancer__m.1018__enhancer	False
+h.1336__enhancer__m.1208__enhancer	False
+h.1147__enhancer__m.1019__enhancer	False
+h.1337__enhancer__m.1019__enhancer	False
+h.1148__enhancer__m.1020__enhancer	False
+h.1338__enhancer__m.1020__enhancer	False
+h.1149__enhancer__m.1021__enhancer	False
+h.1339__enhancer__m.1209__enhancer	False
+h.1150__enhancer__m.1022__enhancer	False
+h.1340__enhancer__m.1022__enhancer	False
+h.1151__enhancer__m.1023__enhancer	False
+h.1341__enhancer__m.1023__enhancer	False
+h.1152__enhancer__m.1024__enhancer	False
+h.1342__enhancer__m.1211__enhancer	False
+h.1153__enhancer__m.1025__enhancer	False
+h.1343__enhancer__m.1025__enhancer	False
+h.1154__enhancer__m.1026__enhancer	False
+h.1344__enhancer__m.1026__enhancer	False
+h.1155__enhancer__m.1027__enhancer	False
+h.1345__enhancer__m.1214__enhancer	False
+h.1156__enhancer__m.1028__enhancer	False
+h.1346__enhancer__m.1028__enhancer	False
+h.1157__enhancer__m.1029__enhancer	False
+h.1347__enhancer__m.1029__enhancer	False
+h.1158__enhancer__m.1030__enhancer	False
+h.1348__enhancer__m.1030__enhancer	False
+h.1159__enhancer__m.1031__enhancer	False
+h.1349__enhancer__m.1031__enhancer	False
+h.1160__enhancer__m.1032__enhancer	False
+h.1350__enhancer__m.1216__enhancer	False
+h.1161__enhancer__m.1033__enhancer	False
+h.1351__enhancer__m.1217__enhancer	False
+h.1162__enhancer__m.1034__enhancer	False
+h.1352__enhancer__m.1034__enhancer	False
+h.1163__enhancer__m.1035__enhancer	False
+h.1353__enhancer__m.1218__enhancer	False
+h.1164__enhancer__m.1036__enhancer	False
+h.1354__enhancer__m.1036__enhancer	False
+h.1165__enhancer__m.1037__enhancer	False
+h.1355__enhancer__m.1219__enhancer	False
+h.1166__enhancer__m.1038__enhancer	False
+h.1356__enhancer__m.1220__enhancer	False
+h.1167__enhancer__m.1039__enhancer	False
+h.1357__enhancer__m.1039__enhancer	False
+h.1168__enhancer__m.1040__enhancer	False
+h.1358__enhancer__m.1040__enhancer	False
+h.1169__enhancer__m.1041__enhancer	False
+h.1359__enhancer__m.1041__enhancer	False
+h.1170__enhancer__m.1042__enhancer	False
+h.1360__enhancer__m.1222__enhancer	False
+h.1171__enhancer__m.1043__enhancer	False
+h.1361__enhancer__m.1043__enhancer	False
+h.1172__enhancer__m.1044__enhancer	False
+h.1362__enhancer__m.1224__enhancer	False
+h.1173__enhancer__m.1045__enhancer	False
+h.1363__enhancer__m.1225__enhancer	False
+h.1174__enhancer__m.1046__enhancer	False
+h.1364__enhancer__m.1226__enhancer	False
+h.1175__enhancer__m.1047__enhancer	False
+h.1365__enhancer__m.1227__enhancer	False
+h.1176__enhancer__m.1048__enhancer	False
+h.1366__enhancer__m.1048__enhancer	False
+h.1177__enhancer__m.1049__enhancer	False
+h.1367__enhancer__m.1228__enhancer	False
+h.1178__enhancer__m.1050__enhancer	False
+h.1368__enhancer__m.1050__enhancer	False
+h.1179__enhancer__m.1051__enhancer	False
+h.1369__enhancer__m.1051__enhancer	False
+h.1180__enhancer__m.1052__enhancer	False
+h.1370__enhancer__m.1052__enhancer	False
+h.1181__enhancer__m.1053__enhancer	False
+h.1371__enhancer__m.1230__enhancer	False
+h.1182__enhancer__m.1054__enhancer	False
+h.1372__enhancer__m.1231__enhancer	False
+h.1183__enhancer__m.1055__enhancer	False
+h.1373__enhancer__m.1232__enhancer	False
+h.1184__enhancer__m.1056__enhancer	False
+h.1374__enhancer__m.1056__enhancer	False
+h.1185__enhancer__m.1057__enhancer	False
+h.1375__enhancer__m.1233__enhancer	False
+h.1186__enhancer__m.1058__enhancer	False
+h.1376__enhancer__m.1234__enhancer	False
+h.1187__enhancer__m.1059__enhancer	False
+h.1377__enhancer__m.1235__enhancer	False
+h.1188__enhancer__m.1060__enhancer	False
+h.1378__enhancer__m.1236__enhancer	False
+h.1189__enhancer__m.1061__enhancer	False
+h.1379__enhancer__m.1237__enhancer	False
+h.1190__enhancer__m.1062__enhancer	False
+h.1380__enhancer__m.1238__enhancer	False
+h.1191__enhancer__m.1063__enhancer	False
+h.1381__enhancer__m.1239__enhancer	False
+h.1192__enhancer__m.1064__enhancer	False
+h.1382__enhancer__m.1064__enhancer	False
+h.1193__enhancer__m.1065__enhancer	False
+h.1383__enhancer__m.1065__enhancer	False
+h.1194__enhancer__m.1066__enhancer	False
+h.1384__enhancer__m.1242__enhancer	False
+h.1196__enhancer__m.1068__enhancer	False
+h.1386__enhancer__m.1244__enhancer	False
+h.1387__enhancer__m.1245__enhancer	False
+h.1198__enhancer__m.1070__enhancer	False
+h.1388__enhancer__m.1246__enhancer	False
+h.1199__enhancer__m.1071__enhancer	False
+h.1389__enhancer__m.1247__enhancer	False
+h.1200__enhancer__m.1072__enhancer	False
+h.1390__enhancer__m.1248__enhancer	False
+h.1201__enhancer__m.1073__enhancer	False
+h.1391__enhancer__m.1249__enhancer	False
+h.1392__enhancer__m.1250__enhancer	False
+h.1203__enhancer__m.1075__enhancer	False
+h.1393__enhancer__m.1075__enhancer	False
+h.1204__enhancer__m.1076__enhancer	False
+h.1394__enhancer__m.1251__enhancer	False
+h.1205__enhancer__m.1077__enhancer	False
+h.1395__enhancer__m.1077__enhancer	False
+h.1206__enhancer__m.1078__enhancer	False
+h.1396__enhancer__m.1078__enhancer	False
+h.1207__enhancer__m.1079__enhancer	False
+h.1397__enhancer__m.1252__enhancer	False
+h.1208__enhancer__m.1080__enhancer	False
+h.1398__enhancer__m.1080__enhancer	False
+h.1209__enhancer__m.1081__enhancer	False
+h.1399__enhancer__m.1081__enhancer	False
+h.1210__enhancer__m.1082__enhancer	False
+h.1400__enhancer__m.1253__enhancer	False
+h.1211__enhancer__m.1083__enhancer	False
+h.1401__enhancer__m.1083__enhancer	False
+h.1212__enhancer__m.1084__enhancer	False
+h.1402__enhancer__m.1254__enhancer	False
+h.1213__enhancer__m.1085__enhancer	False
+h.1403__enhancer__m.1085__enhancer	False
+h.1214__enhancer__m.1086__enhancer	False
+h.1215__enhancer__m.1087__enhancer	False
+h.1405__enhancer__m.1087__enhancer	False
+h.1216__enhancer__m.1088__enhancer	False
+h.1406__enhancer__m.1088__enhancer	False
+h.1217__enhancer__m.1089__enhancer	False
+h.1407__enhancer__m.1257__enhancer	False
+h.1218__enhancer__m.1090__enhancer	False
+h.1219__enhancer__m.1091__enhancer	False
+h.1409__enhancer__m.1258__enhancer	False
+h.1220__enhancer__m.1092__enhancer	False
+h.1410__enhancer__m.1259__enhancer	False
+h.1221__enhancer__m.1093__enhancer	False
+h.1411__enhancer__m.1093__enhancer	False
+h.1222__enhancer__m.1094__enhancer	False
+h.1412__enhancer__m.1094__enhancer	False
+h.1223__enhancer__m.1095__enhancer	False
+h.1413__enhancer__m.1260__enhancer	False
+h.1224__enhancer__m.1096__enhancer	False
+h.1414__enhancer__m.1261__enhancer	False
+h.1225__enhancer__m.1097__enhancer	False
+h.1415__enhancer__m.1262__enhancer	False
+h.1226__enhancer__m.1098__enhancer	False
+h.1416__enhancer__m.1263__enhancer	False
+h.1227__enhancer__m.1099__enhancer	False
+h.1417__enhancer__m.1264__enhancer	False
+h.1228__enhancer__m.1100__enhancer	False
+h.1418__enhancer__m.1100__enhancer	False
+h.1229__enhancer__m.1101__enhancer	False
+h.1419__enhancer__m.1266__enhancer	False
+h.1230__enhancer__m.1102__enhancer	False
+h.1420__enhancer__m.1102__enhancer	False
+h.1231__enhancer__m.1103__enhancer	False
+h.1421__enhancer__m.1103__enhancer	False
+h.1422__enhancer__m.1268__enhancer	False
+h.1233__enhancer__m.1105__enhancer	False
+h.1423__enhancer__m.1269__enhancer	False
+h.1234__enhancer__m.1106__enhancer	False
+h.1424__enhancer__m.1106__enhancer	False
+h.1235__enhancer__m.1107__enhancer	False
+h.1425__enhancer__m.1270__enhancer	False
+h.1236__enhancer__m.1108__enhancer	False
+h.1426__enhancer__m.1271__enhancer	False
+h.1237__enhancer__m.1109__enhancer	False
+h.1427__enhancer__m.1109__enhancer	False
+h.1238__enhancer__m.1110__enhancer	False
+h.1428__enhancer__m.1110__enhancer	False
+h.1239__enhancer__m.1111__enhancer	False
+h.1429__enhancer__m.1272__enhancer	False
+h.1240__enhancer__m.1112__enhancer	False
+h.1430__enhancer__m.1273__enhancer	False
+h.1241__enhancer__m.1113__enhancer	False
+h.1431__enhancer__m.1274__enhancer	False
+h.1242__enhancer__m.1114__enhancer	False
+h.1432__enhancer__m.1275__enhancer	False
+h.1243__enhancer__m.1115__enhancer	False
+h.1433__enhancer__m.1276__enhancer	False
+h.1244__enhancer__m.1116__enhancer	False
+h.1434__enhancer__m.1277__enhancer	False
+h.1245__enhancer__m.1117__enhancer	False
+h.1435__enhancer__m.1117__enhancer	False
+h.1246__enhancer__m.1118__enhancer	False
+h.1436__enhancer__m.1118__enhancer	False
+h.1247__enhancer__m.1119__enhancer	False
+h.1437__enhancer__m.1119__enhancer	False
+h.1248__enhancer__m.1120__enhancer	False
+h.1249__enhancer__m.1121__enhancer	False
+h.1439__enhancer__m.1278__enhancer	False
+h.1250__enhancer__m.1122__enhancer	False
+h.1440__enhancer__m.1279__enhancer	False
+h.1251__enhancer__m.1123__enhancer	False
+h.1441__enhancer__m.1280__enhancer	False
+h.1252__enhancer__m.1124__enhancer	False
+h.1442__enhancer__m.1281__enhancer	False
+h.1253__enhancer__m.1125__enhancer	False
+h.1443__enhancer__m.1282__enhancer	False
+h.1254__enhancer__m.1126__enhancer	False
+h.1444__enhancer__m.1283__enhancer	False
+h.1255__enhancer__m.1127__enhancer	False
+h.1445__enhancer__m.1127__enhancer	False
+h.1256__enhancer__m.1128__enhancer	False
+h.1446__enhancer__m.1128__enhancer	False
+h.1257__enhancer__m.1129__enhancer	False
+h.1447__enhancer__m.1129__enhancer	False
+h.1258__enhancer__m.1130__enhancer	False
+h.1448__enhancer__m.1284__enhancer	False
+h.1259__enhancer__m.1131__enhancer	False
+h.1449__enhancer__m.1285__enhancer	False
+h.1260__enhancer__m.1132__enhancer	False
+h.1450__enhancer__m.1286__enhancer	False
+h.1261__enhancer__m.1133__enhancer	False
+h.1451__enhancer__m.1287__enhancer	False
+h.1262__enhancer__m.1134__enhancer	False
+h.1452__enhancer__m.1134__enhancer	False
+h.1263__enhancer__m.1135__enhancer	False
+h.1453__enhancer__m.1288__enhancer	False
+h.1264__enhancer__m.1136__enhancer	False
+h.1454__enhancer__m.1289__enhancer	False
+h.1265__enhancer__m.1137__enhancer	False
+h.1455__enhancer__m.1290__enhancer	False
+h.1266__enhancer__m.1138__enhancer	False
+h.1456__enhancer__m.1291__enhancer	False
+h.1267__enhancer__m.1139__enhancer	False
+h.1457__enhancer__m.1292__enhancer	False
+h.1268__enhancer__m.1140__enhancer	False
+h.1458__enhancer__m.1140__enhancer	False
+h.1269__enhancer__m.1141__enhancer	False
+h.1459__enhancer__m.1293__enhancer	False
+h.1270__enhancer__m.1142__enhancer	False
+h.1460__enhancer__m.1294__enhancer	False
+h.1271__enhancer__m.1143__enhancer	False
+h.1461__enhancer__m.1143__enhancer	False
+h.1272__enhancer__m.1144__enhancer	False
+h.1462__enhancer__m.1144__enhancer	False
+h.1273__enhancer__m.1145__enhancer	False
+h.1463__enhancer__m.1296__enhancer	False
+h.1274__enhancer__m.1146__enhancer	False
+h.1464__enhancer__m.1146__enhancer	False
+h.1275__enhancer__m.1147__enhancer	False
+h.1465__enhancer__m.1147__enhancer	False
+h.1276__enhancer__m.1148__enhancer	False
+h.1466__enhancer__m.1297__enhancer	False
+h.1277__enhancer__m.1149__enhancer	False
+h.1278__enhancer__m.1150__enhancer	False
+h.1468__enhancer__m.1150__enhancer	False
+h.1279__enhancer__m.1151__enhancer	False
+h.1469__enhancer__m.1151__enhancer	False
+h.1280__enhancer__m.1152__enhancer	False
+h.1470__enhancer__m.1300__enhancer	False
+h.1281__enhancer__m.1153__enhancer	False
+h.1471__enhancer__m.1301__enhancer	False
+h.1282__enhancer__m.1154__enhancer	False
+h.1472__enhancer__m.1302__enhancer	False
+h.1283__enhancer__m.1155__enhancer	False
+h.1473__enhancer__m.1303__enhancer	False
+h.1284__enhancer__m.1156__enhancer	False
+h.1474__enhancer__m.1156__enhancer	False
+h.1475__enhancer__m.1304__enhancer	False
+h.1286__enhancer__m.1158__enhancer	False
+h.1476__enhancer__m.1158__enhancer	False
+h.1287__enhancer__m.1159__enhancer	False
+h.1477__enhancer__m.1305__enhancer	False
+h.1288__enhancer__m.1160__enhancer	False
+h.1478__enhancer__m.1306__enhancer	False
+h.1289__enhancer__m.1161__enhancer	False
+h.1479__enhancer__m.1307__enhancer	False
+h.1290__enhancer__m.1162__enhancer	False
+h.1480__enhancer__m.1162__enhancer	False
+h.1291__enhancer__m.1163__enhancer	False
+h.1481__enhancer__m.1308__enhancer	False
+h.1292__enhancer__m.1164__enhancer	False
+h.1482__enhancer__m.1164__enhancer	False
+h.1293__enhancer__m.1165__enhancer	False
+h.1483__enhancer__m.1309__enhancer	False
+h.1294__enhancer__m.1166__enhancer	False
+h.1484__enhancer__m.1166__enhancer	False
+h.1295__enhancer__m.1167__enhancer	False
+h.1485__enhancer__m.1310__enhancer	False
+h.1296__enhancer__m.1168__enhancer	False
+h.1486__enhancer__m.1311__enhancer	False
+h.1297__enhancer__m.1169__enhancer	False
+h.1487__enhancer__m.1312__enhancer	False
+h.1298__enhancer__m.1170__enhancer	False
+h.1488__enhancer__m.1313__enhancer	False
+h.1299__enhancer__m.1171__enhancer	False
+h.1489__enhancer__m.1314__enhancer	False
+h.1300__enhancer__m.1172__enhancer	False
+h.1490__enhancer__m.1172__enhancer	False
+h.1301__enhancer__m.1173__enhancer	False
+h.1491__enhancer__m.1315__enhancer	False
+h.1492__enhancer__m.1174__enhancer	False
+h.1303__enhancer__m.1175__enhancer	False
+h.1493__enhancer__m.1316__enhancer	False
+h.1304__enhancer__m.1176__enhancer	False
+h.1494__enhancer__m.1176__enhancer	False
+h.1305__enhancer__m.1177__enhancer	False
+h.1495__enhancer__m.1177__enhancer	False
+h.1306__enhancer__m.1178__enhancer	False
+h.1496__enhancer__m.1317__enhancer	False
+h.1307__enhancer__m.1179__enhancer	False
+h.1497__enhancer__m.1318__enhancer	False
+h.1308__enhancer__m.1180__enhancer	False
+h.1498__enhancer__m.1180__enhancer	False
+h.1309__enhancer__m.1181__enhancer	False
+h.1499__enhancer__m.1319__enhancer	False
+h.1310__enhancer__m.1182__enhancer	False
+h.1500__enhancer__m.1320__enhancer	False
+h.1311__enhancer__m.1183__enhancer	False
+h.1501__enhancer__m.1183__enhancer	False
+h.1312__enhancer__m.1184__enhancer	False
+h.1502__enhancer__m.1184__enhancer	False
+h.1313__enhancer__m.1185__enhancer	False
+h.1503__enhancer__m.1321__enhancer	False
+h.1314__enhancer__m.1186__enhancer	False
+h.1504__enhancer__m.1322__enhancer	False
+h.1315__enhancer__m.1187__enhancer	False
+h.1505__enhancer__m.1323__enhancer	False
+h.1316__enhancer__m.1188__enhancer	False
+h.1506__enhancer__m.1188__enhancer	False
+h.1317__enhancer__m.1189__enhancer	False
+h.1507__enhancer__m.1324__enhancer	False
+h.1318__enhancer__m.1190__enhancer	False
+h.1508__enhancer__m.1190__enhancer	False
+h.1319__enhancer__m.1191__enhancer	False
+h.1509__enhancer__m.1191__enhancer	False
+h.1320__enhancer__m.1192__enhancer	False
+h.1510__enhancer__m.1325__enhancer	False
+h.1321__enhancer__m.1193__enhancer	False
+h.1511__enhancer__m.1326__enhancer	False
+h.1322__enhancer__m.1194__enhancer	False
+h.1512__enhancer__m.1327__enhancer	False
+h.1323__enhancer__m.1195__enhancer	False
+h.1513__enhancer__m.1328__enhancer	False
+h.1324__enhancer__m.1196__enhancer	False
+h.1514__enhancer__m.1196__enhancer	False
+h.1325__enhancer__m.1197__enhancer	False
+h.1515__enhancer__m.1329__enhancer	False
+h.1326__enhancer__m.1198__enhancer	False
+h.1516__enhancer__m.1330__enhancer	False
+h.1327__enhancer__m.1199__enhancer	False
+h.1517__enhancer__m.1331__enhancer	False
+h.1328__enhancer__m.1200__enhancer	False
+h.1329__enhancer__m.1201__enhancer	False
+h.1519__enhancer__m.1333__enhancer	False
+h.1330__enhancer__m.1202__enhancer	False
+h.1520__enhancer__m.1202__enhancer	False
+h.1331__enhancer__m.1203__enhancer	False
+h.1521__enhancer__m.1203__enhancer	False
+h.1332__enhancer__m.1204__enhancer	False
+h.1522__enhancer__m.1334__enhancer	False
+h.1333__enhancer__m.1205__enhancer	False
+h.1523__enhancer__m.1335__enhancer	False
+h.1524__antisense__m.1336__no cage activity	False
+h.1525__antisense_upep__m.1337__no cage activity	False
+h.1526__antisense__m.1338__no cage activity	False
+h.1527__antisense_upep__m.1339__no cage activity	False
+h.1528__antisense__m.1340__no cage activity	False
+h.1529__antisense__m.1341__no cage activity	False
+h.1530__antisense__m.1342__no cage activity	False
+h.1531__antisense__m.1343__no cage activity	False
+h.1532__antisense_upep__m.1344__no cage activity	False
+h.1533__antisense__m.1345__no cage activity	False
+h.1534__antisense__m.1346__no cage activity	False
+h.1535__antisense__m.1347__no cage activity	False
+h.1536__antisense__m.1348__no cage activity	False
+h.1537__antisense_upep__m.1349__no cage activity	False
+h.1538__antisense_upep__m.1350__no cage activity	False
+h.1539__antisense__m.1351__no cage activity	False
+h.1540__antisense__m.1352__no cage activity	False
+h.1541__antisense__m.1353__no cage activity	False
+h.1542__antisense_upep__m.1354__no cage activity	False
+h.1543__antisense_upep__m.1355__no cage activity	False
+h.1544__antisense_upep__m.1356__no cage activity	False
+h.1545__antisense_upep__m.1357__no cage activity	False
+h.1546__antisense__m.1358__no cage activity	False
+h.1547__antisense__m.1359__no cage activity	False
+h.1548__antisense__m.1360__no cage activity	False
+h.1549__antisense_upep__m.1361__no cage activity	False
+h.1550__antisense_upep__m.1362__no cage activity	False
+h.1551__antisense__m.1363__no cage activity	False
+h.1552__antisense__m.1364__no cage activity	False
+h.1553__antisense__m.1365__no cage activity	False
+h.1554__antisense__m.1366__no cage activity	False
+h.1555__antisense_upep__m.1367__no cage activity	False
+h.1556__antisense__m.1368__no cage activity	False
+h.1557__antisense_upep__m.1369__no cage activity	False
+h.1558__antisense_upep__m.1370__no cage activity	False
+h.1559__antisense__m.1371__no cage activity	False
+h.1560__antisense__m.1372__no cage activity	False
+h.1561__antisense__m.1373__no cage activity	False
+h.1563__antisense_upep__m.1375__no cage activity	False
+h.1564__antisense_upep__m.1376__no cage activity	False
+h.1565__antisense__m.1377__no cage activity	False
+h.1566__antisense_upep__m.1378__no cage activity	False
+h.1567__antisense__m.1379__no cage activity	False
+h.1568__antisense__m.1380__no cage activity	False
+h.1569__antisense_upep__m.1381__no cage activity	False
+h.1570__antisense__m.1382__no cage activity	False
+h.1571__antisense__m.1383__no cage activity	False
+h.1572__antisense__m.1384__no cage activity	False
+h.1573__antisense__m.1385__no cage activity	False
+h.1574__antisense__m.1386__no cage activity	False
+h.1575__antisense__m.1387__no cage activity	False
+h.1576__antisense_upep__m.1388__no cage activity	False
+h.1577__antisense__m.1389__no cage activity	False
+h.1579__antisense__m.1391__no cage activity	False
+h.1580__antisense_upep__m.1392__no cage activity	False
+h.1581__antisense_upep__m.1393__no cage activity	False
+h.1582__antisense__m.1394__no cage activity	False
+h.1584__antisense__m.1396__no cage activity	False
+h.1585__antisense__m.1397__no cage activity	False
+h.1586__antisense_upep__m.1398__no cage activity	False
+h.1587__antisense__m.1399__no cage activity	False
+h.1588__antisense__m.1400__no cage activity	False
+h.1590__antisense__m.1402__no cage activity	False
+h.1591__antisense__m.1403__no cage activity	False
+h.1592__antisense__m.1404__no cage activity	False
+h.1593__antisense__m.1405__no cage activity	False
+h.1594__antisense__m.1406__no cage activity	False
+h.1595__antisense__m.1407__no cage activity	False
+h.1596__antisense__m.1408__no cage activity	False
+h.1597__antisense_upep__m.1409__no cage activity	False
+h.1598__antisense__m.1410__no cage activity	False
+h.1599__antisense__m.1411__no cage activity	False
+h.1600__antisense_upep__m.1412__no cage activity	False
+h.1601__antisense_upep__m.1413__no cage activity	False
+h.1602__antisense__m.1414__no cage activity	False
+h.1603__antisense__m.1415__no cage activity	False
+h.1604__antisense_upep__m.1416__no cage activity	False
+h.1605__antisense__m.1417__no cage activity	False
+h.1606__antisense_upep__m.1418__no cage activity	False
+h.1607__antisense__m.1419__no cage activity	False
+h.1608__antisense__m.1420__no cage activity	False
+h.1609__antisense_upep__m.1421__no cage activity	False
+h.1610__antisense__m.1422__no cage activity	False
+h.1611__antisense__m.1423__no cage activity	False
+h.1612__antisense__m.1424__no cage activity	False
+h.1613__antisense__m.1425__no cage activity	False
+h.1614__antisense__m.1426__no cage activity	False
+h.1616__antisense__m.1428__no cage activity	False
+h.1617__antisense__m.1429__no cage activity	False
+h.1620__antisense__m.1432__no cage activity	False
+h.1621__antisense_upep__m.1433__no cage activity	False
+h.1622__antisense_upep__m.1434__no cage activity	False
+h.1625__antisense__m.1437__no cage activity	False
+h.1626__antisense__m.1438__no cage activity	False
+h.1627__antisense__m.1439__no cage activity	False
+h.1629__antisense__m.1441__no cage activity	False
+h.1630__antisense_upep__m.1442__no cage activity	False
+h.1631__antisense_upep__m.1443__no cage activity	False
+h.1632__antisense__m.1444__no cage activity	False
+h.1633__antisense__m.1445__no cage activity	False
+h.1634__antisense__m.1446__no cage activity	False
+h.1637__antisense__m.1449__no cage activity	False
+h.1638__antisense__m.1450__no cage activity	False
+h.1639__antisense__m.1451__no cage activity	False
+h.1640__antisense__m.1452__no cage activity	False
+h.1641__antisense__m.1453__no cage activity	False
+h.1643__antisense__m.1455__no cage activity	False
+h.1645__antisense__m.1457__no cage activity	False
+h.1646__antisense__m.1458__no cage activity	False
+h.1647__antisense__m.1459__no cage activity	False
+h.1648__antisense__m.1460__no cage activity	False
+h.1649__antisense__m.1461__no cage activity	False
+h.1650__antisense__m.1462__no cage activity	False
+h.1652__antisense__m.1464__no cage activity	False
+h.1653__antisense_upep__m.1465__no cage activity	False
+h.1654__antisense__m.1466__no cage activity	False
+h.1656__antisense__m.1468__no cage activity	False
+h.1657__antisense__m.1469__no cage activity	False
+h.1658__antisense__m.1470__no cage activity	False
+h.1659__antisense__m.1471__no cage activity	False
+h.1660__antisense__m.1472__no cage activity	False
+h.1661__antisense__m.1473__no cage activity	False
+h.1662__antisense_upep__m.1474__no cage activity	False
+h.1663__antisense__m.1475__no cage activity	False
+h.1664__antisense__m.1476__no cage activity	False
+h.1665__antisense__m.1477__no cage activity	False
+h.1666__antisense_upep__m.1478__no cage activity	False
+h.1667__antisense_upep__m.1479__no cage activity	False
+h.1668__antisense__m.1480__no cage activity	False
+h.1669__antisense_upep__m.1481__no cage activity	False
+h.1670__antisense_upep__m.1482__no cage activity	False
+h.1671__antisense_upep__m.1483__no cage activity	False
+h.1672__antisense__m.1484__no cage activity	False
+h.1673__antisense__m.1485__no cage activity	False
+h.1674__antisense__m.1486__no cage activity	False
+h.1675__antisense__m.1487__no cage activity	False
+h.1677__antisense__m.1489__no cage activity	False
+h.1678__antisense__m.1490__no cage activity	False
+h.1679__antisense__m.1491__no cage activity	False
+h.1681__antisense_upep__m.1493__no cage activity	False
+h.1682__antisense__m.1494__no cage activity	False
+h.1683__antisense_upep__m.1495__no cage activity	False
+h.1684__antisense__m.1496__no cage activity	False
+h.1685__antisense__m.1497__no cage activity	False
+h.1686__antisense__m.1498__no cage activity	False
+h.1687__antisense__m.1499__no cage activity	False
+h.1688__antisense_upep__m.1500__no cage activity	False
+h.1690__antisense__m.1502__no cage activity	False
+h.1691__antisense_upep__m.1503__no cage activity	False
+h.1692__antisense_upep__m.1504__no cage activity	False
+h.1693__antisense_upep__m.1505__no cage activity	False
+h.1694__antisense_upep__m.1506__no cage activity	False
+h.1695__antisense__m.1507__no cage activity	False
+h.1697__antisense_upep__m.1509__no cage activity	False
+h.1698__antisense__m.1510__no cage activity	False
+h.1699__antisense_upep__m.1511__no cage activity	False
+h.1700__antisense_upep__m.1512__no cage activity	False
+h.1701__antisense__m.1513__no cage activity	False
+h.1702__antisense_upep__m.1514__no cage activity	False
+h.1703__antisense__m.1515__no cage activity	False
+h.1705__antisense__m.1517__no cage activity	False
+h.1707__antisense__m.1519__no cage activity	False
+h.1708__antisense__m.1520__no cage activity	False
+h.1709__antisense__m.1521__no cage activity	False
+h.1710__antisense__m.1522__no cage activity	False
+h.1711__antisense__m.1523__no cage activity	False
+h.1712__antisense_upep__m.1524__no cage activity	False
+h.1713__antisense_upep__m.1525__no cage activity	False
+h.1715__antisense__m.1527__no cage activity	False
+h.1716__antisense__m.1528__no cage activity	False
+h.1717__antisense_upep__m.1529__no cage activity	False
+h.1718__antisense__m.1530__no cage activity	False
+h.1719__antisense__m.1531__no cage activity	False
+h.1720__antisense__m.1532__no cage activity	False
+h.1722__antisense__m.1534__no cage activity	False
+h.1723__antisense_upep__m.1535__no cage activity	False
+h.1725__div_lnc__m.1537__no cage activity	False
+h.1726__div_lnc__m.1538__no cage activity	False
+h.1727__div_lnc__m.1539__no cage activity	False
+h.1728__div_upep__m.1540__no cage activity	False
+h.1731__div_upep__m.1543__no cage activity	False
+h.1732__div_lnc__m.1544__no cage activity	False
+h.1733__div_lnc__m.1545__no cage activity	False
+h.1734__div_lnc__m.1546__no cage activity	False
+h.1735__div_lnc__m.1547__no cage activity	False
+h.1736__div_lnc__m.1548__no cage activity	False
+h.1737__div_lnc__m.1549__no cage activity	False
+h.1738__div_lnc__m.1550__no cage activity	False
+h.1739__div_lnc__m.1551__no cage activity	False
+h.1740__div_lnc__m.1552__no cage activity	False
+h.1741__div_lnc__m.1553__no cage activity	False
+h.1742__div_lnc__m.1554__no cage activity	False
+h.1743__div_lnc__m.1555__no cage activity	False
+h.1744__div_lnc__m.1556__no cage activity	False
+h.1746__div_upep__m.1558__no cage activity	False
+h.1747__div_lnc__m.1559__no cage activity	False
+h.1749__div_lnc__m.1561__no cage activity	False
+h.1750__div_lnc__m.1562__no cage activity	False
+h.1751__div_upep__m.1563__no cage activity	False
+h.1752__div_lnc__m.1564__no cage activity	False
+h.1753__div_lnc__m.1565__no cage activity	False
+h.1754__div_lnc__m.1566__no cage activity	False
+h.1755__div_lnc__m.1567__no cage activity	False
+h.1756__div_upep__m.1568__no cage activity	False
+h.1757__div_upep__m.1569__no cage activity	False
+h.1758__div_lnc__m.1570__no cage activity	False
+h.1759__div_upep__m.1571__no cage activity	False
+h.1760__div_lnc__m.1572__no cage activity	False
+h.1761__div_lnc__m.1573__no cage activity	False
+h.1764__div_upep__m.1576__no cage activity	False
+h.1766__div_lnc__m.1578__no cage activity	False
+h.1767__div_lnc__m.1579__no cage activity	False
+h.1768__div_upep__m.1580__no cage activity	False
+h.1769__div_lnc__m.1581__no cage activity	False
+h.1770__div_lnc__m.1582__no cage activity	False
+h.1771__div_lnc__m.1583__no cage activity	False
+h.1772__div_upep__m.1584__no cage activity	False
+h.1773__div_lnc__m.1585__no cage activity	False
+h.1774__div_lnc__m.1586__no cage activity	False
+h.1775__div_lnc__m.1587__no cage activity	False
+h.1776__div_upep__m.1588__no cage activity	False
+h.1777__div_upep__m.1589__no cage activity	False
+h.1779__div_lnc__m.1591__no cage activity	False
+h.1780__div_lnc__m.1592__no cage activity	False
+h.1781__div_upep__m.1593__no cage activity	False
+h.1782__div_lnc__m.1594__no cage activity	False
+h.1783__div_lnc__m.1595__no cage activity	False
+h.1784__div_lnc__m.1596__no cage activity	False
+h.1785__div_lnc__m.1597__no cage activity	False
+h.1786__div_lnc__m.1598__no cage activity	False
+h.1787__div_lnc__m.1599__no cage activity	False
+h.1788__div_lnc__m.1600__no cage activity	False
+h.1789__div_lnc__m.1601__no cage activity	False
+h.1790__div_lnc__m.1602__no cage activity	False
+h.1791__div_upep__m.1603__no cage activity	False
+h.1792__div_upep__m.1604__no cage activity	False
+h.1794__div_upep__m.1606__no cage activity	False
+h.1795__div_lnc__m.1607__no cage activity	False
+h.1796__div_lnc__m.1608__no cage activity	False
+h.1797__div_lnc__m.1609__no cage activity	False
+h.1798__div_upep__m.1610__no cage activity	False
+h.1801__div_lnc__m.1613__no cage activity	False
+h.1803__div_upep__m.1615__no cage activity	False
+h.1805__div_lnc__m.1617__no cage activity	False
+h.1806__div_lnc__m.1618__no cage activity	False
+h.1807__div_upep__m.1619__no cage activity	False
+h.1808__div_lnc__m.1620__no cage activity	False
+h.1809__div_lnc__m.1621__no cage activity	False
+h.1810__div_lnc__m.1622__no cage activity	False
+h.1811__div_lnc__m.1623__no cage activity	False
+h.1812__div_lnc__m.1624__no cage activity	False
+h.1813__div_lnc__m.1625__no cage activity	False
+h.1814__div_lnc__m.1626__no cage activity	False
+h.1816__div_lnc__m.1628__no cage activity	False
+h.1817__div_upep__m.1629__no cage activity	False
+h.1818__div_lnc__m.1630__no cage activity	False
+h.1820__div_lnc__m.1632__no cage activity	False
+h.1821__div_lnc__m.1633__no cage activity	False
+h.1822__div_lnc__m.1634__no cage activity	False
+h.1823__div_lnc__m.1635__no cage activity	False
+h.1824__div_upep__m.1636__no cage activity	False
+h.1825__div_lnc__m.1637__no cage activity	False
+h.1826__div_lnc__m.1638__no cage activity	False
+h.1827__div_lnc__m.1639__no cage activity	False
+h.1828__div_lnc__m.1640__no cage activity	False
+h.1830__div_lnc__m.1642__no cage activity	False
+h.1831__div_upep__m.1643__no cage activity	False
+h.1833__div_lnc__m.1645__no cage activity	False
+h.1834__div_lnc__m.1646__no cage activity	False
+h.1835__div_lnc__m.1647__no cage activity	False
+h.1836__div_lnc__m.1648__no cage activity	False
+h.1838__div_lnc__m.1650__no cage activity	False
+h.1839__div_lnc__m.1651__no cage activity	False
+h.1840__div_lnc__m.1652__no cage activity	False
+h.1841__div_lnc__m.1653__no cage activity	False
+h.1842__div_upep__m.1654__no cage activity	False
+h.1843__div_lnc__m.1655__no cage activity	False
+h.1844__div_lnc__m.1656__no cage activity	False
+h.1845__div_lnc__m.1657__no cage activity	False
+h.1846__div_upep__m.1658__no cage activity	False
+h.1848__div_lnc__m.1660__no cage activity	False
+h.1850__div_lnc__m.1662__no cage activity	False
+h.1851__div_lnc__m.1663__no cage activity	False
+h.1852__div_lnc__m.1664__no cage activity	False
+h.1853__div_upep__m.1665__no cage activity	False
+h.1854__div_lnc__m.1666__no cage activity	False
+h.1855__div_lnc__m.1667__no cage activity	False
+h.1856__div_lnc__m.1668__no cage activity	False
+h.1857__div_lnc__m.1669__no cage activity	False
+h.1858__div_lnc__m.1670__no cage activity	False
+h.1859__div_upep__m.1671__no cage activity	False
+h.1860__div_lnc__m.1672__no cage activity	False
+h.1861__div_lnc__m.1673__no cage activity	False
+h.1863__div_lnc__m.1675__no cage activity	False
+h.1864__div_lnc__m.1676__no cage activity	False
+h.1865__div_lnc__m.1677__no cage activity	False
+h.1866__div_upep__m.1678__no cage activity	False
+h.1867__div_upep__m.1679__no cage activity	False
+h.1868__div_lnc__m.1680__no cage activity	False
+h.1869__div_lnc__m.1681__no cage activity	False
+h.1870__div_lnc__m.1682__no cage activity	False
+h.1872__div_lnc__m.1684__no cage activity	False
+h.1874__div_lnc__m.1686__no cage activity	False
+h.1875__div_lnc__m.1687__no cage activity	False
+h.1877__div_lnc__m.1689__no cage activity	False
+h.1878__div_upep__m.1690__no cage activity	False
+h.1879__div_upep__m.1691__no cage activity	False
+h.1881__div_upep__m.1693__no cage activity	False
+h.1882__div_lnc__m.1694__no cage activity	False
+h.1883__div_lnc__m.1695__no cage activity	False
+h.1884__div_lnc__m.1696__no cage activity	False
+h.1885__div_lnc__m.1697__no cage activity	False
+h.1886__div_lnc__m.1698__no cage activity	False
+h.1887__div_lnc__m.1699__no cage activity	False
+h.1888__div_lnc__m.1700__no cage activity	False
+h.1889__div_lnc__m.1701__no cage activity	False
+h.1891__div_lnc__m.1703__no cage activity	False
+h.1893__div_lnc__m.1705__no cage activity	False
+h.1896__div_lnc__m.1708__no cage activity	False
+h.1897__div_upep__m.1709__no cage activity	False
+h.1898__div_lnc__m.1710__no cage activity	False
+h.1899__div_lnc__m.1711__no cage activity	False
+h.1900__div_lnc__m.1712__no cage activity	False
+h.1901__div_upep__m.1713__no cage activity	False
+h.1902__div_lnc__m.1714__no cage activity	False
+h.1903__div_lnc__m.1715__no cage activity	False
+h.1904__div_lnc__m.1716__no cage activity	False
+h.1905__div_lnc__m.1717__no cage activity	False
+h.1906__div_lnc__m.1718__no cage activity	False
+h.1907__div_lnc__m.1719__no cage activity	False
+h.1908__div_lnc__m.1720__no cage activity	False
+h.1909__div_lnc__m.1721__no cage activity	False
+h.1911__div_lnc__m.1723__no cage activity	False
+h.1912__div_upep__m.1724__no cage activity	False
+h.1913__div_lnc__m.1725__no cage activity	False
+h.1914__div_lnc__m.1726__no cage activity	False
+h.1915__div_lnc__m.1727__no cage activity	False
+h.1916__div_upep__m.1728__no cage activity	False
+h.1917__div_lnc__m.1729__no cage activity	False
+h.1918__div_lnc__m.1730__no cage activity	False
+h.1919__div_upep__m.1731__no cage activity	False
+h.1920__div_lnc__m.1732__no cage activity	False
+h.1921__div_upep__m.1733__no cage activity	False
+h.1922__div_lnc__m.1734__no cage activity	False
+h.1924__intergenic_upep__m.1736__no cage activity	False
+h.1925__intergenic__m.1737__no cage activity	False
+h.1926__intergenic_upep__m.1738__no cage activity	False
+h.1927__intergenic_upep__m.1739__no cage activity	False
+h.1928__intergenic__m.1740__no cage activity	False
+h.1929__intergenic__m.1741__no cage activity	False
+h.1931__intergenic__m.1743__no cage activity	False
+h.1932__intergenic__m.1744__no cage activity	False
+h.1933__intergenic__m.1745__no cage activity	False
+h.1935__div_lnc__m.1747__no cage activity	False
+h.1936__div_lnc__m.1748__no cage activity	False
+h.1937__intergenic__m.1749__no cage activity	False
+h.1938__intergenic__m.1750__no cage activity	False
+h.1939__intergenic__m.1751__no cage activity	False
+h.1940__intergenic__m.1752__no cage activity	False
+h.1941__intergenic__m.1753__no cage activity	False
+h.1942__div_lnc__m.1754__no cage activity	False
+h.1943__intergenic__m.1755__no cage activity	False
+h.1944__intergenic_upep__m.1756__no cage activity	False
+h.1945__intergenic_upep__m.1757__no cage activity	False
+h.1946__intergenic__m.1758__no cage activity	False
+h.1947__intergenic__m.1759__no cage activity	False
+h.1948__div_lnc__m.1760__no cage activity	False
+h.1949__intergenic__m.1761__no cage activity	False
+h.1950__intergenic__m.1762__no cage activity	False
+h.1951__intergenic__m.1763__no cage activity	False
+h.1952__div_upep__m.1764__no cage activity	False
+h.1953__div_lnc__m.1765__no cage activity	False
+h.1954__intergenic__m.1766__no cage activity	False
+h.1955__intergenic__m.1767__no cage activity	False
+h.1956__intergenic__m.1768__no cage activity	False
+h.1957__div_lnc__m.1769__no cage activity	False
+h.1958__intergenic__m.1770__no cage activity	False
+h.1959__intergenic__m.1771__no cage activity	False
+h.1961__intergenic__m.1773__no cage activity	False
+h.1962__intergenic_upep__m.1774__no cage activity	False
+h.1963__div_lnc__m.1775__no cage activity	False
+h.1964__intergenic__m.1776__no cage activity	False
+h.1965__div_lnc__m.1777__no cage activity	False
+h.1966__intergenic__m.1778__no cage activity	False
+h.1967__div_lnc__m.1779__no cage activity	False
+h.1968__intergenic_upep__m.1780__no cage activity	False
+h.1970__protein_coding__m.1782__no cage activity	False
+h.1971__protein_coding__m.1783__no cage activity	False
+h.1972__intergenic__m.1784__no cage activity	False
+h.1973__div_upep__m.1785__no cage activity	False
+h.1974__intergenic__m.1786__no cage activity	False
+h.1975__div_lnc__m.1787__no cage activity	False
+h.1976__intergenic__m.1788__no cage activity	False
+h.1977__intergenic__m.1789__no cage activity	False
+h.1978__intergenic__m.1790__no cage activity	False
+h.1979__intergenic_upep__m.1791__no cage activity	False
+h.1980__div_lnc__m.1792__no cage activity	False
+h.1982__intergenic__m.1794__no cage activity	False
+h.1983__intergenic_upep__m.1795__no cage activity	False
+h.1984__div_lnc__m.1796__no cage activity	False
+h.1985__intergenic__m.1797__no cage activity	False
+h.1986__intergenic__m.1798__no cage activity	False
+h.1987__intergenic__m.1799__no cage activity	False
+h.1988__intergenic__m.1800__no cage activity	False
+h.1989__intergenic__m.1801__no cage activity	False
+h.1990__intergenic__m.1802__no cage activity	False
+h.1993__intergenic__m.1805__no cage activity	False
+h.1994__intergenic__m.1806__no cage activity	False
+h.1995__intergenic_upep__m.1807__no cage activity	False
+h.1996__div_lnc__m.1808__no cage activity	False
+h.1998__intergenic__m.1810__no cage activity	False
+h.1999__intergenic__m.1811__no cage activity	False
+h.2000__intergenic__m.1812__no cage activity	False
+h.2001__intergenic__m.1813__no cage activity	False
+h.2002__intergenic__m.1814__no cage activity	False
+h.2003__intergenic__m.1815__no cage activity	False
+h.2005__intergenic__m.1817__no cage activity	False
+h.2006__intergenic__m.1818__no cage activity	False
+h.2007__intergenic__m.1819__no cage activity	False
+h.2008__intergenic__m.1820__no cage activity	False
+h.2009__div_lnc__m.1821__no cage activity	False
+h.2010__intergenic_upep__m.1822__no cage activity	False
+h.2011__intergenic__m.1823__no cage activity	False
+h.2012__intergenic__m.1824__no cage activity	False
+h.2013__div_lnc__m.1825__no cage activity	False
+h.2014__div_lnc__m.1826__no cage activity	False
+h.2016__intergenic_upep__m.1828__no cage activity	False
+h.2017__intergenic_upep__m.1829__no cage activity	False
+h.2018__intergenic__m.1830__no cage activity	False
+h.2019__intergenic__m.1831__no cage activity	False
+h.2020__intergenic__m.1832__no cage activity	False
+h.2021__intergenic__m.1833__no cage activity	False
+h.2022__intergenic_upep__m.1834__no cage activity	False
+h.2023__intergenic_upep__m.1835__no cage activity	False
+h.2024__intergenic__m.1836__no cage activity	False
+h.2025__intergenic__m.1837__no cage activity	False
+h.2026__intergenic__m.1838__no cage activity	False
+h.2027__intergenic__m.1839__no cage activity	False
+h.2028__div_lnc__m.1840__no cage activity	False
+h.2029__intergenic_upep__m.1841__no cage activity	False
+h.2030__intergenic__m.1842__no cage activity	False
+h.2031__intergenic__m.1843__no cage activity	False
+h.2033__intergenic__m.1845__no cage activity	False
+h.2034__intergenic__m.1846__no cage activity	False
+h.2035__intergenic__m.1847__no cage activity	False
+h.2036__intergenic_upep__m.1848__no cage activity	False
+h.2037__div_lnc__m.1849__no cage activity	False
+h.2038__div_lnc__m.1850__no cage activity	False
+h.2039__intergenic__m.1851__no cage activity	False
+h.2040__intergenic__m.1852__no cage activity	False
+h.2041__intergenic__m.1853__no cage activity	False
+h.2042__intergenic_upep__m.1854__no cage activity	False
+h.2043__intergenic__m.1855__no cage activity	False
+h.2045__intergenic__m.1857__no cage activity	False
+h.2046__intergenic__m.1858__no cage activity	False
+h.2047__div_lnc__m.1859__no cage activity	False
+h.2048__intergenic__m.1860__no cage activity	False
+h.2050__intergenic__m.1862__no cage activity	False
+h.2051__intergenic__m.1863__no cage activity	False
+h.2052__div_lnc__m.1864__no cage activity	False
+h.2053__intergenic_upep__m.1865__no cage activity	False
+h.2054__intergenic__m.1866__no cage activity	False
+h.2055__intergenic__m.1867__no cage activity	False
+h.2056__intergenic__m.1868__no cage activity	False
+h.2057__div_lnc__m.1869__no cage activity	False
+h.2058__intergenic__m.1870__no cage activity	False
+h.2059__intergenic__m.1871__no cage activity	False
+h.2060__intergenic__m.1872__no cage activity	False
+h.2061__div_lnc__m.1873__no cage activity	False
+h.2062__intergenic__m.1874__no cage activity	False
+h.2063__intergenic__m.1875__no cage activity	False
+h.2065__intergenic__m.1877__no cage activity	False
+h.2066__intergenic__m.1878__no cage activity	False
+h.2067__intergenic__m.1879__no cage activity	False
+h.2068__intergenic__m.1880__no cage activity	False
+h.2069__intergenic_upep__m.1881__no cage activity	False
+h.2070__intergenic__m.1882__no cage activity	False
+h.2071__intergenic__m.1883__no cage activity	False
+h.2073__intergenic__m.1885__no cage activity	False
+h.2076__intergenic__m.1888__no cage activity	False
+h.2077__intergenic__m.1889__no cage activity	False
+h.2078__intergenic_upep__m.1890__no cage activity	False
+h.2079__intergenic__m.1891__no cage activity	False
+h.2080__intergenic__m.1892__no cage activity	False
+h.2081__intergenic__m.1893__no cage activity	False
+h.2082__intergenic_upep__m.1894__no cage activity	False
+h.2084__intergenic__m.1896__no cage activity	False
+h.2086__intergenic__m.1898__no cage activity	False
+h.2087__div_lnc__m.1899__no cage activity	False
+h.2088__intergenic__m.1900__no cage activity	False
+h.2089__intergenic__m.1901__no cage activity	False
+h.2090__intergenic__m.1902__no cage activity	False
+h.2091__intergenic_upep__m.1903__no cage activity	False
+h.2094__intergenic__m.1906__no cage activity	False
+h.2095__intergenic__m.1907__no cage activity	False
+h.2096__intergenic__m.1908__no cage activity	False
+h.2097__intergenic__m.1909__no cage activity	False
+h.2098__intergenic__m.1910__no cage activity	False
+h.2099__div_upep__m.1911__no cage activity	False
+h.2100__intergenic__m.1912__no cage activity	False
+h.2101__intergenic__m.1913__no cage activity	False
+h.2102__intergenic_upep__m.1914__no cage activity	False
+h.2103__div_lnc__m.1915__no cage activity	False
+h.2104__intergenic__m.1916__no cage activity	False
+h.2105__intergenic_upep__m.1917__no cage activity	False
+h.2108__intergenic__m.1920__no cage activity	False
+h.2109__intergenic_upep__m.1921__no cage activity	False
+h.2110__intergenic__m.1922__no cage activity	False
+h.2111__intergenic__m.1923__no cage activity	False
+h.2112__intergenic__m.1924__no cage activity	False
+h.2113__div_lnc__m.1925__no cage activity	False
+h.2114__div_upep__m.1926__no cage activity	False
+h.2115__intergenic__m.1927__no cage activity	False
+h.2116__intergenic__m.1928__no cage activity	False
+h.2118__intergenic__m.1930__no cage activity	False
+h.2119__intergenic__m.1931__no cage activity	False
+h.2120__intergenic__m.1932__no cage activity	False
+h.2121__intergenic__m.1933__no cage activity	False
+h.2123__intergenic__m.1935__no cage activity	False
+h.2124__intergenic__m.1936__no cage activity	False
+h.2125__intergenic__m.1937__no cage activity	False
+h.2126__intergenic__m.1938__no cage activity	False
+h.2127__intergenic__m.1939__no cage activity	False
+h.2128__intergenic__m.1940__no cage activity	False
+h.2129__intergenic__m.1941__no cage activity	False
+h.2130__protein_coding__m.1942__no cage activity	False
+h.2131__intergenic__m.1943__no cage activity	False
+h.2132__intergenic__m.1944__no cage activity	False
+h.2133__intergenic__m.1945__no cage activity	False
+h.2134__intergenic__m.1946__no cage activity	False
+h.2135__intergenic_upep__m.1947__no cage activity	False
+h.2136__div_upep__m.1948__no cage activity	False
+h.2137__intergenic_upep__m.1949__no cage activity	False
+h.2138__intergenic__m.1950__no cage activity	False
+h.2139__intergenic__m.1951__no cage activity	False
+h.2140__div_lnc__m.1952__no cage activity	False
+h.2141__intergenic__m.1953__no cage activity	False
+h.2142__intergenic_upep__m.1954__no cage activity	False
+h.2143__intergenic__m.1955__no cage activity	False
+h.2144__intergenic__m.1956__no cage activity	False
+h.2145__intergenic__m.1957__no cage activity	False
+h.2146__intergenic__m.1958__no cage activity	False
+h.2147__intergenic__m.1959__no cage activity	False
+h.2148__protein_coding__m.1960__no cage activity	False
+h.2149__intergenic__m.1961__no cage activity	False
+h.2150__intergenic__m.1962__no cage activity	False
+h.2151__intergenic__m.1963__no cage activity	False
+h.2153__intergenic_upep__m.1965__no cage activity	False
+h.2154__intergenic__m.1966__no cage activity	False
+h.2155__intergenic__m.1967__no cage activity	False
+h.2156__intergenic__m.1968__no cage activity	False
+h.2157__intergenic__m.1969__no cage activity	False
+h.2158__intergenic__m.1970__no cage activity	False
+h.2159__div_lnc__m.1971__no cage activity	False
+h.2160__intergenic_upep__m.1972__no cage activity	False
+h.2161__intergenic__m.1973__no cage activity	False
+h.2163__intergenic__m.1975__no cage activity	False
+h.2164__div_lnc__m.1976__no cage activity	False
+h.2166__intergenic__m.1978__no cage activity	False
+h.2167__div_lnc__m.1979__no cage activity	False
+h.2168__protein_coding__m.1980__no cage activity	False
+h.2169__intergenic__m.1981__no cage activity	False
+h.2170__intergenic__m.1982__no cage activity	False
+h.2171__intergenic__m.1983__no cage activity	False
+h.2173__intergenic__m.1985__no cage activity	False
+h.2174__div_pc__m.1986__no cage activity	False
+h.2175__intergenic__m.1987__no cage activity	False
+h.2176__intergenic__m.1988__no cage activity	False
+h.2177__intergenic_upep__m.1989__no cage activity	False
+h.2178__intergenic__m.1990__no cage activity	False
+h.2179__intergenic_upep__m.1991__no cage activity	False
+h.2180__intergenic__m.1992__no cage activity	False
+h.2182__intergenic__m.1994__no cage activity	False
+h.2183__intergenic__m.1995__no cage activity	False
+h.2184__intergenic__m.1996__no cage activity	False
+h.2185__intergenic_upep__m.1997__no cage activity	False
+h.2186__intergenic__m.1998__no cage activity	False
+h.2187__intergenic__m.1999__no cage activity	False
+h.2188__intergenic_upep__m.2000__no cage activity	False
+h.2189__div_lnc__m.2001__no cage activity	False
+h.2190__intergenic__m.2002__no cage activity	False
+h.2191__intergenic__m.2003__no cage activity	False
+h.2193__intergenic__m.2005__no cage activity	False
+h.2194__div_lnc__m.2006__no cage activity	False
+h.2195__intergenic__m.2007__no cage activity	False
+h.2196__intergenic__m.2008__no cage activity	False
+h.2197__div_lnc__m.2009__no cage activity	False
+h.2199__intergenic__m.2011__no cage activity	False
+h.2200__intergenic__m.2012__no cage activity	False
+h.2201__intergenic__m.2013__no cage activity	False
+h.2202__intergenic__m.2014__no cage activity	False
+h.2203__intergenic__m.2015__no cage activity	False
+h.2204__intergenic_upep__m.2016__no cage activity	False
+h.2206__intergenic__m.2018__no cage activity	False
+h.2207__intergenic_upep__m.2019__no cage activity	False
+h.2208__intergenic__m.2020__no cage activity	False
+h.2210__intergenic__m.2022__no cage activity	False
+h.2211__intergenic__m.2023__no cage activity	False
+h.2212__intergenic__m.2024__no cage activity	False
+h.2213__intergenic_upep__m.2025__no cage activity	False
+h.2214__intergenic__m.2026__no cage activity	False
+h.2215__div_lnc__m.2027__no cage activity	False
+h.2216__intergenic__m.2028__no cage activity	False
+h.2220__intergenic__m.2032__no cage activity	False
+h.2221__intergenic__m.2033__no cage activity	False
+h.2224__intergenic__m.2036__no cage activity	False
+h.2225__intergenic__m.2037__no cage activity	False
+h.2226__protein_coding__m.2038__no cage activity	False
+h.2227__intergenic__m.2039__no cage activity	False
+h.2228__protein_coding__m.2040__no cage activity	False
+h.2229__protein_coding__m.2041__no cage activity	False
+h.2230__protein_coding__m.2042__no cage activity	False
+h.2231__protein_coding__m.2043__no cage activity	False
+h.2232__protein_coding__m.2044__no cage activity	False
+h.2233__div_pc__m.2045__no cage activity	False
+h.2234__protein_coding__m.2046__no cage activity	False
+h.2235__protein_coding__m.2047__no cage activity	False
+h.2236__protein_coding__m.2048__no cage activity	False
+h.2237__protein_coding__m.2049__no cage activity	False
+h.2238__div_pc__m.2050__no cage activity	False
+h.2240__protein_coding__m.2052__no cage activity	False
+h.2241__protein_coding__m.2053__no cage activity	False
+h.2242__div_pc__m.2054__no cage activity	False
+h.2243__protein_coding__m.2055__no cage activity	False
+h.2244__protein_coding__m.2056__no cage activity	False
+h.2245__protein_coding__m.2057__no cage activity	False
+h.2247__protein_coding__m.2059__no cage activity	False
+h.2248__protein_coding__m.2060__no cage activity	False
+h.2249__protein_coding__m.2061__no cage activity	False
+h.2250__protein_coding__m.2062__no cage activity	False
+h.2251__protein_coding__m.2063__no cage activity	False
+h.2252__div_pc__m.2064__no cage activity	False
+h.2253__div_pc__m.2065__no cage activity	False
+h.2254__div_pc__m.2066__no cage activity	False
+h.2256__protein_coding__m.2068__no cage activity	False
+h.2258__div_pc__m.2070__no cage activity	False
+h.2259__div_pc__m.2071__no cage activity	False
+h.2261__protein_coding__m.2073__no cage activity	False
+h.2262__protein_coding__m.2074__no cage activity	False
+h.2263__div_pc__m.2075__no cage activity	False
+h.2264__div_pc__m.2076__no cage activity	False
+h.2265__protein_coding__m.2077__no cage activity	False
+h.2267__protein_coding__m.2079__no cage activity	False
+h.2268__protein_coding__m.2080__no cage activity	False
+h.2269__div_pc__m.2081__no cage activity	False
+h.2270__div_pc__m.2082__no cage activity	False
+h.2271__protein_coding__m.2083__no cage activity	False
+h.2272__protein_coding__m.2084__no cage activity	False
+h.2273__protein_coding__m.2085__no cage activity	False
+h.2274__protein_coding__m.2086__no cage activity	False
+h.2275__div_pc__m.2087__no cage activity	False
+h.2276__protein_coding__m.2088__no cage activity	False
+h.2277__protein_coding__m.2089__no cage activity	False
+h.2278__protein_coding__m.2090__no cage activity	False
+h.2280__protein_coding__m.2092__no cage activity	False
+h.2281__protein_coding__m.2093__no cage activity	False
+h.2282__protein_coding__m.2094__no cage activity	False
+h.2283__protein_coding__m.2095__no cage activity	False
+h.2284__div_pc__m.2096__no cage activity	False
+h.2285__protein_coding__m.2097__no cage activity	False
+h.2288__protein_coding__m.2100__no cage activity	False
+h.2289__protein_coding__m.2101__no cage activity	False
+h.2291__div_pc__m.2103__no cage activity	False
+h.2292__div_pc__m.2104__no cage activity	False
+h.2293__protein_coding__m.2105__no cage activity	False
+h.2295__protein_coding__m.2107__no cage activity	False
+h.2296__protein_coding__m.2108__no cage activity	False
+h.2297__protein_coding__m.2109__no cage activity	False
+h.2298__protein_coding__m.2110__no cage activity	False
+h.2301__protein_coding__m.2113__no cage activity	False
+h.2302__div_pc__m.2114__no cage activity	False
+h.2303__protein_coding__m.2115__no cage activity	False
+h.2305__protein_coding__m.2117__no cage activity	False
+h.2306__protein_coding__m.2118__no cage activity	False
+h.2307__div_pc__m.2119__no cage activity	False
+h.2308__div_pc__m.2120__no cage activity	False
+h.2309__protein_coding__m.2121__no cage activity	False
+h.2310__protein_coding__m.2122__no cage activity	False
+h.2312__protein_coding__m.2124__no cage activity	False
+h.2313__div_pc__m.2125__no cage activity	False
+h.2314__div_pc__m.2126__no cage activity	False
+h.2315__div_pc__m.2127__no cage activity	False
+h.2316__protein_coding__m.2128__no cage activity	False
+h.2317__protein_coding__m.2129__no cage activity	False
+h.2318__div_pc__m.2130__no cage activity	False
+h.2319__div_pc__m.2131__no cage activity	False
+h.2320__protein_coding__m.2132__no cage activity	False
+h.2321__protein_coding__m.2133__no cage activity	False
+h.2322__protein_coding__m.2134__no cage activity	False
+h.2323__div_pc__m.2135__no cage activity	False
+h.2324__protein_coding__m.2136__no cage activity	False
+h.2325__protein_coding__m.2137__no cage activity	False
+h.2327__div_pc__m.2139__no cage activity	False
+h.2328__protein_coding__m.2140__no cage activity	False
+h.2329__protein_coding__m.2141__no cage activity	False
+h.2330__protein_coding__m.2142__no cage activity	False
+h.2331__protein_coding__m.2143__no cage activity	False
+h.2332__div_pc__m.2144__no cage activity	False
+h.2333__div_pc__m.2145__no cage activity	False
+h.2334__protein_coding__m.2146__no cage activity	False
+h.2336__protein_coding__m.2148__no cage activity	False
+h.2337__protein_coding__m.2149__no cage activity	False
+h.2338__protein_coding__m.2150__no cage activity	False
+h.2339__protein_coding__m.2151__no cage activity	False
+h.2340__protein_coding__m.2152__no cage activity	False
+h.2343__protein_coding__m.2155__no cage activity	False
+h.2344__protein_coding__m.2156__no cage activity	False
+h.2345__protein_coding__m.2157__no cage activity	False
+h.2346__protein_coding__m.2158__no cage activity	False
+h.2347__protein_coding__m.2159__no cage activity	False
+h.2348__div_pc__m.2160__no cage activity	False
+h.2349__protein_coding__m.2161__no cage activity	False
+h.2351__div_pc__m.2163__no cage activity	False
+h.2352__div_pc__m.2164__no cage activity	False
+h.2353__protein_coding__m.2165__no cage activity	False
+h.2355__protein_coding__m.2167__no cage activity	False
+h.2357__protein_coding__m.2169__no cage activity	False
+h.2358__div_pc__m.2170__no cage activity	False
+h.2360__div_pc__m.2172__no cage activity	False
+h.2361__div_pc__m.2173__no cage activity	False
+h.2362__div_pc__m.2174__no cage activity	False
+h.2363__protein_coding__m.2175__no cage activity	False
+h.2364__protein_coding__m.2176__no cage activity	False
+h.2365__protein_coding__m.2177__no cage activity	False
+h.2366__protein_coding__m.2178__no cage activity	False
+h.2367__protein_coding__m.2179__no cage activity	False
+h.2368__protein_coding__m.2180__no cage activity	False
+h.2369__protein_coding__m.2181__no cage activity	False
+h.2370__protein_coding__m.2182__no cage activity	False
+h.2371__protein_coding__m.2183__no cage activity	False
+h.2372__protein_coding__m.2184__no cage activity	False
+h.2373__protein_coding__m.2185__no cage activity	False
+h.2374__div_pc__m.2186__no cage activity	False
+h.2378__enhancer__m.2190__no cage activity	False
+h.2478__enhancer__m.2290__no cage activity	False
+h.2479__enhancer__m.2291__no cage activity	False
+h.2380__enhancer__m.2192__no cage activity	False
+h.2480__enhancer__m.2292__no cage activity	False
+h.2381__enhancer__m.2193__no cage activity	False
+h.2481__enhancer__m.2293__no cage activity	False
+h.2382__enhancer__m.2194__no cage activity	False
+h.2482__enhancer__m.2294__no cage activity	False
+h.2383__enhancer__m.2195__no cage activity	False
+h.2483__enhancer__m.2295__no cage activity	False
+h.2384__enhancer__m.2196__no cage activity	False
+h.2484__enhancer__m.2296__no cage activity	False
+h.2385__enhancer__m.2197__no cage activity	False
+h.2485__enhancer__m.2297__no cage activity	False
+h.2386__enhancer__m.2198__no cage activity	False
+h.2486__enhancer__m.2298__no cage activity	False
+h.2387__enhancer__m.2199__no cage activity	False
+h.2487__enhancer__m.2299__no cage activity	False
+h.2388__enhancer__m.2200__no cage activity	False
+h.2488__enhancer__m.2300__no cage activity	False
+h.2389__enhancer__m.2201__no cage activity	False
+h.2489__enhancer__m.2301__no cage activity	False
+h.2390__enhancer__m.2202__no cage activity	False
+h.2490__enhancer__m.2302__no cage activity	False
+h.2391__enhancer__m.2203__no cage activity	False
+h.2491__enhancer__m.2303__no cage activity	False
+h.2392__enhancer__m.2204__no cage activity	False
+h.2492__enhancer__m.2304__no cage activity	False
+h.2393__enhancer__m.2205__no cage activity	False
+h.2493__enhancer__m.2305__no cage activity	False
+h.2394__enhancer__m.2206__no cage activity	False
+h.2494__enhancer__m.2306__no cage activity	False
+h.2395__enhancer__m.2207__no cage activity	False
+h.2495__enhancer__m.2307__no cage activity	False
+h.2396__enhancer__m.2208__no cage activity	False
+h.2496__enhancer__m.2308__no cage activity	False
+h.2397__enhancer__m.2209__no cage activity	False
+h.2497__enhancer__m.2309__no cage activity	False
+h.2398__enhancer__m.2210__no cage activity	False
+h.2498__enhancer__m.2310__no cage activity	False
+h.2399__enhancer__m.2211__no cage activity	False
+h.2499__enhancer__m.2311__no cage activity	False
+h.2400__enhancer__m.2212__no cage activity	False
+h.2500__enhancer__m.2312__no cage activity	False
+h.2401__enhancer__m.2213__no cage activity	False
+h.2501__enhancer__m.2313__no cage activity	False
+h.2402__enhancer__m.2214__no cage activity	False
+h.2403__enhancer__m.2215__no cage activity	False
+h.2503__enhancer__m.2315__no cage activity	False
+h.2404__enhancer__m.2216__no cage activity	False
+h.2504__enhancer__m.2316__no cage activity	False
+h.2405__enhancer__m.2217__no cage activity	False
+h.2505__enhancer__m.2317__no cage activity	False
+h.2406__enhancer__m.2218__no cage activity	False
+h.2506__enhancer__m.2318__no cage activity	False
+h.2507__enhancer__m.2319__no cage activity	False
+h.2408__enhancer__m.2220__no cage activity	False
+h.2508__enhancer__m.2320__no cage activity	False
+h.2409__enhancer__m.2221__no cage activity	False
+h.2509__enhancer__m.2321__no cage activity	False
+h.2410__enhancer__m.2222__no cage activity	False
+h.2510__enhancer__m.2322__no cage activity	False
+h.2411__enhancer__m.2223__no cage activity	False
+h.2511__enhancer__m.2323__no cage activity	False
+h.2412__enhancer__m.2224__no cage activity	False
+h.2512__enhancer__m.2324__no cage activity	False
+h.2413__enhancer__m.2225__no cage activity	False
+h.2513__enhancer__m.2325__no cage activity	False
+h.2414__enhancer__m.2226__no cage activity	False
+h.2514__enhancer__m.2326__no cage activity	False
+h.2415__enhancer__m.2227__no cage activity	False
+h.2515__enhancer__m.2327__no cage activity	False
+h.2416__enhancer__m.2228__no cage activity	False
+h.2516__enhancer__m.2328__no cage activity	False
+h.2417__enhancer__m.2229__no cage activity	False
+h.2418__enhancer__m.2230__no cage activity	False
+h.2518__enhancer__m.2330__no cage activity	False
+h.2419__enhancer__m.2231__no cage activity	False
+h.2519__enhancer__m.2331__no cage activity	False
+h.2520__enhancer__m.2332__no cage activity	False
+h.2421__enhancer__m.2233__no cage activity	False
+h.2521__enhancer__m.2333__no cage activity	False
+h.2422__enhancer__m.2234__no cage activity	False
+h.2522__enhancer__m.2334__no cage activity	False
+h.2423__enhancer__m.2235__no cage activity	False
+h.2523__enhancer__m.2335__no cage activity	False
+h.2424__enhancer__m.2236__no cage activity	False
+h.2524__enhancer__m.2336__no cage activity	False
+h.2425__enhancer__m.2237__no cage activity	False
+h.2525__enhancer__m.2337__no cage activity	False
+h.2426__enhancer__m.2238__no cage activity	False
+h.2526__enhancer__m.2338__no cage activity	False
+h.2427__enhancer__m.2239__no cage activity	False
+h.2527__enhancer__m.2339__no cage activity	False
+h.2428__enhancer__m.2240__no cage activity	False
+h.2528__enhancer__m.2340__no cage activity	False
+h.2429__enhancer__m.2241__no cage activity	False
+h.2529__enhancer__m.2341__no cage activity	False
+h.2430__enhancer__m.2242__no cage activity	False
+h.2530__enhancer__m.2342__no cage activity	False
+h.2431__enhancer__m.2243__no cage activity	False
+h.2531__enhancer__m.2343__no cage activity	False
+h.2432__enhancer__m.2244__no cage activity	False
+h.2532__enhancer__m.2344__no cage activity	False
+h.2433__enhancer__m.2245__no cage activity	False
+h.2533__enhancer__m.2345__no cage activity	False
+h.2434__enhancer__m.2246__no cage activity	False
+h.2534__enhancer__m.2346__no cage activity	False
+h.2435__enhancer__m.2247__no cage activity	False
+h.2535__enhancer__m.2347__no cage activity	False
+h.2436__enhancer__m.2248__no cage activity	False
+h.2536__enhancer__m.2348__no cage activity	False
+h.2437__enhancer__m.2249__no cage activity	False
+h.2537__enhancer__m.2349__no cage activity	False
+h.2438__enhancer__m.2250__no cage activity	False
+h.2538__enhancer__m.2350__no cage activity	False
+h.2439__enhancer__m.2251__no cage activity	False
+h.2539__enhancer__m.2351__no cage activity	False
+h.2440__enhancer__m.2252__no cage activity	False
+h.2540__enhancer__m.2352__no cage activity	False
+h.2441__enhancer__m.2253__no cage activity	False
+h.2541__enhancer__m.2353__no cage activity	False
+h.2442__enhancer__m.2254__no cage activity	False
+h.2542__enhancer__m.2354__no cage activity	False
+h.2443__enhancer__m.2255__no cage activity	False
+h.2543__enhancer__m.2355__no cage activity	False
+h.2444__enhancer__m.2256__no cage activity	False
+h.2445__enhancer__m.2257__no cage activity	False
+h.2545__enhancer__m.2357__no cage activity	False
+h.2446__enhancer__m.2258__no cage activity	False
+h.2546__enhancer__m.2358__no cage activity	False
+h.2447__enhancer__m.2259__no cage activity	False
+h.2547__enhancer__m.2359__no cage activity	False
+h.2448__enhancer__m.2260__no cage activity	False
+h.2548__enhancer__m.2360__no cage activity	False
+h.2449__enhancer__m.2261__no cage activity	False
+h.2549__enhancer__m.2361__no cage activity	False
+h.2450__enhancer__m.2262__no cage activity	False
+h.2550__enhancer__m.2362__no cage activity	False
+h.2451__enhancer__m.2263__no cage activity	False
+h.2551__enhancer__m.2363__no cage activity	False
+h.2452__enhancer__m.2264__no cage activity	False
+h.2552__enhancer__m.2364__no cage activity	False
+h.2453__enhancer__m.2265__no cage activity	False
+h.2454__enhancer__m.2266__no cage activity	False
+h.2554__enhancer__m.2366__no cage activity	False
+h.2455__enhancer__m.2267__no cage activity	False
+h.2555__enhancer__m.2367__no cage activity	False
+h.2456__enhancer__m.2268__no cage activity	False
+h.2556__enhancer__m.2368__no cage activity	False
+h.2457__enhancer__m.2269__no cage activity	False
+h.2557__enhancer__m.2369__no cage activity	False
+h.2458__enhancer__m.2270__no cage activity	False
+h.2558__enhancer__m.2370__no cage activity	False
+h.2459__enhancer__m.2271__no cage activity	False
+h.2559__enhancer__m.2371__no cage activity	False
+h.2460__enhancer__m.2272__no cage activity	False
+h.2560__enhancer__m.2372__no cage activity	False
+h.2461__enhancer__m.2273__no cage activity	False
+h.2561__enhancer__m.2373__no cage activity	False
+h.2462__enhancer__m.2274__no cage activity	False
+h.2562__enhancer__m.2374__no cage activity	False
+h.2463__enhancer__m.2275__no cage activity	False
+h.2563__enhancer__m.2375__no cage activity	False
+h.2464__enhancer__m.2276__no cage activity	False
+h.2564__enhancer__m.2376__no cage activity	False
+h.2465__enhancer__m.2277__no cage activity	False
+h.2565__enhancer__m.2377__no cage activity	False
+h.2466__enhancer__m.2278__no cage activity	False
+h.2566__enhancer__m.2378__no cage activity	False
+h.2467__enhancer__m.2279__no cage activity	False
+h.2567__enhancer__m.2379__no cage activity	False
+h.2468__enhancer__m.2280__no cage activity	False
+h.2568__enhancer__m.2380__no cage activity	False
+h.2469__enhancer__m.2281__no cage activity	False
+h.2569__enhancer__m.2381__no cage activity	False
+h.2470__enhancer__m.2282__no cage activity	False
+h.2570__enhancer__m.2382__no cage activity	False
+h.2471__enhancer__m.2283__no cage activity	False
+h.2571__enhancer__m.2383__no cage activity	False
+h.2472__enhancer__m.2284__no cage activity	False
+h.2572__enhancer__m.2384__no cage activity	False
+h.2473__enhancer__m.2285__no cage activity	False
+h.2573__enhancer__m.2385__no cage activity	False
+h.2474__enhancer__m.2286__no cage activity	False
+h.2574__enhancer__m.2386__no cage activity	False
+h.2475__enhancer__m.2287__no cage activity	False
+h.2575__enhancer__m.2387__no cage activity	False
+h.2476__enhancer__m.2288__no cage activity	False
+h.2477__enhancer__m.2289__no cage activity	False
+h.2577__enhancer__m.2389__no cage activity	False
+h.3605__unassigned__m.3415__unassigned	False
+h.3606__unassigned__m.3415__unassigned	False
+h.3606__unassigned__m.3454__unassigned	False
+h.3607__unassigned__m.3416__unassigned	False
+h.3608__unassigned__m.3416__unassigned	False
+h.3609__intergenic_upep__m.3417__intergenic_upep	False
+h.3609__intergenic_upep__m.3437__intergenic_upep	False
+h.3610__protein_coding__m.3418__protein_coding	False
+h.3611__protein_coding__m.3418__protein_coding	False
+h.3612__unassigned__m.3419__unassigned	False
+h.3613__unassigned__m.3419__unassigned	False
+h.3639__unassigned__m.3419__unassigned	False
+h.3614__protein_coding__m.3420__div_pc	False
+h.3614__protein_coding__m.3448__div_pc	False
+h.3614__protein_coding__m.3449__div_pc	False
+h.3614__protein_coding__m.3450__div_pc	False
+h.3615__protein_coding__m.3421__unassigned	False
+h.3616__protein_coding__m.3422__unassigned	False
+h.3616__protein_coding__m.3442__unassigned	False
+h.3616__protein_coding__m.3443__unassigned	False
+h.3617__unassigned__m.3423__unassigned	False
+h.3618__unassigned__m.3423__unassigned	False
+h.3619__unassigned__m.3424__unassigned	False
+h.3619__unassigned__m.3445__unassigned	False
+h.3619__unassigned__m.3446__unassigned	False
+h.3620__unassigned__m.3425__unassigned	False
+h.3621__unassigned__m.3425__unassigned	False
+h.3620__unassigned__m.3447__unassigned	False
+h.3622__unassigned__m.3426__unassigned	False
+h.3623__unassigned__m.3426__unassigned	False
+h.3623__unassigned__m.3444__unassigned	False
+h.3624__unassigned__m.3427__protein_coding	False
+h.3625__unassigned__m.3427__protein_coding	False
+h.3626__unassigned__m.3428__unassigned	False
+h.3626__unassigned__m.3455__unassigned	False
+h.3626__unassigned__m.3456__unassigned	False
+h.3626__unassigned__m.3457__unassigned	False
+h.3627__enhancer__m.3429__unassigned	False
+h.3629__enhancer__m.3429__unassigned	False
+h.3627__enhancer__m.3458__unassigned	False
+h.3629__enhancer__m.3458__unassigned	False
+h.3628__enhancer__m.3430__unassigned	False
+h.3630__enhancer__m.3430__unassigned	False
+h.3631__unassigned__m.3431__enhancer	False
+h.3637__enhancer__m.3431__enhancer	False
+h.3632__enhancer__m.3432__enhancer	False
+h.3635__enhancer__m.3435__enhancer	False
+h.3633__enhancer__m.3433__enhancer	False
+h.3636__enhancer__m.3433__enhancer	False
+h.3636__enhancer__m.3436__enhancer	False
+h.3634__enhancer__m.3434__enhancer	False
+h.3637__enhancer__m.3434__enhancer	False
+h.3634__enhancer__m.3459__unassigned	False
+h.3647__unassigned__m.3476__enhancer	False
+h.3656__enhancer__m.3507__enhancer	False
+h.3657__enhancer__m.3508__enhancer	False
+h.2578__no cage activity__m.2390__antisense_upep	False
+h.2579__no cage activity__m.2391__antisense_upep	False
+h.2580__no cage activity__m.2392__antisense	False
+h.2581__no cage activity__m.2393__antisense	False
+h.2582__no cage activity__m.2394__antisense_upep	False
+h.2584__no cage activity__m.2396__antisense	False
+h.2585__no cage activity__m.2397__antisense	False
+h.2586__no cage activity__m.2398__antisense_upep	False
+h.2587__no cage activity__m.2399__antisense_upep	False
+h.2588__no cage activity__m.2400__antisense	False
+h.2589__no cage activity__m.2401__antisense_upep	False
+h.2590__no cage activity__m.2402__antisense_upep	False
+h.2591__no cage activity__m.2403__antisense	False
+h.2592__no cage activity__m.2404__antisense	False
+h.2593__no cage activity__m.2405__antisense_upep	False
+h.2594__no cage activity__m.2406__antisense_upep	False
+h.2595__no cage activity__m.2407__antisense	False
+h.2596__no cage activity__m.2408__antisense_upep	False
+h.2598__no cage activity__m.2410__antisense	False
+h.2601__no cage activity__m.2413__antisense_upep	False
+h.2602__no cage activity__m.2414__antisense	False
+h.2603__no cage activity__m.2415__antisense	False
+h.2604__no cage activity__m.2416__antisense	False
+h.2605__no cage activity__m.2417__antisense_upep	False
+h.2606__no cage activity__m.2418__antisense	False
+h.2607__no cage activity__m.2419__antisense	False
+h.2608__no cage activity__m.2420__antisense	False
+h.2609__no cage activity__m.2421__antisense	False
+h.2610__no cage activity__m.2422__antisense	False
+h.2612__no cage activity__m.2424__antisense	False
+h.2613__no cage activity__m.2425__antisense	False
+h.2614__no cage activity__m.2426__antisense	False
+h.2615__no cage activity__m.2427__antisense	False
+h.2617__no cage activity__m.2429__antisense	False
+h.2618__no cage activity__m.2430__antisense_upep	False
+h.2619__no cage activity__m.2431__antisense	False
+h.2620__no cage activity__m.2432__antisense	False
+h.2621__no cage activity__m.2433__antisense_upep	False
+h.2622__no cage activity__m.2434__antisense_upep	False
+h.2623__no cage activity__m.2435__antisense	False
+h.2624__no cage activity__m.2436__antisense	False
+h.2625__no cage activity__m.2437__antisense_upep	False
+h.2626__no cage activity__m.2438__antisense_upep	False
+h.2627__no cage activity__m.2439__antisense_upep	False
+h.2628__no cage activity__m.2440__antisense	False
+h.2629__no cage activity__m.2441__antisense	False
+h.2632__no cage activity__m.2444__antisense	False
+h.2633__no cage activity__m.2445__antisense_upep	False
+h.2634__no cage activity__m.2446__antisense	False
+h.2635__no cage activity__m.2447__antisense	False
+h.2636__no cage activity__m.2448__antisense	False
+h.2637__no cage activity__m.2449__antisense	False
+h.2638__no cage activity__m.2450__antisense	False
+h.2639__no cage activity__m.2451__antisense	False
+h.2640__no cage activity__m.2452__antisense	False
+h.2642__no cage activity__m.2454__antisense_upep	False
+h.2643__no cage activity__m.2455__antisense	False
+h.2644__no cage activity__m.2456__antisense_upep	False
+h.2645__no cage activity__m.2457__antisense	False
+h.2647__no cage activity__m.2459__antisense_upep	False
+h.2648__no cage activity__m.2460__antisense	False
+h.2649__no cage activity__m.2461__antisense_upep	False
+h.2650__no cage activity__m.2462__antisense_upep	False
+h.2651__no cage activity__m.2463__antisense_upep	False
+h.2652__no cage activity__m.2464__antisense	False
+h.2653__no cage activity__m.2465__antisense	False
+h.2654__no cage activity__m.2466__antisense	False
+h.2656__no cage activity__m.2468__antisense	False
+h.2657__no cage activity__m.2469__antisense_upep	False
+h.2658__no cage activity__m.2470__antisense	False
+h.2659__no cage activity__m.2471__antisense	False
+h.2660__no cage activity__m.2472__antisense_upep	False
+h.2661__no cage activity__m.2473__antisense_upep	False
+h.2662__no cage activity__m.2474__antisense	False
+h.2663__no cage activity__m.2475__antisense	False
+h.2664__no cage activity__m.2476__antisense	False
+h.2665__no cage activity__m.2477__antisense	False
+h.2666__no cage activity__m.2478__antisense	False
+h.2667__no cage activity__m.2479__antisense	False
+h.2668__no cage activity__m.2480__antisense_upep	False
+h.2669__no cage activity__m.2481__antisense_upep	False
+h.2670__no cage activity__m.2482__antisense	False
+h.2671__no cage activity__m.2483__antisense	False
+h.2672__no cage activity__m.2484__antisense	False
+h.2673__no cage activity__m.2485__antisense_upep	False
+h.2674__no cage activity__m.2486__antisense	False
+h.2675__no cage activity__m.2487__antisense_upep	False
+h.2676__no cage activity__m.2488__antisense_upep	False
+h.2677__no cage activity__m.2489__antisense	False
+h.2678__no cage activity__m.2490__antisense	False
+h.2679__no cage activity__m.2491__antisense	False
+h.2680__no cage activity__m.2492__antisense_upep	False
+h.2681__no cage activity__m.2493__antisense_upep	False
+h.2682__no cage activity__m.2494__antisense	False
+h.2683__no cage activity__m.2495__antisense	False
+h.2684__no cage activity__m.2496__antisense	False
+h.2685__no cage activity__m.2497__antisense	False
+h.2686__no cage activity__m.2498__antisense	False
+h.2687__no cage activity__m.2499__antisense_upep	False
+h.2689__no cage activity__m.2501__antisense_upep	False
+h.2690__no cage activity__m.2502__antisense	False
+h.2691__no cage activity__m.2503__antisense_upep	False
+h.2692__no cage activity__m.2504__antisense	False
+h.2694__no cage activity__m.2506__antisense_upep	False
+h.2695__no cage activity__m.2507__antisense_upep	False
+h.2696__no cage activity__m.2508__antisense_upep	False
+h.2698__no cage activity__m.2510__antisense	False
+h.2699__no cage activity__m.2511__antisense	False
+h.2700__no cage activity__m.2512__antisense	False
+h.2701__no cage activity__m.2513__antisense	False
+h.2702__no cage activity__m.2514__antisense	False
+h.2703__no cage activity__m.2515__antisense	False
+h.2704__no cage activity__m.2516__antisense	False
+h.2705__no cage activity__m.2517__antisense	False
+h.2706__no cage activity__m.2518__antisense_upep	False
+h.2707__no cage activity__m.2519__antisense_upep	False
+h.2708__no cage activity__m.2520__antisense_upep	False
+h.2709__no cage activity__m.2521__antisense_upep	False
+h.2710__no cage activity__m.2522__antisense	False
+h.2711__no cage activity__m.2523__antisense_upep	False
+h.2712__no cage activity__m.2524__antisense_upep	False
+h.2713__no cage activity__m.2525__antisense_upep	False
+h.2714__no cage activity__m.2526__antisense_upep	False
+h.2715__no cage activity__m.2527__antisense	False
+h.2716__no cage activity__m.2528__antisense_upep	False
+h.2717__no cage activity__m.2529__antisense	False
+h.2718__no cage activity__m.2530__antisense_upep	False
+h.2720__no cage activity__m.2532__antisense	False
+h.2721__no cage activity__m.2533__div_lnc	False
+h.2722__no cage activity__m.2534__div_upep	False
+h.2723__no cage activity__m.2535__div_lnc	False
+h.2725__no cage activity__m.2537__div_lnc	False
+h.2726__no cage activity__m.2538__div_lnc	False
+h.2727__no cage activity__m.2539__div_lnc	False
+h.2728__no cage activity__m.2540__div_upep	False
+h.2729__no cage activity__m.2541__div_lnc	False
+h.2731__no cage activity__m.2543__div_lnc	False
+h.2732__no cage activity__m.2544__div_lnc	False
+h.2733__no cage activity__m.2545__div_upep	False
+h.2734__no cage activity__m.2546__div_lnc	False
+h.2736__no cage activity__m.2548__div_lnc	False
+h.2737__no cage activity__m.2549__div_lnc	False
+h.2741__no cage activity__m.2553__div_lnc	False
+h.2742__no cage activity__m.2554__div_lnc	False
+h.2743__no cage activity__m.2555__div_lnc	False
+h.2744__no cage activity__m.2556__div_lnc	False
+h.2745__no cage activity__m.2557__div_lnc	False
+h.2746__no cage activity__m.2558__div_lnc	False
+h.2747__no cage activity__m.2559__div_lnc	False
+h.2750__no cage activity__m.2562__div_lnc	False
+h.2751__no cage activity__m.2563__div_upep	False
+h.2752__no cage activity__m.2564__div_lnc	False
+h.2754__no cage activity__m.2566__div_lnc	False
+h.2755__no cage activity__m.2567__div_lnc	False
+h.2756__no cage activity__m.2568__div_lnc	False
+h.2758__no cage activity__m.2570__div_upep	False
+h.2759__no cage activity__m.2571__div_lnc	False
+h.2760__no cage activity__m.2572__div_upep	False
+h.2761__no cage activity__m.2573__div_lnc	False
+h.2762__no cage activity__m.2574__div_upep	False
+h.2763__no cage activity__m.2575__div_lnc	False
+h.2765__no cage activity__m.2577__div_lnc	False
+h.2766__no cage activity__m.2578__div_upep	False
+h.2767__no cage activity__m.2579__div_upep	False
+h.2768__no cage activity__m.2580__div_upep	False
+h.2769__no cage activity__m.2581__div_lnc	False
+h.2770__no cage activity__m.2582__div_lnc	False
+h.2771__no cage activity__m.2583__div_lnc	False
+h.2772__no cage activity__m.2584__div_lnc	False
+h.2773__no cage activity__m.2585__div_lnc	False
+h.2775__no cage activity__m.2587__div_lnc	False
+h.2777__no cage activity__m.2589__div_lnc	False
+h.2778__no cage activity__m.2590__div_lnc	False
+h.2779__no cage activity__m.2591__div_lnc	False
+h.2780__no cage activity__m.2592__div_lnc	False
+h.2782__no cage activity__m.2593__div_upep	False
+h.2783__no cage activity__m.2594__div_lnc	False
+h.2784__no cage activity__m.2595__div_lnc	False
+h.2785__no cage activity__m.2596__div_upep	False
+h.2786__no cage activity__m.2597__div_lnc	False
+h.2787__no cage activity__m.2598__div_lnc	False
+h.2789__no cage activity__m.2600__div_lnc	False
+h.2790__no cage activity__m.2601__div_lnc	False
+h.2791__no cage activity__m.2602__div_upep	False
+h.2792__no cage activity__m.2603__div_lnc	False
+h.2793__no cage activity__m.2604__div_lnc	False
+h.2795__no cage activity__m.2606__div_upep	False
+h.2796__no cage activity__m.2607__div_lnc	False
+h.2797__no cage activity__m.2608__div_lnc	False
+h.2798__no cage activity__m.2609__div_upep	False
+h.2800__no cage activity__m.2611__div_upep	False
+h.2801__no cage activity__m.2612__div_lnc	False
+h.2802__no cage activity__m.2613__div_upep	False
+h.2803__no cage activity__m.2614__div_upep	False
+h.2804__no cage activity__m.2615__div_lnc	False
+h.2806__no cage activity__m.2617__div_lnc	False
+h.2807__no cage activity__m.2618__div_upep	False
+h.2812__no cage activity__m.2623__div_lnc	False
+h.2813__no cage activity__m.2624__div_lnc	False
+h.2814__no cage activity__m.2625__div_upep	False
+h.2815__no cage activity__m.2626__div_lnc	False
+h.2816__no cage activity__m.2627__div_lnc	False
+h.2817__no cage activity__m.2628__div_lnc	False
+h.2819__no cage activity__m.2630__div_upep	False
+h.2820__no cage activity__m.2631__div_lnc	False
+h.2821__no cage activity__m.2632__div_lnc	False
+h.2822__no cage activity__m.2633__div_lnc	False
+h.2823__no cage activity__m.2634__div_lnc	False
+h.2824__no cage activity__m.2635__div_lnc	False
+h.2825__no cage activity__m.2636__div_upep	False
+h.2826__no cage activity__m.2637__div_lnc	False
+h.2828__no cage activity__m.2639__div_lnc	False
+h.2830__no cage activity__m.2641__div_lnc	False
+h.2831__no cage activity__m.2642__div_upep	False
+h.2832__no cage activity__m.2643__div_lnc	False
+h.2833__no cage activity__m.2644__div_lnc	False
+h.2834__no cage activity__m.2645__div_lnc	False
+h.2835__no cage activity__m.2646__div_upep	False
+h.2836__no cage activity__m.2647__div_lnc	False
+h.2837__no cage activity__m.2648__div_upep	False
+h.2838__no cage activity__m.2649__div_lnc	False
+h.2839__no cage activity__m.2650__div_upep	False
+h.2840__no cage activity__m.2651__div_upep	False
+h.2841__no cage activity__m.2652__div_lnc	False
+h.2842__no cage activity__m.2653__div_lnc	False
+h.2844__no cage activity__m.2655__div_lnc	False
+h.2845__no cage activity__m.2656__div_lnc	False
+h.2846__no cage activity__m.2657__div_upep	False
+h.2847__no cage activity__m.2658__div_lnc	False
+h.2848__no cage activity__m.2659__div_upep	False
+h.2849__no cage activity__m.2660__div_lnc	False
+h.2850__no cage activity__m.2661__div_lnc	False
+h.2851__no cage activity__m.2662__div_lnc	False
+h.2852__no cage activity__m.2663__div_lnc	False
+h.2854__no cage activity__m.2665__div_lnc	False
+h.2855__no cage activity__m.2666__div_lnc	False
+h.2856__no cage activity__m.2667__div_lnc	False
+h.2858__no cage activity__m.2669__div_lnc	False
+h.2859__no cage activity__m.2670__div_upep	False
+h.2860__no cage activity__m.2671__div_upep	False
+h.2861__no cage activity__m.2672__div_lnc	False
+h.2862__no cage activity__m.2673__div_lnc	False
+h.2863__no cage activity__m.2674__div_lnc	False
+h.2864__no cage activity__m.2675__div_upep	False
+h.2865__no cage activity__m.2676__div_upep	False
+h.2866__no cage activity__m.2677__div_lnc	False
+h.2867__no cage activity__m.2678__div_lnc	False
+h.2868__no cage activity__m.2679__div_lnc	False
+h.2870__no cage activity__m.2681__div_lnc	False
+h.2871__no cage activity__m.2682__div_lnc	False
+h.2872__no cage activity__m.2683__div_lnc	False
+h.2873__no cage activity__m.2684__div_lnc	False
+h.2874__no cage activity__m.2685__div_lnc	False
+h.2875__no cage activity__m.2686__div_lnc	False
+h.2876__no cage activity__m.2687__div_lnc	False
+h.2877__no cage activity__m.2688__div_lnc	False
+h.2879__no cage activity__m.2690__div_lnc	False
+h.2880__no cage activity__m.2691__div_upep	False
+h.2881__no cage activity__m.2692__div_lnc	False
+h.2882__no cage activity__m.2693__div_lnc	False
+h.2883__no cage activity__m.2694__div_upep	False
+h.2886__no cage activity__m.2697__div_upep	False
+h.2887__no cage activity__m.2698__div_upep	False
+h.2888__no cage activity__m.2699__div_lnc	False
+h.2889__no cage activity__m.2700__div_lnc	False
+h.2890__no cage activity__m.2701__div_lnc	False
+h.2891__no cage activity__m.2702__div_upep	False
+h.2892__no cage activity__m.2703__div_upep	False
+h.2893__no cage activity__m.2704__div_lnc	False
+h.2894__no cage activity__m.2705__div_lnc	False
+h.2896__no cage activity__m.2707__div_lnc	False
+h.2897__no cage activity__m.2708__div_lnc	False
+h.2898__no cage activity__m.2709__div_lnc	False
+h.2900__no cage activity__m.2711__div_lnc	False
+h.2901__no cage activity__m.2712__div_lnc	False
+h.2903__no cage activity__m.2714__div_lnc	False
+h.2904__no cage activity__m.2715__div_lnc	False
+h.2905__no cage activity__m.2716__div_upep	False
+h.2906__no cage activity__m.2717__div_lnc	False
+h.2907__no cage activity__m.2718__div_lnc	False
+h.2908__no cage activity__m.2719__div_lnc	False
+h.2909__no cage activity__m.2720__div_lnc	False
+h.2910__no cage activity__m.2721__div_lnc	False
+h.2911__no cage activity__m.2722__div_lnc	False
+h.2913__no cage activity__m.2724__div_lnc	False
+h.2914__no cage activity__m.2725__div_upep	False
+h.2917__no cage activity__m.2728__div_lnc	False
+h.2918__no cage activity__m.2729__div_upep	False
+h.2919__no cage activity__m.2730__div_lnc	False
+h.2920__no cage activity__m.2731__div_upep	False
+h.2921__unassigned__m.2732__div_pc	False
+h.2922__protein_coding__m.2733__div_pc	False
+h.2923__unassigned__m.2734__div_pc	False
+h.2924__no cage activity__m.2735__div_pc	False
+h.2925__protein_coding__m.2736__div_pc	False
+h.2926__div_pc__m.2737__div_pc	False
+h.2927__protein_coding__m.2738__div_pc	False
+h.2928__no cage activity__m.2739__div_pc	False
+h.2929__div_pc__m.2740__div_pc	False
+h.2930__protein_coding__m.2741__div_pc	False
+h.2931__protein_coding__m.2742__div_pc	False
+h.2932__protein_coding__m.2743__div_pc	False
+h.2933__protein_coding__m.2744__div_pc	False
+h.2934__protein_coding__m.2745__div_pc	False
+h.2937__protein_coding__m.2748__div_pc	False
+h.2938__no cage activity__m.2749__div_pc	False
+h.2939__protein_coding__m.2750__div_pc	False
+h.2940__no cage activity__m.2751__div_pc	False
+h.2941__no cage activity__m.2752__div_pc	False
+h.2942__protein_coding__m.2753__div_pc	False
+h.2943__protein_coding__m.2754__div_pc	False
+h.2944__div_pc__m.2755__div_pc	False
+h.2945__multi-mapped__m.2756__div_pc	False
+h.2946__protein_coding__m.2757__div_pc	False
+h.2947__div_pc__m.2758__div_pc	False
+h.2948__no cage activity__m.2759__div_pc	False
+h.2949__unassigned__m.2760__div_pc	False
+h.2950__div_pc__m.2761__div_pc	False
+h.2951__protein_coding__m.2762__div_pc	False
+h.2953__protein_coding__m.2764__div_pc	False
+h.2956__unassigned__m.2767__div_pc	False
+h.2957__protein_coding__m.2768__div_pc	False
+h.2959__protein_coding__m.2771__div_pc	False
+h.2960__no cage activity__m.2772__div_pc	False
+h.2961__no cage activity__m.2773__div_pc	False
+h.2962__protein_coding__m.2774__div_pc	False
+h.2963__protein_coding__m.2775__div_pc	False
+h.2964__div_pc__m.2776__div_pc	False
+h.2966__protein_coding__m.2778__div_pc	False
+h.2967__protein_coding__m.2779__div_pc	False
+h.2968__unassigned__m.2780__div_pc	False
+h.2969__unassigned__m.2781__div_pc	False
+h.2970__div_pc__m.2782__div_pc	False
+h.2971__multi-mapped__m.2783__div_pc	False
+h.2972__unassigned__m.2784__div_pc	False
+h.2973__no cage activity__m.2785__div_pc	False
+h.2974__no cage activity__m.2786__div_pc	False
+h.2975__unassigned__m.2787__div_pc	False
+h.2976__no cage activity__m.2788__div_pc	False
+h.2977__protein_coding__m.2789__div_pc	False
+h.2978__unassigned__m.2790__div_pc	False
+h.2979__no cage activity__m.2791__div_pc	False
+h.2981__protein_coding__m.2793__div_pc	False
+h.2982__div_pc__m.2794__div_pc	False
+h.2983__no cage activity__m.2795__div_pc	False
+h.2984__no cage activity__m.2796__div_pc	False
+h.2985__protein_coding__m.2797__div_pc	False
+h.2986__no cage activity__m.2798__div_pc	False
+h.2990__protein_coding__m.2802__div_pc	False
+h.2992__protein_coding__m.2804__div_pc	False
+h.2994__div_pc__m.2806__div_pc	False
+h.2995__protein_coding__m.2807__div_pc	False
+h.2996__div_pc__m.2808__div_pc	False
+h.2997__unassigned__m.2809__div_pc	False
+h.2998__protein_coding__m.2810__div_pc	False
+h.2999__protein_coding__m.2811__div_pc	False
+h.3000__protein_coding__m.2812__div_pc	False
+h.3001__protein_coding__m.2813__div_pc	False
+h.3002__protein_coding__m.2814__div_pc	False
+h.3003__no cage activity__m.2815__div_pc	False
+h.3004__unassigned__m.2816__div_pc	False
+h.3005__div_pc__m.2817__div_pc	False
+h.3006__no cage activity__m.2818__div_pc	False
+h.3007__protein_coding__m.2819__div_pc	False
+h.3008__div_pc__m.2820__div_pc	False
+h.3010__no cage activity__m.2822__div_pc	False
+h.3011__div_pc__m.2823__div_pc	False
+h.3012__protein_coding__m.2824__div_pc	False
+h.3013__protein_coding__m.2825__div_pc	False
+h.3014__unassigned__m.2826__div_pc	False
+h.3015__protein_coding__m.2827__div_pc	False
+h.3016__no cage activity__m.2828__div_pc	False
+h.3017__no cage activity__m.2829__div_pc	False
+h.3018__no cage activity__m.2830__div_pc	False
+h.3019__protein_coding__m.2831__div_pc	False
+h.3020__protein_coding__m.2832__div_pc	False
+h.3021__no cage activity__m.2833__div_pc	False
+h.3022__protein_coding__m.2834__div_pc	False
+h.3023__protein_coding__m.2835__div_pc	False
+h.3024__protein_coding__m.2836__div_pc	False
+h.3025__no cage activity__m.2837__div_pc	False
+h.3028__protein_coding__m.2840__div_pc	False
+h.3029__protein_coding__m.2841__div_pc	False
+h.3030__unassigned__m.2842__div_pc	False
+h.3032__protein_coding__m.2844__div_pc	False
+h.3033__no cage activity__m.2845__div_pc	False
+h.3034__protein_coding__m.2846__div_pc	False
+h.3035__protein_coding__m.2847__div_pc	False
+h.3036__div_pc__m.2848__div_pc	False
+h.3037__protein_coding__m.2849__div_pc	False
+h.3038__protein_coding__m.2850__div_pc	False
+h.3039__protein_coding__m.2851__div_pc	False
+h.3040__protein_coding__m.2852__div_pc	False
+h.3041__protein_coding__m.2853__div_pc	False
+h.3042__protein_coding__m.2854__div_pc	False
+h.3045__protein_coding__m.2857__div_pc	False
+h.3046__div_pc__m.2858__div_pc	False
+h.3047__protein_coding__m.2859__div_pc	False
+h.3048__div_pc__m.2860__div_pc	False
+h.3049__protein_coding__m.2861__div_pc	False
+h.3050__protein_coding__m.2862__div_pc	False
+h.3051__protein_coding__m.2863__div_pc	False
+h.3053__div_pc__m.2865__div_pc	False
+h.3054__no cage activity__m.2866__div_pc	False
+h.3055__no cage activity__m.2867__div_pc	False
+h.3056__no cage activity__m.2868__div_pc	False
+h.3057__div_pc__m.2869__div_pc	False
+h.3059__no cage activity__m.2871__div_pc	False
+h.3060__unassigned__m.2872__div_pc	False
+h.3061__unassigned__m.2873__div_pc	False
+h.3062__multi-mapped__m.2874__div_pc	False
+h.3064__protein_coding__m.2876__div_pc	False
+h.3065__protein_coding__m.2877__div_pc	False
+h.3066__protein_coding__m.2878__div_pc	False
+h.3069__protein_coding__m.2880__div_pc	False
+h.3070__protein_coding__m.2881__div_pc	False
+h.3071__no cage activity__m.2882__div_pc	False
+h.3072__protein_coding__m.2883__div_pc	False
+h.3073__div_pc__m.2884__div_pc	False
+h.3075__no cage activity__m.2886__protein_coding	False
+h.3076__no cage activity__m.2887__intergenic	False
+h.3077__no cage activity__m.2888__intergenic_upep	False
+h.3078__no cage activity__m.2889__intergenic_upep	False
+h.3079__no cage activity__m.2890__intergenic	False
+h.3080__no cage activity__m.2891__intergenic	False
+h.3081__no cage activity__m.2892__intergenic	False
+h.3082__no cage activity__m.2893__intergenic_upep	False
+h.3083__no cage activity__m.2894__div_lnc	False
+h.3084__no cage activity__m.2895__div_lnc	False
+h.3085__no cage activity__m.2896__intergenic_upep	False
+h.3086__no cage activity__m.2897__intergenic	False
+h.3087__no cage activity__m.2898__intergenic_upep	False
+h.3088__no cage activity__m.2899__intergenic	False
+h.3089__no cage activity__m.2900__intergenic	False
+h.3090__no cage activity__m.2901__intergenic	False
+h.3091__no cage activity__m.2902__intergenic	False
+h.3092__no cage activity__m.2903__intergenic	False
+h.3093__no cage activity__m.2904__intergenic	False
+h.3094__no cage activity__m.2905__intergenic_upep	False
+h.3096__no cage activity__m.2907__intergenic_upep	False
+h.3097__no cage activity__m.2908__intergenic	False
+h.3098__no cage activity__m.2909__intergenic	False
+h.3099__no cage activity__m.2910__div_lnc	False
+h.3100__no cage activity__m.2911__intergenic	False
+h.3101__no cage activity__m.2912__intergenic	False
+h.3102__no cage activity__m.2913__intergenic	False
+h.3103__no cage activity__m.2914__intergenic_upep	False
+h.3104__no cage activity__m.2915__intergenic	False
+h.3105__no cage activity__m.2916__intergenic	False
+h.3106__no cage activity__m.2917__intergenic_upep	False
+h.3107__no cage activity__m.2918__intergenic	False
+h.3108__no cage activity__m.2919__intergenic	False
+h.3109__no cage activity__m.2920__intergenic	False
+h.3110__no cage activity__m.2921__intergenic_upep	False
+h.3111__no cage activity__m.2922__intergenic	False
+h.3112__no cage activity__m.2923__intergenic_upep	False
+h.3113__no cage activity__m.2924__intergenic	False
+h.3114__no cage activity__m.2925__div_lnc	False
+h.3115__no cage activity__m.2926__div_lnc	False
+h.3116__no cage activity__m.2927__intergenic_upep	False
+h.3117__no cage activity__m.2928__div_lnc	False
+h.3118__no cage activity__m.2929__intergenic	False
+h.3119__no cage activity__m.2930__intergenic_upep	False
+h.3120__no cage activity__m.2931__intergenic	False
+h.3121__no cage activity__m.2932__intergenic	False
+h.3122__no cage activity__m.2933__div_lnc	False
+h.3123__no cage activity__m.2934__intergenic	False
+h.3124__no cage activity__m.2935__intergenic	False
+h.3125__no cage activity__m.2936__intergenic	False
+h.3126__no cage activity__m.2937__div_lnc	False
+h.3127__no cage activity__m.2938__intergenic	False
+h.3128__no cage activity__m.2939__intergenic	False
+h.3129__no cage activity__m.2940__intergenic	False
+h.3130__no cage activity__m.2941__div_lnc	False
+h.3132__no cage activity__m.2943__intergenic	False
+h.3133__no cage activity__m.2944__intergenic	False
+h.3134__no cage activity__m.2945__intergenic	False
+h.3135__no cage activity__m.2946__intergenic_upep	False
+h.3136__no cage activity__m.2947__intergenic	False
+h.3137__no cage activity__m.2948__intergenic	False
+h.3138__no cage activity__m.2949__div_upep	False
+h.3139__no cage activity__m.2950__intergenic	False
+h.3140__no cage activity__m.2951__intergenic	False
+h.3141__no cage activity__m.2952__intergenic_upep	False
+h.3142__no cage activity__m.2953__intergenic	False
+h.3143__no cage activity__m.2954__intergenic	False
+h.3144__no cage activity__m.2955__intergenic	False
+h.3145__no cage activity__m.2956__intergenic	False
+h.3146__no cage activity__m.2957__protein_coding	False
+h.3148__no cage activity__m.2959__intergenic_upep	False
+h.3149__no cage activity__m.2960__intergenic	False
+h.3150__no cage activity__m.2961__intergenic_upep	False
+h.3151__no cage activity__m.2962__intergenic	False
+h.3152__no cage activity__m.2963__intergenic	False
+h.3153__no cage activity__m.2964__intergenic	False
+h.3154__no cage activity__m.2965__protein_coding	False
+h.3155__no cage activity__m.2966__intergenic_upep	False
+h.3156__no cage activity__m.2967__intergenic	False
+h.3157__no cage activity__m.2968__intergenic_upep	False
+h.3158__no cage activity__m.2969__intergenic	False
+h.3159__no cage activity__m.2970__intergenic	False
+h.3160__no cage activity__m.2971__intergenic	False
+h.3161__no cage activity__m.2972__intergenic_upep	False
+h.3162__no cage activity__m.2973__intergenic	False
+h.3163__no cage activity__m.2974__intergenic	False
+h.3164__no cage activity__m.2975__intergenic	False
+h.3165__no cage activity__m.2976__intergenic	False
+h.3166__no cage activity__m.2977__intergenic	False
+h.3167__no cage activity__m.2978__intergenic	False
+h.3168__no cage activity__m.2979__intergenic	False
+h.3169__no cage activity__m.2980__intergenic	False
+h.3170__no cage activity__m.2981__intergenic	False
+h.3171__no cage activity__m.2982__intergenic	False
+h.3172__no cage activity__m.2983__intergenic_upep	False
+h.3173__no cage activity__m.2984__intergenic	False
+h.3174__no cage activity__m.2985__intergenic	False
+h.3175__no cage activity__m.2986__intergenic	False
+h.3176__no cage activity__m.2987__intergenic	False
+h.3177__no cage activity__m.2988__div_upep	False
+h.3178__no cage activity__m.2989__intergenic	False
+h.3179__no cage activity__m.2990__intergenic	False
+h.3180__no cage activity__m.2991__intergenic	False
+h.3181__no cage activity__m.2992__intergenic_upep	False
+h.3182__no cage activity__m.2993__intergenic	False
+h.3183__no cage activity__m.2994__intergenic_upep	False
+h.3184__no cage activity__m.2995__intergenic	False
+h.3185__no cage activity__m.2996__intergenic	False
+h.3186__no cage activity__m.2997__intergenic	False
+h.3187__no cage activity__m.2998__intergenic	False
+h.3188__no cage activity__m.2999__intergenic_upep	False
+h.3189__no cage activity__m.3000__intergenic	False
+h.3191__no cage activity__m.3002__intergenic	False
+h.3192__no cage activity__m.3003__intergenic	False
+h.3193__no cage activity__m.3004__intergenic_upep	False
+h.3194__no cage activity__m.3005__intergenic	False
+h.3195__no cage activity__m.3006__intergenic	False
+h.3196__no cage activity__m.3007__intergenic	False
+h.3197__no cage activity__m.3008__intergenic_upep	False
+h.3198__no cage activity__m.3009__intergenic	False
+h.3199__no cage activity__m.3010__intergenic	False
+h.3200__no cage activity__m.3011__intergenic	False
+h.3201__no cage activity__m.3012__intergenic	False
+h.3202__no cage activity__m.3013__intergenic	False
+h.3203__no cage activity__m.3014__intergenic	False
+h.3204__no cage activity__m.3015__intergenic_upep	False
+h.3205__no cage activity__m.3016__intergenic	False
+h.3206__no cage activity__m.3017__intergenic_upep	False
+h.3207__no cage activity__m.3018__intergenic	False
+h.3208__no cage activity__m.3019__intergenic	False
+h.3209__no cage activity__m.3020__div_lnc	False
+h.3210__no cage activity__m.3021__intergenic	False
+h.3211__no cage activity__m.3022__intergenic	False
+h.3213__no cage activity__m.3024__intergenic	False
+h.3214__no cage activity__m.3025__intergenic_upep	False
+h.3215__no cage activity__m.3026__intergenic_upep	False
+h.3216__no cage activity__m.3027__intergenic_upep	False
+h.3217__no cage activity__m.3028__intergenic	False
+h.3218__no cage activity__m.3029__div_upep	False
+h.3219__no cage activity__m.3030__intergenic	False
+h.3220__no cage activity__m.3031__intergenic_upep	False
+h.3221__no cage activity__m.3032__intergenic	False
+h.3222__no cage activity__m.3033__intergenic	False
+h.3223__no cage activity__m.3034__intergenic_upep	False
+h.3224__no cage activity__m.3035__intergenic_upep	False
+h.3225__no cage activity__m.3036__intergenic	False
+h.3226__no cage activity__m.3037__intergenic	False
+h.3227__no cage activity__m.3038__intergenic	False
+h.3228__no cage activity__m.3039__intergenic	False
+h.3229__no cage activity__m.3040__intergenic	False
+h.3230__no cage activity__m.3041__intergenic	False
+h.3231__no cage activity__m.3042__intergenic_upep	False
+h.3232__no cage activity__m.3043__intergenic_upep	False
+h.3233__no cage activity__m.3044__intergenic_upep	False
+h.3234__no cage activity__m.3045__intergenic	False
+h.3235__no cage activity__m.3046__intergenic	False
+h.3236__no cage activity__m.3047__intergenic_upep	False
+h.3237__no cage activity__m.3048__intergenic	False
+h.3238__no cage activity__m.3049__intergenic	False
+h.3239__no cage activity__m.3050__intergenic	False
+h.3240__no cage activity__m.3051__intergenic	False
+h.3241__no cage activity__m.3052__intergenic	False
+h.3242__no cage activity__m.3053__intergenic_upep	False
+h.3243__no cage activity__m.3054__intergenic_upep	False
+h.3244__no cage activity__m.3055__intergenic	False
+h.3245__no cage activity__m.3056__div_lnc	False
+h.3246__no cage activity__m.3057__intergenic	False
+h.3247__no cage activity__m.3058__intergenic	False
+h.3248__no cage activity__m.3059__intergenic_upep	False
+h.3249__no cage activity__m.3060__intergenic	False
+h.3250__no cage activity__m.3061__intergenic_upep	False
+h.3251__no cage activity__m.3062__intergenic	False
+h.3252__no cage activity__m.3063__intergenic	False
+h.3253__no cage activity__m.3064__intergenic_upep	False
+h.3254__no cage activity__m.3065__div_lnc	False
+h.3256__no cage activity__m.3066__div_lnc	False
+h.3257__no cage activity__m.3067__protein_coding	False
+h.3258__no cage activity__m.3068__protein_coding	False
+h.3259__no cage activity__m.3069__protein_coding	False
+h.3261__no cage activity__m.3071__div_pc	False
+h.3262__no cage activity__m.3072__protein_coding	False
+h.3263__no cage activity__m.3073__protein_coding	False
+h.3264__no cage activity__m.3074__protein_coding	False
+h.3265__no cage activity__m.3075__protein_coding	False
+h.3266__no cage activity__m.3076__div_pc	False
+h.3267__no cage activity__m.3077__protein_coding	False
+h.3268__no cage activity__m.3078__protein_coding	False
+h.3269__no cage activity__m.3079__protein_coding	False
+h.3270__no cage activity__m.3080__protein_coding	False
+h.3271__no cage activity__m.3081__protein_coding	False
+h.3272__no cage activity__m.3082__protein_coding	False
+h.3273__no cage activity__m.3083__div_pc	False
+h.3275__no cage activity__m.3085__protein_coding	False
+h.3276__no cage activity__m.3086__div_pc	False
+h.3277__no cage activity__m.3087__protein_coding	False
+h.3278__no cage activity__m.3088__protein_coding	False
+h.3279__no cage activity__m.3089__protein_coding	False
+h.3280__no cage activity__m.3090__protein_coding	False
+h.3281__no cage activity__m.3091__protein_coding	False
+h.3282__no cage activity__m.3092__protein_coding	False
+h.3283__no cage activity__m.3093__div_pc	False
+h.3284__no cage activity__m.3094__protein_coding	False
+h.3285__no cage activity__m.3095__protein_coding	False
+h.3287__no cage activity__m.3097__protein_coding	False
+h.3288__no cage activity__m.3098__div_pc	False
+h.3290__no cage activity__m.3100__protein_coding	False
+h.3291__no cage activity__m.3101__protein_coding	False
+h.3292__no cage activity__m.3102__protein_coding	False
+h.3294__no cage activity__m.3104__div_pc	False
+h.3295__no cage activity__m.3105__div_pc	False
+h.3297__no cage activity__m.3107__protein_coding	False
+h.3298__no cage activity__m.3108__protein_coding	False
+h.3299__no cage activity__m.3109__protein_coding	False
+h.3300__no cage activity__m.3110__div_pc	False
+h.3301__no cage activity__m.3111__protein_coding	False
+h.3302__no cage activity__m.3112__protein_coding	False
+h.3303__no cage activity__m.3113__protein_coding	False
+h.3304__no cage activity__m.3114__protein_coding	False
+h.3306__no cage activity__m.3116__protein_coding	False
+h.3307__no cage activity__m.3117__div_pc	False
+h.3308__no cage activity__m.3118__protein_coding	False
+h.3309__no cage activity__m.3119__div_pc	False
+h.3310__no cage activity__m.3120__protein_coding	False
+h.3311__no cage activity__m.3121__protein_coding	False
+h.3312__no cage activity__m.3122__protein_coding	False
+h.3313__no cage activity__m.3123__protein_coding	False
+h.3314__no cage activity__m.3124__div_pc	False
+h.3315__no cage activity__m.3125__protein_coding	False
+h.3316__no cage activity__m.3126__div_pc	False
+h.3317__no cage activity__m.3127__div_pc	False
+h.3319__no cage activity__m.3129__div_pc	False
+h.3320__no cage activity__m.3130__protein_coding	False
+h.3321__no cage activity__m.3131__protein_coding	False
+h.3322__no cage activity__m.3132__protein_coding	False
+h.3324__no cage activity__m.3134__div_pc	False
+h.3325__no cage activity__m.3135__protein_coding	False
+h.3326__no cage activity__m.3136__protein_coding	False
+h.3327__no cage activity__m.3137__protein_coding	False
+h.3328__no cage activity__m.3138__protein_coding	False
+h.3329__no cage activity__m.3139__protein_coding	False
+h.3330__no cage activity__m.3140__div_pc	False
+h.3331__no cage activity__m.3141__protein_coding	False
+h.3332__no cage activity__m.3142__div_pc	False
+h.3333__no cage activity__m.3143__div_pc	False
+h.3334__no cage activity__m.3144__protein_coding	False
+h.3335__no cage activity__m.3145__protein_coding	False
+h.3336__no cage activity__m.3146__protein_coding	False
+h.3337__no cage activity__m.3147__protein_coding	False
+h.3338__no cage activity__m.3148__protein_coding	False
+h.3339__no cage activity__m.3149__protein_coding	False
+h.3341__no cage activity__m.3151__protein_coding	False
+h.3342__no cage activity__m.3152__protein_coding	False
+h.3344__no cage activity__m.3154__div_pc	False
+h.3345__no cage activity__m.3155__protein_coding	False
+h.3346__no cage activity__m.3156__protein_coding	False
+h.3348__no cage activity__m.3158__div_pc	False
+h.3350__no cage activity__m.3160__protein_coding	False
+h.3351__no cage activity__m.3161__protein_coding	False
+h.3352__no cage activity__m.3162__protein_coding	False
+h.3353__no cage activity__m.3163__protein_coding	False
+h.3354__no cage activity__m.3164__div_pc	False
+h.3355__no cage activity__m.3165__protein_coding	False
+h.3356__no cage activity__m.3166__protein_coding	False
+h.3357__no cage activity__m.3167__protein_coding	False
+h.3358__no cage activity__m.3168__protein_coding	False
+h.3359__no cage activity__m.3169__protein_coding	False
+h.3360__no cage activity__m.3170__protein_coding	False
+h.3361__no cage activity__m.3171__protein_coding	False
+h.3362__no cage activity__m.3172__div_pc	False
+h.3363__no cage activity__m.3173__div_pc	False
+h.3364__no cage activity__m.3174__protein_coding	False
+h.3365__no cage activity__m.3175__protein_coding	False
+h.3366__no cage activity__m.3176__protein_coding	False
+h.3367__no cage activity__m.3177__protein_coding	False
+h.3368__no cage activity__m.3178__protein_coding	False
+h.3369__no cage activity__m.3179__protein_coding	False
+h.3370__no cage activity__m.3180__div_pc	False
+h.3371__no cage activity__m.3181__protein_coding	False
+h.3372__no cage activity__m.3182__div_pc	False
+h.3373__no cage activity__m.3183__div_pc	False
+h.3374__no cage activity__m.3184__div_pc	False
+h.3375__no cage activity__m.3185__protein_coding	False
+h.3376__no cage activity__m.3186__protein_coding	False
+h.3377__no cage activity__m.3187__protein_coding	False
+h.3379__no cage activity__m.3189__protein_coding	False
+h.3380__no cage activity__m.3190__div_pc	False
+h.3381__no cage activity__m.3191__protein_coding	False
+h.3382__no cage activity__m.3192__protein_coding	False
+h.3383__no cage activity__m.3193__protein_coding	False
+h.3384__no cage activity__m.3194__protein_coding	False
+h.3387__no cage activity__m.3197__protein_coding	False
+h.3388__no cage activity__m.3198__protein_coding	False
+h.3389__no cage activity__m.3199__div_pc	False
+h.3390__no cage activity__m.3200__protein_coding	False
+h.3393__no cage activity__m.3203__protein_coding	False
+h.3395__no cage activity__m.3205__protein_coding	False
+h.3397__no cage activity__m.3207__protein_coding	False
+h.3398__no cage activity__m.3208__protein_coding	False
+h.3400__no cage activity__m.3210__protein_coding	False
+h.3402__no cage activity__m.3212__div_pc	False
+h.3404__no cage activity__m.3214__div_pc	False
+h.3405__no cage activity__m.3215__enhancer	False
+h.3505__no cage activity__m.3315__enhancer	False
+h.3406__no cage activity__m.3216__enhancer	False
+h.3506__no cage activity__m.3316__enhancer	False
+h.3407__no cage activity__m.3217__enhancer	False
+h.3507__no cage activity__m.3317__enhancer	False
+h.3408__no cage activity__m.3218__enhancer	False
+h.3508__no cage activity__m.3318__enhancer	False
+h.3409__no cage activity__m.3219__enhancer	False
+h.3509__no cage activity__m.3319__enhancer	False
+h.3410__no cage activity__m.3220__enhancer	False
+h.3510__no cage activity__m.3320__enhancer	False
+h.3411__no cage activity__m.3221__enhancer	False
+h.3511__no cage activity__m.3321__enhancer	False
+h.3412__no cage activity__m.3222__enhancer	False
+h.3512__no cage activity__m.3322__enhancer	False
+h.3513__no cage activity__m.3323__enhancer	False
+h.3414__no cage activity__m.3224__enhancer	False
+h.3514__no cage activity__m.3324__enhancer	False
+h.3415__no cage activity__m.3225__enhancer	False
+h.3515__no cage activity__m.3325__enhancer	False
+h.3416__no cage activity__m.3226__enhancer	False
+h.3516__no cage activity__m.3326__enhancer	False
+h.3417__no cage activity__m.3227__enhancer	False
+h.3517__no cage activity__m.3327__enhancer	False
+h.3418__no cage activity__m.3228__enhancer	False
+h.3518__no cage activity__m.3328__enhancer	False
+h.3419__no cage activity__m.3229__enhancer	False
+h.3519__no cage activity__m.3329__enhancer	False
+h.3420__no cage activity__m.3230__enhancer	False
+h.3520__no cage activity__m.3330__enhancer	False
+h.3421__no cage activity__m.3231__enhancer	False
+h.3521__no cage activity__m.3331__enhancer	False
+h.3422__no cage activity__m.3232__enhancer	False
+h.3522__no cage activity__m.3332__enhancer	False
+h.3423__no cage activity__m.3233__enhancer	False
+h.3424__no cage activity__m.3234__enhancer	False
+h.3524__no cage activity__m.3334__enhancer	False
+h.3425__no cage activity__m.3235__enhancer	False
+h.3525__no cage activity__m.3335__enhancer	False
+h.3426__no cage activity__m.3236__enhancer	False
+h.3526__no cage activity__m.3336__enhancer	False
+h.3427__no cage activity__m.3237__enhancer	False
+h.3527__no cage activity__m.3337__enhancer	False
+h.3428__no cage activity__m.3238__enhancer	False
+h.3528__no cage activity__m.3338__enhancer	False
+h.3429__no cage activity__m.3239__enhancer	False
+h.3529__no cage activity__m.3339__enhancer	False
+h.3430__no cage activity__m.3240__enhancer	False
+h.3530__no cage activity__m.3340__enhancer	False
+h.3431__no cage activity__m.3241__enhancer	False
+h.3531__no cage activity__m.3341__enhancer	False
+h.3432__no cage activity__m.3242__enhancer	False
+h.3532__no cage activity__m.3342__enhancer	False
+h.3433__no cage activity__m.3243__enhancer	False
+h.3533__no cage activity__m.3343__enhancer	False
+h.3434__no cage activity__m.3244__enhancer	False
+h.3435__no cage activity__m.3245__enhancer	False
+h.3535__no cage activity__m.3345__enhancer	False
+h.3436__no cage activity__m.3246__enhancer	False
+h.3536__no cage activity__m.3346__enhancer	False
+h.3438__no cage activity__m.3248__enhancer	False
+h.3538__no cage activity__m.3348__enhancer	False
+h.3439__no cage activity__m.3249__enhancer	False
+h.3539__no cage activity__m.3349__enhancer	False
+h.3440__no cage activity__m.3250__enhancer	False
+h.3540__no cage activity__m.3350__enhancer	False
+h.3441__no cage activity__m.3251__enhancer	False
+h.3442__no cage activity__m.3252__enhancer	False
+h.3542__no cage activity__m.3352__enhancer	False
+h.3443__no cage activity__m.3253__enhancer	False
+h.3543__no cage activity__m.3353__enhancer	False
+h.3444__no cage activity__m.3254__enhancer	False
+h.3445__no cage activity__m.3255__enhancer	False
+h.3545__no cage activity__m.3355__enhancer	False
+h.3446__no cage activity__m.3256__enhancer	False
+h.3546__no cage activity__m.3356__enhancer	False
+h.3447__no cage activity__m.3257__enhancer	False
+h.3547__no cage activity__m.3357__enhancer	False
+h.3448__no cage activity__m.3258__enhancer	False
+h.3548__no cage activity__m.3358__enhancer	False
+h.3449__no cage activity__m.3259__enhancer	False
+h.3549__no cage activity__m.3359__enhancer	False
+h.3450__no cage activity__m.3260__enhancer	False
+h.3550__no cage activity__m.3360__enhancer	False
+h.3451__no cage activity__m.3261__enhancer	False
+h.3551__no cage activity__m.3361__enhancer	False
+h.3452__no cage activity__m.3262__enhancer	False
+h.3552__no cage activity__m.3362__enhancer	False
+h.3453__no cage activity__m.3263__enhancer	False
+h.3553__no cage activity__m.3363__enhancer	False
+h.3454__no cage activity__m.3264__enhancer	False
+h.3554__no cage activity__m.3364__enhancer	False
+h.3455__no cage activity__m.3265__enhancer	False
+h.3555__no cage activity__m.3365__enhancer	False
+h.3456__no cage activity__m.3266__enhancer	False
+h.3556__no cage activity__m.3366__enhancer	False
+h.3457__no cage activity__m.3267__enhancer	False
+h.3557__no cage activity__m.3367__enhancer	False
+h.3458__no cage activity__m.3268__enhancer	False
+h.3558__no cage activity__m.3368__enhancer	False
+h.3459__no cage activity__m.3269__enhancer	False
+h.3559__no cage activity__m.3369__enhancer	False
+h.3460__no cage activity__m.3270__enhancer	False
+h.3560__no cage activity__m.3370__enhancer	False
+h.3461__no cage activity__m.3271__enhancer	False
+h.3561__no cage activity__m.3371__enhancer	False
+h.3462__no cage activity__m.3272__enhancer	False
+h.3562__no cage activity__m.3372__enhancer	False
+h.3463__no cage activity__m.3273__enhancer	False
+h.3563__no cage activity__m.3373__enhancer	False
+h.3464__no cage activity__m.3274__enhancer	False
+h.3564__no cage activity__m.3374__enhancer	False
+h.3465__no cage activity__m.3275__enhancer	False
+h.3565__no cage activity__m.3375__enhancer	False
+h.3466__no cage activity__m.3276__enhancer	False
+h.3566__no cage activity__m.3376__enhancer	False
+h.3467__no cage activity__m.3277__enhancer	False
+h.3567__no cage activity__m.3377__enhancer	False
+h.3468__no cage activity__m.3278__enhancer	False
+h.3568__no cage activity__m.3378__enhancer	False
+h.3469__no cage activity__m.3279__enhancer	False
+h.3569__no cage activity__m.3379__enhancer	False
+h.3470__no cage activity__m.3280__enhancer	False
+h.3570__no cage activity__m.3380__enhancer	False
+h.3471__no cage activity__m.3281__enhancer	False
+h.3571__no cage activity__m.3381__enhancer	False
+h.3472__no cage activity__m.3282__enhancer	False
+h.3572__no cage activity__m.3382__enhancer	False
+h.3473__no cage activity__m.3283__enhancer	False
+h.3573__no cage activity__m.3383__enhancer	False
+h.3474__no cage activity__m.3284__enhancer	False
+h.3574__no cage activity__m.3384__enhancer	False
+h.3475__no cage activity__m.3285__enhancer	False
+h.3575__no cage activity__m.3385__enhancer	False
+h.3476__no cage activity__m.3286__enhancer	False
+h.3576__no cage activity__m.3386__enhancer	False
+h.3477__no cage activity__m.3287__enhancer	False
+h.3577__no cage activity__m.3387__enhancer	False
+h.3478__no cage activity__m.3288__enhancer	False
+h.3578__no cage activity__m.3388__enhancer	False
+h.3479__no cage activity__m.3289__enhancer	False
+h.3579__no cage activity__m.3389__enhancer	False
+h.3480__no cage activity__m.3290__enhancer	False
+h.3580__no cage activity__m.3390__enhancer	False
+h.3481__no cage activity__m.3291__enhancer	False
+h.3581__no cage activity__m.3391__enhancer	False
+h.3482__no cage activity__m.3292__enhancer	False
+h.3582__no cage activity__m.3392__enhancer	False
+h.3483__no cage activity__m.3293__enhancer	False
+h.3583__no cage activity__m.3393__enhancer	False
+h.3484__no cage activity__m.3294__enhancer	False
+h.3485__no cage activity__m.3295__enhancer	False
+h.3486__no cage activity__m.3296__enhancer	False
+h.3586__no cage activity__m.3396__enhancer	False
+h.3487__no cage activity__m.3297__enhancer	False
+h.3488__no cage activity__m.3298__enhancer	False
+h.3588__no cage activity__m.3398__enhancer	False
+h.3489__no cage activity__m.3299__enhancer	False
+h.3589__no cage activity__m.3399__enhancer	False
+h.3490__no cage activity__m.3300__enhancer	False
+h.3590__no cage activity__m.3400__enhancer	False
+h.3491__no cage activity__m.3301__enhancer	False
+h.3591__no cage activity__m.3401__enhancer	False
+h.3492__no cage activity__m.3302__enhancer	False
+h.3592__no cage activity__m.3402__enhancer	False
+h.3493__no cage activity__m.3303__enhancer	False
+h.3593__no cage activity__m.3403__enhancer	False
+h.3494__no cage activity__m.3304__enhancer	False
+h.3594__no cage activity__m.3404__enhancer	False
+h.3495__no cage activity__m.3305__enhancer	False
+h.3595__no cage activity__m.3405__enhancer	False
+h.3496__no cage activity__m.3306__enhancer	False
+h.3596__no cage activity__m.3406__enhancer	False
+h.3497__no cage activity__m.3307__enhancer	False
+h.3597__no cage activity__m.3407__enhancer	False
+h.3498__no cage activity__m.3308__enhancer	False
+h.3598__no cage activity__m.3408__enhancer	False
+h.3499__no cage activity__m.3309__enhancer	False
+h.3599__no cage activity__m.3409__enhancer	False
+h.3500__no cage activity__m.3310__enhancer	False
+h.3600__no cage activity__m.3410__enhancer	False
+h.3501__no cage activity__m.3311__enhancer	False
+h.3601__no cage activity__m.3411__enhancer	False
+h.3502__no cage activity__m.3312__enhancer	False
+h.3602__no cage activity__m.3412__enhancer	False
+h.3503__no cage activity__m.3313__enhancer	False
+h.3603__no cage activity__m.3413__enhancer	False
+h.3504__no cage activity__m.3314__enhancer	False
+h.3604__no cage activity__m.3414__enhancer	False
+h.3638__unassigned__m.3438__unassigned	False
+h.3638__unassigned__m.3439__unassigned	False
+h.3638__unassigned__m.3440__unassigned	False
+h.3639__unassigned__m.3441__unassigned	False
+h.3640__div_pc__m.3451__div_pc	False
+h.3640__div_pc__m.3452__div_pc	False
+h.3641__enhancer__m.3460__enhancer	False
+h.3642__enhancer__m.3461__enhancer	False
+CONTROL:1__SAMP_PAIR:1	True
+CONTROL:1__SAMP_PAIR:2	True
+CONTROL:1__SAMP_PAIR:3	True
+CONTROL:1__SAMP_PAIR:4	True
+CONTROL:1__SAMP_PAIR:5	True
+CONTROL:1__SAMP_PAIR:6	True
+CONTROL:1__SAMP_PAIR:7	True
+CONTROL:1__SAMP_PAIR:8	True
+CONTROL:1__SAMP_PAIR:9	True
+CONTROL:1__SAMP_PAIR:10	True
+CONTROL:1__SAMP_PAIR:11	True
+CONTROL:1__SAMP_PAIR:12	True
+CONTROL:1__SAMP_PAIR:13	True
+CONTROL:1__SAMP_PAIR:14	True
+CONTROL:1__SAMP_PAIR:15	True
+CONTROL:1__SAMP_PAIR:16	True
+CONTROL:1__SAMP_PAIR:17	True
+CONTROL:1__SAMP_PAIR:18	True
+CONTROL:1__SAMP_PAIR:19	True
+CONTROL:1__SAMP_PAIR:20	True
+CONTROL:1__SAMP_PAIR:21	True
+CONTROL:1__SAMP_PAIR:22	True
+CONTROL:1__SAMP_PAIR:23	True
+CONTROL:1__SAMP_PAIR:24	True
+CONTROL:1__SAMP_PAIR:25	True
+CONTROL:1__SAMP_PAIR:26	True
+CONTROL:1__SAMP_PAIR:27	True
+CONTROL:1__SAMP_PAIR:28	True
+CONTROL:1__SAMP_PAIR:29	True
+CONTROL:1__SAMP_PAIR:30	True
+CONTROL:1__SAMP_PAIR:31	True
+CONTROL:1__SAMP_PAIR:32	True
+CONTROL:1__SAMP_PAIR:33	True
+CONTROL:1__SAMP_PAIR:34	True
+CONTROL:1__SAMP_PAIR:35	True
+CONTROL:1__SAMP_PAIR:36	True
+CONTROL:1__SAMP_PAIR:37	True
+CONTROL:1__SAMP_PAIR:38	True
+CONTROL:1__SAMP_PAIR:39	True
+CONTROL:1__SAMP_PAIR:40	True
+CONTROL:1__SAMP_PAIR:41	True
+CONTROL:1__SAMP_PAIR:42	True
+CONTROL:1__SAMP_PAIR:43	True
+CONTROL:1__SAMP_PAIR:44	True
+CONTROL:1__SAMP_PAIR:45	True
+CONTROL:1__SAMP_PAIR:46	True
+CONTROL:1__SAMP_PAIR:47	True
+CONTROL:1__SAMP_PAIR:48	True
+CONTROL:1__SAMP_PAIR:49	True
+CONTROL:1__SAMP_PAIR:50	True
+CONTROL:1__SAMP_PAIR:51	True
+CONTROL:1__SAMP_PAIR:52	True
+CONTROL:1__SAMP_PAIR:53	True
+CONTROL:1__SAMP_PAIR:54	True
+CONTROL:1__SAMP_PAIR:55	True
+CONTROL:1__SAMP_PAIR:56	True
+CONTROL:1__SAMP_PAIR:57	True
+CONTROL:1__SAMP_PAIR:58	True
+CONTROL:1__SAMP_PAIR:59	True
+CONTROL:1__SAMP_PAIR:60	True
+CONTROL:1__SAMP_PAIR:61	True
+CONTROL:1__SAMP_PAIR:62	True
+CONTROL:1__SAMP_PAIR:63	True
+CONTROL:1__SAMP_PAIR:64	True
+CONTROL:1__SAMP_PAIR:65	True
+CONTROL:1__SAMP_PAIR:66	True
+CONTROL:1__SAMP_PAIR:67	True
+CONTROL:1__SAMP_PAIR:68	True
+CONTROL:1__SAMP_PAIR:69	True
+CONTROL:1__SAMP_PAIR:70	True
+CONTROL:1__SAMP_PAIR:71	True
+CONTROL:1__SAMP_PAIR:72	True
+CONTROL:1__SAMP_PAIR:73	True
+CONTROL:1__SAMP_PAIR:74	True
+CONTROL:1__SAMP_PAIR:75	True
+CONTROL:1__SAMP_PAIR:76	True
+CONTROL:1__SAMP_PAIR:77	True
+CONTROL:1__SAMP_PAIR:78	True
+CONTROL:1__SAMP_PAIR:79	True
+CONTROL:1__SAMP_PAIR:80	True
+CONTROL:1__SAMP_PAIR:81	True
+CONTROL:1__SAMP_PAIR:82	True
+CONTROL:1__SAMP_PAIR:83	True
+CONTROL:1__SAMP_PAIR:84	True
+CONTROL:1__SAMP_PAIR:85	True
+CONTROL:1__SAMP_PAIR:86	True
+CONTROL:1__SAMP_PAIR:87	True
+CONTROL:1__SAMP_PAIR:88	True
+CONTROL:1__SAMP_PAIR:89	True
+CONTROL:1__SAMP_PAIR:90	True
+CONTROL:1__SAMP_PAIR:91	True
+CONTROL:1__SAMP_PAIR:92	True
+CONTROL:1__SAMP_PAIR:93	True
+CONTROL:1__SAMP_PAIR:94	True
+CONTROL:1__SAMP_PAIR:95	True
+CONTROL:1__SAMP_PAIR:96	True
+CONTROL:1__SAMP_PAIR:97	True
+CONTROL:1__SAMP_PAIR:98	True
+CONTROL:1__SAMP_PAIR:99	True
+CONTROL:1__SAMP_PAIR:100	True
+CONTROL:2__SAMP_PAIR:1	True
+CONTROL:2__SAMP_PAIR:2	True
+CONTROL:2__SAMP_PAIR:3	True
+CONTROL:2__SAMP_PAIR:4	True
+CONTROL:2__SAMP_PAIR:5	True
+CONTROL:2__SAMP_PAIR:6	True
+CONTROL:2__SAMP_PAIR:7	True
+CONTROL:2__SAMP_PAIR:8	True
+CONTROL:2__SAMP_PAIR:9	True
+CONTROL:2__SAMP_PAIR:10	True
+CONTROL:2__SAMP_PAIR:11	True
+CONTROL:2__SAMP_PAIR:12	True
+CONTROL:2__SAMP_PAIR:13	True
+CONTROL:2__SAMP_PAIR:14	True
+CONTROL:2__SAMP_PAIR:15	True
+CONTROL:2__SAMP_PAIR:16	True
+CONTROL:2__SAMP_PAIR:17	True
+CONTROL:2__SAMP_PAIR:18	True
+CONTROL:2__SAMP_PAIR:19	True
+CONTROL:2__SAMP_PAIR:20	True
+CONTROL:2__SAMP_PAIR:21	True
+CONTROL:2__SAMP_PAIR:22	True
+CONTROL:2__SAMP_PAIR:23	True
+CONTROL:2__SAMP_PAIR:24	True
+CONTROL:2__SAMP_PAIR:25	True
+CONTROL:2__SAMP_PAIR:26	True
+CONTROL:2__SAMP_PAIR:27	True
+CONTROL:2__SAMP_PAIR:28	True
+CONTROL:2__SAMP_PAIR:29	True
+CONTROL:2__SAMP_PAIR:30	True
+CONTROL:2__SAMP_PAIR:31	True
+CONTROL:2__SAMP_PAIR:32	True
+CONTROL:2__SAMP_PAIR:33	True
+CONTROL:2__SAMP_PAIR:34	True
+CONTROL:2__SAMP_PAIR:35	True
+CONTROL:2__SAMP_PAIR:36	True
+CONTROL:2__SAMP_PAIR:37	True
+CONTROL:2__SAMP_PAIR:38	True
+CONTROL:2__SAMP_PAIR:39	True
+CONTROL:2__SAMP_PAIR:40	True
+CONTROL:2__SAMP_PAIR:41	True
+CONTROL:2__SAMP_PAIR:42	True
+CONTROL:2__SAMP_PAIR:43	True
+CONTROL:2__SAMP_PAIR:44	True
+CONTROL:2__SAMP_PAIR:45	True
+CONTROL:2__SAMP_PAIR:46	True
+CONTROL:2__SAMP_PAIR:47	True
+CONTROL:2__SAMP_PAIR:48	True
+CONTROL:2__SAMP_PAIR:49	True
+CONTROL:2__SAMP_PAIR:50	True
+CONTROL:2__SAMP_PAIR:51	True
+CONTROL:2__SAMP_PAIR:52	True
+CONTROL:2__SAMP_PAIR:53	True
+CONTROL:2__SAMP_PAIR:54	True
+CONTROL:2__SAMP_PAIR:55	True
+CONTROL:2__SAMP_PAIR:56	True
+CONTROL:2__SAMP_PAIR:57	True
+CONTROL:2__SAMP_PAIR:58	True
+CONTROL:2__SAMP_PAIR:59	True
+CONTROL:2__SAMP_PAIR:60	True
+CONTROL:2__SAMP_PAIR:61	True
+CONTROL:2__SAMP_PAIR:62	True
+CONTROL:2__SAMP_PAIR:63	True
+CONTROL:2__SAMP_PAIR:64	True
+CONTROL:2__SAMP_PAIR:65	True
+CONTROL:2__SAMP_PAIR:66	True
+CONTROL:2__SAMP_PAIR:67	True
+CONTROL:2__SAMP_PAIR:68	True
+CONTROL:2__SAMP_PAIR:69	True
+CONTROL:2__SAMP_PAIR:70	True
+CONTROL:2__SAMP_PAIR:71	True
+CONTROL:2__SAMP_PAIR:72	True
+CONTROL:2__SAMP_PAIR:73	True
+CONTROL:2__SAMP_PAIR:74	True
+CONTROL:2__SAMP_PAIR:75	True
+CONTROL:2__SAMP_PAIR:76	True
+CONTROL:2__SAMP_PAIR:77	True
+CONTROL:2__SAMP_PAIR:78	True
+CONTROL:2__SAMP_PAIR:79	True
+CONTROL:2__SAMP_PAIR:80	True
+CONTROL:2__SAMP_PAIR:81	True
+CONTROL:2__SAMP_PAIR:82	True
+CONTROL:2__SAMP_PAIR:83	True
+CONTROL:2__SAMP_PAIR:84	True
+CONTROL:2__SAMP_PAIR:85	True
+CONTROL:2__SAMP_PAIR:86	True
+CONTROL:2__SAMP_PAIR:87	True
+CONTROL:2__SAMP_PAIR:88	True
+CONTROL:2__SAMP_PAIR:89	True
+CONTROL:2__SAMP_PAIR:90	True
+CONTROL:2__SAMP_PAIR:91	True
+CONTROL:2__SAMP_PAIR:92	True
+CONTROL:2__SAMP_PAIR:93	True
+CONTROL:2__SAMP_PAIR:94	True
+CONTROL:2__SAMP_PAIR:95	True
+CONTROL:2__SAMP_PAIR:96	True
+CONTROL:2__SAMP_PAIR:97	True
+CONTROL:2__SAMP_PAIR:98	True
+CONTROL:2__SAMP_PAIR:99	True
+CONTROL:2__SAMP_PAIR:100	True
+CONTROL:3__SAMP_PAIR:1	True
+CONTROL:3__SAMP_PAIR:2	True
+CONTROL:3__SAMP_PAIR:3	True
+CONTROL:3__SAMP_PAIR:4	True
+CONTROL:3__SAMP_PAIR:5	True
+CONTROL:3__SAMP_PAIR:6	True
+CONTROL:3__SAMP_PAIR:7	True
+CONTROL:3__SAMP_PAIR:8	True
+CONTROL:3__SAMP_PAIR:9	True
+CONTROL:3__SAMP_PAIR:10	True
+CONTROL:3__SAMP_PAIR:11	True
+CONTROL:3__SAMP_PAIR:12	True
+CONTROL:3__SAMP_PAIR:13	True
+CONTROL:3__SAMP_PAIR:14	True
+CONTROL:3__SAMP_PAIR:15	True
+CONTROL:3__SAMP_PAIR:16	True
+CONTROL:3__SAMP_PAIR:17	True
+CONTROL:3__SAMP_PAIR:18	True
+CONTROL:3__SAMP_PAIR:19	True
+CONTROL:3__SAMP_PAIR:20	True
+CONTROL:3__SAMP_PAIR:21	True
+CONTROL:3__SAMP_PAIR:22	True
+CONTROL:3__SAMP_PAIR:23	True
+CONTROL:3__SAMP_PAIR:24	True
+CONTROL:3__SAMP_PAIR:25	True
+CONTROL:3__SAMP_PAIR:26	True
+CONTROL:3__SAMP_PAIR:27	True
+CONTROL:3__SAMP_PAIR:28	True
+CONTROL:3__SAMP_PAIR:29	True
+CONTROL:3__SAMP_PAIR:30	True
+CONTROL:3__SAMP_PAIR:31	True
+CONTROL:3__SAMP_PAIR:32	True
+CONTROL:3__SAMP_PAIR:33	True
+CONTROL:3__SAMP_PAIR:34	True
+CONTROL:3__SAMP_PAIR:35	True
+CONTROL:3__SAMP_PAIR:36	True
+CONTROL:3__SAMP_PAIR:37	True
+CONTROL:3__SAMP_PAIR:38	True
+CONTROL:3__SAMP_PAIR:39	True
+CONTROL:3__SAMP_PAIR:40	True
+CONTROL:3__SAMP_PAIR:41	True
+CONTROL:3__SAMP_PAIR:42	True
+CONTROL:3__SAMP_PAIR:43	True
+CONTROL:3__SAMP_PAIR:44	True
+CONTROL:3__SAMP_PAIR:45	True
+CONTROL:3__SAMP_PAIR:46	True
+CONTROL:3__SAMP_PAIR:47	True
+CONTROL:3__SAMP_PAIR:48	True
+CONTROL:3__SAMP_PAIR:49	True
+CONTROL:3__SAMP_PAIR:50	True
+CONTROL:3__SAMP_PAIR:51	True
+CONTROL:3__SAMP_PAIR:52	True
+CONTROL:3__SAMP_PAIR:53	True
+CONTROL:3__SAMP_PAIR:54	True
+CONTROL:3__SAMP_PAIR:55	True
+CONTROL:3__SAMP_PAIR:56	True
+CONTROL:3__SAMP_PAIR:57	True
+CONTROL:3__SAMP_PAIR:58	True
+CONTROL:3__SAMP_PAIR:59	True
+CONTROL:3__SAMP_PAIR:60	True
+CONTROL:3__SAMP_PAIR:61	True
+CONTROL:3__SAMP_PAIR:62	True
+CONTROL:3__SAMP_PAIR:63	True
+CONTROL:3__SAMP_PAIR:64	True
+CONTROL:3__SAMP_PAIR:65	True
+CONTROL:3__SAMP_PAIR:66	True
+CONTROL:3__SAMP_PAIR:67	True
+CONTROL:3__SAMP_PAIR:68	True
+CONTROL:3__SAMP_PAIR:69	True
+CONTROL:3__SAMP_PAIR:70	True
+CONTROL:3__SAMP_PAIR:71	True
+CONTROL:3__SAMP_PAIR:72	True
+CONTROL:3__SAMP_PAIR:73	True
+CONTROL:3__SAMP_PAIR:74	True
+CONTROL:3__SAMP_PAIR:75	True
+CONTROL:3__SAMP_PAIR:76	True
+CONTROL:3__SAMP_PAIR:77	True
+CONTROL:3__SAMP_PAIR:78	True
+CONTROL:3__SAMP_PAIR:79	True
+CONTROL:3__SAMP_PAIR:80	True
+CONTROL:3__SAMP_PAIR:81	True
+CONTROL:3__SAMP_PAIR:82	True
+CONTROL:3__SAMP_PAIR:83	True
+CONTROL:3__SAMP_PAIR:84	True
+CONTROL:3__SAMP_PAIR:85	True
+CONTROL:3__SAMP_PAIR:86	True
+CONTROL:3__SAMP_PAIR:87	True
+CONTROL:3__SAMP_PAIR:88	True
+CONTROL:3__SAMP_PAIR:89	True
+CONTROL:3__SAMP_PAIR:90	True
+CONTROL:3__SAMP_PAIR:91	True
+CONTROL:3__SAMP_PAIR:92	True
+CONTROL:3__SAMP_PAIR:93	True
+CONTROL:3__SAMP_PAIR:94	True
+CONTROL:3__SAMP_PAIR:95	True
+CONTROL:3__SAMP_PAIR:96	True
+CONTROL:3__SAMP_PAIR:97	True
+CONTROL:3__SAMP_PAIR:98	True
+CONTROL:3__SAMP_PAIR:99	True
+CONTROL:3__SAMP_PAIR:100	True
+CONTROL:4__SAMP_PAIR:1	True
+CONTROL:4__SAMP_PAIR:2	True
+CONTROL:4__SAMP_PAIR:3	True
+CONTROL:4__SAMP_PAIR:4	True
+CONTROL:4__SAMP_PAIR:5	True
+CONTROL:4__SAMP_PAIR:6	True
+CONTROL:4__SAMP_PAIR:7	True
+CONTROL:4__SAMP_PAIR:8	True
+CONTROL:4__SAMP_PAIR:9	True
+CONTROL:4__SAMP_PAIR:10	True
+CONTROL:4__SAMP_PAIR:11	True
+CONTROL:4__SAMP_PAIR:12	True
+CONTROL:4__SAMP_PAIR:13	True
+CONTROL:4__SAMP_PAIR:14	True
+CONTROL:4__SAMP_PAIR:15	True
+CONTROL:4__SAMP_PAIR:16	True
+CONTROL:4__SAMP_PAIR:17	True
+CONTROL:4__SAMP_PAIR:18	True
+CONTROL:4__SAMP_PAIR:19	True
+CONTROL:4__SAMP_PAIR:20	True
+CONTROL:4__SAMP_PAIR:21	True
+CONTROL:4__SAMP_PAIR:22	True
+CONTROL:4__SAMP_PAIR:23	True
+CONTROL:4__SAMP_PAIR:24	True
+CONTROL:4__SAMP_PAIR:25	True
+CONTROL:4__SAMP_PAIR:26	True
+CONTROL:4__SAMP_PAIR:27	True
+CONTROL:4__SAMP_PAIR:28	True
+CONTROL:4__SAMP_PAIR:29	True
+CONTROL:4__SAMP_PAIR:30	True
+CONTROL:4__SAMP_PAIR:31	True
+CONTROL:4__SAMP_PAIR:32	True
+CONTROL:4__SAMP_PAIR:33	True
+CONTROL:4__SAMP_PAIR:34	True
+CONTROL:4__SAMP_PAIR:35	True
+CONTROL:4__SAMP_PAIR:36	True
+CONTROL:4__SAMP_PAIR:37	True
+CONTROL:4__SAMP_PAIR:38	True
+CONTROL:4__SAMP_PAIR:39	True
+CONTROL:4__SAMP_PAIR:40	True
+CONTROL:4__SAMP_PAIR:41	True
+CONTROL:4__SAMP_PAIR:42	True
+CONTROL:4__SAMP_PAIR:43	True
+CONTROL:4__SAMP_PAIR:44	True
+CONTROL:4__SAMP_PAIR:45	True
+CONTROL:4__SAMP_PAIR:46	True
+CONTROL:4__SAMP_PAIR:47	True
+CONTROL:4__SAMP_PAIR:48	True
+CONTROL:4__SAMP_PAIR:49	True
+CONTROL:4__SAMP_PAIR:50	True
+CONTROL:4__SAMP_PAIR:51	True
+CONTROL:4__SAMP_PAIR:52	True
+CONTROL:4__SAMP_PAIR:53	True
+CONTROL:4__SAMP_PAIR:54	True
+CONTROL:4__SAMP_PAIR:55	True
+CONTROL:4__SAMP_PAIR:56	True
+CONTROL:4__SAMP_PAIR:57	True
+CONTROL:4__SAMP_PAIR:58	True
+CONTROL:4__SAMP_PAIR:59	True
+CONTROL:4__SAMP_PAIR:60	True
+CONTROL:4__SAMP_PAIR:61	True
+CONTROL:4__SAMP_PAIR:62	True
+CONTROL:4__SAMP_PAIR:63	True
+CONTROL:4__SAMP_PAIR:64	True
+CONTROL:4__SAMP_PAIR:65	True
+CONTROL:4__SAMP_PAIR:66	True
+CONTROL:4__SAMP_PAIR:67	True
+CONTROL:4__SAMP_PAIR:68	True
+CONTROL:4__SAMP_PAIR:69	True
+CONTROL:4__SAMP_PAIR:70	True
+CONTROL:4__SAMP_PAIR:71	True
+CONTROL:4__SAMP_PAIR:72	True
+CONTROL:4__SAMP_PAIR:73	True
+CONTROL:4__SAMP_PAIR:74	True
+CONTROL:4__SAMP_PAIR:75	True
+CONTROL:4__SAMP_PAIR:76	True
+CONTROL:4__SAMP_PAIR:77	True
+CONTROL:4__SAMP_PAIR:78	True
+CONTROL:4__SAMP_PAIR:79	True
+CONTROL:4__SAMP_PAIR:80	True
+CONTROL:4__SAMP_PAIR:81	True
+CONTROL:4__SAMP_PAIR:82	True
+CONTROL:4__SAMP_PAIR:83	True
+CONTROL:4__SAMP_PAIR:84	True
+CONTROL:4__SAMP_PAIR:85	True
+CONTROL:4__SAMP_PAIR:86	True
+CONTROL:4__SAMP_PAIR:87	True
+CONTROL:4__SAMP_PAIR:88	True
+CONTROL:4__SAMP_PAIR:89	True
+CONTROL:4__SAMP_PAIR:90	True
+CONTROL:4__SAMP_PAIR:91	True
+CONTROL:4__SAMP_PAIR:92	True
+CONTROL:4__SAMP_PAIR:93	True
+CONTROL:4__SAMP_PAIR:94	True
+CONTROL:4__SAMP_PAIR:95	True
+CONTROL:4__SAMP_PAIR:96	True
+CONTROL:4__SAMP_PAIR:97	True
+CONTROL:4__SAMP_PAIR:98	True
+CONTROL:4__SAMP_PAIR:99	True
+CONTROL:4__SAMP_PAIR:100	True

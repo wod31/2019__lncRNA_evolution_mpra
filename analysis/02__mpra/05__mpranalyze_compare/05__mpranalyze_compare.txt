@@ -1,0 +1,305 @@
+
+# install MPRAnalyze
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("MPRAnalyze", version = "3.8")
+
+# install RCurl
+install.packages("RCurl")
+
+# load the package
+library(MPRAnalyze)
+library(tidyr)
+
+dna_counts_depth <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_counts.for_depth_estimation.mpranalyze.txt", sep="\t", header=TRUE)
+
+# since we only have 1 dna replicate -- add another so code doesn't crash (expects matrix)
+dna_counts_depth["dna_2"] <- dna_counts_depth["dna_1"]
+
+row.names(dna_counts_depth) <- dna_counts_depth$element
+dna_counts_depth <- dna_counts_depth[ , !(names(dna_counts_depth) %in% c("element")), drop=FALSE]
+dna_counts_depth <- as.matrix(dna_counts_depth)
+
+rna_counts_depth <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/rna_counts.for_depth_estimation.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(rna_counts_depth) <- rna_counts_depth$element
+rna_counts_depth <- rna_counts_depth[ , !(names(rna_counts_depth) %in% c("element")), drop=FALSE]
+rna_counts_depth <- as.matrix(rna_counts_depth)
+
+dna_cols_depth <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_col_ann.for_depth_estimation.mpranalyze.txt", sep="\t", header=TRUE)
+names(dna_cols_depth) <- c("id", "condition", "sample")
+
+# add second row to dna_cols_depth
+row2 <- data.frame(id="dna_2", condition="dna", sample="2")
+dna_cols_depth <- rbind(dna_cols_depth, row2)
+row.names(dna_cols_depth) <- dna_cols_depth$id
+
+rna_cols_depth <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/rna_col_ann.for_depth_estimation.mpranalyze.txt", sep="\t", header=TRUE)
+names(rna_cols_depth) <- c("id", "condition", "sample")
+row.names(rna_cols_depth) <- rna_cols_depth$id
+dna_cols_depth
+
+# make sure everything is a factor
+dna_cols_depth$sample <- as.factor(dna_cols_depth$sample)
+rna_cols_depth$sample <- as.factor(rna_cols_depth$sample)
+dna_cols_depth$condition <- as.factor(dna_cols_depth$condition)
+rna_cols_depth$condition <- as.factor(rna_cols_depth$condition)
+
+seq_comp_dna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_counts.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(seq_comp_dna_counts) <- seq_comp_dna_counts$comp_id
+seq_comp_dna_counts <- seq_comp_dna_counts[ , !(names(seq_comp_dna_counts) %in% c("comp_id"))]
+seq_comp_dna_counts <- as.matrix(seq_comp_dna_counts)
+
+# load all cell lines first
+native_rna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/native_rna_counts.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(native_rna_counts) <- native_rna_counts$comp_id
+native_rna_counts <- native_rna_counts[ , !(names(native_rna_counts) %in% c("comp_id"))]
+native_rna_counts <- as.matrix(native_rna_counts)
+
+seq_comp_dna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_col_ann.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(seq_comp_dna_cols) <- seq_comp_dna_cols$X
+
+native_rna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/native_col_ann.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(native_rna_cols) <- native_rna_cols$X
+
+# make sure everything is a factor
+seq_comp_dna_cols$barcode <- as.factor(seq_comp_dna_cols$barcode)
+native_rna_cols$barcode <- as.factor(native_rna_cols$barcode)
+
+seq_comp_dna_cols$sample <- as.factor(seq_comp_dna_cols$sample)
+native_rna_cols$sample <- as.factor(native_rna_cols$sample)
+
+seq_comp_dna_cols$seq <- as.factor(seq_comp_dna_cols$seq)
+native_rna_cols$seq <- as.factor(native_rna_cols$seq)
+
+seq_comp_dna_cols$condition <- as.factor(seq_comp_dna_cols$condition)
+native_rna_cols$condition <- as.factor(native_rna_cols$condition)
+
+head(native_rna_cols)
+
+seq_comp_ctrls <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/ctrl_status.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+seq_comp_ctrls <- as.logical(seq_comp_ctrls$ctrl_status)
+head(seq_comp_ctrls)
+
+length(seq_comp_ctrls)
+
+# load all cell lines first
+all_rna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/all_rna_counts.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(all_rna_counts) <- all_rna_counts$comp_id
+all_rna_counts <- all_rna_counts[ , !(names(all_rna_counts) %in% c("comp_id"))]
+all_rna_counts <- as.matrix(all_rna_counts)
+
+all_rna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/all_col_ann.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(all_rna_cols) <- all_rna_cols$X
+
+# make sure everything is a factor
+all_rna_cols$barcode <- as.factor(all_rna_cols$barcode)
+all_rna_cols$sample <- as.factor(all_rna_cols$sample)
+all_rna_cols$seq <- as.factor(all_rna_cols$seq)
+all_rna_cols$condition <- as.factor(all_rna_cols$condition)
+
+# for seq comparisons, load each cell line data separately
+hues64_rna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/HUES64_rna_counts.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(hues64_rna_counts) <- hues64_rna_counts$comp_id
+hues64_rna_counts <- hues64_rna_counts[ , !(names(hues64_rna_counts) %in% c("comp_id"))]
+hues64_rna_counts <- as.matrix(hues64_rna_counts)
+
+mesc_rna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/mESC_rna_counts.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(mesc_rna_counts) <- mesc_rna_counts$comp_id
+mesc_rna_counts <- mesc_rna_counts[ , !(names(mesc_rna_counts) %in% c("comp_id"))]
+mesc_rna_counts <- as.matrix(mesc_rna_counts)
+
+hues64_rna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/HUES64_col_ann.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(hues64_rna_cols) <- hues64_rna_cols$X
+
+mesc_rna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/mESC_col_ann.seq_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(mesc_rna_cols) <- mesc_rna_cols$X
+
+# make sure everything is a factor
+hues64_rna_cols$barcode <- as.factor(hues64_rna_cols$barcode)
+mesc_rna_cols$barcode <- as.factor(mesc_rna_cols$barcode)
+
+hues64_rna_cols$sample <- as.factor(hues64_rna_cols$sample)
+mesc_rna_cols$sample <- as.factor(mesc_rna_cols$sample)
+
+hues64_rna_cols$seq <- as.factor(hues64_rna_cols$seq)
+mesc_rna_cols$seq <- as.factor(mesc_rna_cols$seq)
+
+hues64_rna_cols$condition <- as.factor(hues64_rna_cols$condition)
+mesc_rna_cols$condition <- as.factor(mesc_rna_cols$condition)
+
+cell_comp_dna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_counts.cell_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(cell_comp_dna_counts) <- cell_comp_dna_counts$element
+cell_comp_dna_counts <- cell_comp_dna_counts[ , !(names(cell_comp_dna_counts) %in% c("element"))]
+cell_comp_dna_counts <- as.matrix(cell_comp_dna_counts)
+
+cell_comp_rna_counts <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/rna_counts.cell_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(cell_comp_rna_counts) <- cell_comp_rna_counts$element
+cell_comp_rna_counts <- cell_comp_rna_counts[ , !(names(cell_comp_rna_counts) %in% c("element"))]
+cell_comp_rna_counts <- as.matrix(cell_comp_rna_counts)
+
+cell_comp_dna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/dna_col_ann.cell_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(cell_comp_dna_cols) <- cell_comp_dna_cols$X
+
+cell_comp_rna_cols <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/rna_col_ann.cell_comp.mpranalyze.txt", sep="\t", header=TRUE)
+row.names(cell_comp_rna_cols) <- cell_comp_rna_cols$X
+
+# make sure everything is a factor
+cell_comp_dna_cols$barcode <- as.factor(cell_comp_dna_cols$barcode)
+cell_comp_rna_cols$barcode <- as.factor(cell_comp_rna_cols$barcode)
+
+cell_comp_dna_cols$sample <- as.factor(cell_comp_dna_cols$sample)
+cell_comp_rna_cols$sample <- as.factor(cell_comp_rna_cols$sample)
+
+cell_comp_dna_cols$condition <- as.factor(cell_comp_dna_cols$condition)
+cell_comp_rna_cols$condition <- as.factor(cell_comp_rna_cols$condition)
+head(cell_comp_rna_cols)
+
+cell_comp_ctrls <- read.table("../../../data/02__mpra/01__counts/mpranalyze_files/ctrl_status.cell_comp.mpranalyze.txt", sep="\t", header=TRUE)
+cell_comp_ctrls <- as.logical(cell_comp_ctrls$ctrl_status)
+head(cell_comp_ctrls)
+
+length(cell_comp_ctrls)
+
+# create MPRA object
+depth_obj <- MpraObject(dnaCounts = dna_counts_depth, rnaCounts = rna_counts_depth, 
+                        dnaAnnot = dna_cols_depth, rnaAnnot = rna_cols_depth)
+
+# estimate depth factors using uq -- here, a sample/condition pair == 1 library
+depth_obj <- estimateDepthFactors(depth_obj, lib.factor = c("sample", "condition"),  depth.estimator='uq',
+                                  which.lib = "both")
+
+rna_depths <- rnaDepth(depth_obj)
+rna_depths
+
+rna_cols_depth
+
+# first need to set the dnadepths and rnadepths manually
+seq_comp_dna_cols$depth <- rep(1, nrow(seq_comp_dna_cols))
+
+# note 13 will change depending how many barcodes there are per element
+native_rna_cols$depth <- c(rep(rna_depths[1], 13), rep(rna_depths[2], 13), rep(rna_depths[3], 13))
+
+# create MPRA object
+obj <- MpraObject(dnaCounts = seq_comp_dna_counts, rnaCounts = native_rna_counts, 
+                  dnaAnnot = seq_comp_dna_cols, rnaAnnot = native_rna_cols, controls = seq_comp_ctrls)
+
+obj <- setDepthFactors(obj, dnaDepth = seq_comp_dna_cols$depth, rnaDepth = native_rna_cols$depth)
+
+obj <- analyzeComparative(obj = obj, 
+                          dnaDesign = ~ barcode, 
+                          rnaDesign = ~ seq, 
+                          reducedDesign = ~ 1) 
+
+native_res <- testLrt(obj)
+head(native_res)
+
+hist(native_res[seq_comp_ctrls,]$pval)
+
+hist(native_res[!seq_comp_ctrls,]$pval)
+
+# first need to set the dnadepths and rnadepths manually
+seq_comp_dna_cols$depth <- rep(1, nrow(seq_comp_dna_cols))
+
+# note 13 will change depending how many barcodes there are per element
+all_rna_cols$depth <- c(rep(rna_depths[1], 13*2), rep(rna_depths[2], 13*2), rep(rna_depths[3], 13*2))
+
+# create MPRA object
+obj1 <- MpraObject(dnaCounts = seq_comp_dna_counts, rnaCounts = all_rna_counts, 
+                   dnaAnnot = seq_comp_dna_cols, rnaAnnot = all_rna_cols, controls = seq_comp_ctrls)
+
+obj1 <- setDepthFactors(obj1, dnaDepth = seq_comp_dna_cols$depth, rnaDepth = all_rna_cols$depth)
+
+head(all_rna_cols)
+
+obj1 <- analyzeComparative(obj = obj1, 
+                           dnaDesign = ~ barcode, 
+                           rnaDesign = ~ seq + condition + seq:condition, 
+                           reducedDesign = ~ seq + condition) 
+
+int_res <- testLrt(obj1)
+head(int_res)
+
+hist(int_res[seq_comp_ctrls,]$pval)
+
+hist(int_res[!seq_comp_ctrls,]$pval)
+
+# note 13 will change depending how many barcodes there are per element
+hues64_rna_cols$depth <- c(rep(rna_depths[1], 13*2), rep(rna_depths[2], 13*2))
+
+# create MPRA object
+obj2 <- MpraObject(dnaCounts = seq_comp_dna_counts, rnaCounts = hues64_rna_counts, 
+                   dnaAnnot = seq_comp_dna_cols, rnaAnnot = hues64_rna_cols, controls = seq_comp_ctrls)
+
+obj2 <- setDepthFactors(obj2, dnaDepth = seq_comp_dna_cols$depth, rnaDepth = hues64_rna_cols$depth)
+
+obj2 <- analyzeComparative(obj = obj2, 
+                           dnaDesign = ~ barcode, 
+                           rnaDesign = ~ seq, 
+                           reducedDesign = ~ 1) 
+
+hues64_res <- testLrt(obj2)
+head(hues64_res)
+
+hist(hues64_res[seq_comp_ctrls,]$pval)
+
+hist(hues64_res[!seq_comp_ctrls,]$pval)
+
+# note 13 will change depending how many barcodes there are per element
+mesc_rna_cols$depth <- c(rep(rna_depths[3], 13*2))
+
+# create MPRA object
+obj3 <- MpraObject(dnaCounts = seq_comp_dna_counts, rnaCounts = mesc_rna_counts, 
+                   dnaAnnot = seq_comp_dna_cols, rnaAnnot = mesc_rna_cols, controls = seq_comp_ctrls)
+
+obj3 <- setDepthFactors(obj3, dnaDepth = seq_comp_dna_cols$depth, rnaDepth = mesc_rna_cols$depth)
+
+obj3 <- analyzeComparative(obj = obj3, 
+                           dnaDesign = ~ barcode, 
+                           rnaDesign = ~ seq, 
+                           reducedDesign = ~ 1) 
+
+mesc_res <- testLrt(obj3)
+head(mesc_res)
+
+hist(mesc_res[seq_comp_ctrls,]$pval)
+
+hist(mesc_res[!seq_comp_ctrls,]$pval)
+
+# first need to set the dnadepths and rnadepths manually
+cell_comp_dna_cols$depth <- rep(1, nrow(cell_comp_dna_cols))
+
+# note 13 will change depending how many barcodes there are per element
+cell_comp_rna_cols$depth <- c(rep(rna_depths[1], 13), rep(rna_depths[2], 13), rep(rna_depths[3], 13))
+
+# create MPRA object
+obj4 <- MpraObject(dnaCounts = cell_comp_dna_counts, rnaCounts = cell_comp_rna_counts, 
+                   dnaAnnot = cell_comp_dna_cols, rnaAnnot = cell_comp_rna_cols, controls = cell_comp_ctrls)
+
+obj4 <- setDepthFactors(obj4, dnaDepth = cell_comp_dna_cols$depth, rnaDepth = cell_comp_rna_cols$depth)
+
+obj4 <- analyzeComparative(obj = obj4, 
+                           dnaDesign = ~ barcode, 
+                           rnaDesign = ~ condition, 
+                           reducedDesign = ~ 1) 
+
+trans_res <- testLrt(obj4)
+head(trans_res)
+
+hist(trans_res[cell_comp_ctrls,]$pval)
+
+hist(trans_res[!cell_comp_ctrls,]$pval)
+
+write.table(native_res, file = "../../../data/02__mpra/02__activs/native_results.txt", sep = "\t",
+            quote = FALSE)
+
+write.table(int_res, file = "../../../data/02__mpra/02__activs/cis_trans_interaction_results.txt", sep = "\t",
+            quote = FALSE)
+
+write.table(hues64_res, file = "../../../data/02__mpra/02__activs/HUES64_cis_results.txt", sep = "\t",
+            quote = FALSE)
+
+write.table(mesc_res, file = "../../../data/02__mpra/02__activs/mESC_cis_results.txt", sep = "\t",
+            quote = FALSE)
+
+write.table(trans_res, file = "../../../data/02__mpra/02__activs/trans_results.txt", sep = "\t",
+            quote = FALSE)

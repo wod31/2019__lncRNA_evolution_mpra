@@ -1,0 +1,4 @@
+	condition	sample
+HUES64_rep1	HUES64	1
+HUES64_rep2	HUES64	2
+mESC_rep1	mESC	1

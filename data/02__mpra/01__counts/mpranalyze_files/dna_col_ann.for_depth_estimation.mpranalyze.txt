@@ -1,0 +1,2 @@
+	condition	sample
+dna_1	dna	1

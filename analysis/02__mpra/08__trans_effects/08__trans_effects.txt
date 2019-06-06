@@ -1,0 +1,194 @@
+
+import warnings
+warnings.filterwarnings('ignore')
+
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
+import sys
+
+from scipy.stats import spearmanr
+
+# import utils
+sys.path.append("../../../utils")
+from plotting_utils import *
+from misc_utils import *
+from norm_utils import *
+
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+mpl.rcParams['figure.autolayout'] = False
+
+sns.set(**PAPER_PRESET)
+fontsize = PAPER_FONTSIZE
+
+np.random.seed(2019)
+
+def is_ctrl(row):
+    if "samp" in row["index"]:
+        return "control"
+    else:
+        return "TSS"
+
+def trans_status(row):
+    if row.fdr < 0.01:
+        return "significant trans effect"
+    else:
+        return "no trans effect"
+
+def trans_status_detail(row):
+    if row.fdr < 0.01:
+        if row.logFC < 0:
+            return "trans effect\n(higher in human)"
+        else:
+            return "trans effect\n(higher in mouse)"
+    else:
+        return "no trans effect"
+
+def trans_status_one(row):
+    if row.fdr_trans_human < 0.01 or row.fdr_trans_mouse < 0.01:
+        return "significant trans effect"
+    else:
+        return "no trans effect"
+
+def trans_status_detail_one(row):
+    if row.fdr_trans_human < 0.01:
+        if row.fdr_trans_mouse < 0.01:
+            # 2 sig trans effects: check both
+            if row.logFC_trans_human < 0 and row.logFC_trans_mouse < 0:
+                return "trans effect\n(higher in human)"
+            elif row.logFC_trans_human > 0 and row.logFC_trans_mouse > 0:
+                return "trans effect\n(higher in mouse)"
+            else:
+                return "trans effect\n(direction interaction)"
+        else:
+            # only sig in human, only check human
+            if row.logFC_trans_human < 0:
+                return "trans effect\n(higher in human)"
+            else:
+                return "trans effect\n(higher in mouse)"
+    else:
+        if row.fdr_trans_mouse < 0.01:
+            # only sig in mouse, only check mouse
+            if row.logFC_trans_mouse < 0:
+                return "trans effect\n(higher in human)"
+            else:
+                return "trans effect\n(higher in mouse)"
+        else:
+            # no sig effects
+            return "no trans effect"
+
+results_dir = "../../../data/02__mpra/03__results"
+results_f = "%s/native_and_cis_effects_data.txt" % results_dir
+
+data_dir = "../../../data/02__mpra/02__activs"
+trans_f = "%s/trans_results.txt" % data_dir
+
+tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.txt"
+
+results = pd.read_table(results_f)
+results.head()
+
+trans = pd.read_table(trans_f).reset_index()
+trans.head()
+
+tss_map = pd.read_table(tss_map_f, index_col=0)
+tss_map.head()
+
+trans["ctrl_status"] = trans.apply(is_ctrl, axis=1)
+trans.sample(5)
+
+trans.ctrl_status.value_counts()
+
+fig = plt.figure(figsize=(1.5, 1))
+sns.distplot(trans[trans["ctrl_status"] == "control"]["pval"], hist=False, color="gray",
+             label="negative controls (n=%s)" % len(trans[trans["ctrl_status"] == "control"]))
+sns.distplot(trans[trans["ctrl_status"] != "control"]["pval"], hist=False, color="black",
+             label="TSSs (n=%s)" % len(trans[trans["ctrl_status"] != "control"]))
+
+plt.ylabel("density")
+plt.xlabel("trans effect p-value")
+plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
+fig.savefig("ctrl_pval_dist.pdf", dpi="figure", bbox_inches="tight")
+
+trans["abs_logFC"] = np.abs(trans["logFC"])
+
+order = ["control", "TSS"]
+pal = {"control": "gray", "TSS": "black"}
+
+fig = plt.figure(figsize=(1, 1.5))
+ax = sns.boxplot(data=trans, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
+                 order=order, palette=pal)
+mimic_r_boxplot(ax)
+
+ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xlabel("")
+ax.set_ylabel("trans effect size")
+
+for i, label in enumerate(order):
+    n = len(trans[trans["ctrl_status"] == label])
+    color = pal[label]
+    ax.annotate(str(n), xy=(i, -0.6), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color=color, size=fontsize)
+
+ax.set_ylim((-0.75, 3))
+
+# calc p-vals b/w dists
+dist1 = np.asarray(trans[trans["ctrl_status"] == "control"]["abs_logFC"])
+dist2 = np.asarray(trans[trans["ctrl_status"] != "control"]["abs_logFC"])
+
+dist1 = dist1[~np.isnan(dist1)]
+dist2 = dist2[~np.isnan(dist2)]
+
+u, pval = stats.mannwhitneyu(dist1, dist2, alternative="two-sided", use_continuity=False)
+print(pval)
+
+annotate_pval(ax, 0.2, 0.8, 0.75, 0, 0.65, pval, fontsize)
+fig.savefig("ctrl_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
+
+trans["trans_status"] = trans.apply(trans_status, axis=1)
+trans["trans_status_detail"] = trans.apply(trans_status_detail, axis=1)
+trans.trans_status_detail.value_counts()
+
+human_trans = trans[trans["index"].isin(results["hg19_element"])]
+print(len(human_trans))
+human_trans.head()
+
+mouse_trans = trans[trans["index"].isin(results["mm9_element"])]
+print(len(mouse_trans))
+mouse_trans.head()
+
+human_trans_sub = human_trans[["index", "fdr", "logFC", "abs_logFC", "trans_status", "trans_status_detail"]]
+human_trans_sub.columns = ["hg19_element", "fdr_trans_human", "logFC_trans_human", 
+                           "abs_logFC_trans_human", "trans_status_human", "trans_status_detail_human"]
+
+mouse_trans_sub = mouse_trans[["index", "fdr", "logFC", "abs_logFC", "trans_status", "trans_status_detail"]]
+mouse_trans_sub.columns = ["mm9_element", "fdr_trans_mouse", "logFC_trans_mouse", 
+                           "abs_logFC_trans_mouse", "trans_status_mouse", "trans_status_detail_mouse"]
+
+data = results.merge(human_trans_sub, 
+                     on="hg19_element").merge(mouse_trans_sub,
+                                              on="mm9_element")
+print(len(data))
+data.sample(5)
+
+data["trans_status_one"] = data.apply(trans_status_one, axis=1)
+data["trans_status_detail_one"] = data.apply(trans_status_detail_one, axis=1)
+
+data.trans_status_one.value_counts()
+
+data.trans_status_detail_one.value_counts()
+
+data.columns
+
+data[data["trans_status_detail_one"] != "no trans effect"][["hg19_id", "mm9_id", "HUES64_hg19", "mESC_hg19",
+                                                            "HUES64_mm9", "mESC_mm9", "HUES64_padj_hg19", "mESC_padj_hg19",
+                                                            "HUES64_padj_mm9", "mESC_padj_mm9", "logFC_trans_human",
+                                                            "logFC_trans_mouse", "fdr_trans_human", 
+                                                            "fdr_trans_mouse", "trans_status_detail_human",
+                                                            "trans_status_detail_mouse", "trans_status_detail_one"]].sample().iloc[0]
+
+
