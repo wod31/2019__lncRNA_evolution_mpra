@@ -569,28 +569,28 @@ orth_tf_expr_f = "../../../data/03__rna_seq/04__TF_expr/orth_TF_expression.txt"
 orth_tf_expr.to_csv(orth_tf_expr_f, sep="\t", index=False)
 
 
-# In[59]:
+# In[57]:
 
 
 hESC_TFs = hESC_TFs[["index", "gene_name", "mean_tpm"]]
 len(hESC_TFs)
 
 
-# In[60]:
+# In[58]:
 
 
 hESC_TF_expr_f = "../../../data/03__rna_seq/04__TF_expr/hESC_TF_expression.txt"
 hESC_TFs.to_csv(hESC_TF_expr_f, sep="\t", index=False)
 
 
-# In[62]:
+# In[59]:
 
 
 mESC_TFs = human_mouse_TFs[["gene_id_human", "gene_name_human", "gene_id_mouse", "gene_name_mouse", "mean_tpm_mouse"]]
 len(mESC_TFs)
 
 
-# In[63]:
+# In[60]:
 
 
 mESC_TF_expr_f = "../../../data/03__rna_seq/04__TF_expr/mESC_TF_expression.txt"

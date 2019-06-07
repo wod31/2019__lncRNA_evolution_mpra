@@ -53,7 +53,7 @@ motif_info.head()
 motifs = {}
 
 
-# In[54]:
+# In[7]:
 
 
 files = os.listdir(pwm_dir)
@@ -79,13 +79,13 @@ for f in files:
     motifs[motif] = pwm
 
 
-# In[55]:
+# In[8]:
 
 
 list(motifs.keys())[0:5]
 
 
-# In[56]:
+# In[9]:
 
 
 motifs['HKR1']
@@ -93,14 +93,14 @@ motifs['HKR1']
 
 # ## 3. map motifs to curated TFs
 
-# In[57]:
+# In[10]:
 
 
 curated_tfs = set(tf_info[tf_info["Is TF?"] == "Yes"]["Ensembl ID"])
 len(curated_tfs)
 
 
-# In[69]:
+# In[11]:
 
 
 curated_motif_map = {}
@@ -122,28 +122,35 @@ for key in motifs:
             curated_motif_map[key] = {"gene_id": gene, "gene_name": gene_name}
 
 
-# In[70]:
+# In[12]:
 
 
 curated_motif_map = pd.DataFrame.from_dict(curated_motif_map, orient="index").reset_index()
 curated_motif_map.head()
 
 
-# In[71]:
+# In[13]:
 
 
 len(curated_motif_map["gene_id"].unique())
 
 
-# In[72]:
+# In[14]:
 
 
 len(curated_motif_map)
 
 
+# In[15]:
+
+
+curated_motif_map_f = "00__metadata/curated_motif_map.txt"
+curated_motif_map.to_csv(curated_motif_map_f, sep="\t", index=False)
+
+
 # ## 4. convert to MEME format (for FIMO)
 
-# In[73]:
+# In[16]:
 
 
 out_f = "../01__meme_files/human_curated_tfs.txt"
@@ -170,113 +177,6 @@ with open(out_f, "w") as f:
                                             round(float(pos[2]), 5), round(float(pos[3]), 5)))
         f.write("\n")
 f.close()
-
-
-# ## 5. check how many TFs in this list have orthologs according to Ensembl
-
-# In[74]:
-
-
-orths_f = "../../04__ensembl_orthologs/ensembl_human_mouse_orthologs.txt.gz"
-orths = pd.read_table(orths_f, sep="\t")
-orths.head()
-
-
-# In[75]:
-
-
-curated_motif_map_orth = curated_motif_map.merge(orths, left_on="gene_id", right_on="Gene stable ID", how="left")
-curated_motif_map_orth.head()
-
-
-# In[78]:
-
-
-curated_motif_map_orth = curated_motif_map_orth[["index", "gene_id", "gene_name", 
-                                                 "Mouse gene stable ID", "Mouse gene name"]]
-curated_motif_map_orth.columns = ["motif_id", "human_gene_id", "human_gene_name", "mouse_gene_id", "mouse_gene_name"]
-curated_motif_map_orth.sample(5)
-
-
-# In[80]:
-
-
-n_tot = len(curated_motif_map_orth["human_gene_name"].unique())
-n_tot
-
-
-# In[82]:
-
-
-n_orth = len(curated_motif_map_orth[~pd.isnull(curated_motif_map_orth["mouse_gene_id"])]["human_gene_name"].unique())
-n_orth
-
-
-# In[83]:
-
-
-# compare to lambert metadata file
-cons_f = "00__metadata/TF_conservation.txt"
-cons = pd.read_table(cons_f, sep=",")
-cons.head()
-
-
-# In[84]:
-
-
-len(cons)
-
-
-# In[85]:
-
-
-cons["gene_id"] = cons["GENE"].str.split("#", expand=True)[1]
-cons.head()
-
-
-# In[86]:
-
-
-cons_sub = cons[cons["gene_id"].isin(curated_motif_map["gene_id"])]
-len(cons_sub)
-
-
-# In[89]:
-
-
-cons_sub_mouse_orth = cons_sub[cons_sub["Mouse"] > 0]
-len(cons_sub_mouse_orth)
-
-
-# In[88]:
-
-
-cons_sub_mouse_orth[cons_sub_mouse_orth["GENE"].str.contains("HKR1")]
-
-
-# In[97]:
-
-
-tmp = curated_motif_map_orth[pd.isnull(curated_motif_map_orth["mouse_gene_id"])]
-len(tmp)
-
-
-# In[102]:
-
-
-tmp[tmp["human_gene_name"] == "ZNF3"]
-
-
-# In[103]:
-
-
-len(cons_sub_mouse_orth[cons_sub_mouse_orth["gene_id"].isin(tmp["human_gene_id"])])
-
-
-# In[94]:
-
-
-orths[orths["Gene stable ID"] == "ENSG00000184635"]
 
 
 # In[ ]:
