@@ -77,8 +77,7 @@ mouse_gene_map_f = "../../../misc/01__ensembl_orthologs/gencode.vM13.GENE_ID_TO_
 
 
 motif_info_dir = "../../../misc/02__motif_info"
-human_map_f = "%s/01__meme_files/human_cisbp_id_map.updated.txt" % motif_info_dir
-mouse_map_f = "%s/01__meme_files/mouse_cisbp_id_map.updated.txt" % motif_info_dir
+motif_map_f = "%s/00__lambert_et_al_files/00__metadata/curated_motif_map.txt" % motif_info_dir
 
 
 # ## 1. import data
@@ -131,22 +130,13 @@ mouse_gene_map.head()
 # In[14]:
 
 
-human_map = pd.read_table(human_map_f, header=None)
-human_map.columns = ["motif_id", "gene_name"]
-human_map.head()
-
-
-# In[15]:
-
-
-mouse_map = pd.read_table(mouse_map_f, header=None)
-mouse_map.columns = ["motif_id", "gene_name"]
-mouse_map.head()
+motif_map = pd.read_table(motif_map_f)
+motif_map.head()
 
 
 # ## 2. do some QC on RNA-seq
 
-# In[16]:
+# In[15]:
 
 
 human_gene_map["index"] = human_gene_map["gene_id"].str.split(".", expand=True)[0]
@@ -154,27 +144,27 @@ mouse_gene_map["index"] = mouse_gene_map["gene_id"].str.split(".", expand=True)[
 mouse_gene_map.head()
 
 
-# In[17]:
+# In[16]:
 
 
 hESC_expr = hESC_expr.merge(human_gene_map, on="index", how="left")
 hESC_expr.sample(5)
 
 
-# In[18]:
+# In[17]:
 
 
 mESC_expr = mESC_expr.merge(mouse_gene_map, on="index", how="left")
 mESC_expr.sample(5)
 
 
-# In[19]:
+# In[18]:
 
 
 human_genes_to_check = ["XIST", "SRY", "RPS4Y1", "DDX3Y", "POU5F1", "NANOG", "SOX2", "EOMES", "SOX17", "FOXA2"]
 
 
-# In[20]:
+# In[19]:
 
 
 human_sub = hESC_expr[hESC_expr["gene_name"].isin(human_genes_to_check)]
@@ -182,7 +172,7 @@ human_sub = pd.melt(human_sub[["gene_name", "rep1", "rep2"]], id_vars="gene_name
 human_sub.head()
 
 
-# In[21]:
+# In[20]:
 
 
 fig = plt.figure(figsize=(4, 1))
@@ -198,13 +188,13 @@ ax.set_xlabel("")
 plt.legend(loc=2, bbox_to_anchor=(1.05, 1))
 
 
-# In[22]:
+# In[21]:
 
 
 mouse_genes_to_check = ["Xist", "Sry", "Eif2s3y", "Ddx3y", "Pou5f1", "Nanog", "Sox2", "Eomes", "Sox17", "Foxa2"]
 
 
-# In[23]:
+# In[22]:
 
 
 mouse_sub = mESC_expr[mESC_expr["gene_name"].isin(mouse_genes_to_check)]
@@ -212,13 +202,13 @@ mouse_sub = pd.melt(mouse_sub[["gene_name", "rep1", "rep2", "rep3"]], id_vars="g
 mouse_sub.head()
 
 
-# In[24]:
+# In[23]:
 
 
 mouse_sub.gene_name.unique()
 
 
-# In[25]:
+# In[24]:
 
 
 fig = plt.figure(figsize=(4, 1))
@@ -236,10 +226,10 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1))
 
 # ## 3. look at expression of TFs in hESCs
 
-# In[26]:
+# In[25]:
 
 
-uniq_human_TFs = human_map["gene_name"].unique()
+uniq_human_TFs = motif_map["gene_name"].unique()
 print(len(uniq_human_TFs))
 
 TFs_in_seq = [x for x in uniq_human_TFs if x in list(hESC_expr["gene_name"])]
@@ -249,23 +239,40 @@ TFs_missing = [x for x in uniq_human_TFs if x not in list(hESC_expr["gene_name"]
 print(len(TFs_missing))
 
 
-# In[27]:
+# In[26]:
 
 
 TFs_missing
 
 
-# the above 21 TFs are missing from the RNA-seq so will not be included (I hand checked a few and couldn't find easy aliases, might look more later)
+# the above 4 TFs are missing from the RNA-seq so will not be included (I hand checked a few and couldn't find easy aliases, might look more later)
 
-# In[28]:
+# In[27]:
 
 
-hESC_TFs = hESC_expr[hESC_expr["gene_name"].isin(uniq_human_TFs)]
+hESC_TFs = hESC_expr[hESC_expr["gene_name"].isin(uniq_human_TFs)].drop_duplicates(subset=["index", "rep1", "rep2",
+                                                                                          "biotype", "gene_name"])
 print(len(hESC_TFs))
 hESC_TFs.head()
 
 
+# In[28]:
+
+
+tmp = hESC_TFs.groupby("gene_name")["index"].agg("count").reset_index()
+tmp.sort_values(by="index", ascending=False).head()
+
+
+# one of these TFs have multiple gene_ids (probably from using the lifted gencode v25 instead of gencode v25 in hg38). manually fix this guy
+
 # In[29]:
+
+
+hESC_TFs = hESC_TFs[hESC_TFs["index"] != "ENSG00000273439"]
+len(hESC_TFs)
+
+
+# In[30]:
 
 
 fig = plt.figure(figsize=(2, 1))
@@ -280,14 +287,14 @@ ax.set_title("hESCs")
 plt.legend(loc=2, bbox_to_anchor=(1.05, 1))
 
 
-# In[30]:
+# In[31]:
 
 
 hESC_TFs["mean_tpm"] = hESC_TFs[["rep1", "rep2"]].mean(axis=1)
 hESC_TFs.head()
 
 
-# In[31]:
+# In[32]:
 
 
 hESC_TFs_expr = list(hESC_TFs[hESC_TFs["mean_tpm"] > 1]["gene_name"])
@@ -296,7 +303,7 @@ len(hESC_TFs_expr)
 
 # ## 4. look at expression of orthologous TFs in mouse
 
-# In[32]:
+# In[33]:
 
 
 human_mouse_TFs = hESC_TFs[["index", "gene_name", "mean_tpm"]]
@@ -313,14 +320,14 @@ print(len(human_mouse_TFs))
 human_mouse_TFs.head()
 
 
-# In[33]:
+# In[34]:
 
 
 mESC_expr["mean_tpm_mouse"] = mESC_expr[["rep1", "rep2", "rep3"]].mean(axis=1)
 mESC_expr.head()
 
 
-# In[34]:
+# In[35]:
 
 
 human_mouse_TFs = human_mouse_TFs.merge(mESC_expr[["index", "gene_name", "mean_tpm_mouse"]],
@@ -331,16 +338,22 @@ print(len(human_mouse_TFs))
 human_mouse_TFs.head()
 
 
-# In[35]:
+# In[36]:
 
 
-mESC_TFs_expr = list(human_mouse_TFs[human_mouse_TFs["mean_tpm_mouse"] > 1]["gene_name_mouse"])
+human_mouse_TFs[human_mouse_TFs["gene_name_mouse"] == "Zfy2"]
+
+
+# In[37]:
+
+
+mESC_TFs_expr = list(human_mouse_TFs[human_mouse_TFs["mean_tpm_mouse"] > 1]["gene_name_mouse"].unique())
 len(mESC_TFs_expr)
 
 
 # ## 5. look at orthologous expression
 
-# In[36]:
+# In[38]:
 
 
 orth_expr["gene_id_human"] = orth_expr["index"].str.split("__", expand=True)[0]
@@ -348,7 +361,7 @@ orth_expr["gene_id_mouse"] = orth_expr["index"].str.split("__", expand=True)[1]
 orth_expr.head()
 
 
-# In[37]:
+# In[39]:
 
 
 orth_sub = orth[["Gene stable ID", "Mouse gene stable ID", "Gene name", "Mouse gene name"]].drop_duplicates()
@@ -357,7 +370,7 @@ orth_expr = orth_expr.merge(orth_sub, on=["gene_id_human", "gene_id_mouse"]).dro
 orth_expr.head()
 
 
-# In[38]:
+# In[40]:
 
 
 orth_expr["mean_tpm_hESC"] = orth_expr[["hESC_rep1", "hESC_rep2"]].mean(axis=1)
@@ -365,21 +378,21 @@ orth_expr["mean_tpm_mESC"] = orth_expr[["mESC_rep1", "mESC_rep2", "mESC_rep3"]].
 orth_expr.head()
 
 
-# In[39]:
+# In[41]:
 
 
 orth_expr = orth_expr.merge(orth_de, on="index")
 orth_expr.head()
 
 
-# In[40]:
+# In[42]:
 
 
 orth_expr["sig"] = orth_expr.apply(is_sig, axis=1)
 orth_expr.sig.value_counts()
 
 
-# In[41]:
+# In[43]:
 
 
 fig = plt.figure(figsize=(2, 1))
@@ -392,14 +405,14 @@ ax.set_ylabel("density")
 plt.legend(loc=2, bbox_to_anchor=(1.05, 1))
 
 
-# In[42]:
+# In[44]:
 
 
 orth_expr_filt = orth_expr[orth_expr["baseMean"] >= 1]
 len(orth_expr_filt)
 
 
-# In[43]:
+# In[45]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 1.2), nrows=1, ncols=1)
@@ -412,7 +425,7 @@ ax.scatter(np.log10(orth_expr_filt[orth_expr_filt["sig"] == "sig"]["baseMean"]+0
            color="firebrick", alpha=0.75, s=10, rasterized=True)
 
 
-# In[44]:
+# In[46]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -422,7 +435,7 @@ ax.scatter(np.log10(orth_expr_filt["mean_tpm_hESC"]+0.001),
            color="gray", alpha=0.25, s=10, rasterized=True)
 
 
-# In[45]:
+# In[47]:
 
 
 orth_tf_expr = human_mouse_TFs.merge(orth_expr, on=["gene_id_human", "gene_name_human", 
@@ -431,7 +444,7 @@ print(len(orth_tf_expr))
 orth_tf_expr.head()
 
 
-# In[46]:
+# In[48]:
 
 
 orth_tf_expr = orth_tf_expr[["gene_id_human", "gene_name_human", "mean_tpm_human", "gene_id_mouse", "gene_name_mouse",
@@ -439,17 +452,17 @@ orth_tf_expr = orth_tf_expr[["gene_id_human", "gene_name_human", "mean_tpm_human
 len(orth_tf_expr)
 
 
-# In[47]:
+# In[49]:
 
 
 # remove any orth pair that maps to more than one gene
 tmp = orth_tf_expr.groupby("gene_name_human")["gene_name_mouse"].agg("count").reset_index()
 human_dupe_orths = tmp[tmp["gene_name_mouse"] > 1]
 print(len(human_dupe_orths))
-human_dupe_orths.head()
+human_dupe_orths
 
 
-# In[48]:
+# In[50]:
 
 
 # remove any orth pair that maps to more than one gene
@@ -459,14 +472,15 @@ print(len(mouse_dupe_orths))
 mouse_dupe_orths.head()
 
 
-# In[49]:
+# In[51]:
 
 
 orth_tf_expr = orth_tf_expr[~orth_tf_expr["gene_name_human"].isin(human_dupe_orths["gene_name_human"])]
+orth_tf_expr = orth_tf_expr[~orth_tf_expr["gene_name_mouse"].isin(mouse_dupe_orths["gene_name_mouse"])]
 len(orth_tf_expr)
 
 
-# In[50]:
+# In[52]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -495,7 +509,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(no_nan)), ha="left", va="top", fontsize=font
 fig.savefig("TF_human_v_mouse_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[51]:
+# In[53]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -536,13 +550,13 @@ ax.text(0.05, 0.83, "# not sig = %s" % (len(not_sig)), ha="left", va="top", font
 fig.savefig("TF_human_v_mouse_scatter.w_sig_outline.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[52]:
+# In[54]:
 
 
 sig.sort_values(by="log2FoldChange").head()
 
 
-# In[53]:
+# In[55]:
 
 
 sig.sort_values(by="log2FoldChange", ascending=False).head()
@@ -550,49 +564,55 @@ sig.sort_values(by="log2FoldChange", ascending=False).head()
 
 # ## 6. write files
 
-# In[54]:
+# In[56]:
 
 
 orth_tf_expr.head()
 
 
-# In[55]:
+# In[57]:
 
 
 orth_tf_expr[orth_tf_expr["gene_name_human"] == "ZNF524"]
 
 
-# In[56]:
+# In[58]:
 
 
 orth_tf_expr_f = "../../../data/03__rna_seq/04__TF_expr/orth_TF_expression.txt"
 orth_tf_expr.to_csv(orth_tf_expr_f, sep="\t", index=False)
 
 
-# In[57]:
+# In[59]:
 
 
-hESC_TFs = hESC_TFs[["index", "gene_name", "mean_tpm"]]
+hESC_TFs = hESC_TFs[["index", "gene_name", "mean_tpm"]].drop_duplicates()
 len(hESC_TFs)
 
 
-# In[58]:
+# In[60]:
 
 
 hESC_TF_expr_f = "../../../data/03__rna_seq/04__TF_expr/hESC_TF_expression.txt"
 hESC_TFs.to_csv(hESC_TF_expr_f, sep="\t", index=False)
 
 
-# In[59]:
+# In[61]:
 
 
-mESC_TFs = human_mouse_TFs[["gene_id_human", "gene_name_human", "gene_id_mouse", "gene_name_mouse", "mean_tpm_mouse"]]
+mESC_TFs = human_mouse_TFs[["gene_id_human", "gene_name_human", "gene_id_mouse", "gene_name_mouse", "mean_tpm_mouse"]].drop_duplicates()
 len(mESC_TFs)
 
 
-# In[60]:
+# In[62]:
 
 
 mESC_TF_expr_f = "../../../data/03__rna_seq/04__TF_expr/mESC_TF_expression.txt"
 mESC_TFs.to_csv(mESC_TF_expr_f, sep="\t", index=False)
+
+
+# In[ ]:
+
+
+
 
