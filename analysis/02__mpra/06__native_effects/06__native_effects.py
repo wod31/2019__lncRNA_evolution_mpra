@@ -1023,7 +1023,7 @@ fig.savefig("count_native_status.filt.complete_v_partial.pdf", dpi="figure", bbo
 # In[62]:
 
 
-fig, ax = plt.subplots(figsize=(0.75, 1.5), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(0.75, 1.75), nrows=1, ncols=1)
 
 sns.countplot(data=data_filt, x="native_status", palette=native_pal, order=native_order, linewidth=2, 
               edgecolor=native_pal.values(), ax=ax)
@@ -1042,7 +1042,7 @@ fig.savefig("count_native_status.filt.sig_status.pdf", dpi="figure", bbox_inches
 # In[63]:
 
 
-fig, ax = plt.subplots(figsize=(0.75, 1.5), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(0.75, 1.75), nrows=1, ncols=1)
 
 sns.countplot(data=data_filt, x="native_status_detail", palette=det_pal, order=det_order, linewidth=2, 
               edgecolor=det_pal.values(), ax=ax)
@@ -1054,6 +1054,7 @@ sns.countplot(data=sub, x="native_status_detail", order=det_order, palette=compl
 ax.set_xticklabels(["higher in human", "higher in mouse"], va="top", ha="right", rotation=50)
 ax.set_xlabel("")
 ax.set_ylabel("count")
+fig.savefig("count_native_status.filt.complete_status.pdf", dpi="figure", bbox_inches="tight")
 
 
 # In[64]:
@@ -1068,7 +1069,7 @@ clean_sig_comp.head()
 # In[65]:
 
 
-fig = plt.figure(figsize=(1.75, 1.5))
+fig = plt.figure(figsize=(1.75, 1.75))
 ax = sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_sig", 
                  order=switch_order, color=sns.light_palette(sns.color_palette("Set2")[2])[3], 
                  linewidth=2, edgecolor=sns.light_palette(sns.color_palette("Set2")[2])[3])
