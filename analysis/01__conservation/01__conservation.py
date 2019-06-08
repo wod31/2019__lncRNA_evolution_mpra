@@ -232,7 +232,7 @@ mouse_cage_perc.head()
 order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[23]:
+# In[19]:
 
 
 fig, axarr = plt.subplots(figsize=(1.4, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
@@ -254,7 +254,7 @@ ax.set_ylim((0, 100))
 fig.savefig("human_orth_percents.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[24]:
+# In[20]:
 
 
 fig, axarr = plt.subplots(figsize=(1.4, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)

@@ -67,7 +67,9 @@ def is_ctrl(row):
 def cleaner_biotype(row, biotype_col):
     if row[biotype_col] in ["protein_coding", "div_pc"]:
         return "mRNA"
-    elif row[biotype_col] in ["intergenic", "antisense", "div_lnc"]:
+    elif row[biotype_col] == "intergenic":
+        return "lincRNA"
+    elif row[biotype_col] in ["antisense", "div_lnc"]:
         return "lncRNA"
     elif row[biotype_col] == "enhancer":
         return "eRNA"
@@ -163,7 +165,7 @@ native_f = "%s/native_results.txt" % data_dir
 # In[13]:
 
 
-tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.txt"
+tss_map_f = "../../../data/01__design/01__mpra_list/mpra_tss.with_ids.UPDATED.txt"
 
 
 # ## 1. import data
@@ -382,7 +384,7 @@ len(data)
 
 
 # limit to those that are significant in at least 1 context
-data_filt = data[(data["HUES64_padj_hg19"] < 0.01) | (data["mESC_padj_mm9"] < 0.01)]
+data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.05)]
 len(data_filt)
 
 
@@ -464,7 +466,7 @@ fig.savefig("native_scatter_human.separated.pdf", dpi="figure", bbox_inches="tig
 # In[38]:
 
 
-clean_order = ["eRNA", "lncRNA", "mRNA"]
+clean_order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
 # In[39]:
@@ -621,7 +623,7 @@ fig.savefig("native_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inch
 # In[44]:
 
 
-switch_order = ["CAGE turnover", "eRNA", "lncRNA", "mRNA"]
+switch_order = ["CAGE turnover", "eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
 # In[45]:
