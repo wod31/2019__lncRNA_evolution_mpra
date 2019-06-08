@@ -391,7 +391,7 @@ len(data_filt)
 # In[36]:
 
 
-fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
 
 not_sig = data_filt[data_filt["fdr_native"] >= 0.01]
 sig = data_filt[data_filt["fdr_native"] < 0.01]
@@ -509,9 +509,9 @@ print(pval13)
 u23, pval23 = stats.mannwhitneyu(dist2, dist3, alternative="two-sided", use_continuity=False)
 print(pval23)
 
-annotate_pval(ax, 0.2, 0.8, 1.65, 0, 1.64, pval12, fontsize)
-annotate_pval(ax, 1.2, 1.8, 1.65, 0, 1.64, pval23, fontsize)
-annotate_pval(ax, 0.2, 1.8, 2.2, 0, 2.19, pval13, fontsize)
+# annotate_pval(ax, 0.2, 0.8, 1.65, 0, 1.64, pval12, fontsize)
+# annotate_pval(ax, 1.2, 1.8, 1.65, 0, 1.64, pval23, fontsize)
+# annotate_pval(ax, 0.2, 1.8, 2.2, 0, 2.19, pval13, fontsize)
 
 fig.savefig("native_clean_biotype_hg19_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
@@ -588,9 +588,9 @@ print(pval13)
 u23, pval23 = stats.mannwhitneyu(dist2, dist3, alternative="two-sided", use_continuity=False)
 print(pval23)
 
-annotate_pval(ax, 0.2, 0.8, 1.65, 0, 1.64, pval12, fontsize)
-annotate_pval(ax, 1.2, 1.8, 1.65, 0, 1.64, pval23, fontsize)
-annotate_pval(ax, 0.2, 1.8, 2.2, 0, 2.19, pval13, fontsize)
+# annotate_pval(ax, 0.2, 0.8, 1.65, 0, 1.64, pval12, fontsize)
+# annotate_pval(ax, 1.2, 1.8, 1.65, 0, 1.64, pval23, fontsize)
+# annotate_pval(ax, 0.2, 1.8, 2.2, 0, 2.19, pval13, fontsize)
 
 fig.savefig("native_clean_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
@@ -668,9 +668,9 @@ print(pval23)
 u34, pval34 = stats.mannwhitneyu(dist3, dist4, alternative="two-sided", use_continuity=False)
 print(pval34)
 
-annotate_pval(ax, 0.2, 0.8, 1.75, 0, 1.74, pval12, fontsize)
-annotate_pval(ax, 1.2, 1.8, 1.75, 0, 1.74, pval23, fontsize)
-annotate_pval(ax, 2.2, 2.8, 1.75, 0, 1.75, pval34, fontsize)
+# annotate_pval(ax, 0.2, 0.8, 1.75, 0, 1.74, pval12, fontsize)
+# annotate_pval(ax, 1.2, 1.8, 1.75, 0, 1.74, pval23, fontsize)
+# annotate_pval(ax, 2.2, 2.8, 1.75, 0, 1.75, pval34, fontsize)
 
 fig.savefig("native_clean_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
@@ -958,7 +958,7 @@ plt.axvline(x=2.5, color="black", zorder=1)
 
 
 data["native_status_complete"] = data.apply(native_status_complete, axis=1)
-data_filt = data[(data["HUES64_padj_hg19"] < 0.01) | (data["mESC_padj_mm9"] < 0.01)]
+data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.05)]
 data_filt.native_status_complete.value_counts()
 
 
