@@ -245,7 +245,7 @@ pal = {"control": "gray", "TSS": "black"}
 # In[23]:
 
 
-fig = plt.figure(figsize=(1.5, 1.5))
+fig = plt.figure(figsize=(1, 1.5))
 ax = sns.boxplot(data=native, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
@@ -360,7 +360,7 @@ native_sub.columns = ["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "fdr_n
                       "abs_logFC_native", "native_status", "native_status_detail"]
 
 
-# In[49]:
+# In[33]:
 
 
 tmp = tss_map.merge(native_sub, 
@@ -394,7 +394,7 @@ data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.
 len(data_filt)
 
 
-# In[70]:
+# In[36]:
 
 
 fig, ax = plt.subplots(figsize=(1.5, 1.5), nrows=1, ncols=1)
@@ -840,7 +840,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[71]:
+# In[53]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -987,7 +987,7 @@ det_pal = {"native effect\n(higher in human)": sns.light_palette(sns.color_palet
            "native effect\n(higher in mouse)": sns.light_palette(sns.color_palette("Set2")[0])[2]}
 
 
-# In[64]:
+# In[61]:
 
 
 fig, axarr = plt.subplots(figsize=(2, 1.34), nrows=1, ncols=2)
@@ -1014,20 +1014,21 @@ sns.countplot(data=sub, x="native_status_detail", order=det_order, palette=compl
               edgecolor=complete_pal.values(), ax=ax2)
 ax2.set_xticklabels(det_order, va="top", ha="right", rotation=50)
 ax2.set_xlabel("")
-ax2.set_ylabel("")
-plt.subplots_adjust(wspace=0.5)
+ax2.set_ylabel("count")
+
+plt.subplots_adjust(wspace=0.9)
 fig.savefig("count_native_status.filt.complete_v_partial.pdf", dpi="figure", bbox_inches="tight")
 
 
 # ## 9. write results file
 
-# In[65]:
+# In[62]:
 
 
 results_dir = "../../../data/02__mpra/03__results"
 
 
-# In[66]:
+# In[63]:
 
 
 data.to_csv("%s/native_effects_data.txt" % results_dir, sep="\t", index=False)
