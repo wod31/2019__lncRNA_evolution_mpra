@@ -245,7 +245,7 @@ pal = {"control": "gray", "TSS": "black"}
 # In[23]:
 
 
-fig = plt.figure(figsize=(1, 1.5))
+fig = plt.figure(figsize=(1.5, 1.5))
 ax = sns.boxplot(data=native, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
@@ -360,7 +360,7 @@ native_sub.columns = ["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "fdr_n
                       "abs_logFC_native", "native_status", "native_status_detail"]
 
 
-# In[33]:
+# In[49]:
 
 
 tmp = tss_map.merge(native_sub, 
@@ -368,7 +368,13 @@ tmp = tss_map.merge(native_sub,
                     right_on=["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9"])
 data = tmp.drop(["index_hg19", "index_mm9"], axis=1)
 print(len(data))
-data = data.drop("orig_species", axis=1).drop_duplicates()
+data = data.drop(["orig_species", "lift_species"], axis=1).drop_duplicates()
+print(len(data))
+
+# found one annoying duplicate because the expr values has a bunch of zeroes on the end for one enhancer
+# just ignore this one by keeping first guy automatically since they are the same
+data = data.drop_duplicates(subset=["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9"])
+print(len(data))
 data.sample(5)
 
 
@@ -388,10 +394,10 @@ data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.
 len(data_filt)
 
 
-# In[36]:
+# In[70]:
 
 
-fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(1.5, 1.5), nrows=1, ncols=1)
 
 not_sig = data_filt[data_filt["fdr_native"] >= 0.01]
 sig = data_filt[data_filt["fdr_native"] < 0.01]
@@ -834,7 +840,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[53]:
+# In[71]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -843,7 +849,7 @@ ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig",
 
 ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("% of TSSs with native effects")
+ax.set_ylabel("% of TSSs with\nnative effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig[clean_sig["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
@@ -981,10 +987,10 @@ det_pal = {"native effect\n(higher in human)": sns.light_palette(sns.color_palet
            "native effect\n(higher in mouse)": sns.light_palette(sns.color_palette("Set2")[0])[2]}
 
 
-# In[61]:
+# In[64]:
 
 
-fig, axarr = plt.subplots(figsize=(2, 1), nrows=1, ncols=2)
+fig, axarr = plt.subplots(figsize=(2, 1.34), nrows=1, ncols=2)
 
 ax1 = axarr[0]
 sns.countplot(data=data_filt, x="native_status", palette=native_pal, order=native_order, linewidth=2, 
@@ -1015,13 +1021,13 @@ fig.savefig("count_native_status.filt.complete_v_partial.pdf", dpi="figure", bbo
 
 # ## 9. write results file
 
-# In[62]:
+# In[65]:
 
 
 results_dir = "../../../data/02__mpra/03__results"
 
 
-# In[63]:
+# In[66]:
 
 
 data.to_csv("%s/native_effects_data.txt" % results_dir, sep="\t", index=False)
