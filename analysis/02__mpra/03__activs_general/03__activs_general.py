@@ -45,7 +45,7 @@ np.random.seed(2019)
 
 # ## functions
 
-# In[49]:
+# In[4]:
 
 
 def cleaner_biotype(row, biotype_col):
@@ -57,7 +57,9 @@ def cleaner_biotype(row, biotype_col):
         else:
             if row[biotype_col] in ["protein_coding", "div_pc"]:
                 return "mRNA"
-            elif row[biotype_col] in ["intergenic", "antisense", "div_lnc"]:
+            elif row[biotype_col] == "intergenic":
+                return "lincRNA"
+            elif row[biotype_col] in ["antisense", "div_lnc"]:
                 return "lncRNA"
             elif row[biotype_col] == "enhancer":
                 return "eRNA"
@@ -68,7 +70,9 @@ def cleaner_biotype(row, biotype_col):
     except:
         if row[biotype_col] in ["protein_coding", "div_pc"]:
             return "mRNA"
-        elif row[biotype_col] in ["intergenic", "antisense", "div_lnc"]:
+        elif row[biotype_col] == "intergenic":
+            return "lincRNA"
+        elif row[biotype_col] in ["antisense", "div_lnc"]:
             return "lncRNA"
         elif row[biotype_col] == "enhancer":
             return "eRNA"
@@ -78,7 +82,7 @@ def cleaner_biotype(row, biotype_col):
             return "other"
 
 
-# In[45]:
+# In[5]:
 
 
 def is_sig(row, col):
@@ -88,7 +92,7 @@ def is_sig(row, col):
         return "not sig"
 
 
-# In[58]:
+# In[6]:
 
 
 def fix_cage_exp(row, col):
@@ -100,20 +104,20 @@ def fix_cage_exp(row, col):
 
 # ## variables
 
-# In[4]:
+# In[7]:
 
 
 data_dir = "../../../data/02__mpra/02__activs"
 alpha_f = "%s/alpha_per_elem.quantification.txt" % data_dir
 
 
-# In[5]:
+# In[8]:
 
 
 index_f = "../../../data/01__design/01__index/TWIST_pool4_v8_final.with_element_id.txt.gz"
 
 
-# In[6]:
+# In[9]:
 
 
 tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.txt"
@@ -121,7 +125,7 @@ tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.tx
 
 # ## 1. import files
 
-# In[7]:
+# In[10]:
 
 
 alpha = pd.read_table(alpha_f, sep="\t")
@@ -129,13 +133,13 @@ alpha.reset_index(inplace=True)
 alpha.head()
 
 
-# In[8]:
+# In[11]:
 
 
 index = pd.read_table(index_f, sep="\t")
 
 
-# In[9]:
+# In[12]:
 
 
 index_elem = index[["element", "tile_type", "element_id", "name", "tile_number", "chrom", "strand", "actual_start", 
@@ -143,7 +147,7 @@ index_elem = index[["element", "tile_type", "element_id", "name", "tile_number",
 index_elem = index_elem.drop_duplicates()
 
 
-# In[10]:
+# In[13]:
 
 
 tss_map = pd.read_table(tss_map_f, sep="\t", index_col=0)
@@ -152,7 +156,7 @@ tss_map.head()
 
 # ## 2. merge alphas w/ index
 
-# In[11]:
+# In[14]:
 
 
 pos_ctrls = alpha[alpha["index"].str.contains("__samp")]
@@ -161,14 +165,14 @@ pos_ctrls["mESC_log"] = np.log10(pos_ctrls["mESC"])
 len(pos_ctrls)
 
 
-# In[12]:
+# In[15]:
 
 
 alpha = alpha[~alpha["index"].str.contains("__samp")]
 len(alpha)
 
 
-# In[13]:
+# In[16]:
 
 
 data = alpha.merge(index_elem, left_on="index", right_on="element", how="left")
@@ -176,7 +180,7 @@ data.drop("index", axis=1, inplace=True)
 data.head()
 
 
-# In[14]:
+# In[17]:
 
 
 data["HUES64_log"] = np.log10(data["HUES64"])
@@ -187,14 +191,14 @@ data.sample(5)
 # ## 3. compare negative controls to TSSs & positive controls
 # maybe delete this section
 
-# In[19]:
+# In[18]:
 
 
 neg_ctrls = data[data["tile_type"] == "RANDOM"]
 others = data[data["tile_type"] != "RANDOM"]
 
 
-# In[20]:
+# In[19]:
 
 
 plt.figure(figsize=(1.5, 1.25))
@@ -209,7 +213,7 @@ plt.ylabel("density")
 plt.xlabel("log10 MPRA activity in hESCs")
 
 
-# In[21]:
+# In[20]:
 
 
 plt.figure(figsize=(1.5, 1.25))
@@ -226,7 +230,7 @@ plt.xlabel("log10 MPRA activity in mESCs")
 
 # ## 4. compare activities across biotypes + controls
 
-# In[23]:
+# In[21]:
 
 
 data["tss_id"] = data["name"].str.split("__", expand=True)[1]
@@ -235,7 +239,7 @@ data["tss_tile_num"] = data["name"].str.split("__", expand=True)[2]
 data.sample(5)
 
 
-# In[24]:
+# In[22]:
 
 
 pos_ctrls.columns = ["element", "HUES64", "mESC", "HUES64_pval", "mESC_pval", "HUES64_padj", "mESC_padj", 
@@ -243,7 +247,7 @@ pos_ctrls.columns = ["element", "HUES64", "mESC", "HUES64_pval", "mESC_pval", "H
 pos_ctrls.head()
 
 
-# In[25]:
+# In[23]:
 
 
 human_df = data[(data["species"] == "HUMAN") | (data["name"] == "random_sequence")]
@@ -259,7 +263,7 @@ mouse_df_w_ctrls = mouse_df_w_ctrls.merge(tss_map[["mm9_id", "biotype_mm9", "ste
 mouse_df_w_ctrls.sample(5)
 
 
-# In[27]:
+# In[24]:
 
 
 human_df_w_ctrls["cleaner_biotype"] = human_df_w_ctrls.apply(cleaner_biotype, biotype_col="biotype_hg19", axis=1)
@@ -267,24 +271,24 @@ mouse_df_w_ctrls["cleaner_biotype"] = mouse_df_w_ctrls.apply(cleaner_biotype, bi
 human_df_w_ctrls.cleaner_biotype.value_counts()
 
 
-# In[34]:
+# In[45]:
 
 
-ctrl_order = ["negative control", "eRNA", "lncRNA", "mRNA", "positive control"]
+ctrl_order = ["negative control", "eRNA", "lincRNA", "lncRNA", "mRNA", "positive control"]
 
 human_ctrl_pal = {"negative control": "gray", "no CAGE activity": "gray", "eRNA": sns.color_palette("Set2")[1],
-                  "lncRNA": sns.color_palette("Set2")[1], "mRNA": sns.color_palette("Set2")[1], 
-                  "positive control": "black"}
+                  "lincRNA": sns.color_palette("Set2")[1], "lncRNA": sns.color_palette("Set2")[1], 
+                  "mRNA": sns.color_palette("Set2")[1], "positive control": "black"}
 
 mouse_ctrl_pal = {"negative control": "gray", "no CAGE activity": "gray", "eRNA": sns.color_palette("Set2")[0],
-                  "lncRNA": sns.color_palette("Set2")[0], "mRNA": sns.color_palette("Set2")[0], 
-                  "positive control": "black"}
+                  "lincRNA": sns.color_palette("Set2")[0], "lncRNA": sns.color_palette("Set2")[0], 
+                  "mRNA": sns.color_palette("Set2")[0], "positive control": "black"}
 
 
-# In[35]:
+# In[48]:
 
 
-fig = plt.figure(figsize=(2.35, 1.5))
+fig = plt.figure(figsize=(2, 1.5))
 ax = sns.boxplot(data=human_df_w_ctrls, x="cleaner_biotype", y="HUES64", flierprops = dict(marker='o', markersize=5),
                  order=ctrl_order, palette=human_ctrl_pal)
 mimic_r_boxplot(ax)
@@ -305,10 +309,10 @@ ax.set_ylim((-1, 20))
 fig.savefig("better_neg_ctrl_boxplot.human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[37]:
+# In[49]:
 
 
-fig = plt.figure(figsize=(2.35, 1.5))
+fig = plt.figure(figsize=(2, 1.5))
 ax = sns.boxplot(data=mouse_df_w_ctrls, x="cleaner_biotype", y="mESC", flierprops = dict(marker='o', markersize=5),
                  order=ctrl_order, palette=mouse_ctrl_pal)
 mimic_r_boxplot(ax)
@@ -331,7 +335,7 @@ fig.savefig("better_neg_ctrl_boxplot.mouse.pdf", dpi="figure", bbox_inches="tigh
 
 # ## 5. compare activities across tiles
 
-# In[38]:
+# In[50]:
 
 
 df = data[data["tss_tile_num"].isin(["tile1", "tile2"])]
@@ -345,11 +349,11 @@ mouse_df = mouse_df.merge(tss_map[["mm9_id", "biotype_mm9", "stem_exp_mm9", "ori
 mouse_df.sample(5)
 
 
-# In[44]:
+# In[54]:
 
 
 for df, species, colname, color in zip([human_df, mouse_df], ["hESCs", "mESCs"], ["HUES64", "mESC"], [sns.color_palette("Set2")[1], sns.color_palette("Set2")[0]]):
-    fig = plt.figure(figsize=(2, 1.5))
+    fig = plt.figure(figsize=(1, 1))
     ax = sns.boxplot(data=df, x="tss_tile_num", y=colname, flierprops = dict(marker='o', markersize=5),
                      color=color)
     mimic_r_boxplot(ax)
@@ -366,14 +370,14 @@ for df, species, colname, color in zip([human_df, mouse_df], ["hESCs", "mESCs"],
 
     annotate_pval(ax, 0.2, 0.8, 1, 0, 1, tile_pval, fontsize)
     ax.set_yscale('symlog')
-    ax.set_ylabel("MPRA activity in %s" % species)
+    ax.set_ylabel("MPRA activity\n(%s)" % species)
     ax.set_xlabel("")
     ax.set_title(species)
 
 
 # ## 6. find max activity per tile
 
-# In[46]:
+# In[55]:
 
 
 human_df_sort = human_df[["element", "tss_id", "biotype_hg19", "tss_tile_num", "HUES64", "HUES64_log", "HUES64_padj"]].sort_values(by=["tss_id", "HUES64_log"], ascending=False)
@@ -382,7 +386,7 @@ human_df_max["HUES64_sig"] = human_df_max.apply(is_sig, col="HUES64_padj", axis=
 human_df_max.head(10)
 
 
-# In[47]:
+# In[56]:
 
 
 mouse_df_sort = mouse_df[["element", "tss_id", "biotype_mm9", "tss_tile_num", "mESC", "mESC_log", "mESC_padj"]].sort_values(by=["tss_id", "mESC_log"], ascending=False)
@@ -391,32 +395,32 @@ mouse_df_max["mESC_sig"] = mouse_df_max.apply(is_sig, col="mESC_padj", axis=1)
 mouse_df_max.head(10)
 
 
-# In[50]:
+# In[57]:
 
 
 human_df_max["cleaner_biotype"] = human_df_max.apply(cleaner_biotype, biotype_col="biotype_hg19", axis=1)
 mouse_df_max["cleaner_biotype"] = mouse_df_max.apply(cleaner_biotype, biotype_col="biotype_mm9", axis=1)
 
 
-# In[52]:
+# In[58]:
 
 
 ctrls = human_df_w_ctrls[human_df_w_ctrls["cleaner_biotype"].isin(["negative control", "positive control"])]
 len(ctrls)
 
 
-# In[53]:
+# In[59]:
 
 
 human_tmp = human_df_max.append(ctrls)
 mouse_tmp = mouse_df_max.append(ctrls)
 
 
-# In[55]:
+# In[62]:
 
 
 # re-make boxplots with neg/pos ctrls
-fig = plt.figure(figsize=(2.35, 1.25))
+fig = plt.figure(figsize=(2, 1.25))
 ax = sns.boxplot(data=human_tmp, x="cleaner_biotype", y="HUES64", flierprops = dict(marker='o', markersize=5),
                  order=ctrl_order, palette=human_ctrl_pal)
 mimic_r_boxplot(ax)
@@ -429,7 +433,7 @@ ax.set_ylabel("MPRA activity\n(hESCs)")
 for i, label in enumerate(ctrl_order):
     n = len(human_tmp[human_tmp["cleaner_biotype"] == label])
     color = human_ctrl_pal[label]
-    ax.annotate(str(n), xy=(i, -0.7), xycoords="data", xytext=(0, 0), 
+    ax.annotate(str(n), xy=(i, -0.75), xycoords="data", xytext=(0, 0), 
                 textcoords="offset pixels", ha='center', va='bottom', 
                 color=color, size=fontsize)
 
@@ -437,11 +441,11 @@ ax.set_ylim((-1, 20))
 fig.savefig("better_neg_ctrl_boxplot.human_max.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[56]:
+# In[63]:
 
 
 # re-make boxplots with neg/pos ctrls
-fig = plt.figure(figsize=(2.35, 1.25))
+fig = plt.figure(figsize=(2, 1.25))
 ax = sns.boxplot(data=mouse_tmp, x="cleaner_biotype", y="mESC", flierprops = dict(marker='o', markersize=5),
                  order=ctrl_order, palette=mouse_ctrl_pal)
 mimic_r_boxplot(ax)
@@ -454,7 +458,7 @@ ax.set_ylabel("MPRA activity\n(mESCs)")
 for i, label in enumerate(ctrl_order):
     n = len(mouse_tmp[mouse_tmp["cleaner_biotype"] == label])
     color = mouse_ctrl_pal[label]
-    ax.annotate(str(n), xy=(i, -0.7), xycoords="data", xytext=(0, 0), 
+    ax.annotate(str(n), xy=(i, -0.75), xycoords="data", xytext=(0, 0), 
                 textcoords="offset pixels", ha='center', va='bottom', 
                 color=color, size=fontsize)
 
@@ -466,27 +470,27 @@ fig.savefig("better_neg_ctrl_boxplot.mouse_max.pdf", dpi="figure", bbox_inches="
 # 
 # consider re-doing w/ RNA-seq
 
-# In[57]:
+# In[64]:
 
 
 human_tmp = human_df_max.merge(human_df[["element", "stem_exp_hg19"]].drop_duplicates(), on="element")
 len(human_tmp)
 
 
-# In[59]:
+# In[65]:
 
 
 human_tmp["stem_exp_hg19_fixed"] = human_tmp.apply(fix_cage_exp, col="stem_exp_hg19", axis=1)
 human_tmp.sample(5)
 
 
-# In[60]:
+# In[68]:
 
 
-biotypes_sub = ["eRNA", "lncRNA", "mRNA"]
+biotypes_sub = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[67]:
+# In[69]:
 
 
 fig, axes = plt.subplots(figsize=(4, 1.25), nrows=1, ncols=len(biotypes_sub), sharex=False, sharey=True)
@@ -525,7 +529,7 @@ plt.show()
 fig.savefig("cage_corr_human.biotype_sub.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[68]:
+# In[70]:
 
 
 mouse_tmp = mouse_df_max.merge(mouse_df[["element", "stem_exp_mm9"]].drop_duplicates(), on="element")
@@ -533,7 +537,7 @@ mouse_tmp["stem_exp_mm9_fixed"] = mouse_tmp.apply(fix_cage_exp, col="stem_exp_mm
 len(mouse_tmp)
 
 
-# In[70]:
+# In[71]:
 
 
 fig, axes = plt.subplots(figsize=(4, 1.25), nrows=1, ncols=len(biotypes_sub), sharex=False, sharey=True)
@@ -574,7 +578,7 @@ fig.savefig("cage_corr_mouse.biotype_sub.pdf", dpi="figure", bbox_inches="tight"
 
 # ## 8. write files
 
-# In[71]:
+# In[72]:
 
 
 human_df_filename = "%s/human_TSS_vals.both_tiles.txt" % data_dir
@@ -583,7 +587,7 @@ human_df_max_filename = "%s/human_TSS_vals.max_tile.txt" % data_dir
 mouse_df_max_filename = "%s/mouse_TSS_vals.max_tile.txt" % data_dir
 
 
-# In[72]:
+# In[73]:
 
 
 human_df.to_csv(human_df_filename, sep="\t", index=False)
