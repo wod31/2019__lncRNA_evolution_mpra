@@ -1056,7 +1056,7 @@ ax.set_xlabel("")
 ax.set_ylabel("count")
 
 
-# In[74]:
+# In[64]:
 
 
 complete = data_filt[data_filt["native_status_complete"].str.contains("complete")].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1065,13 +1065,13 @@ clean_sig_comp["percent_complete"] = (clean_sig_comp["hg19_id"]/clean_sig_comp["
 clean_sig_comp.head()
 
 
-# In[77]:
+# In[65]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
 ax = sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_sig", 
-                 order=switch_order, color=sns.light_palette(sns.color_palette("Set2")[2])[2], 
-                 linewidth=2, edgecolor=sns.light_palette(sns.color_palette("Set2")[2])[2])
+                 order=switch_order, color=sns.light_palette(sns.color_palette("Set2")[2])[3], 
+                 linewidth=2, edgecolor=sns.light_palette(sns.color_palette("Set2")[2])[3])
 
 # now add the complete gains stacked bar part
 sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_complete", order=switch_order, 
@@ -1084,7 +1084,7 @@ ax.set_ylabel("% of TSSs with\nnative effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig_comp[clean_sig_comp["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
-    ax.annotate(str(n), xy=(i, 4), xycoords="data", xytext=(0, 0), 
+    ax.annotate(str(n), xy=(i, 6), xycoords="data", xytext=(0, 0), 
                 textcoords="offset pixels", ha='center', va='bottom', 
                 color="white", size=fontsize)
     
