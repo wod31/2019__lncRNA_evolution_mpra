@@ -232,10 +232,10 @@ mouse_cage_perc.head()
 order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[19]:
+# In[23]:
 
 
-fig, axarr = plt.subplots(figsize=(2.3, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
+fig, axarr = plt.subplots(figsize=(1.4, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
 
 ax = axarr[0]
 sns.barplot(data=human_seq_perc, x="clean_biotype_hg19", y="perc",
@@ -254,10 +254,10 @@ ax.set_ylim((0, 100))
 fig.savefig("human_orth_percents.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[20]:
+# In[24]:
 
 
-fig, axarr = plt.subplots(figsize=(2.3, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
+fig, axarr = plt.subplots(figsize=(1.4, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
 
 ax = axarr[0]
 sns.barplot(data=mouse_seq_perc, x="clean_biotype_mm9", y="perc",
