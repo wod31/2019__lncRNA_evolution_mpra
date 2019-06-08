@@ -397,7 +397,7 @@ len(data_filt)
 # In[36]:
 
 
-fig, ax = plt.subplots(figsize=(1.5, 1.5), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
 
 not_sig = data_filt[data_filt["fdr_native"] >= 0.01]
 sig = data_filt[data_filt["fdr_native"] < 0.01]
@@ -1020,15 +1020,103 @@ plt.subplots_adjust(wspace=0.9)
 fig.savefig("count_native_status.filt.complete_v_partial.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[62]:
+
+
+fig, ax = plt.subplots(figsize=(0.75, 1.5), nrows=1, ncols=1)
+
+sns.countplot(data=data_filt, x="native_status", palette=native_pal, order=native_order, linewidth=2, 
+              edgecolor=native_pal.values(), ax=ax)
+ax.set_xticklabels(["no native effect", "native effect"], va="top", ha="right", rotation=50)
+ax.set_xlabel("")
+
+for i, label in enumerate(native_order):
+    n = len(data_filt[data_filt["native_status"] == label])
+    ax.annotate(str(n), xy=(i, 2), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color="white", size=fontsize)
+
+fig.savefig("count_native_status.filt.sig_status.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[63]:
+
+
+fig, ax = plt.subplots(figsize=(0.75, 1.5), nrows=1, ncols=1)
+
+sns.countplot(data=data_filt, x="native_status_detail", palette=det_pal, order=det_order, linewidth=2, 
+              edgecolor=det_pal.values(), ax=ax)
+
+# now add the complete gains stacked bar part
+sub = data_filt[data_filt["native_status_complete"].str.contains("complete")]
+sns.countplot(data=sub, x="native_status_detail", order=det_order, palette=complete_pal, linewidth=2, 
+              edgecolor=complete_pal.values(), ax=ax)
+ax.set_xticklabels(["higher in human", "higher in mouse"], va="top", ha="right", rotation=50)
+ax.set_xlabel("")
+ax.set_ylabel("count")
+
+
+# In[74]:
+
+
+complete = data_filt[data_filt["native_status_complete"].str.contains("complete")].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
+clean_sig_comp = clean_sig.merge(complete, on="biotype_switch_clean", how="left").fillna(0)
+clean_sig_comp["percent_complete"] = (clean_sig_comp["hg19_id"]/clean_sig_comp["hg19_id_x"])*100
+clean_sig_comp.head()
+
+
+# In[77]:
+
+
+fig = plt.figure(figsize=(1.75, 1.5))
+ax = sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_sig", 
+                 order=switch_order, color=sns.light_palette(sns.color_palette("Set2")[2])[2], 
+                 linewidth=2, edgecolor=sns.light_palette(sns.color_palette("Set2")[2])[2])
+
+# now add the complete gains stacked bar part
+sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_complete", order=switch_order, 
+            color=sns.color_palette("Set2")[2], 
+            linewidth=2, edgecolor=sns.color_palette("Set2")[2], ax=ax)
+
+ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
+ax.set_xlabel("")
+ax.set_ylabel("% of TSSs with\nnative effects")
+
+for i, label in enumerate(switch_order):
+    n = clean_sig_comp[clean_sig_comp["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
+    ax.annotate(str(n), xy=(i, 4), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color="white", size=fontsize)
+    
+    p_sig = clean_sig_comp[clean_sig_comp["biotype_switch_clean"] == label]["percent_sig"].iloc[0]
+    fdr = clean_sig_comp[clean_sig_comp["biotype_switch_clean"] == label]["padj"].iloc[0]
+    if fdr < 0.01:
+        txt = "**"
+        ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, -5), textcoords="offset pixels", ha='center', 
+                    va='bottom', color="black", size=10)
+    elif fdr < 0.05:
+        txt = "*"
+        ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, -5), textcoords="offset pixels", ha='center', 
+                    va='bottom', color="black", size=10)
+    else:
+        txt = "n.s."
+        ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
+                    va='bottom', color="black", size=fontsize)
+
+ax.set_ylim((0, 75))
+
+fig.savefig("perc_sig_native_clean_biotype_switch.with_complete.pdf", dpi="figure", bbox_inches="tight")
+
+
 # ## 9. write results file
 
-# In[62]:
+# In[66]:
 
 
 results_dir = "../../../data/02__mpra/03__results"
 
 
-# In[63]:
+# In[67]:
 
 
 data.to_csv("%s/native_effects_data.txt" % results_dir, sep="\t", index=False)
