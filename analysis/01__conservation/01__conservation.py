@@ -89,7 +89,7 @@ human_list = pd.read_table(human_list_f)
 human_list.head()
 
 
-# In[ ]:
+# In[8]:
 
 
 mouse_list = pd.read_table(mouse_list_f)
@@ -98,7 +98,7 @@ mouse_list.head()
 
 # ## 2. clean biotypes
 
-# In[ ]:
+# In[9]:
 
 
 human_list["clean_biotype_hg19"] = human_list.apply(cleaner_biotype, biotype_col="biotype", axis=1)
@@ -106,7 +106,7 @@ human_list["clean_biotype_mm9"] = human_list.apply(cleaner_biotype, biotype_col=
 human_list.sample(5)
 
 
-# In[ ]:
+# In[10]:
 
 
 mouse_list["clean_biotype_mm9"] = mouse_list.apply(cleaner_biotype, biotype_col="biotype", axis=1)
@@ -114,19 +114,19 @@ mouse_list["clean_biotype_hg19"] = mouse_list.apply(cleaner_biotype, biotype_col
 mouse_list.sample(5)
 
 
-# In[ ]:
+# In[11]:
 
 
 human_list.clean_biotype_hg19.value_counts()
 
 
-# In[ ]:
+# In[12]:
 
 
 mouse_list.clean_biotype_mm9.value_counts()
 
 
-# In[ ]:
+# In[13]:
 
 
 human_list[human_list["seq_ortholog"] == 0].sample(5)
@@ -134,7 +134,7 @@ human_list[human_list["seq_ortholog"] == 0].sample(5)
 
 # ## 3. find % sequence conservation
 
-# In[ ]:
+# In[14]:
 
 
 human_tots = human_list.groupby("clean_biotype_hg19")["cage_id"].agg("count").reset_index()
@@ -156,7 +156,7 @@ human_seq_perc["perc"] = human_seq_perc.apply(get_perc, axis=1)
 human_seq_perc.head()
 
 
-# In[ ]:
+# In[15]:
 
 
 mouse_tots = mouse_list.groupby("clean_biotype_mm9")["cage_id"].agg("count").reset_index()
@@ -180,7 +180,7 @@ mouse_seq_perc.head()
 
 # ## 4. find % CAGE conservation
 
-# In[ ]:
+# In[16]:
 
 
 human_tots = human_list.groupby("clean_biotype_hg19")["cage_id"].agg("count").reset_index()
@@ -202,7 +202,7 @@ human_cage_perc["perc"] = human_cage_perc.apply(get_perc, axis=1)
 human_cage_perc.head()
 
 
-# In[ ]:
+# In[17]:
 
 
 mouse_tots = mouse_list.groupby("clean_biotype_mm9")["cage_id"].agg("count").reset_index()
@@ -226,13 +226,13 @@ mouse_cage_perc.head()
 
 # ## 5. make plots
 
-# In[ ]:
+# In[18]:
 
 
 order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[ ]:
+# In[19]:
 
 
 fig, axarr = plt.subplots(figsize=(2.3, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
@@ -254,7 +254,7 @@ ax.set_ylim((0, 100))
 fig.savefig("human_orth_percents.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[20]:
 
 
 fig, axarr = plt.subplots(figsize=(2.3, 1.8), ncols=1, nrows=2, sharex=True, sharey=True)
