@@ -1073,6 +1073,12 @@ clean_sig_comp["percent_complete"] = (clean_sig_comp["hg19_id"]/clean_sig_comp["
 clean_sig_comp.head()
 
 
+# In[70]:
+
+
+data_filt.biotype_switch_clean.value_counts()
+
+
 # In[65]:
 
 
