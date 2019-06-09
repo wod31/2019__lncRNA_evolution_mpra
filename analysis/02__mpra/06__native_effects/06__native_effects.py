@@ -245,12 +245,12 @@ pal = {"control": "gray", "TSS": "black"}
 # In[23]:
 
 
-fig = plt.figure(figsize=(1, 1.5))
+fig = plt.figure(figsize=(1, 1.75))
 ax = sns.boxplot(data=native, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "TSS\npairs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
 ax.set_ylabel("native effect size")
 
@@ -1051,6 +1051,13 @@ sns.countplot(data=data_filt, x="native_status_detail", palette=det_pal, order=d
 sub = data_filt[data_filt["native_status_complete"].str.contains("complete")]
 sns.countplot(data=sub, x="native_status_detail", order=det_order, palette=complete_pal, linewidth=2, 
               edgecolor=complete_pal.values(), ax=ax)
+
+for i, label in enumerate(det_order):
+    n = len(data_filt[data_filt["native_status_detail"] == label])
+    ax.annotate(str(n), xy=(i, 75), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color="white", size=fontsize)
+    
 ax.set_xticklabels(["higher in human", "higher in mouse"], va="top", ha="right", rotation=50)
 ax.set_xlabel("")
 ax.set_ylabel("count")
