@@ -433,24 +433,17 @@ data.cis_status_one.value_counts()
 data.cis_status_detail_one.value_counts()
 
 
+# ## 5. plot cis effects on scatter plot
+
 # In[36]:
 
 
-## remove cis effects w/ direction interactions for now! (there aren't any right now)
-data_filt = data[~data["cis_status_detail_one"].str.contains("interaction")]
-
-
-# ## 5. plot cis effects on scatter plot
-
-# In[37]:
-
-
 # limit to those that are significant in at least 1 context
-data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.05) | (data_filt["mESC_padj_mm9"] < 0.05)]
+data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.05)]
 len(data_filt)
 
 
-# In[38]:
+# In[37]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -482,7 +475,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_HUES64_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[39]:
+# In[38]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -514,14 +507,73 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_mESC_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[39]:
+
+
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+
+neg_ctrls = HUES64_cis[HUES64_cis["ctrl_status"] == "control"]
+tss = HUES64_cis[HUES64_cis["ctrl_status"] != "control"]
+
+ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75, 
+           color="black", linewidths=0.5, edgecolors="white")
+ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
+           color="gray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("log2(mouse seq. in hESCs/human seq. in hESCs)\n(cis effect size)")
+plt.ylabel("-log10(FDR)")
+ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
+
+
+fig.savefig("HUES64_cis_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
+
+
 # In[40]:
+
+
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+
+neg_ctrls = mESC_cis[mESC_cis["ctrl_status"] == "control"]
+tss = mESC_cis[mESC_cis["ctrl_status"] != "control"]
+
+ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75, 
+           color="black", linewidths=0.5, edgecolors="white")
+ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
+           color="gray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("log2(mouse seq. in mESCs/human seq. in mESCs)\n(cis effect size)")
+plt.ylabel("-log10(FDR)")
+ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
+
+
+fig.savefig("mESC_cis_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[41]:
+
+
+sns.palplot(sns.color_palette("Set2"))
+
+
+# In[42]:
 
 
 # plot effect size agreement b/w the two cell lines
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
 
-ax.scatter(data_filt["logFC_cis_HUES64"], data_filt["logFC_cis_mESC"], s=10, alpha=0.75, 
-           color="slategray", linewidths=0.5, edgecolors="white")
+sig_human = data_filt[data_filt["cis_status_detail_one"].str.contains("human")]
+sig_mouse = data_filt[data_filt["cis_status_detail_one"].str.contains("mouse")]
+sig_int = data_filt[data_filt["cis_status_detail_one"].str.contains("interaction")]
+not_sig = data_filt[data_filt["cis_status_detail_one"] == "no cis effect"]
+
+ax.scatter(sig_human["logFC_cis_HUES64"], sig_human["logFC_cis_mESC"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[1], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_mouse["logFC_cis_HUES64"], sig_mouse["logFC_cis_mESC"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[0], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_int["logFC_cis_HUES64"], sig_int["logFC_cis_mESC"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[3], linewidths=0.5, edgecolors="black")
+ax.scatter(not_sig["logFC_cis_HUES64"], not_sig["logFC_cis_mESC"], s=10, alpha=0.75, 
+           color="gray", linewidths=0.5, edgecolors="white")
 
 plt.xlabel("cis effect size in hESCs")
 plt.ylabel("cis effect size in mESCs")
@@ -541,9 +593,16 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_effect_bw_cells_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[43]:
+
+
+## remove cis effects w/ direction interactions for now!
+data_filt = data[~data["cis_status_detail_one"].str.contains("interaction")]
+
+
 # ## 6. plot cis effect sizes across biotypes
 
-# In[43]:
+# In[44]:
 
 
 # first determine which logFC to use since there are 2 options
@@ -556,7 +615,7 @@ data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.05) | (data_filt["mESC_
 len(data_filt)
 
 
-# In[44]:
+# In[45]:
 
 
 clean_order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
@@ -713,16 +772,17 @@ ax.set_ylim((-0.8, 6.2))
 fig.savefig("cis_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[53]:
+# In[51]:
 
 
-switch_order = ["CAGE turnover", "eRNA", "lincRNA", "lncRNA", "mRNA"]
+switch_order = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE turnover - lncRNA", "CAGE turnover - mRNA",
+                "eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[54]:
+# In[52]:
 
 
-fig = plt.figure(figsize=(1.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.5))
 ax = sns.boxplot(data=data_filt, x="biotype_switch_clean", y="abs_logFC_cis_max", 
                  flierprops = dict(marker='o', markersize=5), 
                  order=switch_order, color=sns.color_palette("Set2")[2])
@@ -768,14 +828,18 @@ print(pval34)
 fig.savefig("cis_clean_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[55]:
+# In[53]:
 
 
-full_switch_order = ["CAGE turnover", "enhancer", "intergenic", "div_lnc", "protein_coding", "div_pc"]
-full_switch_labels = ["CAGE turnover", "eRNA", "lincRNA", "div. lncRNA", "mRNA", "div. mRNA"]
+full_switch_order = ["CAGE turnover - enhancer", "CAGE turnover - intergenic", "CAGE turnover - div_lnc",
+                     "CAGE turnover - protein_coding", "CAGE turnover - div_pc", "enhancer", "intergenic", 
+                     "div_lnc", "protein_coding", "div_pc"]
+full_switch_labels = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE turnover - div. lncRNA",
+                     "CAGE turnover - mRNA", "CAGE turnover - div. mRNA", "eRNA", "lincRNA", "div. lncRNA", 
+                      "mRNA", "div. mRNA"]
 
 
-# In[56]:
+# In[54]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -826,17 +890,18 @@ fig.savefig("cis_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inch
 
 # ## 7. find % of significant cis effects across biotypes
 
-# In[57]:
+# In[61]:
 
 
-tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
-sig = data_filt[data_filt["cis_status_one"] != "no cis effect"].groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
+native_sig = data_filt[data_filt["native_status"] != "no native effect"]
+tots = native_sig.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
+sig = native_sig[native_sig["cis_status_one"] != "no cis effect"].groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
 full_sig = tots.merge(sig, on="biotype_switch", how="left").fillna(0)
 full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[58]:
+# In[62]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -858,7 +923,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[54]:
+# In[64]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -890,22 +955,22 @@ for i, label in enumerate(full_switch_order):
         ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
                     va='bottom', color="black", size=fontsize)
 
-ax.set_ylim((0, 80))
+ax.set_ylim((0, 100))
 
 fig.savefig("perc_sig_cis_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[59]:
+# In[65]:
 
 
-tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
-sig = data_filt[data_filt["cis_status_one"] != "no cis effect"].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
+tots = native_sig.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
+sig = native_sig[native_sig["cis_status_one"] != "no cis effect"].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
 clean_sig = tots.merge(sig, on="biotype_switch_clean", how="left").fillna(0)
 clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[60]:
+# In[66]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -927,10 +992,10 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[61]:
+# In[69]:
 
 
-fig = plt.figure(figsize=(1.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.5))
 ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig", 
                  order=switch_order, color=sns.color_palette("Set2")[2])
 
@@ -959,14 +1024,14 @@ for i, label in enumerate(switch_order):
         ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
                     va='bottom', color="black", size=fontsize)
 
-ax.set_ylim((0, 80))
+ax.set_ylim((0, 105))
 
 fig.savefig("perc_sig_cis_clean_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
 # ## 8. look into complete v. partial cis gain/losses
 
-# In[62]:
+# In[70]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -979,7 +1044,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 fig.savefig("cis_effectsize_dist.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[63]:
+# In[71]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1007,7 +1072,7 @@ ax.set_xlim((-0.2, 25))
 ax.set_ylim((-0.2, 25))
 
 
-# In[64]:
+# In[72]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1035,7 +1100,7 @@ ax.set_xlim((-0.2, 25))
 ax.set_ylim((-0.2, 25))
 
 
-# In[65]:
+# In[73]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -1048,7 +1113,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 plt.axvline(x=2.5, color="black", zorder=1)
 
 
-# In[66]:
+# In[74]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -1061,7 +1126,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 plt.axvline(x=2.5, color="black", zorder=1)
 
 
-# In[63]:
+# In[75]:
 
 
 ###### think about this a little more later, gets confusing because now we have 2 conditions we are checking #####
@@ -1069,13 +1134,13 @@ plt.axvline(x=2.5, color="black", zorder=1)
 
 # ## 9. compare cis effects to native effects
 
-# In[70]:
+# In[76]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
 
 ax.scatter(data_filt["logFC_cis_max"], data_filt["logFC_native"], s=10, alpha=0.75, 
-           color="slategray", linewidths=0.5, edgecolors="white")
+           color=sns.color_palette("Set2")[2], linewidths=0.5, edgecolors="white")
 
 plt.xlabel("maximum cis effect size")
 plt.ylabel("native effect size")
@@ -1095,27 +1160,54 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_native_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[77]:
+
+
+fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+
+sub = data_filt[data_filt["native_status"] != "no native effect"]
+ax.scatter(sub["logFC_cis_max"], sub["logFC_native"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[2], linewidths=0.5, edgecolors="white")
+
+plt.xlabel("maximum cis effect size")
+plt.ylabel("native effect size")
+
+ax.plot([-7, 7], [-7, 7], linestyle="dashed", color="k")
+ax.set_xlim((-7, 7))
+ax.set_ylim((-7, 7))
+
+# annotate corr
+no_nan = sub[(~pd.isnull(sub["logFC_cis_max"])) & 
+             (~pd.isnull(sub["logFC_native"]))]
+r, p = spearmanr(no_nan["logFC_cis_max"], no_nan["logFC_native"])
+ax.text(0.05, 0.97, "r = {:.2f}".format(r), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+fig.savefig("cis_v_native_scatter.native_sig_only.pdf", dpi="figure", bbox_inches="tight")
+
+
 # In[71]:
 
 
 data_filt.columns
 
 
-# In[72]:
+# In[78]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[73]:
+# In[79]:
 
 
 order = ["no cis effect", "significant cis effect"]
 pal = {"no cis effect": "gray", "significant cis effect": "black"}
 
 
-# In[74]:
+# In[80]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1126,7 +1218,7 @@ ax.set_xlabel("")
 fig.savefig("cis_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[75]:
+# In[81]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1137,32 +1229,32 @@ ax.set_xlabel("")
 fig.savefig("cis_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[76]:
+# In[82]:
 
 
 len(native_sub)
 
 
-# In[77]:
+# In[83]:
 
 
 len(native_sub[native_sub["cis_status_one"] == "significant cis effect"])
 
 
-# In[78]:
+# In[84]:
 
 
 len(native_sub[native_sub["cis_status_one"] == "significant cis effect"])/len(native_sub)
 
 
-# In[79]:
+# In[85]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[80]:
+# In[86]:
 
 
 order = ["cis effect\n(higher in human)", "cis effect\n(higher in mouse)",
@@ -1172,7 +1264,7 @@ pal = {"no cis effect": "gray",
        "cis effect\n(higher in mouse)": sns.color_palette("Set2")[0]}
 
 
-# In[81]:
+# In[87]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
