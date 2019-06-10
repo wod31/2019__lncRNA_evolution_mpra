@@ -1243,13 +1243,13 @@ plt.ylabel("maximum cis effect size")
 fig.savefig("cis_effect_v_alignment.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[81]:
+# In[87]:
 
 
 p
 
 
-# In[82]:
+# In[88]:
 
 
 fig = plt.figure(figsize=(2, 2))
@@ -1278,13 +1278,13 @@ fig.savefig("cis_effect_v_alignment.completes_highlighted.pdf", dpi="figure", bb
 
 # ## 11. write results file
 
-# In[83]:
+# In[89]:
 
 
 data.columns
 
 
-# In[84]:
+# In[90]:
 
 
 data.to_csv("%s/native_and_cis_effects_data.txt" % results_dir, sep="\t", index=False)

@@ -114,13 +114,13 @@ alpha_f = "%s/alpha_per_elem.quantification.txt" % data_dir
 # In[8]:
 
 
-index_f = "../../../data/01__design/01__index/TWIST_pool4_v8_final.with_element_id.txt.gz"
+index_f = "../../../data/01__design/02__index/TWIST_pool4_v8_final.with_element_id.txt.gz"
 
 
 # In[9]:
 
 
-tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.txt"
+tss_map_f = "../../../data/01__design/01__mpra_list/mpra_tss.with_ids.UPDATED.txt"
 
 
 # ## 1. import files
@@ -271,7 +271,7 @@ mouse_df_w_ctrls["cleaner_biotype"] = mouse_df_w_ctrls.apply(cleaner_biotype, bi
 human_df_w_ctrls.cleaner_biotype.value_counts()
 
 
-# In[45]:
+# In[25]:
 
 
 ctrl_order = ["negative control", "eRNA", "lincRNA", "lncRNA", "mRNA", "positive control"]
@@ -285,7 +285,7 @@ mouse_ctrl_pal = {"negative control": "gray", "no CAGE activity": "gray", "eRNA"
                   "mRNA": sns.color_palette("Set2")[0], "positive control": "black"}
 
 
-# In[48]:
+# In[26]:
 
 
 fig = plt.figure(figsize=(2, 1.5))
@@ -309,7 +309,7 @@ ax.set_ylim((-1, 20))
 fig.savefig("better_neg_ctrl_boxplot.human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[49]:
+# In[27]:
 
 
 fig = plt.figure(figsize=(2, 1.5))
@@ -335,7 +335,7 @@ fig.savefig("better_neg_ctrl_boxplot.mouse.pdf", dpi="figure", bbox_inches="tigh
 
 # ## 5. compare activities across tiles
 
-# In[50]:
+# In[28]:
 
 
 df = data[data["tss_tile_num"].isin(["tile1", "tile2"])]
@@ -349,7 +349,7 @@ mouse_df = mouse_df.merge(tss_map[["mm9_id", "biotype_mm9", "stem_exp_mm9", "ori
 mouse_df.sample(5)
 
 
-# In[54]:
+# In[29]:
 
 
 for df, species, colname, color in zip([human_df, mouse_df], ["hESCs", "mESCs"], ["HUES64", "mESC"], [sns.color_palette("Set2")[1], sns.color_palette("Set2")[0]]):
@@ -377,7 +377,7 @@ for df, species, colname, color in zip([human_df, mouse_df], ["hESCs", "mESCs"],
 
 # ## 6. find max activity per tile
 
-# In[55]:
+# In[30]:
 
 
 human_df_sort = human_df[["element", "tss_id", "biotype_hg19", "tss_tile_num", "HUES64", "HUES64_log", "HUES64_padj"]].sort_values(by=["tss_id", "HUES64_log"], ascending=False)
@@ -386,7 +386,7 @@ human_df_max["HUES64_sig"] = human_df_max.apply(is_sig, col="HUES64_padj", axis=
 human_df_max.head(10)
 
 
-# In[56]:
+# In[31]:
 
 
 mouse_df_sort = mouse_df[["element", "tss_id", "biotype_mm9", "tss_tile_num", "mESC", "mESC_log", "mESC_padj"]].sort_values(by=["tss_id", "mESC_log"], ascending=False)
@@ -395,28 +395,30 @@ mouse_df_max["mESC_sig"] = mouse_df_max.apply(is_sig, col="mESC_padj", axis=1)
 mouse_df_max.head(10)
 
 
-# In[57]:
+# In[32]:
 
 
 human_df_max["cleaner_biotype"] = human_df_max.apply(cleaner_biotype, biotype_col="biotype_hg19", axis=1)
 mouse_df_max["cleaner_biotype"] = mouse_df_max.apply(cleaner_biotype, biotype_col="biotype_mm9", axis=1)
+print(len(human_df_max))
+print(len(mouse_df_max))
 
 
-# In[58]:
+# In[33]:
 
 
 ctrls = human_df_w_ctrls[human_df_w_ctrls["cleaner_biotype"].isin(["negative control", "positive control"])]
 len(ctrls)
 
 
-# In[59]:
+# In[34]:
 
 
 human_tmp = human_df_max.append(ctrls)
 mouse_tmp = mouse_df_max.append(ctrls)
 
 
-# In[62]:
+# In[35]:
 
 
 # re-make boxplots with neg/pos ctrls
@@ -441,7 +443,7 @@ ax.set_ylim((-1, 20))
 fig.savefig("better_neg_ctrl_boxplot.human_max.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[63]:
+# In[36]:
 
 
 # re-make boxplots with neg/pos ctrls
@@ -470,27 +472,27 @@ fig.savefig("better_neg_ctrl_boxplot.mouse_max.pdf", dpi="figure", bbox_inches="
 # 
 # consider re-doing w/ RNA-seq
 
-# In[64]:
+# In[37]:
 
 
 human_tmp = human_df_max.merge(human_df[["element", "stem_exp_hg19"]].drop_duplicates(), on="element")
 len(human_tmp)
 
 
-# In[65]:
+# In[38]:
 
 
 human_tmp["stem_exp_hg19_fixed"] = human_tmp.apply(fix_cage_exp, col="stem_exp_hg19", axis=1)
 human_tmp.sample(5)
 
 
-# In[68]:
+# In[39]:
 
 
 biotypes_sub = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[69]:
+# In[40]:
 
 
 fig, axes = plt.subplots(figsize=(4, 1.25), nrows=1, ncols=len(biotypes_sub), sharex=False, sharey=True)
@@ -529,7 +531,7 @@ plt.show()
 fig.savefig("cage_corr_human.biotype_sub.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[70]:
+# In[41]:
 
 
 mouse_tmp = mouse_df_max.merge(mouse_df[["element", "stem_exp_mm9"]].drop_duplicates(), on="element")
@@ -537,7 +539,7 @@ mouse_tmp["stem_exp_mm9_fixed"] = mouse_tmp.apply(fix_cage_exp, col="stem_exp_mm
 len(mouse_tmp)
 
 
-# In[71]:
+# In[42]:
 
 
 fig, axes = plt.subplots(figsize=(4, 1.25), nrows=1, ncols=len(biotypes_sub), sharex=False, sharey=True)
@@ -578,7 +580,7 @@ fig.savefig("cage_corr_mouse.biotype_sub.pdf", dpi="figure", bbox_inches="tight"
 
 # ## 8. write files
 
-# In[72]:
+# In[43]:
 
 
 human_df_filename = "%s/human_TSS_vals.both_tiles.txt" % data_dir
@@ -587,7 +589,7 @@ human_df_max_filename = "%s/human_TSS_vals.max_tile.txt" % data_dir
 mouse_df_max_filename = "%s/mouse_TSS_vals.max_tile.txt" % data_dir
 
 
-# In[73]:
+# In[44]:
 
 
 human_df.to_csv(human_df_filename, sep="\t", index=False)
