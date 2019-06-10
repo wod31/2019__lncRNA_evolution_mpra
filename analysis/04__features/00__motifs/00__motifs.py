@@ -730,6 +730,124 @@ fig.savefig("perc_human_to_mouse_trans_tfs.pdf", dpi="figure", bbox_inches="tigh
 orth_expr[orth_expr["gene_name_human"] == "VSX1"]
 
 
+# ## 7. find enrichment of trans motifs in enhancers
+
+# In[68]:
+
+
+# # hypergeometric
+# enh_results = {}
+# for i, tf in enumerate(uniq_human_tfs):
+#     if i % 50 == 0:
+#         print(i)
+        
+#     # look for enrichment of this motif in either human or mouse eRNAs
+#     sub_human_motifs = list(human_max_motifs[human_max_motifs["gene_name"] == tf]["hg19_id"].unique())
+#     sub_mouse_motifs = list(mouse_max_motifs[mouse_max_motifs["gene_name"] == tf]["mm9_id"].unique())
+    
+#     sub_human_enhs = list(results[results["cleaner_biotype_hg19"] == "eRNA"]["hg19_id"].unique())
+#     sub_mouse_enhs = list(results[results["cleaner_biotype_mm9"] == "eRNA"]["mm9_id"].unique())
+    
+#     sub_human_no_enhs = list(results[results["cleaner_biotype_hg19"] != "eRNA"]["hg19_id"].unique())
+#     sub_mouse_no_enhs = list(results[results["cleaner_biotype_mm9"] != "eRNA"]["mm9_id"].unique())
+    
+#     # variable still called human but includes both human & mouse IDs
+#     sub_human_motifs.extend(sub_mouse_motifs)
+#     sub_human_enhs.extend(sub_mouse_enhs)
+#     sub_human_no_enhs.extend(sub_mouse_no_enhs)
+    
+#     n_enh_w_motif = len([x for x in sub_human_enhs if x in sub_human_motifs])
+#     n_enh_wo_motif = len([x for x in sub_human_enhs if x not in sub_human_motifs])
+#     n_no_enh_w_motif = len([x for x in sub_human_no_enhs if x in sub_human_motifs])
+#     n_no_enh_wo_motif = len([x for x in sub_human_no_enhs if x not in sub_human_motifs])
+    
+
+    
+#     pval = stats.hypergeom.sf(n_enh_w_motif-1, n_enh_w_motif+n_enh_wo_motif+n_no_enh_w_motif+n_no_enh_wo_motif, 
+#                               n_enh_w_motif+n_enh_wo_motif, n_enh_w_motif+n_no_enh_w_motif)
+    
+#     enh_results[tf] = {"high_in_enh_pval": p, 
+#                        "n_enh_w_motif": n_enh_w_motif, 
+#                        "n_enh_wo_motif": n_enh_wo_motif, 
+#                        "n_no_enh_w_motif": n_no_enh_w_motif,  
+#                        "n_no_enh_wo_motif": n_no_enh_wo_motif}
+    
+# enh_results = pd.DataFrame.from_dict(enh_results, orient="index").reset_index()
+# enh_results.sort_values(by="high_in_enh_pval").head()
+
+
+# In[69]:
+
+
+enh_results = {}
+for i, tf in enumerate(uniq_human_tfs):
+    if i % 50 == 0:
+        print(i)
+        
+    # look for enrichment of this motif in either human or mouse eRNAs
+    sub_human_motifs = list(human_max_motifs[human_max_motifs["gene_name"] == tf]["hg19_id"].unique())
+    sub_mouse_motifs = list(mouse_max_motifs[mouse_max_motifs["gene_name"] == tf]["mm9_id"].unique())
+    
+    sub_human_enhs = list(results[results["cleaner_biotype_hg19"] == "eRNA"]["hg19_id"].unique())
+    sub_mouse_enhs = list(results[results["cleaner_biotype_mm9"] == "eRNA"]["mm9_id"].unique())
+    
+    sub_human_no_enhs = list(results[results["cleaner_biotype_hg19"] != "eRNA"]["hg19_id"].unique())
+    sub_mouse_no_enhs = list(results[results["cleaner_biotype_mm9"] != "eRNA"]["mm9_id"].unique())
+    
+    # variable still called human but includes both human & mouse IDs
+    sub_human_motifs.extend(sub_mouse_motifs)
+    sub_human_enhs.extend(sub_mouse_enhs)
+    sub_human_no_enhs.extend(sub_mouse_no_enhs)
+    
+    n_enh_w_motif = len([x for x in sub_human_enhs if x in sub_human_motifs])
+    n_enh_wo_motif = len([x for x in sub_human_enhs if x not in sub_human_motifs])
+    n_no_enh_w_motif = len([x for x in sub_human_no_enhs if x in sub_human_motifs])
+    n_no_enh_wo_motif = len([x for x in sub_human_no_enhs if x not in sub_human_motifs])
+    
+    arr = np.zeros((2, 2))
+    arr[0, 0] = n_enh_w_motif
+    arr[0, 1] = n_enh_wo_motif
+    arr[1, 0] = n_no_enh_w_motif
+    arr[1, 1] = n_no_enh_wo_motif
+    
+    odds, p = stats.fisher_exact(arr, alternative="greater")
+    
+    enh_results[tf] = {"high_in_enh_odds": odds, "high_in_enh_pval": p, 
+                       "n_enh_w_motif": n_enh_w_motif, 
+                       "n_enh_wo_motif": n_enh_wo_motif, 
+                       "n_no_enh_w_motif": n_no_enh_w_motif,  
+                       "n_no_enh_wo_motif": n_no_enh_wo_motif}
+    
+enh_results = pd.DataFrame.from_dict(enh_results, orient="index").reset_index()
+enh_results.sort_values(by="high_in_enh_pval").head()
+
+
+# In[70]:
+
+
+enh_results["high_in_enh_padj"] = multicomp.multipletests(enh_results["high_in_enh_pval"], method="fdr_bh")[1]
+len(enh_results[enh_results["high_in_enh_padj"] < 0.05])
+
+
+# In[71]:
+
+
+enh_results[enh_results["index"].isin(ordered_trans_tfs)]
+
+
+# In[72]:
+
+
+tmp = enh_results[enh_results["index"].isin(ordered_trans_tfs)]
+tmp[tmp['high_in_enh_padj'] < 0.05]
+
+
+# In[ ]:
+
+
+
+
+
 # In[ ]:
 
 

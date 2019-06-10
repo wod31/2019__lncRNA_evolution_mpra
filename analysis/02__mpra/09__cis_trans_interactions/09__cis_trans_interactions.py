@@ -197,19 +197,19 @@ cis_trans_int["cis_trans_int_status"] = cis_trans_int.apply(cis_trans_int_status
 cis_trans_int.cis_trans_int_status.value_counts()
 
 
-# In[22]:
+# In[17]:
 
 
 cis_trans_int[cis_trans_int["cis_trans_int_status"].str.contains("significant")]
 
 
-# In[17]:
+# In[18]:
 
 
 results[(results["hg19_id"] == "h.1305") & (results["mm9_id"] == "m.1177")][["logFC_cis_HUES64", "logFC_cis_mESC"]]
 
 
-# In[18]:
+# In[19]:
 
 
 results[(results["hg19_id"] == "h.2113") & (results["mm9_id"] == "m.1925")][["logFC_cis_HUES64", "logFC_cis_mESC"]]
@@ -219,7 +219,7 @@ results[(results["hg19_id"] == "h.2113") & (results["mm9_id"] == "m.1925")][["lo
 
 # ## 4. merge w/ existing data
 
-# In[19]:
+# In[20]:
 
 
 cis_trans_int["hg19_id"] = cis_trans_int["index"].str.split("__", expand=True)[0]
@@ -250,21 +250,158 @@ print(len(data))
 data.sample(5)
 
 
-# In[24]:
+# In[23]:
 
 
 # limit to those that are significant in at least 1 context
-data_filt = data[(data["HUES64_padj_hg19"] < 0.01) | (data["mESC_padj_mm9"] < 0.01)]
+data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.05)]
 len(data_filt)
 
-
-# ## 5. plot examples
 
 # In[25]:
 
 
-ex1 = data_filt[(data_filt["hg19_id"] == "h.1305") & (data_filt["mm9_id"] == "m.1177")]
-ex1
+data_filt.cis_trans_int_status.value_counts()
+
+
+# ## 5. model
+
+# In[55]:
+
+
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
+from scipy import stats
+stats.chisqprob = lambda chisq, df: stats.chi2.sf(chisq, df)
+
+
+# In[50]:
+
+
+full_mod = smf.ols(formula='logFC_native ~ logFC_cis_max + logFC_trans_max + logFC_cis_max : logFC_trans_max', 
+                   data=data_filt).fit()
+cis_mod = smf.ols(formula='logFC_native ~ logFC_cis_max', 
+                  data=data_filt).fit()
+trans_mod = smf.ols(formula='logFC_native ~ logFC_trans_max', 
+                    data=data_filt).fit()
+no_inter_mod = smf.ols(formula='logFC_native ~ logFC_cis_max + logFC_trans_max', 
+                       data=data_filt).fit()
+
+
+# In[51]:
+
+
+# cis model alone
+cis_mod.summary()
+
+
+# In[52]:
+
+
+# trans model alone
+trans_mod.summary()
+
+
+# In[53]:
+
+
+# cis and trans mod together
+no_inter_mod.summary()
+
+
+# In[63]:
+
+
+full_mod.summary()
+
+
+# In[56]:
+
+
+def lrtest(llmin, llmax):
+    lr = 2 * (llmax - llmin)
+    p = stats.chisqprob(lr, 1) # llmax has 1 dof more than llmin
+    return lr, p
+
+
+# In[60]:
+
+
+# does adding trans info help cis model?
+cisllf = cis_mod.llf
+cistransllf = no_inter_mod.llf
+lr, p = lrtest(cisllf, cistransllf)
+print('LR test, p value: {:.2f}, {:.10f}'.format(lr, p))
+
+
+# In[61]:
+
+
+# does adding cis-trans info help model?
+cistransllf = no_inter_mod.llf
+cistransinterllf = inter_mod.llf
+lr, p = lrtest(cistransllf, cistransinterllf)
+print('LR test, p value: {:.2f}, {:.10f}'.format(lr, p))
+
+
+# In[69]:
+
+
+df = full_mod.conf_int(alpha=0.05, cols=None)
+df["estimate"] = list(full_mod.params)
+df = df.reset_index()
+df
+
+
+# In[73]:
+
+
+fig = plt.figure(figsize=(2, 1))
+
+ax = sns.barplot(data=df[df["index"] != "Intercept"], y="index", x="estimate", color=sns.color_palette("Set2")[2])
+
+ax.set_xlabel("variance explained")
+ax.set_ylabel("")
+
+
+# In[76]:
+
+
+cis_mod.rsquared
+
+
+# In[77]:
+
+
+no_inter_mod.rsquared
+
+
+# In[75]:
+
+
+full_mod.rsquared
+
+
+# In[80]:
+
+
+cis_var = cis_mod.rsquared
+cis_var
+
+
+# In[81]:
+
+
+trans_var = no_inter_mod.rsquared - cis_var
+trans_var
+
+
+# In[83]:
+
+
+int_var = full_mod.rsquared - no_inter_mod.rsquared
+int_var
 
 
 # In[ ]:

@@ -1161,6 +1161,22 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_v_native_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[126]:
+
+
+# plot effect size agreement b/w the two cell lines
+fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+
+ax.scatter(data_filt["logFC_trans_max"], data_filt["logFC_native"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[2], linewidths=0.5, edgecolors="white")
+
+plt.xlabel("maximum trans effect size")
+plt.ylabel("native effect size")
+
+ax.set_xlim((-2, 2))
+ax.set_ylim((-6, 6))
+
+
 # In[67]:
 
 
@@ -1299,7 +1315,7 @@ wrong_trans_dir_mouse.cis_status_detail_one.value_counts()
 
 # ## 9. compare trans effects to cis effects
 
-# In[81]:
+# In[85]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1328,21 +1344,90 @@ ax.text(0.05, 0.83, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_trans_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[82]:
+# In[129]:
+
+
+# plot effect size agreement b/w the two cell lines
+fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+
+sub = data_filt[data_filt["native_status"] == "no native effect"]
+ax.scatter(sub["logFC_cis_max"], sub["logFC_trans_max"], s=10, alpha=0.75, 
+           color="slategray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("maximum cis effect size")
+plt.ylabel("maximum trans effect size")
+
+ax.axhline(y=0, color="black", linestyle="dashed")
+ax.axvline(x=0, color="black", linestyle="dashed")
+ax.set_xlim((-7, 7))
+ax.set_ylim((-2.4, 2))
+
+# annotate corr
+no_nan = sub[(~pd.isnull(sub["logFC_cis_max"])) & 
+             (~pd.isnull(sub["logFC_trans_max"]))]
+r, p = spearmanr(no_nan["logFC_cis_max"], no_nan["logFC_trans_max"])
+print(p)
+ax.text(0.05, 0.90, "r = {:.2f}".format(r), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+ax.text(0.05, 0.83, "n = %s" % (len(sub)), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+fig.savefig("cis_v_trans_scatter.no_native.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[131]:
+
+
+print(len(sub[(sub["logFC_cis_max"] > 0) & (sub["logFC_trans_max"] > 0)]))
+print(len(sub[(sub["logFC_cis_max"] < 0) & (sub["logFC_trans_max"] < 0)]))
+print(len(sub[(sub["logFC_cis_max"] > 0) & (sub["logFC_trans_max"] < 0)]))
+print(len(sub[(sub["logFC_cis_max"] < 0) & (sub["logFC_trans_max"] > 0)]))
+
+
+# In[130]:
+
+
+# plot effect size agreement b/w the two cell lines
+fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+
+sub = data_filt[data_filt["native_status"] != "no native effect"]
+ax.scatter(sub["logFC_cis_max"], sub["logFC_trans_max"], s=10, alpha=0.75, 
+           color="slategray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("maximum cis effect size")
+plt.ylabel("maximum trans effect size")
+
+ax.axhline(y=0, color="black", linestyle="dashed")
+ax.axvline(x=0, color="black", linestyle="dashed")
+ax.set_xlim((-7, 7))
+ax.set_ylim((-2.4, 2))
+
+# annotate corr
+no_nan = sub[(~pd.isnull(sub["logFC_cis_max"])) & 
+             (~pd.isnull(sub["logFC_trans_max"]))]
+r, p = spearmanr(no_nan["logFC_cis_max"], no_nan["logFC_trans_max"])
+print(p)
+ax.text(0.05, 0.90, "r = {:.2f}".format(r), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+ax.text(0.05, 0.83, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+fig.savefig("cis_v_trans_scatter.sig_native.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[86]:
 
 
 data_filt["cis_trans_status"] = data_filt.apply(cis_trans_status, axis=1)
 data_filt.cis_trans_status.value_counts()
 
 
-# In[83]:
+# In[87]:
 
 
 data_filt["cis_trans_status_detail"] = data_filt.apply(cis_trans_status_detail, axis=1)
 data_filt.cis_trans_status_detail.value_counts()
 
 
-# In[84]:
+# In[88]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1383,7 +1468,7 @@ ax.text(0.97, 0.97, "n = %s" % (len(sub_mouse)), ha="right", va="top", fontsize=
 fig.savefig("cis_v_trans_scatter.cis_trans_only.pdf", bbox_inches="tight", dpi="figure")
 
 
-# In[85]:
+# In[89]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1408,28 +1493,28 @@ ax.set_xlim((-7.2, 7.2))
 ax.set_ylim((-2.4, 2.4))
 
 
-# In[86]:
+# In[90]:
 
 
 data_filt["cis_trans_short"] = data_filt.apply(cis_trans_status_short, axis=1)
 data_filt.cis_trans_short.value_counts()
 
 
-# In[87]:
+# In[91]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[88]:
+# In[92]:
 
 
 order = ["no cis or trans effects", "cis and/or trans effects"]
 pal = {"no cis or trans effects": "gray", "cis and/or trans effects": "black"}
 
 
-# In[89]:
+# In[93]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1440,7 +1525,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[90]:
+# In[94]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1451,7 +1536,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[91]:
+# In[95]:
 
 
 order = ["cis effect only", "trans effect only", "cis and trans effects\n(directional)", 
@@ -1460,7 +1545,7 @@ pal = {"cis effect only": "black", "trans effect only": "black", "cis and trans 
          "cis and trans effects\n(compensatory)": "black", "no cis or trans effects": "gray"}
 
 
-# In[92]:
+# In[96]:
 
 
 fig, ax = plt.subplots(figsize=(1.5, 1), nrows=1, ncols=1)
@@ -1471,7 +1556,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_more.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[93]:
+# In[97]:
 
 
 fig, ax = plt.subplots(figsize=(1.5, 1), nrows=1, ncols=1)
@@ -1482,44 +1567,44 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_more.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[94]:
+# In[98]:
 
 
 native_sub.cis_trans_status.value_counts()
 
 
-# In[95]:
+# In[99]:
 
 
 len(native_sub)
 
 
-# In[96]:
+# In[100]:
 
 
 len(native_sub[native_sub["cis_trans_short"] == "cis and/or trans effects"])
 
 
-# In[97]:
+# In[101]:
 
 
 len(native_sub[native_sub["cis_trans_short"] == "cis and/or trans effects"])/len(native_sub)
 
 
-# In[98]:
+# In[102]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[99]:
+# In[103]:
 
 
 data_filt.cis_trans_status_detail.value_counts()
 
 
-# In[100]:
+# In[104]:
 
 
 order = ["cis effect only\n(higher in human)", "cis effect only\n(higher in mouse)", 
@@ -1538,13 +1623,13 @@ pal = {"no cis or trans effects": "gray",
        "cis and trans effects\n(compensatory)": sns.color_palette("Set2")[2]}
 
 
-# In[101]:
+# In[105]:
 
 
 native_human_sub.cis_trans_status_detail.value_counts()
 
 
-# In[102]:
+# In[106]:
 
 
 fig, ax = plt.subplots(figsize=(3, 1), nrows=1, ncols=1)
@@ -1555,7 +1640,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_detail.native_human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[103]:
+# In[107]:
 
 
 tmp = native_human_sub[native_human_sub["cis_trans_status_detail"].str.contains("compensatory")]
@@ -1564,13 +1649,13 @@ print(len(tmp[tmp["abs_logFC_trans_max"] < tmp["abs_logFC_cis_max"]]))
 tmp.cis_status_detail_one.value_counts()
 
 
-# In[104]:
+# In[108]:
 
 
 native_mouse_sub.cis_trans_status_detail.value_counts()
 
 
-# In[105]:
+# In[109]:
 
 
 fig, ax = plt.subplots(figsize=(3, 1), nrows=1, ncols=1)
@@ -1581,7 +1666,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_detail.native_mouse.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[106]:
+# In[110]:
 
 
 tmp = native_mouse_sub[native_mouse_sub["cis_trans_status_detail"].str.contains("compensatory")]
@@ -1594,7 +1679,7 @@ tmp.cis_status_detail_one.value_counts()
 
 # ### first directional
 
-# In[107]:
+# In[111]:
 
 
 tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
@@ -1604,7 +1689,7 @@ full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[110]:
+# In[112]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -1626,7 +1711,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[112]:
+# In[113]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -1663,7 +1748,7 @@ ax.set_ylim((0, 20))
 fig.savefig("perc_sig_cis_trans_directional_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[116]:
+# In[114]:
 
 
 tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1673,7 +1758,7 @@ clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[117]:
+# In[115]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -1695,7 +1780,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[120]:
+# In[116]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -1734,7 +1819,7 @@ fig.savefig("perc_sig_cis_trans_directional_clean_biotype_switch.pdf", dpi="figu
 
 # ### then compensatory
 
-# In[121]:
+# In[117]:
 
 
 tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
@@ -1744,7 +1829,7 @@ full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[122]:
+# In[118]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -1766,7 +1851,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[129]:
+# In[119]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -1803,7 +1888,7 @@ ax.set_ylim((0, 10))
 fig.savefig("perc_sig_cis_trans_compensatory_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[125]:
+# In[120]:
 
 
 tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1813,7 +1898,7 @@ clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[126]:
+# In[121]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -1835,7 +1920,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[128]:
+# In[122]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -1872,19 +1957,19 @@ ax.set_ylim((0, 10))
 fig.savefig("perc_sig_cis_trans_compensatory_clean_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[130]:
+# In[123]:
 
 
 data_filt[data_filt["cis_trans_status"].str.contains("compensatory")]
 
 
-# In[108]:
+# In[124]:
 
 
 data.columns
 
 
-# In[109]:
+# In[125]:
 
 
 data.to_csv("%s/native_cis_trans_effects_data.txt" % results_dir, sep="\t", index=False)
