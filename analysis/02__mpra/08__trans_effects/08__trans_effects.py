@@ -223,7 +223,7 @@ mouse_trans_f = "%s/mouse_trans_results.txt" % data_dir
 # In[16]:
 
 
-tss_map_f = "../../../data/01__design/00__mpra_list/mpra_tss.with_ids.UPDATED.txt"
+tss_map_f = "../../../data/01__design/01__mpra_list/mpra_tss.with_ids.UPDATED.txt"
 
 
 # ## 1. import data
@@ -473,24 +473,17 @@ data.trans_status_one.value_counts()
 data.trans_status_detail_one.value_counts()
 
 
+# ## 5. plot trans effects on scatter plot
+
 # In[38]:
 
 
-## remove trans effects w/ direction interactions for now! (there aren't any right now)
-data_filt = data[~data["trans_status_detail_one"].str.contains("interaction")]
-
-
-# ## 5. plot trans effects on scatter plot
-
-# In[39]:
-
-
 # limit to those that are significant in at least 1 context
-data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.01) | (data_filt["mESC_padj_mm9"] < 0.01)]
+data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.05)]
 len(data_filt)
 
 
-# In[40]:
+# In[39]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -522,7 +515,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_human_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[41]:
+# In[40]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -554,21 +547,130 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_mouse_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[41]:
+
+
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+
+neg_ctrls = human_trans[human_trans["ctrl_status"] == "control"]
+tss = human_trans[human_trans["ctrl_status"] != "control"]
+
+ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75, 
+           color="black", linewidths=0.5, edgecolors="white")
+ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
+           color="gray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("log2(human seq. in mESCs/human seq. in hESCs)\n(trans effect size)")
+plt.ylabel("-log10(FDR)")
+ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
+
+
+fig.savefig("human_trans_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
+
+
 # In[42]:
 
 
-# plot effect size agreement b/w the two seqs lines
-fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
 
-ax.scatter(data_filt["logFC_trans_human"], data_filt["logFC_trans_mouse"], s=10, alpha=0.75, 
+neg_ctrls = mouse_trans[mouse_trans["ctrl_status"] == "control"]
+tss = mouse_trans[mouse_trans["ctrl_status"] != "control"]
+
+ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75, 
+           color="black", linewidths=0.5, edgecolors="white")
+ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
+           color="gray", linewidths=0.5, edgecolors="white")
+
+plt.xlabel("log2(mouse seq. in mESCs/mouse seq. in hESCs)\n(trans effect size)")
+plt.ylabel("-log10(FDR)")
+ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
+
+
+fig.savefig("mouse_trans_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[43]:
+
+
+def trans_sig_status(row):
+    if row.fdr_trans_human < 0.05 and row.fdr_trans_mouse < 0.05:
+        return "sig_both"
+    elif row.fdr_trans_human < 0.05 and row.fdr_trans_mouse >= 0.05:
+        return "sig_human"
+    elif row.fdr_trans_human >= 0.05 and row.fdr_trans_mouse < 0.05:
+        return "sig_mouse"
+    else:
+        return "not_sig_both"
+    
+data_filt["trans_sig_status"] = data_filt.apply(trans_sig_status, axis=1)
+data_filt.trans_sig_status.value_counts()
+
+
+# In[44]:
+
+
+# plot effect size agreement b/w the two seqs
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+
+sig_human = data_filt[data_filt["trans_sig_status"] == "sig_human"]
+sig_mouse = data_filt[data_filt["trans_sig_status"] == "sig_mouse"]
+sig_both = data_filt[data_filt["trans_sig_status"] == "sig_both"]
+not_sig = data_filt[data_filt["trans_sig_status"] == "not_sig_both"]
+
+ax.scatter(not_sig["logFC_trans_human"], not_sig["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color="gray", linewidths=0.5, edgecolors="white")
+ax.scatter(sig_human["logFC_trans_human"], sig_human["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[1], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_mouse["logFC_trans_human"], sig_mouse["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[0], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_both["logFC_trans_human"], sig_both["logFC_trans_mouse"], s=12, alpha=1, 
            color="black", linewidths=0.5, edgecolors="white")
 
 plt.xlabel("trans effect size in human")
 plt.ylabel("trans effect size in mouse")
 
-ax.plot([-2.4, 2], [-2.4, 2], linestyle="dashed", color="k")
-ax.set_xlim((-2.4, 2))
-ax.set_ylim((-2.4, 2))
+ax.axhline(y=0, color="black", linestyle="dashed")
+ax.axvline(x=0, color="black", linestyle="dashed")
+ax.set_xlim((-3, 2))
+ax.set_ylim((-2, 2.5))
+
+# annotate corr
+no_nan = data_filt[(~pd.isnull(data_filt["logFC_trans_human"])) & 
+                   (~pd.isnull(data_filt["logFC_trans_mouse"]))]
+r, p = spearmanr(no_nan["logFC_trans_human"], no_nan["logFC_trans_mouse"])
+ax.text(0.05, 0.97, "r = {:.2f}".format(r), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+fig.savefig("trans_effect_bw_seqs_scatter.sig_status_color.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[45]:
+
+
+# plot effect size agreement b/w the two seqs
+fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
+
+sig_human = data_filt[data_filt["trans_status_detail_one"].str.contains("human")]
+sig_mouse = data_filt[data_filt["trans_status_detail_one"].str.contains("mouse")]
+sig_int = data_filt[data_filt["trans_status_detail_one"].str.contains("interaction")]
+not_sig = data_filt[data_filt["trans_status_detail_one"] == "no trans effect"]
+
+ax.scatter(not_sig["logFC_trans_human"], not_sig["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color="gray", linewidths=0.5, edgecolors="white")
+ax.scatter(sig_human["logFC_trans_human"], sig_human["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[1], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_mouse["logFC_trans_human"], sig_mouse["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[0], linewidths=0.5, edgecolors="white")
+ax.scatter(sig_int["logFC_trans_human"], sig_int["logFC_trans_mouse"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[3], linewidths=0.5, edgecolors="black")
+
+plt.xlabel("trans effect size in human")
+plt.ylabel("trans effect size in mouse")
+
+ax.plot([-3, 3], [-3, 3], linestyle="dashed", color="k")
+ax.set_xlim((-3, 3))
+ax.set_ylim((-3, 3))
 
 # annotate corr
 no_nan = data_filt[(~pd.isnull(data_filt["logFC_trans_human"])) & 
@@ -581,9 +683,16 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_effect_bw_seqs_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
+# In[46]:
+
+
+## remove trans effects w/ direction interactions for now! (there aren't any right now)
+data_filt = data[~data["trans_status_detail_one"].str.contains("interaction")]
+
+
 # ## 6. plot trans effect sizes across biotypes
 
-# In[43]:
+# In[47]:
 
 
 # first determine which logFC to use since there are 2 options
@@ -591,16 +700,17 @@ data["logFC_trans_max"] = data.apply(trans_logFC_one, axis=1)
 data["abs_logFC_trans_max"] = np.abs(data["logFC_trans_max"])
 
 
-# In[44]:
+# In[48]:
 
 
 # re-filter
 data_filt = data[~data["trans_status_detail_one"].str.contains("interaction")]
-data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.01) | (data_filt["mESC_padj_mm9"] < 0.01)]
+print(len(data_filt))
+data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.05) | (data_filt["mESC_padj_mm9"] < 0.05)]
 len(data_filt)
 
 
-# In[45]:
+# In[49]:
 
 
 # # since we have 2 options here, let's plot the maximum l2fc
@@ -608,13 +718,13 @@ len(data_filt)
 # data_filt.sample(5)
 
 
-# In[46]:
+# In[50]:
 
 
 clean_order = ["eRNA", "lncRNA", "mRNA"]
 
 
-# In[47]:
+# In[51]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -661,14 +771,14 @@ annotate_pval(ax, 0.2, 1.8, 1.2, 0, 1.1, pval13, fontsize)
 fig.savefig("trans_clean_biotype_hg19_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[48]:
+# In[52]:
 
 
 full_order = ["enhancer", "intergenic", "div_lnc", "protein_coding", "div_pc"]
 full_labels = ["eRNA", "lincRNA", "div. lncRNA", "mRNA", "div. mRNA"]
 
 
-# In[49]:
+# In[53]:
 
 
 fig = plt.figure(figsize=(2.75, 1.5))
@@ -693,7 +803,7 @@ ax.set_ylim((-0.8, 2.2))
 fig.savefig("trans_biotype_hg19_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[50]:
+# In[54]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -740,7 +850,7 @@ annotate_pval(ax, 0.2, 1.8, 1.2, 0, 1.1, pval13, fontsize)
 fig.savefig("trans_clean_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[51]:
+# In[55]:
 
 
 fig = plt.figure(figsize=(2.75, 1.5))
@@ -765,16 +875,17 @@ ax.set_ylim((-0.8, 2.2))
 fig.savefig("trans_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[52]:
+# In[56]:
 
 
-switch_order = ["CAGE turnover", "eRNA", "lncRNA", "mRNA"]
+switch_order = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE turnover - lncRNA", "CAGE turnover - mRNA",
+                "eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[53]:
+# In[57]:
 
 
-fig = plt.figure(figsize=(1.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.5))
 ax = sns.boxplot(data=data_filt, x="biotype_switch_clean", y="abs_logFC_trans_max", 
                  flierprops = dict(marker='o', markersize=5), 
                  order=switch_order, color=sns.color_palette("Set2")[2])
@@ -813,21 +924,25 @@ print(pval23)
 u34, pval34 = stats.mannwhitneyu(dist3, dist4, alternative="two-sided", use_continuity=False)
 print(pval34)
 
-annotate_pval(ax, 0.2, 0.8, 0.9, 0, 0.8, pval12, fontsize)
-annotate_pval(ax, 1.2, 1.8, 0.9, 0, 0.9, pval23, fontsize)
-annotate_pval(ax, 2.2, 2.8, 0.9, 0, 0.8, pval34, fontsize)
+# annotate_pval(ax, 0.2, 0.8, 0.9, 0, 0.8, pval12, fontsize)
+# annotate_pval(ax, 1.2, 1.8, 0.9, 0, 0.9, pval23, fontsize)
+# annotate_pval(ax, 2.2, 2.8, 0.9, 0, 0.8, pval34, fontsize)
 
 fig.savefig("trans_clean_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[54]:
+# In[58]:
 
 
-full_switch_order = ["CAGE turnover", "enhancer", "intergenic", "div_lnc", "protein_coding", "div_pc"]
-full_switch_labels = ["CAGE turnover", "eRNA", "lincRNA", "div. lncRNA", "mRNA", "div. mRNA"]
+full_switch_order = ["CAGE turnover - enhancer", "CAGE turnover - intergenic", "CAGE turnover - div_lnc",
+                     "CAGE turnover - protein_coding", "CAGE turnover - div_pc", "enhancer", "intergenic", 
+                     "div_lnc", "protein_coding", "div_pc"]
+full_switch_labels = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE turnover - div. lncRNA",
+                     "CAGE turnover - mRNA", "CAGE turnover - div. mRNA", "eRNA", "lincRNA", "div. lncRNA", 
+                      "mRNA", "div. mRNA"]
 
 
-# In[55]:
+# In[59]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -878,17 +993,18 @@ fig.savefig("trans_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_in
 
 # ## 7. find % significant trans effects across biotypes
 
-# In[56]:
+# In[60]:
 
 
-tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
-sig = data_filt[data_filt["trans_status_one"] != "no trans effect"].groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
+native_sig = data_filt[data_filt["native_status"] != "no native effect"]
+tots = native_sig.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
+sig = native_sig[native_sig["trans_status_one"] != "no trans effect"].groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
 full_sig = tots.merge(sig, on="biotype_switch", how="left").fillna(0)
 full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[57]:
+# In[61]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -910,7 +1026,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[58]:
+# In[62]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -942,22 +1058,22 @@ for i, label in enumerate(full_switch_order):
         ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
                     va='bottom', color="black", size=fontsize)
 
-ax.set_ylim((0, 20))
+ax.set_ylim((0, 40))
 
 fig.savefig("perc_sig_trans_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[59]:
+# In[63]:
 
 
-tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
-sig = data_filt[data_filt["trans_status_one"] != "no trans effect"].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
+tots = native_sig.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
+sig = native_sig[native_sig["trans_status_one"] != "no trans effect"].groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
 clean_sig = tots.merge(sig, on="biotype_switch_clean", how="left").fillna(0)
 clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[60]:
+# In[64]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -979,10 +1095,10 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[61]:
+# In[65]:
 
 
-fig = plt.figure(figsize=(1.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.5))
 ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig", 
                  order=switch_order, color=sns.color_palette("Set2")[2])
 
@@ -1011,28 +1127,28 @@ for i, label in enumerate(switch_order):
         ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
                     va='bottom', color="black", size=fontsize)
 
-ax.set_ylim((0, 20))
+ax.set_ylim((0, 25))
 
 fig.savefig("perc_sig_trans_clean_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
 # ## 8. compare trans effects to native effects
 
-# In[62]:
+# In[66]:
 
 
 # plot effect size agreement b/w the two cell lines
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
 
 ax.scatter(data_filt["logFC_trans_max"], data_filt["logFC_native"], s=10, alpha=0.75, 
-           color="black", linewidths=0.5, edgecolors="white")
+           color=sns.color_palette("Set2")[2], linewidths=0.5, edgecolors="white")
 
 plt.xlabel("maximum trans effect size")
 plt.ylabel("native effect size")
 
-ax.plot([-7, 7], [-7, 7], linestyle="dashed", color="k")
-ax.set_xlim((-7, 7))
-ax.set_ylim((-7, 7))
+ax.plot([-6, 6], [-6, 6], linestyle="dashed", color="k")
+ax.set_xlim((-6, 6))
+ax.set_ylim((-6, 6))
 
 # annotate corr
 no_nan = data_filt[(~pd.isnull(data_filt["logFC_trans_max"])) & 
@@ -1045,21 +1161,21 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_v_native_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[63]:
+# In[67]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[64]:
+# In[68]:
 
 
 order = ["no trans effect", "significant trans effect"]
 pal = {"no trans effect": "gray", "significant trans effect": "black"}
 
 
-# In[65]:
+# In[69]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1070,7 +1186,7 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[66]:
+# In[70]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1081,32 +1197,32 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[67]:
+# In[71]:
 
 
 len(native_sub)
 
 
-# In[68]:
+# In[72]:
 
 
 len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])
 
 
-# In[69]:
+# In[73]:
 
 
 len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])/len(native_sub)
 
 
-# In[70]:
+# In[74]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[71]:
+# In[75]:
 
 
 order = ["trans effect\n(higher in human)", "trans effect\n(higher in mouse)",
@@ -1116,7 +1232,7 @@ pal = {"no trans effect": "gray",
        "trans effect\n(higher in mouse)": sns.color_palette("Set2")[0]}
 
 
-# In[72]:
+# In[76]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1127,32 +1243,32 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot_detail.native_human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[73]:
+# In[77]:
 
 
 native_human_sub.trans_status_detail_one.value_counts()
 
 
-# In[74]:
+# In[78]:
 
 
 wrong_trans_dir_human = native_human_sub[native_human_sub["trans_status_detail_one"] == "trans effect\n(higher in mouse)"]
 
 
-# In[75]:
+# In[79]:
 
 
 wrong_trans_dir_human.cis_status_detail_one.value_counts()
 
 
-# In[76]:
+# In[80]:
 
 
 order = ["trans effect\n(higher in mouse)", "trans effect\n(higher in human)",
          "no trans effect"]
 
 
-# In[77]:
+# In[81]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1163,19 +1279,19 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot_detail.native_mouse.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[78]:
+# In[82]:
 
 
 native_mouse_sub.trans_status_detail_one.value_counts()
 
 
-# In[79]:
+# In[83]:
 
 
 wrong_trans_dir_mouse = native_mouse_sub[native_mouse_sub["trans_status_detail_one"] == "trans effect\n(higher in human)"]
 
 
-# In[80]:
+# In[84]:
 
 
 wrong_trans_dir_mouse.cis_status_detail_one.value_counts()
