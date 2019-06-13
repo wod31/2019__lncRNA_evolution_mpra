@@ -313,14 +313,14 @@ pal = {"control": "gray", "TSS": "black"}
 # In[26]:
 
 
-fig = plt.figure(figsize=(1, 1.5))
+fig = plt.figure(figsize=(0.9, 1.75))
 ax = sns.boxplot(data=human_trans, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "seqs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("human sequence trans effect size")
+ax.set_ylabel(r'$\vert$ human seq. trans effect size $\vert$')
 
 for i, label in enumerate(order):
     n = len(human_trans[human_trans["ctrl_status"] == label])
@@ -348,14 +348,14 @@ fig.savefig("human_trans_ctrl_effectsize_boxplot.pdf", dpi="figure", bbox_inches
 # In[27]:
 
 
-fig = plt.figure(figsize=(1, 1.5))
+fig = plt.figure(figsize=(0.9, 1.75))
 ax = sns.boxplot(data=mouse_trans, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "seqs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("mouse sequence trans effect size")
+ax.set_ylabel(r'$\vert$ mouse seq. trans effect size $\vert$')
 
 for i, label in enumerate(order):
     n = len(mouse_trans[mouse_trans["ctrl_status"] == label])
@@ -626,8 +626,8 @@ ax.scatter(sig_mouse["logFC_trans_human"], sig_mouse["logFC_trans_mouse"], s=10,
 ax.scatter(sig_both["logFC_trans_human"], sig_both["logFC_trans_mouse"], s=12, alpha=1, 
            color="black", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("trans effect size in human")
-plt.ylabel("trans effect size in mouse")
+plt.xlabel("human seq. trans effect size")
+plt.ylabel("mouse seq. trans effect size")
 
 ax.axhline(y=0, color="black", linestyle="dashed")
 ax.axvline(x=0, color="black", linestyle="dashed")
@@ -1058,7 +1058,7 @@ for i, label in enumerate(full_switch_order):
         ax.annotate(txt, xy=(i, p_sig), xycoords="data", xytext=(0, 0.25), textcoords="offset pixels", ha='center', 
                     va='bottom', color="black", size=fontsize)
 
-ax.set_ylim((0, 40))
+ax.set_ylim((0, 30))
 
 fig.savefig("perc_sig_trans_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
@@ -1098,13 +1098,13 @@ clean_sig.head()
 # In[65]:
 
 
-fig = plt.figure(figsize=(2.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.75))
 ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig", 
                  order=switch_order, color=sns.color_palette("Set2")[2])
 
 ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("% of TSSs with trans effects")
+ax.set_ylabel("% of seq. pairs with\ntrans effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig[clean_sig["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
@@ -1161,7 +1161,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("trans_v_native_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[126]:
+# In[67]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1177,21 +1177,21 @@ ax.set_xlim((-2, 2))
 ax.set_ylim((-6, 6))
 
 
-# In[67]:
+# In[68]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[68]:
+# In[69]:
 
 
 order = ["no trans effect", "significant trans effect"]
 pal = {"no trans effect": "gray", "significant trans effect": "black"}
 
 
-# In[69]:
+# In[70]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1202,43 +1202,51 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[70]:
+# In[71]:
 
 
-fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(0.9, 1.75), nrows=1, ncols=1)
 
 sns.countplot(data=native_sub, x="trans_status_one", ax=ax, order=order[::-1], palette=pal)
 ax.set_xticklabels(order[::-1], va="top", ha="right", rotation=50)
 ax.set_xlabel("")
+
+colors = {0: "black", 1: "white"}
+for i, label in enumerate(order[::-1]):
+    n = len(native_sub[native_sub["trans_status_one"] == label])
+    ax.annotate(str(n), xy=(i, 100), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color=colors[i], size=fontsize)
+    
 fig.savefig("trans_countplot.native.pdf", dpi="figure", bbox_inches="tight")
-
-
-# In[71]:
-
-
-len(native_sub)
 
 
 # In[72]:
 
 
-len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])
+len(native_sub)
 
 
 # In[73]:
 
 
-len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])/len(native_sub)
+len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])
 
 
 # In[74]:
+
+
+len(native_sub[native_sub["trans_status_one"] == "significant trans effect"])/len(native_sub)
+
+
+# In[75]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[75]:
+# In[76]:
 
 
 order = ["trans effect\n(higher in human)", "trans effect\n(higher in mouse)",
@@ -1248,7 +1256,7 @@ pal = {"no trans effect": "gray",
        "trans effect\n(higher in mouse)": sns.color_palette("Set2")[0]}
 
 
-# In[76]:
+# In[77]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1259,32 +1267,32 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot_detail.native_human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[77]:
+# In[78]:
 
 
 native_human_sub.trans_status_detail_one.value_counts()
 
 
-# In[78]:
+# In[79]:
 
 
 wrong_trans_dir_human = native_human_sub[native_human_sub["trans_status_detail_one"] == "trans effect\n(higher in mouse)"]
 
 
-# In[79]:
+# In[80]:
 
 
 wrong_trans_dir_human.cis_status_detail_one.value_counts()
 
 
-# In[80]:
+# In[81]:
 
 
 order = ["trans effect\n(higher in mouse)", "trans effect\n(higher in human)",
          "no trans effect"]
 
 
-# In[81]:
+# In[82]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1295,19 +1303,19 @@ ax.set_xlabel("")
 fig.savefig("trans_countplot_detail.native_mouse.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[82]:
+# In[83]:
 
 
 native_mouse_sub.trans_status_detail_one.value_counts()
 
 
-# In[83]:
+# In[84]:
 
 
 wrong_trans_dir_mouse = native_mouse_sub[native_mouse_sub["trans_status_detail_one"] == "trans effect\n(higher in human)"]
 
 
-# In[84]:
+# In[85]:
 
 
 wrong_trans_dir_mouse.cis_status_detail_one.value_counts()
@@ -1315,7 +1323,7 @@ wrong_trans_dir_mouse.cis_status_detail_one.value_counts()
 
 # ## 9. compare trans effects to cis effects
 
-# In[85]:
+# In[86]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1324,8 +1332,8 @@ fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
 ax.scatter(data_filt["logFC_cis_max"], data_filt["logFC_trans_max"], s=10, alpha=0.75, 
            color="slategray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("maximum cis effect size")
-plt.ylabel("maximum trans effect size")
+plt.xlabel("assigned cis effect size")
+plt.ylabel("assigned trans effect size")
 
 ax.axhline(y=0, color="black", linestyle="dashed")
 ax.axvline(x=0, color="black", linestyle="dashed")
@@ -1344,7 +1352,7 @@ ax.text(0.05, 0.83, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_trans_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[129]:
+# In[87]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1354,8 +1362,8 @@ sub = data_filt[data_filt["native_status"] == "no native effect"]
 ax.scatter(sub["logFC_cis_max"], sub["logFC_trans_max"], s=10, alpha=0.75, 
            color="slategray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("maximum cis effect size")
-plt.ylabel("maximum trans effect size")
+plt.xlabel("assigned cis effect size")
+plt.ylabel("assigned trans effect size")
 
 ax.axhline(y=0, color="black", linestyle="dashed")
 ax.axvline(x=0, color="black", linestyle="dashed")
@@ -1374,7 +1382,7 @@ ax.text(0.05, 0.83, "n = %s" % (len(sub)), ha="left", va="top", fontsize=fontsiz
 fig.savefig("cis_v_trans_scatter.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[131]:
+# In[88]:
 
 
 print(len(sub[(sub["logFC_cis_max"] > 0) & (sub["logFC_trans_max"] > 0)]))
@@ -1383,7 +1391,7 @@ print(len(sub[(sub["logFC_cis_max"] > 0) & (sub["logFC_trans_max"] < 0)]))
 print(len(sub[(sub["logFC_cis_max"] < 0) & (sub["logFC_trans_max"] > 0)]))
 
 
-# In[130]:
+# In[89]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1393,8 +1401,8 @@ sub = data_filt[data_filt["native_status"] != "no native effect"]
 ax.scatter(sub["logFC_cis_max"], sub["logFC_trans_max"], s=10, alpha=0.75, 
            color="slategray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("maximum cis effect size")
-plt.ylabel("maximum trans effect size")
+plt.xlabel("assigned cis effect size")
+plt.ylabel("assigned trans effect size")
 
 ax.axhline(y=0, color="black", linestyle="dashed")
 ax.axvline(x=0, color="black", linestyle="dashed")
@@ -1413,21 +1421,21 @@ ax.text(0.05, 0.83, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_trans_scatter.sig_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[86]:
+# In[90]:
 
 
 data_filt["cis_trans_status"] = data_filt.apply(cis_trans_status, axis=1)
 data_filt.cis_trans_status.value_counts()
 
 
-# In[87]:
+# In[91]:
 
 
 data_filt["cis_trans_status_detail"] = data_filt.apply(cis_trans_status_detail, axis=1)
 data_filt.cis_trans_status_detail.value_counts()
 
 
-# In[88]:
+# In[92]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1468,7 +1476,7 @@ ax.text(0.97, 0.97, "n = %s" % (len(sub_mouse)), ha="right", va="top", fontsize=
 fig.savefig("cis_v_trans_scatter.cis_trans_only.pdf", bbox_inches="tight", dpi="figure")
 
 
-# In[89]:
+# In[93]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -1493,28 +1501,28 @@ ax.set_xlim((-7.2, 7.2))
 ax.set_ylim((-2.4, 2.4))
 
 
-# In[90]:
+# In[94]:
 
 
 data_filt["cis_trans_short"] = data_filt.apply(cis_trans_status_short, axis=1)
 data_filt.cis_trans_short.value_counts()
 
 
-# In[91]:
+# In[95]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[92]:
+# In[96]:
 
 
 order = ["no cis or trans effects", "cis and/or trans effects"]
 pal = {"no cis or trans effects": "gray", "cis and/or trans effects": "black"}
 
 
-# In[93]:
+# In[97]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1525,18 +1533,27 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[94]:
+# In[98]:
 
 
-fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(0.9, 1.75), nrows=1, ncols=1)
 
 sns.countplot(data=native_sub, x="cis_trans_short", ax=ax, order=order[::-1], palette=pal)
 ax.set_xticklabels(order[::-1], va="top", ha="right", rotation=50)
 ax.set_xlabel("")
+
+colors = {0: "white", 1: "black"}
+for i, label in enumerate(order[::-1]):
+    n = len(native_sub[native_sub["cis_trans_short"] == label])
+    ax.annotate(str(n), xy=(i, 100), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color=colors[i], size=fontsize)
+    
+
 fig.savefig("cis_trans_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[95]:
+# In[99]:
 
 
 order = ["cis effect only", "trans effect only", "cis and trans effects\n(directional)", 
@@ -1545,7 +1562,7 @@ pal = {"cis effect only": "black", "trans effect only": "black", "cis and trans 
          "cis and trans effects\n(compensatory)": "black", "no cis or trans effects": "gray"}
 
 
-# In[96]:
+# In[100]:
 
 
 fig, ax = plt.subplots(figsize=(1.5, 1), nrows=1, ncols=1)
@@ -1556,7 +1573,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_more.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[97]:
+# In[101]:
 
 
 fig, ax = plt.subplots(figsize=(1.5, 1), nrows=1, ncols=1)
@@ -1567,44 +1584,44 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_more.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[98]:
+# In[102]:
 
 
 native_sub.cis_trans_status.value_counts()
 
 
-# In[99]:
+# In[103]:
 
 
 len(native_sub)
 
 
-# In[100]:
+# In[104]:
 
 
 len(native_sub[native_sub["cis_trans_short"] == "cis and/or trans effects"])
 
 
-# In[101]:
+# In[105]:
 
 
 len(native_sub[native_sub["cis_trans_short"] == "cis and/or trans effects"])/len(native_sub)
 
 
-# In[102]:
+# In[106]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[103]:
+# In[107]:
 
 
 data_filt.cis_trans_status_detail.value_counts()
 
 
-# In[104]:
+# In[108]:
 
 
 order = ["cis effect only\n(higher in human)", "cis effect only\n(higher in mouse)", 
@@ -1623,13 +1640,13 @@ pal = {"no cis or trans effects": "gray",
        "cis and trans effects\n(compensatory)": sns.color_palette("Set2")[2]}
 
 
-# In[105]:
+# In[109]:
 
 
 native_human_sub.cis_trans_status_detail.value_counts()
 
 
-# In[106]:
+# In[110]:
 
 
 fig, ax = plt.subplots(figsize=(3, 1), nrows=1, ncols=1)
@@ -1640,7 +1657,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_detail.native_human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[107]:
+# In[111]:
 
 
 tmp = native_human_sub[native_human_sub["cis_trans_status_detail"].str.contains("compensatory")]
@@ -1649,13 +1666,13 @@ print(len(tmp[tmp["abs_logFC_trans_max"] < tmp["abs_logFC_cis_max"]]))
 tmp.cis_status_detail_one.value_counts()
 
 
-# In[108]:
+# In[112]:
 
 
 native_mouse_sub.cis_trans_status_detail.value_counts()
 
 
-# In[109]:
+# In[113]:
 
 
 fig, ax = plt.subplots(figsize=(3, 1), nrows=1, ncols=1)
@@ -1666,7 +1683,7 @@ ax.set_xlabel("")
 fig.savefig("cis_trans_countplot_detail.native_mouse.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[110]:
+# In[114]:
 
 
 tmp = native_mouse_sub[native_mouse_sub["cis_trans_status_detail"].str.contains("compensatory")]
@@ -1679,7 +1696,7 @@ tmp.cis_status_detail_one.value_counts()
 
 # ### first directional
 
-# In[111]:
+# In[115]:
 
 
 tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
@@ -1689,7 +1706,7 @@ full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[112]:
+# In[116]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -1711,7 +1728,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[113]:
+# In[117]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -1748,7 +1765,7 @@ ax.set_ylim((0, 20))
 fig.savefig("perc_sig_cis_trans_directional_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[114]:
+# In[118]:
 
 
 tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1758,7 +1775,7 @@ clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[115]:
+# In[119]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -1780,7 +1797,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[116]:
+# In[120]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -1819,7 +1836,7 @@ fig.savefig("perc_sig_cis_trans_directional_clean_biotype_switch.pdf", dpi="figu
 
 # ### then compensatory
 
-# In[117]:
+# In[121]:
 
 
 tots = data_filt.groupby("biotype_switch")["hg19_id"].agg("count").reset_index()
@@ -1829,7 +1846,7 @@ full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[118]:
+# In[122]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -1851,7 +1868,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[119]:
+# In[123]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -1888,7 +1905,7 @@ ax.set_ylim((0, 10))
 fig.savefig("perc_sig_cis_trans_compensatory_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[120]:
+# In[124]:
 
 
 tots = data_filt.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1898,7 +1915,7 @@ clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[121]:
+# In[125]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -1920,7 +1937,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[122]:
+# In[126]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -1957,19 +1974,19 @@ ax.set_ylim((0, 10))
 fig.savefig("perc_sig_cis_trans_compensatory_clean_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[123]:
+# In[127]:
 
 
 data_filt[data_filt["cis_trans_status"].str.contains("compensatory")]
 
 
-# In[124]:
+# In[128]:
 
 
 data.columns
 
 
-# In[125]:
+# In[129]:
 
 
 data.to_csv("%s/native_cis_trans_effects_data.txt" % results_dir, sep="\t", index=False)

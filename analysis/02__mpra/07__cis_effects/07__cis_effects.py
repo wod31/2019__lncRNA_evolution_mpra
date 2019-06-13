@@ -273,14 +273,14 @@ pal = {"control": "gray", "TSS": "black"}
 # In[24]:
 
 
-fig = plt.figure(figsize=(1, 1.75))
+fig = plt.figure(figsize=(0.9, 1.75))
 ax = sns.boxplot(data=HUES64_cis, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "seq.\npairs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("cis effect size in hESCs")
+ax.set_ylabel(r'$\vert$ cis effect size in hESCs $\vert$')
 
 for i, label in enumerate(order):
     n = len(HUES64_cis[HUES64_cis["ctrl_status"] == label])
@@ -308,14 +308,14 @@ fig.savefig("HUES64_cis_ctrl_effectsize_boxplot.pdf", dpi="figure", bbox_inches=
 # In[25]:
 
 
-fig = plt.figure(figsize=(1, 1.75))
+fig = plt.figure(figsize=(0.9, 1.75))
 ax = sns.boxplot(data=mESC_cis, x="ctrl_status", y="abs_logFC", flierprops = dict(marker='o', markersize=5), 
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSSs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "seq.\npairs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("cis effect size in mESCs")
+ax.set_ylabel(r'$\vert$ cis effect size in mESCs $\vert$')
 
 for i, label in enumerate(order):
     n = len(mESC_cis[mESC_cis["ctrl_status"] == label])
@@ -1051,13 +1051,13 @@ clean_sig.head()
 # In[62]:
 
 
-fig = plt.figure(figsize=(2.75, 1.5))
+fig = plt.figure(figsize=(2.75, 1.75))
 ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig", 
                  order=switch_order, color=sns.color_palette("Set2")[2])
 
 ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("% of TSSs with cis effects")
+ax.set_ylabel("% of seq. pairs with\ncis effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig[clean_sig["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
@@ -1277,11 +1277,19 @@ fig.savefig("cis_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 # In[75]:
 
 
-fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
+fig, ax = plt.subplots(figsize=(0.9, 1.75), nrows=1, ncols=1)
 
 sns.countplot(data=native_sub, x="cis_status_one", ax=ax, order=order[::-1], palette=pal)
 ax.set_xticklabels(order[::-1], va="top", ha="right", rotation=50)
 ax.set_xlabel("")
+
+colors = {0: "white", 1: "black"}
+for i, label in enumerate(order[::-1]):
+    n = len(native_sub[native_sub["cis_status_one"] == label])
+    ax.annotate(str(n), xy=(i, 100), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color=colors[i], size=fontsize)
+    
 fig.savefig("cis_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 

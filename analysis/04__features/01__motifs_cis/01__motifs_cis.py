@@ -156,7 +156,7 @@ human_max_motifs = human_max_motifs[~pd.isnull(human_max_motifs["element"])]
 human_max_motifs.head()
 
 
-# In[18]:
+# In[ ]:
 
 
 # limit motif tiles to those that are max tiles (since we mapped motifs in both tiles)
@@ -314,7 +314,7 @@ data_filt.columns
 # In[ ]:
 
 
-fig = plt.figure(figsize=(2, 2))
+fig = plt.figure(figsize=(1.75, 1.75))
 ax = sns.regplot(data=data_filt, x="perc_motif_regions_aligned", y="abs_logFC_cis_max", color="slategray", fit_reg=True,
                  scatter_kws={"s": 15, "alpha": 0.75, "linewidth": 0.5, "edgecolor": "white"}, 
                  line_kws={"color": "black"})
@@ -329,14 +329,14 @@ ax.text(0.95, 0.90, "n = %s" % (len(no_nan)), ha="right", va="top", fontsize=fon
         transform=ax.transAxes)
         
 plt.xlabel("% motif regions aligned")
-plt.ylabel("maximum cis effect size")
+plt.ylabel("assigned cis effect size")
 fig.savefig("cis_effect_v_motif_align.pdf", dpi="figure", bbox_inches="tight")
 
 
 # In[ ]:
 
 
-fig = plt.figure(figsize=(2, 2))
+fig = plt.figure(figsize=(1.75, 1.75))
 ax = sns.regplot(data=data_filt, x="perc_no_motif_regions_aligned", y="abs_logFC_cis_max", color="slategray", fit_reg=True,
                  scatter_kws={"s": 15, "alpha": 0.75, "linewidth": 0.5, "edgecolor": "white"}, 
                  line_kws={"color": "black"})
@@ -351,7 +351,7 @@ ax.text(0.95, 0.90, "n = %s" % (len(no_nan)), ha="right", va="top", fontsize=fon
         transform=ax.transAxes)
         
 plt.xlabel("% no motif regions aligned")
-plt.ylabel("maximum cis effect size")
+plt.ylabel("assigned cis effect size")
 fig.savefig("cis_effect_v_no_motif_align.pdf", dpi="figure", bbox_inches="tight")
 
 

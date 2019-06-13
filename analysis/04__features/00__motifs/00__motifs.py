@@ -209,13 +209,13 @@ uniq_human_tfs = human_max_motifs["gene_name"].unique()
 len(uniq_human_tfs)
 
 
-# In[24]:
+# In[ ]:
 
 
 results.trans_status_detail_human.value_counts()
 
 
-# In[25]:
+# In[ ]:
 
 
 human_trans_results = {}
@@ -273,21 +273,21 @@ human_trans_results = pd.DataFrame.from_dict(human_trans_results, orient="index"
 human_trans_results.sort_values(by="high_in_HUES64_pval").head()
 
 
-# In[26]:
+# In[ ]:
 
 
 human_trans_results["high_in_HUES64_padj"] = multicomp.multipletests(human_trans_results["high_in_HUES64_pval"], method="fdr_bh")[1]
 len(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05])
 
 
-# In[27]:
+# In[ ]:
 
 
 human_trans_results["high_in_mESC_padj"] = multicomp.multipletests(human_trans_results["high_in_mESC_pval"], method="fdr_bh")[1]
 len(human_trans_results[human_trans_results["high_in_mESC_padj"] < 0.05])
 
 
-# In[28]:
+# In[ ]:
 
 
 list(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05]["index"])
@@ -295,20 +295,20 @@ list(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05]["ind
 
 # ### mouse sequences
 
-# In[29]:
+# In[ ]:
 
 
 uniq_mouse_tfs = mouse_max_motifs["gene_name"].unique()
 len(uniq_mouse_tfs)
 
 
-# In[30]:
+# In[ ]:
 
 
 results.trans_status_detail_mouse.value_counts()
 
 
-# In[31]:
+# In[ ]:
 
 
 mouse_trans_results = {}
@@ -366,21 +366,21 @@ mouse_trans_results = pd.DataFrame.from_dict(mouse_trans_results, orient="index"
 mouse_trans_results.sort_values(by="high_in_mESC_pval").head()
 
 
-# In[32]:
+# In[ ]:
 
 
 mouse_trans_results["high_in_HUES64_padj"] = multicomp.multipletests(mouse_trans_results["high_in_HUES64_pval"], method="fdr_bh")[1]
 len(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05])
 
 
-# In[33]:
+# In[ ]:
 
 
 mouse_trans_results["high_in_mESC_padj"] = multicomp.multipletests(mouse_trans_results["high_in_mESC_pval"], method="fdr_bh")[1]
 len(mouse_trans_results[mouse_trans_results["high_in_mESC_padj"] < 0.05])
 
 
-# In[34]:
+# In[ ]:
 
 
 list(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05]["index"])
@@ -388,7 +388,7 @@ list(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05]["ind
 
 # ## 4. plot trans enrichment results
 
-# In[35]:
+# In[ ]:
 
 
 sig_human = human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds"]].set_index("index")
@@ -396,7 +396,7 @@ sig_human = sig_human.sort_values(by="high_in_HUES64_odds", ascending=False)
 sig_human
 
 
-# In[36]:
+# In[ ]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -407,7 +407,7 @@ ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.human_high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[37]:
+# In[ ]:
 
 
 sig_mouse = mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds"]].set_index("index")
@@ -415,7 +415,7 @@ sig_mouse = sig_mouse.sort_values(by="high_in_HUES64_odds", ascending=False)
 sig_mouse
 
 
-# In[38]:
+# In[ ]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -426,14 +426,14 @@ ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.mouse_high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[39]:
+# In[ ]:
 
 
 sig_both = sig_human.append(sig_mouse)
 sig_both = sig_both.sort_values(by="high_in_HUES64_odds", ascending=False)
 
 
-# In[40]:
+# In[ ]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -442,6 +442,12 @@ ax = sns.heatmap(sig_both.T, ax=ax, cbar_ax=cbar_ax, cbar_kws={"orientation": "h
                  linewidth=0.25, xticklabels=sig_both.index, yticklabels="", vmin=1)
 ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[ ]:
+
+
+
 
 
 # ## 5. plot trans effect sizes for each motif

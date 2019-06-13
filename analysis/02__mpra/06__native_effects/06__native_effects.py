@@ -258,9 +258,9 @@ ax = sns.boxplot(data=native, x="ctrl_status", y="abs_logFC", flierprops = dict(
                  order=order, palette=pal)
 mimic_r_boxplot(ax)
 
-ax.set_xticklabels(["negative\ncontrols", "TSS\npairs"], rotation=50, ha='right', va='top')
+ax.set_xticklabels(["negative\ncontrols", "seq.\npairs"], rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("native effect size")
+ax.set_ylabel(r'$\vert$ native effect size $\vert$')
 
 for i, label in enumerate(order):
     n = len(native[native["ctrl_status"] == label])
@@ -494,7 +494,7 @@ ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75,
 ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
            color="gray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("log2(mouse seq. in mESCs/human seq. in hESCs)\n(native effect size)")
+plt.xlabel("native effect size")
 plt.ylabel("-log10(FDR)")
 ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 
@@ -889,7 +889,7 @@ ax = sns.barplot(data=clean_sig, x="biotype_switch_clean", y="percent_sig",
 
 ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("% of TSSs with\nnative effects")
+ax.set_ylabel("% of seq. pairs with\nnative effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig[clean_sig["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]

@@ -258,7 +258,7 @@ data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.
 len(data_filt)
 
 
-# In[25]:
+# In[24]:
 
 
 data_filt.cis_trans_int_status.value_counts()
@@ -266,7 +266,7 @@ data_filt.cis_trans_int_status.value_counts()
 
 # ## 5. model
 
-# In[55]:
+# In[25]:
 
 
 import statsmodels.api as sm
@@ -276,7 +276,7 @@ from scipy import stats
 stats.chisqprob = lambda chisq, df: stats.chi2.sf(chisq, df)
 
 
-# In[50]:
+# In[26]:
 
 
 full_mod = smf.ols(formula='logFC_native ~ logFC_cis_max + logFC_trans_max + logFC_cis_max : logFC_trans_max', 
@@ -289,34 +289,34 @@ no_inter_mod = smf.ols(formula='logFC_native ~ logFC_cis_max + logFC_trans_max',
                        data=data_filt).fit()
 
 
-# In[51]:
+# In[27]:
 
 
 # cis model alone
 cis_mod.summary()
 
 
-# In[52]:
+# In[28]:
 
 
 # trans model alone
 trans_mod.summary()
 
 
-# In[53]:
+# In[29]:
 
 
 # cis and trans mod together
 no_inter_mod.summary()
 
 
-# In[63]:
+# In[30]:
 
 
 full_mod.summary()
 
 
-# In[56]:
+# In[31]:
 
 
 def lrtest(llmin, llmax):
@@ -325,7 +325,7 @@ def lrtest(llmin, llmax):
     return lr, p
 
 
-# In[60]:
+# In[32]:
 
 
 # does adding trans info help cis model?
@@ -335,17 +335,17 @@ lr, p = lrtest(cisllf, cistransllf)
 print('LR test, p value: {:.2f}, {:.10f}'.format(lr, p))
 
 
-# In[61]:
+# In[34]:
 
 
 # does adding cis-trans info help model?
 cistransllf = no_inter_mod.llf
-cistransinterllf = inter_mod.llf
+cistransinterllf = full_mod.llf
 lr, p = lrtest(cistransllf, cistransinterllf)
 print('LR test, p value: {:.2f}, {:.10f}'.format(lr, p))
 
 
-# In[69]:
+# In[35]:
 
 
 df = full_mod.conf_int(alpha=0.05, cols=None)
@@ -354,7 +354,7 @@ df = df.reset_index()
 df
 
 
-# In[73]:
+# In[36]:
 
 
 fig = plt.figure(figsize=(2, 1))
@@ -365,43 +365,65 @@ ax.set_xlabel("variance explained")
 ax.set_ylabel("")
 
 
-# In[76]:
+# In[37]:
 
 
 cis_mod.rsquared
 
 
-# In[77]:
+# In[38]:
 
 
 no_inter_mod.rsquared
 
 
-# In[75]:
+# In[39]:
 
 
 full_mod.rsquared
 
 
-# In[80]:
+# In[40]:
 
 
 cis_var = cis_mod.rsquared
 cis_var
 
 
-# In[81]:
+# In[41]:
 
 
 trans_var = no_inter_mod.rsquared - cis_var
 trans_var
 
 
-# In[83]:
+# In[42]:
 
 
 int_var = full_mod.rsquared - no_inter_mod.rsquared
 int_var
+
+
+# In[54]:
+
+
+var_exp = {"cis effects": [cis_var], "trans effects": [trans_var], "cis-trans interactions": [int_var]}
+var_exp = pd.DataFrame.from_dict(var_exp, orient="index").reset_index()
+
+fig = plt.figure(figsize=(1.6, 1.75))
+ax = sns.barplot(data=var_exp, x="index", y=0, color=sns.color_palette("Set2")[2])
+ax.set_xlabel("")
+ax.set_ylabel("variance explained")
+ax.set_xticklabels(var_exp["index"], rotation=50, ha='right', va='top')
+
+colors = {0: "white", 1: "black", 2: "black"}
+for i, label in enumerate(var_exp["index"]):
+    n = var_exp[var_exp["index"] == label][0].iloc[0]
+    ax.annotate("{:.3f}".format(n), xy=(i, 0.07), xycoords="data", xytext=(0, 0), 
+                textcoords="offset pixels", ha='center', va='bottom', 
+                color=colors[i], size=fontsize)
+    
+fig.savefig("var_explained.one_by_one.pdf", dpi="figure", bbox_inches="tight")
 
 
 # In[ ]:
