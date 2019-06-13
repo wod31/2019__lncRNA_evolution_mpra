@@ -520,7 +520,7 @@ ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75,
 ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
            color="gray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("log2(mouse seq. in hESCs/human seq. in hESCs)\n(cis effect size)")
+plt.xlabel("cis effect size in hESCs")
 plt.ylabel("-log10(FDR)")
 ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 
@@ -541,7 +541,7 @@ ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75,
 ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
            color="gray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("log2(mouse seq. in mESCs/human seq. in mESCs)\n(cis effect size)")
+plt.xlabel("cis effect size in mESCs")
 plt.ylabel("-log10(FDR)")
 ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 
@@ -1366,13 +1366,13 @@ data_filt = data_filt.merge(align, on=["hg19_id", "mm9_id"])
 data_filt.head()
 
 
-# In[85]:
+# In[ ]:
 
 
 data_filt.columns
 
 
-# In[86]:
+# In[ ]:
 
 
 fig = plt.figure(figsize=(2, 2))
@@ -1399,13 +1399,13 @@ plt.ylabel("maximum cis effect size")
 fig.savefig("cis_effect_v_alignment.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[87]:
+# In[ ]:
 
 
 p
 
 
-# In[88]:
+# In[ ]:
 
 
 fig = plt.figure(figsize=(2, 2))
@@ -1434,13 +1434,13 @@ fig.savefig("cis_effect_v_alignment.completes_highlighted.pdf", dpi="figure", bb
 
 # ## 11. write results file
 
-# In[89]:
+# In[ ]:
 
 
 data.columns
 
 
-# In[90]:
+# In[ ]:
 
 
 data.to_csv("%s/native_and_cis_effects_data.txt" % results_dir, sep="\t", index=False)

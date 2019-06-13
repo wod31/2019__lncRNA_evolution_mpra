@@ -156,7 +156,7 @@ human_max_motifs = human_max_motifs[~pd.isnull(human_max_motifs["element"])]
 human_max_motifs.head()
 
 
-# In[ ]:
+# In[18]:
 
 
 # limit motif tiles to those that are max tiles (since we mapped motifs in both tiles)
@@ -168,7 +168,7 @@ mouse_max_motifs.head()
 
 # ## 4. calculate % aligned sequence that overlaps motifs
 
-# In[ ]:
+# In[19]:
 
 
 motif_align_res = {}
@@ -258,20 +258,20 @@ for i, row in align.iterrows():
                                 "n_unalign_w_motif": n_unalign_w_motif, "n_unalign_wo_motif": n_unalign_wo_motif}
 
 
-# In[ ]:
+# In[20]:
 
 
 len(motif_align_res)
 
 
-# In[ ]:
+# In[21]:
 
 
 motif_align_res = pd.DataFrame.from_dict(motif_align_res, orient="index").reset_index()
 motif_align_res.sample(5)
 
 
-# In[ ]:
+# In[22]:
 
 
 motif_align_res["perc_motif_regions_aligned"] = (motif_align_res["n_align_w_motif"]/(motif_align_res["n_align_w_motif"]+motif_align_res["n_unalign_w_motif"])) * 100
@@ -279,7 +279,7 @@ motif_align_res["perc_no_motif_regions_aligned"] = (motif_align_res["n_align_wo_
 motif_align_res.sort_values(by="perc_motif_regions_aligned").head()
 
 
-# In[ ]:
+# In[23]:
 
 
 motif_align_res["hg19_id"] = motif_align_res["index"].str.split("__", expand=True)[0]
@@ -287,7 +287,7 @@ motif_align_res["mm9_id"] = motif_align_res["index"].str.split("__", expand=True
 motif_align_res.sample(5)
 
 
-# In[ ]:
+# In[24]:
 
 
 print(len(results))
@@ -296,7 +296,7 @@ print(len(motif_results))
 motif_results.head()
 
 
-# In[ ]:
+# In[25]:
 
 
 data_filt = motif_results[(motif_results["HUES64_padj_hg19"] < 0.05) | (motif_results["mESC_padj_mm9"] < 0.05)]
@@ -305,13 +305,13 @@ data_filt.drop_duplicates()
 len(data_filt)
 
 
-# In[ ]:
+# In[26]:
 
 
 data_filt.columns
 
 
-# In[ ]:
+# In[27]:
 
 
 fig = plt.figure(figsize=(1.75, 1.75))
@@ -333,7 +333,7 @@ plt.ylabel("assigned cis effect size")
 fig.savefig("cis_effect_v_motif_align.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[28]:
 
 
 fig = plt.figure(figsize=(1.75, 1.75))

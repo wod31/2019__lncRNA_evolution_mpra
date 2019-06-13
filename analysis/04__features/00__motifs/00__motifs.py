@@ -209,13 +209,13 @@ uniq_human_tfs = human_max_motifs["gene_name"].unique()
 len(uniq_human_tfs)
 
 
-# In[ ]:
+# In[24]:
 
 
 results.trans_status_detail_human.value_counts()
 
 
-# In[ ]:
+# In[25]:
 
 
 human_trans_results = {}
@@ -273,21 +273,21 @@ human_trans_results = pd.DataFrame.from_dict(human_trans_results, orient="index"
 human_trans_results.sort_values(by="high_in_HUES64_pval").head()
 
 
-# In[ ]:
+# In[26]:
 
 
 human_trans_results["high_in_HUES64_padj"] = multicomp.multipletests(human_trans_results["high_in_HUES64_pval"], method="fdr_bh")[1]
 len(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05])
 
 
-# In[ ]:
+# In[27]:
 
 
 human_trans_results["high_in_mESC_padj"] = multicomp.multipletests(human_trans_results["high_in_mESC_pval"], method="fdr_bh")[1]
 len(human_trans_results[human_trans_results["high_in_mESC_padj"] < 0.05])
 
 
-# In[ ]:
+# In[28]:
 
 
 list(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05]["index"])
@@ -295,20 +295,20 @@ list(human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05]["ind
 
 # ### mouse sequences
 
-# In[ ]:
+# In[29]:
 
 
 uniq_mouse_tfs = mouse_max_motifs["gene_name"].unique()
 len(uniq_mouse_tfs)
 
 
-# In[ ]:
+# In[30]:
 
 
 results.trans_status_detail_mouse.value_counts()
 
 
-# In[ ]:
+# In[31]:
 
 
 mouse_trans_results = {}
@@ -366,21 +366,21 @@ mouse_trans_results = pd.DataFrame.from_dict(mouse_trans_results, orient="index"
 mouse_trans_results.sort_values(by="high_in_mESC_pval").head()
 
 
-# In[ ]:
+# In[32]:
 
 
 mouse_trans_results["high_in_HUES64_padj"] = multicomp.multipletests(mouse_trans_results["high_in_HUES64_pval"], method="fdr_bh")[1]
 len(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05])
 
 
-# In[ ]:
+# In[33]:
 
 
 mouse_trans_results["high_in_mESC_padj"] = multicomp.multipletests(mouse_trans_results["high_in_mESC_pval"], method="fdr_bh")[1]
 len(mouse_trans_results[mouse_trans_results["high_in_mESC_padj"] < 0.05])
 
 
-# In[ ]:
+# In[34]:
 
 
 list(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05]["index"])
@@ -388,7 +388,7 @@ list(mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05]["ind
 
 # ## 4. plot trans enrichment results
 
-# In[ ]:
+# In[35]:
 
 
 sig_human = human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds"]].set_index("index")
@@ -396,7 +396,7 @@ sig_human = sig_human.sort_values(by="high_in_HUES64_odds", ascending=False)
 sig_human
 
 
-# In[ ]:
+# In[36]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -407,7 +407,7 @@ ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.human_high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[37]:
 
 
 sig_mouse = mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds"]].set_index("index")
@@ -415,7 +415,7 @@ sig_mouse = sig_mouse.sort_values(by="high_in_HUES64_odds", ascending=False)
 sig_mouse
 
 
-# In[ ]:
+# In[38]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -426,14 +426,14 @@ ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.mouse_high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[39]:
 
 
 sig_both = sig_human.append(sig_mouse)
 sig_both = sig_both.sort_values(by="high_in_HUES64_odds", ascending=False)
 
 
-# In[ ]:
+# In[40]:
 
 
 grid_kws = {"height_ratios": (.75, .25), "hspace": 3}
@@ -444,28 +444,60 @@ ax.set_xlabel("")
 f.savefig("trans_motif_enrichments.high_in_HUES64.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[49]:
 
 
+sig_human = human_trans_results[human_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds", "high_in_HUES64_padj"]]
+sig_mouse = mouse_trans_results[mouse_trans_results["high_in_HUES64_padj"] < 0.05][["index", "high_in_HUES64_odds", "high_in_HUES64_padj"]]
+sig_both_plt = sig_human.append(sig_mouse)
+sig_both_plt = sig_both_plt.sort_values(by="high_in_HUES64_odds", ascending=False)
+sig_both_plt["neg_log10_padj"] = -np.log10(sig_both_plt["high_in_HUES64_padj"])
+sig_both_plt["xticks"] = list(range(len(sig_both_plt)))[::-1]
+sig_both_plt
 
+
+# In[63]:
+
+
+fig = plt.figure(figsize=(0.9, 1.75))
+
+ax = sns.scatterplot(data=sig_both_plt, y="xticks", x="high_in_HUES64_odds", size="neg_log10_padj", 
+                     color=sns.color_palette("Set2")[2], **{"linewidths": 0.5, "edgecolors": "white"},
+                     sizes=(20, 80), legend=False)
+
+for i, row in sig_both_plt.iterrows():
+    xmax = row.high_in_HUES64_odds
+    y = row.xticks
+    ax.plot([0, xmax], [y, y], color="gray")
+    
+ax.set_yticks(np.arange(len(sig_both_plt["index"])))
+ax.set_yticklabels(sig_both_plt["index"])
+ax.set_ylabel("")
+ax.set_xlabel("odds ratio")
+
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['left'].set_visible(False)
+
+#plt.legend(loc=2, bbox_to_anchor=(1.25, 0.5))
 
 
 # ## 5. plot trans effect sizes for each motif
 
-# In[41]:
+# In[64]:
 
 
 human_max_motifs_sub = human_max_motifs[["hg19_id", "gene_name"]].drop_duplicates()
 mouse_max_motifs_sub = mouse_max_motifs[["mm9_id", "gene_name"]].drop_duplicates()
 
 
-# In[42]:
+# In[65]:
 
 
 results.columns
 
 
-# In[43]:
+# In[66]:
 
 
 # plot trans effects of each motif +/- individually
@@ -505,7 +537,7 @@ for sig_tf in sig_human["index"].unique():
     fig.savefig("%s_trans_effect_boxplot.pdf" % sig_tf, dpi="figure", bbox_inches="tight")
 
 
-# In[44]:
+# In[67]:
 
 
 # plot trans effects of each motif +/- individually
@@ -547,13 +579,13 @@ for sig_tf in sig_mouse["index"].unique():
 
 # ## 6. examine expression changes related to trans effects
 
-# In[45]:
+# In[68]:
 
 
 len(orth_expr)
 
 
-# In[46]:
+# In[69]:
 
 
 trans_tfs = list(sig_both.reset_index()["index"])
@@ -561,7 +593,7 @@ print(len(trans_tfs))
 trans_tfs
 
 
-# In[47]:
+# In[70]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -616,7 +648,7 @@ fig.savefig("TF_human_v_mouse_scatter.w_trans_outline.pdf", dpi="figure", bbox_i
 
 # ## 6. plot expression changes and % ID
 
-# In[48]:
+# In[71]:
 
 
 orth_sub = orth[["Gene stable ID", "Gene name", "Mouse gene stable ID", "Mouse gene name", "Mouse homology type",
@@ -626,7 +658,7 @@ orth_sub.columns = ["gene_id_human", "gene_name_human", "gene_id_mouse", "gene_n
 orth_sub.head()
 
 
-# In[49]:
+# In[72]:
 
 
 orth_expr = orth_expr.merge(orth_sub, on=["gene_id_human", "gene_name_human", "gene_id_mouse", "gene_name_mouse"],
@@ -634,13 +666,13 @@ orth_expr = orth_expr.merge(orth_sub, on=["gene_id_human", "gene_name_human", "g
 orth_expr.sample(5)
 
 
-# In[50]:
+# In[73]:
 
 
 orth_expr = orth_expr.drop_duplicates()
 
 
-# In[51]:
+# In[74]:
 
 
 avg_log2FoldChange = orth_expr.log2FoldChange.mean()
@@ -651,7 +683,7 @@ avg_perc_human_to_mouse = orth_expr.perc_human_to_mouse.mean()
 print(avg_perc_human_to_mouse)
 
 
-# In[52]:
+# In[75]:
 
 
 trans_log2FoldChange = orth_expr[orth_expr["gene_name_human"].isin(trans_tfs)][["gene_name_human", 
@@ -664,7 +696,7 @@ trans_perc_human_to_mouse = orth_expr[orth_expr["gene_name_human"].isin(trans_tf
 trans_log2FoldChange
 
 
-# In[53]:
+# In[76]:
 
 
 log2FoldChange = trans_log2FoldChange.append(pd.DataFrame.from_dict({"average": {"log2FoldChange": avg_log2FoldChange}}, 
@@ -676,7 +708,7 @@ perc_human_to_mouse = trans_perc_human_to_mouse.append(pd.DataFrame.from_dict({"
 log2FoldChange
 
 
-# In[54]:
+# In[77]:
 
 
 ordered_trans_tfs = list(log2FoldChange.sort_values(by="log2FoldChange", ascending=False)["index"])
@@ -684,7 +716,7 @@ ordered_trans_tfs.pop(ordered_trans_tfs.index('average'))
 ordered_trans_tfs
 
 
-# In[55]:
+# In[78]:
 
 
 pal = {k:sns.color_palette("Set2")[2] for k in trans_tfs}
@@ -694,7 +726,7 @@ order = ["average"]
 order.extend(ordered_trans_tfs)
 
 
-# In[56]:
+# In[79]:
 
 
 fig = plt.figure(figsize=(3, 1.25))
@@ -706,7 +738,7 @@ _ = ax.set_xticklabels(order, rotation=50, ha='right', va='top')
 fig.savefig("log2FoldChange_trans_tfs.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[57]:
+# In[80]:
 
 
 fig = plt.figure(figsize=(3, 1.25))
@@ -718,7 +750,7 @@ _ = ax.set_xticklabels(order, rotation=50, ha='right', va='top')
 fig.savefig("perc_mouse_to_human_trans_tfs.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[58]:
+# In[81]:
 
 
 fig = plt.figure(figsize=(3, 1.25))
@@ -730,10 +762,55 @@ _ = ax.set_xticklabels(order, rotation=50, ha='right', va='top')
 fig.savefig("perc_human_to_mouse_trans_tfs.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[59]:
+# In[84]:
 
 
-orth_expr[orth_expr["gene_name_human"] == "VSX1"]
+df = sig_both_plt.merge(log2FoldChange, on="index", how="left")
+df
+
+
+# In[93]:
+
+
+fig = plt.figure(figsize=(0.9, 1.75))
+
+ax = sns.scatterplot(data=sig_both_plt, y="xticks", x="high_in_HUES64_odds", size="neg_log10_padj", 
+                     color=sns.color_palette("Set2")[2], **{"linewidths": 0.5, "edgecolors": "white"},
+                     sizes=(20, 80), legend=False)
+
+for i, row in sig_both_plt.iterrows():
+    xmax = row.high_in_HUES64_odds
+    y = row.xticks
+    ax.plot([0, xmax], [y, y], color="gray")
+    
+ax.set_yticks(np.arange(len(sig_both_plt["index"])))
+ax.set_yticklabels(sig_both_plt["index"])
+ax.set_ylabel("")
+ax.set_xlabel("odds ratio")
+
+# ax.spines['right'].set_visible(False)
+# ax.spines['top'].set_visible(False)
+# ax.spines['left'].set_visible(False)
+
+
+
+# In[94]:
+
+
+fig = plt.figure(figsize=(0.9, 1.75))
+
+ax = sns.barplot(data=df, y="index", x="log2FoldChange", order=sig_both_plt["index"][::-1],
+                 color=sns.color_palette("Set2")[2])
+
+ax.axvline(x=0, color="gray", linewidth=0.5)
+    
+# _ = ax.set_yticklabels(sig_both_plt["index"][::-1])
+ax.set_ylabel("")
+ax.set_xlabel("log2(hESCs/mESCs)")
+
+# ax.spines['right'].set_visible(False)
+# ax.spines['top'].set_visible(False)
+# ax.spines['left'].set_visible(False)
 
 
 # ## 7. find enrichment of trans motifs in enhancers

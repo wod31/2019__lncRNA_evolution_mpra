@@ -1134,7 +1134,7 @@ sns.barplot(data=clean_sig_comp, x="biotype_switch_clean", y="percent_complete",
 
 ax.set_xticklabels(switch_order, rotation=50, ha='right', va='top')
 ax.set_xlabel("")
-ax.set_ylabel("% of TSSs with\nnative effects")
+ax.set_ylabel("% of seq. pairs with\nnative effects")
 
 for i, label in enumerate(switch_order):
     n = clean_sig_comp[clean_sig_comp["biotype_switch_clean"] == label]["hg19_id_x"].iloc[0]
