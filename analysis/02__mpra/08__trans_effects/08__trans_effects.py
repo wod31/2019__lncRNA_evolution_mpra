@@ -560,7 +560,7 @@ ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75,
 ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
            color="gray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("log2(human seq. in mESCs/human seq. in hESCs)\n(trans effect size)")
+plt.xlabel("human seq. trans effect size")
 plt.ylabel("-log10(FDR)")
 ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 
@@ -581,7 +581,7 @@ ax.scatter(tss["logFC"], -np.log10(tss["fdr"]), s=10, alpha=0.75,
 ax.scatter(neg_ctrls["logFC"], -np.log10(neg_ctrls["fdr"]), s=8, alpha=0.5, 
            color="gray", linewidths=0.5, edgecolors="white")
 
-plt.xlabel("log2(mouse seq. in mESCs/mouse seq. in hESCs)\n(trans effect size)")
+plt.xlabel("mouse seq. trans effect size")
 plt.ylabel("-log10(FDR)")
 ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 

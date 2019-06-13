@@ -769,7 +769,7 @@ df = sig_both_plt.merge(log2FoldChange, on="index", how="left")
 df
 
 
-# In[93]:
+# In[97]:
 
 
 fig = plt.figure(figsize=(0.9, 1.75))
@@ -792,9 +792,10 @@ ax.set_xlabel("odds ratio")
 # ax.spines['top'].set_visible(False)
 # ax.spines['left'].set_visible(False)
 
+fig.savefig("odds_plot_lollipop.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[94]:
+# In[98]:
 
 
 fig = plt.figure(figsize=(0.9, 1.75))
@@ -803,7 +804,9 @@ ax = sns.barplot(data=df, y="index", x="log2FoldChange", order=sig_both_plt["ind
                  color=sns.color_palette("Set2")[2])
 
 ax.axvline(x=0, color="gray", linewidth=0.5)
-    
+
+ax.set_yticks([])
+ax.set_yticklabels([])
 # _ = ax.set_yticklabels(sig_both_plt["index"][::-1])
 ax.set_ylabel("")
 ax.set_xlabel("log2(hESCs/mESCs)")
@@ -811,6 +814,8 @@ ax.set_xlabel("log2(hESCs/mESCs)")
 # ax.spines['right'].set_visible(False)
 # ax.spines['top'].set_visible(False)
 # ax.spines['left'].set_visible(False)
+
+fig.savefig("l2fc_plot_vert.pdf", dpi="figure", bbox_inches="tight")
 
 
 # ## 7. find enrichment of trans motifs in enhancers
