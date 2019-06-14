@@ -150,6 +150,28 @@ def cis_logFC_one(row):
 # In[10]:
 
 
+def cis_logFC_one_mean(row):
+    if row.fdr_cis_HUES64 < 0.05:
+        if row.fdr_cis_mESC < 0.05:
+            # 2 sig trans effects: take max of both
+            l2fcs = list(row[["logFC_cis_HUES64", "logFC_cis_mESC"]])
+            return np.mean(l2fcs)
+        else:
+            # only sig in human, return human val
+            return row.logFC_cis_HUES64
+    else:
+        if row.fdr_cis_mESC < 0.05:
+            # only sig in mouse, return mouse val
+            return row.logFC_cis_mESC
+        else:
+            # no sig effects: take max of both
+            l2fcs = list(row[["logFC_cis_HUES64", "logFC_cis_mESC"]])
+            return np.mean(l2fcs)
+
+
+# In[11]:
+
+
 def signed_max(nums):
     abs_nums = np.abs(nums)
     max_idx = np.argmax(abs_nums)
@@ -158,14 +180,14 @@ def signed_max(nums):
 
 # ## variables
 
-# In[11]:
+# In[12]:
 
 
 results_dir = "../../../data/02__mpra/03__results"
 results_f = "%s/native_effects_data.txt" % results_dir
 
 
-# In[12]:
+# In[13]:
 
 
 data_dir = "../../../data/02__mpra/02__activs"
@@ -173,13 +195,13 @@ HUES64_cis_f = "%s/HUES64_cis_results.txt" % data_dir
 mESC_cis_f = "%s/mESC_cis_results.txt" % data_dir
 
 
-# In[13]:
+# In[14]:
 
 
 tss_map_f = "../../../data/01__design/01__mpra_list/mpra_tss.with_ids.UPDATED.txt"
 
 
-# In[14]:
+# In[15]:
 
 
 align_f = "../../../misc/00__tss_metadata/tss_map.seq_alignment.txt"
@@ -187,14 +209,14 @@ align_f = "../../../misc/00__tss_metadata/tss_map.seq_alignment.txt"
 
 # ## 1. import data
 
-# In[15]:
+# In[16]:
 
 
 results = pd.read_table(results_f)
 results.head()
 
 
-# In[16]:
+# In[17]:
 
 
 HUES64_cis = pd.read_table(HUES64_cis_f).reset_index()
@@ -202,14 +224,14 @@ mESC_cis = pd.read_table(mESC_cis_f).reset_index()
 mESC_cis.head()
 
 
-# In[17]:
+# In[18]:
 
 
 tss_map = pd.read_table(tss_map_f, index_col=0)
 tss_map.head()
 
 
-# In[18]:
+# In[19]:
 
 
 align = pd.read_table(align_f)
@@ -218,7 +240,7 @@ align.head()
 
 # ## 2. plot cis controls vs. TSS
 
-# In[19]:
+# In[20]:
 
 
 HUES64_cis["ctrl_status"] = HUES64_cis.apply(is_ctrl, axis=1)
@@ -226,7 +248,7 @@ mESC_cis["ctrl_status"] = mESC_cis.apply(is_ctrl, axis=1)
 mESC_cis.ctrl_status.value_counts()
 
 
-# In[20]:
+# In[21]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -241,7 +263,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 fig.savefig("HUES64_cis_ctrl_pval_dist.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[21]:
+# In[22]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -256,21 +278,21 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 fig.savefig("mESC_cis_cis_ctrl_pval_dist.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[22]:
+# In[23]:
 
 
 HUES64_cis["abs_logFC"] = np.abs(HUES64_cis["logFC"])
 mESC_cis["abs_logFC"] = np.abs(mESC_cis["logFC"])
 
 
-# In[23]:
+# In[24]:
 
 
 order = ["control", "TSS"]
 pal = {"control": "gray", "TSS": "black"}
 
 
-# In[24]:
+# In[25]:
 
 
 fig = plt.figure(figsize=(0.9, 1.75))
@@ -305,7 +327,7 @@ annotate_pval(ax, 0.2, 0.8, 1.5, 0, 1.3, pval, fontsize)
 fig.savefig("HUES64_cis_ctrl_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[25]:
+# In[26]:
 
 
 fig = plt.figure(figsize=(0.9, 1.75))
@@ -342,7 +364,7 @@ fig.savefig("mESC_cis_ctrl_effectsize_boxplot.pdf", dpi="figure", bbox_inches="t
 
 # ## 3. classify cis effects
 
-# In[26]:
+# In[27]:
 
 
 HUES64_cis["cis_status"] = HUES64_cis.apply(cis_status, axis=1)
@@ -350,7 +372,7 @@ HUES64_cis["cis_status_detail"] = HUES64_cis.apply(cis_status_detail, axis=1)
 HUES64_cis.cis_status_detail.value_counts()
 
 
-# In[27]:
+# In[28]:
 
 
 mESC_cis["cis_status"] = mESC_cis.apply(cis_status, axis=1)
@@ -360,7 +382,7 @@ mESC_cis.cis_status_detail.value_counts()
 
 # ## 4. merge cis effects w/ native effects data
 
-# In[28]:
+# In[29]:
 
 
 HUES64_cis["hg19_id"] = HUES64_cis["index"].str.split("__", expand=True)[0]
@@ -370,7 +392,7 @@ HUES64_cis["biotype_mm9"] = HUES64_cis["index"].str.split("__", expand=True)[3]
 HUES64_cis.head()
 
 
-# In[29]:
+# In[30]:
 
 
 mESC_cis["hg19_id"] = mESC_cis["index"].str.split("__", expand=True)[0]
@@ -380,7 +402,7 @@ mESC_cis["biotype_mm9"] = mESC_cis["index"].str.split("__", expand=True)[3]
 mESC_cis.head()
 
 
-# In[30]:
+# In[31]:
 
 
 HUES64_cis_sub = HUES64_cis[["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "fdr", "logFC", "abs_logFC",
@@ -389,7 +411,7 @@ HUES64_cis_sub.columns = ["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "f
                           "abs_logFC_cis_HUES64", "cis_status_HUES64", "cis_status_detail_HUES64"]
 
 
-# In[31]:
+# In[32]:
 
 
 mESC_cis_sub = mESC_cis[["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "fdr", "logFC", "abs_logFC",
@@ -398,7 +420,7 @@ mESC_cis_sub.columns = ["hg19_id", "biotype_hg19", "mm9_id", "biotype_mm9", "fdr
                         "abs_logFC_cis_mESC", "cis_status_mESC", "cis_status_detail_mESC"]
 
 
-# In[32]:
+# In[33]:
 
 
 data = results.merge(HUES64_cis_sub, 
@@ -414,20 +436,20 @@ print(len(data))
 data.sample(5)
 
 
-# In[33]:
+# In[34]:
 
 
 data["cis_status_one"] = data.apply(cis_status_one, axis=1)
 data["cis_status_detail_one"] = data.apply(cis_status_detail_one, axis=1)
 
 
-# In[34]:
+# In[35]:
 
 
 data.cis_status_one.value_counts()
 
 
-# In[35]:
+# In[36]:
 
 
 data.cis_status_detail_one.value_counts()
@@ -435,7 +457,7 @@ data.cis_status_detail_one.value_counts()
 
 # ## 5. plot cis effects on scatter plot
 
-# In[36]:
+# In[37]:
 
 
 # limit to those that are significant in at least 1 context
@@ -443,7 +465,7 @@ data_filt = data[(data["HUES64_padj_hg19"] < 0.05) | (data["mESC_padj_mm9"] < 0.
 len(data_filt)
 
 
-# In[37]:
+# In[38]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -475,7 +497,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_HUES64_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[38]:
+# In[39]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -507,7 +529,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_mESC_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[39]:
+# In[40]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -528,7 +550,7 @@ ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 fig.savefig("HUES64_cis_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[40]:
+# In[41]:
 
 
 fig, ax = plt.subplots(figsize=(1.75, 1.75), nrows=1, ncols=1)
@@ -549,7 +571,7 @@ ax.axhline(y=-np.log10(0.05), color="black", linestyle="dashed")
 fig.savefig("mESC_cis_volcano.ctrls_highlighted.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[41]:
+# In[42]:
 
 
 def cis_sig_status(row):
@@ -566,13 +588,13 @@ data_filt["cis_sig_status"] = data_filt.apply(cis_sig_status, axis=1)
 data_filt.cis_sig_status.value_counts()
 
 
-# In[42]:
+# In[43]:
 
 
 sns.palplot(sns.color_palette("Set2"))
 
 
-# In[43]:
+# In[44]:
 
 
 # plot effect size agreement b/w the two cells
@@ -611,7 +633,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_effect_bw_cells_scatter.sig_status_color.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[44]:
+# In[45]:
 
 
 # plot effect size agreement b/w the two cell lines
@@ -649,7 +671,7 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_effect_bw_cells_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[45]:
+# In[46]:
 
 
 ## remove cis effects w/ direction interactions for now!
@@ -658,11 +680,12 @@ data_filt = data[~data["cis_status_detail_one"].str.contains("interaction")]
 
 # ## 6. plot cis effect sizes across biotypes
 
-# In[46]:
+# In[47]:
 
 
 # first determine which logFC to use since there are 2 options
 data["logFC_cis_max"] = data.apply(cis_logFC_one, axis=1)
+data["logFC_cis_mean"] = data.apply(cis_logFC_one_mean, axis=1)
 data["abs_logFC_cis_max"] = np.abs(data["logFC_cis_max"])
 
 # re-filter
@@ -671,13 +694,13 @@ data_filt = data_filt[(data_filt["HUES64_padj_hg19"] < 0.05) | (data_filt["mESC_
 len(data_filt)
 
 
-# In[47]:
+# In[48]:
 
 
 clean_order = ["eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[48]:
+# In[49]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -724,14 +747,14 @@ print(pval23)
 fig.savefig("cis_clean_biotype_hg19_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[49]:
+# In[50]:
 
 
 full_order = ["enhancer", "intergenic", "div_lnc", "protein_coding", "div_pc"]
 full_labels = ["eRNA", "lincRNA", "div. lncRNA", "mRNA", "div. mRNA"]
 
 
-# In[50]:
+# In[51]:
 
 
 fig = plt.figure(figsize=(2.75, 1.5))
@@ -756,7 +779,7 @@ ax.set_ylim((-0.8, 6))
 fig.savefig("cis_biotype_hg19_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[51]:
+# In[52]:
 
 
 fig = plt.figure(figsize=(1.75, 1.5))
@@ -803,7 +826,7 @@ print(pval23)
 fig.savefig("cis_clean_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[52]:
+# In[53]:
 
 
 fig = plt.figure(figsize=(2.75, 1.5))
@@ -828,14 +851,14 @@ ax.set_ylim((-0.8, 6.2))
 fig.savefig("cis_biotype_mm9_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[53]:
+# In[54]:
 
 
 switch_order = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE turnover - lncRNA", "CAGE turnover - mRNA",
                 "eRNA", "lincRNA", "lncRNA", "mRNA"]
 
 
-# In[54]:
+# In[55]:
 
 
 fig = plt.figure(figsize=(2.75, 1.5))
@@ -884,7 +907,7 @@ print(pval34)
 fig.savefig("cis_clean_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[55]:
+# In[56]:
 
 
 full_switch_order = ["CAGE turnover - enhancer", "CAGE turnover - intergenic", "CAGE turnover - div_lnc",
@@ -895,7 +918,7 @@ full_switch_labels = ["CAGE turnover - eRNA", "CAGE turnover - lincRNA", "CAGE t
                       "mRNA", "div. mRNA"]
 
 
-# In[56]:
+# In[57]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -946,7 +969,7 @@ fig.savefig("cis_biotype_switch_effectsize_boxplot.pdf", dpi="figure", bbox_inch
 
 # ## 7. find % of significant cis effects across biotypes
 
-# In[57]:
+# In[58]:
 
 
 native_sig = data_filt[data_filt["native_status"] != "no native effect"]
@@ -957,7 +980,7 @@ full_sig["percent_sig"] = (full_sig["hg19_id_y"]/full_sig["hg19_id_x"])*100
 full_sig.head()
 
 
-# In[58]:
+# In[59]:
 
 
 # get a hypergeometric p-value for each biotype
@@ -979,7 +1002,7 @@ full_sig["padj"] = multicomp.multipletests(full_sig["pval"], method="fdr_bh")[1]
 full_sig.head()
 
 
-# In[59]:
+# In[60]:
 
 
 fig = plt.figure(figsize=(3, 1.5))
@@ -1016,7 +1039,7 @@ ax.set_ylim((0, 100))
 fig.savefig("perc_sig_cis_biotype_switch.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[60]:
+# In[61]:
 
 
 tots = native_sig.groupby("biotype_switch_clean")["hg19_id"].agg("count").reset_index()
@@ -1026,7 +1049,7 @@ clean_sig["percent_sig"] = (clean_sig["hg19_id_y"]/clean_sig["hg19_id_x"])*100
 clean_sig.head()
 
 
-# In[61]:
+# In[62]:
 
 
 # get a fisher's exact p-value for each biotype
@@ -1048,7 +1071,7 @@ clean_sig["padj"] = multicomp.multipletests(clean_sig["pval"], method="fdr_bh")[
 clean_sig.head()
 
 
-# In[62]:
+# In[63]:
 
 
 fig = plt.figure(figsize=(2.75, 1.75))
@@ -1087,7 +1110,7 @@ fig.savefig("perc_sig_cis_clean_biotype_switch.pdf", dpi="figure", bbox_inches="
 
 # ## 8. look into complete v. partial cis gain/losses
 
-# In[63]:
+# In[64]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -1100,7 +1123,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 fig.savefig("cis_effectsize_dist.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[64]:
+# In[65]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1128,7 +1151,7 @@ ax.set_xlim((-0.2, 25))
 ax.set_ylim((-0.2, 25))
 
 
-# In[65]:
+# In[66]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1156,7 +1179,7 @@ ax.set_xlim((-0.2, 25))
 ax.set_ylim((-0.2, 25))
 
 
-# In[66]:
+# In[67]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -1169,7 +1192,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 plt.axvline(x=2.5, color="black", zorder=1)
 
 
-# In[67]:
+# In[68]:
 
 
 fig = plt.figure(figsize=(1.5, 1))
@@ -1182,7 +1205,7 @@ plt.legend(loc=2, bbox_to_anchor=(1.05, 1.05))
 plt.axvline(x=2.5, color="black", zorder=1)
 
 
-# In[68]:
+# In[69]:
 
 
 ###### think about this a little more later, gets confusing because now we have 2 conditions we are checking #####
@@ -1190,7 +1213,7 @@ plt.axvline(x=2.5, color="black", zorder=1)
 
 # ## 9. compare cis effects to native effects
 
-# In[69]:
+# In[70]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1216,7 +1239,33 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_native_scatter.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[70]:
+# In[71]:
+
+
+fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
+
+ax.scatter(data_filt["logFC_cis_mean"], data_filt["logFC_native"], s=10, alpha=0.75, 
+           color=sns.color_palette("Set2")[2], linewidths=0.5, edgecolors="white")
+
+plt.xlabel("mean cis effect size")
+plt.ylabel("native effect size")
+
+ax.plot([-7, 7], [-7, 7], linestyle="dashed", color="k")
+ax.set_xlim((-7, 7))
+ax.set_ylim((-7, 7))
+
+# annotate corr
+no_nan = data_filt[(~pd.isnull(data_filt["logFC_cis_mean"])) & 
+                   (~pd.isnull(data_filt["logFC_native"]))]
+r, p = spearmanr(no_nan["logFC_cis_mean"], no_nan["logFC_native"])
+ax.text(0.05, 0.97, "r = {:.2f}".format(r), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=fontsize,
+        transform=ax.transAxes)
+fig.savefig("cis_v_native_scatter.mean.pdf", dpi="figure", bbox_inches="tight")
+
+
+# In[72]:
 
 
 fig, ax = plt.subplots(figsize=(2.2, 2.2), nrows=1, ncols=1)
@@ -1243,27 +1292,27 @@ ax.text(0.05, 0.90, "n = %s" % (len(data_filt)), ha="left", va="top", fontsize=f
 fig.savefig("cis_v_native_scatter.native_sig_only.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[71]:
+# In[73]:
 
 
 data_filt.columns
 
 
-# In[72]:
+# In[74]:
 
 
 no_native_sub = data_filt[data_filt["native_status"] == "no native effect"]
 native_sub = data_filt[data_filt["native_status"] != "no native effect"]
 
 
-# In[73]:
+# In[75]:
 
 
 order = ["no cis effect", "significant cis effect"]
 pal = {"no cis effect": "gray", "significant cis effect": "black"}
 
 
-# In[74]:
+# In[76]:
 
 
 fig, ax = plt.subplots(figsize=(1, 1), nrows=1, ncols=1)
@@ -1274,7 +1323,7 @@ ax.set_xlabel("")
 fig.savefig("cis_countplot.no_native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[75]:
+# In[77]:
 
 
 fig, ax = plt.subplots(figsize=(0.9, 1.75), nrows=1, ncols=1)
@@ -1293,32 +1342,32 @@ for i, label in enumerate(order[::-1]):
 fig.savefig("cis_countplot.native.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[76]:
+# In[78]:
 
 
 len(native_sub)
 
 
-# In[77]:
+# In[79]:
 
 
 len(native_sub[native_sub["cis_status_one"] == "significant cis effect"])
 
 
-# In[78]:
+# In[80]:
 
 
 len(native_sub[native_sub["cis_status_one"] == "significant cis effect"])/len(native_sub)
 
 
-# In[79]:
+# In[81]:
 
 
 native_human_sub = data_filt[data_filt["native_status_detail"].str.contains("human")]
 native_mouse_sub = data_filt[data_filt["native_status_detail"].str.contains("mouse")]
 
 
-# In[80]:
+# In[82]:
 
 
 order = ["cis effect\n(higher in human)", "cis effect\n(higher in mouse)",
@@ -1328,7 +1377,7 @@ pal = {"no cis effect": "gray",
        "cis effect\n(higher in mouse)": sns.color_palette("Set2")[0]}
 
 
-# In[81]:
+# In[83]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1339,14 +1388,14 @@ ax.set_xlabel("")
 fig.savefig("cis_countplot_detail.native_human.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[82]:
+# In[84]:
 
 
 order = ["cis effect\n(higher in mouse)", "cis effect\n(higher in human)",
          "no cis effect"]
 
 
-# In[83]:
+# In[85]:
 
 
 fig, ax = plt.subplots(figsize=(1.3, 1), nrows=1, ncols=1)
@@ -1359,20 +1408,20 @@ fig.savefig("cis_countplot_detail.native_mouse.pdf", dpi="figure", bbox_inches="
 
 # ## 10. examine how cis effects correlate with sequence alignment
 
-# In[84]:
+# In[86]:
 
 
 data_filt = data_filt.merge(align, on=["hg19_id", "mm9_id"])
 data_filt.head()
 
 
-# In[ ]:
+# In[87]:
 
 
 data_filt.columns
 
 
-# In[ ]:
+# In[88]:
 
 
 fig = plt.figure(figsize=(2, 2))
@@ -1399,13 +1448,13 @@ plt.ylabel("maximum cis effect size")
 fig.savefig("cis_effect_v_alignment.pdf", dpi="figure", bbox_inches="tight")
 
 
-# In[ ]:
+# In[89]:
 
 
 p
 
 
-# In[ ]:
+# In[90]:
 
 
 fig = plt.figure(figsize=(2, 2))
@@ -1434,13 +1483,13 @@ fig.savefig("cis_effect_v_alignment.completes_highlighted.pdf", dpi="figure", bb
 
 # ## 11. write results file
 
-# In[ ]:
+# In[91]:
 
 
 data.columns
 
 
-# In[ ]:
+# In[92]:
 
 
 data.to_csv("%s/native_and_cis_effects_data.txt" % results_dir, sep="\t", index=False)
